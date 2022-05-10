@@ -12,19 +12,19 @@
 
 <body>
 	
-    <header> <!-- On place dans cette balise le contenue de l'en-tête -->
-		
+    <header>
 		
     </header>
 			
-	<main> <!-- On place dans cette balise le contenue de la page "connexion" -->
+	
+	<main>
 		
 		<div>
 				<?php
-					if(isset($_COOKIE["ID"])){
+					if (isset($_COOKIE["ID"])) {
 						header("location:compte.php");
 					}
-					else{
+					else {
 						echo '<label for="usernamehg">Username : </label >
 						<input type="text" name="username" id="username" value="" required/>
 						<br><br>
@@ -39,35 +39,33 @@
 						<input type="submit" name="submit" id="submit" value="Send"/>
 						<input type="reset">';
 					}
-
 				?>
-			
 		</div>	
 			
 	</main>
 		
 <?php
 	include("connexion_db.php");
-	if(isset($_POST['submit'])){
-		$username=$_POST["username"];
-		$pass=$_POST['password'];
-		$requete="select * from user where username='$username'"; //selectionner le mail, password, et ID de la table membre
-		$resultat=mysqli_query($connexion,$requete);//executer la requete
-		if ( $resultat == FALSE ){
-				echo "<p>Erreur d'exécution de la requete :".mysqli_error($connexion)."</p>" ;
+	if (isset($_POST['submit'])){
+		$username = $_POST["username"];
+		$password = $_POST['password'];
+		$requete = "select * from user where username='$username'"; //selectionner le mail, password, et ID de la table membre
+		$resultat = mysqli_query($connexion,$requete);//executer la requete
+		if ($resultat == FALSE) {
+				echo "<p>Erreur d'exécution de la requete :".mysqli_error($connexion)."</p>";
 				die();
 		}
-			else{
-				$row=mysqli_fetch_assoc($resultat);
-				if(mysqli_num_rows($resultat)==1 and password_verify($pass,$row['Password'])){
-				$_COOKIE[]["ID"]=$row["ID"];
-				$_COOKIE[]["user"]=$row["username"];
+		else {
+			$row = mysqli_fetch_assoc($resultat);
+			if (mysqli_num_rows($resultat) == 1 and password_verify($password,$row['Password'])) {
+				$_COOKIE[]["ID"] = $row["ID"];
+				$_COOKIE[]["user"] = $row["username"];
 				header("location:index.php");
-				}
-				else{
-					echo '<p class="error">Echec de connexion: identifiants incorrects</p>';
-				}
 			}
+			else{
+				echo '<p class="error">Echec de connexion: identifiants incorrects</p>';
+			}
+		}
 	}
 	mysqli_close($connexion);
 	
