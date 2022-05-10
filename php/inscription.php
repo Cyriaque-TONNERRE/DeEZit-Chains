@@ -48,7 +48,7 @@
 			include("connexion_db.php");
 			if(isset($_POST["submit"])){
 				$username=$_POST['username'];
-				$requete="select * from membres where Courriel='$username'";
+				$requete="select * from user where username='$username'";
 				$resultat=mysqli_query($connexion,$requete);
 				
 				if ($resultat == FALSE){

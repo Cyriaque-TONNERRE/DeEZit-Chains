@@ -21,7 +21,7 @@
 		
 		<?php
 			include("connexion_db.php");
-			$requete = "select * from user where ID=".$_COOKIE[]['ID'];
+			$requete = "select * from user where ID=".$_COOKIE['ID'];
 			$resultat = mysqli_query($connexion,$requete);
 			if ($resultat == FALSE) {
 				echo "<p>Erreur d'exécution de la requete :".mysqli_error($connexion)."</p>" ;
