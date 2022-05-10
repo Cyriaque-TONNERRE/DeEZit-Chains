@@ -3,9 +3,9 @@
 <html lang="fr">
 <head>
     <title> DeEZit Chain </title>
-    <meta name="description" content="Deezit Chain">
-    <meta name="keywords" content="Deezit Chain">
-    <meta name="author" content="Edouard LAMBERT, Lucas PORET, Charles DECAESTECKER, Cyriaque TONNERRE,Marc-Antoine LONGATTE">
+    <meta name="description" content="Projet Informatique 2022">
+    <meta name="keywords" content="DeEZit, Chain, Game, Ez">
+    <meta name="author" content="Ez Team">
     <meta charset="UTF-8">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
