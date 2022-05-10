@@ -21,7 +21,7 @@
 		
 		<?php
 			include("connexion_db.php");
-			$requete = "select * from user where ID=".$_SESSION['ID'];
+			$requete = "select * from user where ID=".$_COOKIE[]['ID'];
 			$resultat = mysqli_query($connexion,$requete);
 			if ($resultat == FALSE) {
 				echo "<p>Erreur d'exécution de la requete :".mysqli_error($connexion)."</p>" ;
@@ -55,9 +55,9 @@
 			</form>
 				
 			<?php		
-				if(isset($_SESSION["update"]) && $_SESSION["update"] == 1) {
+				if(isset($_COOKIE["update"]) && $_COOKIE["update"] == 1) {
 					echo '<p class="update">Updtated</p>' ;
-					$_SESSION["update"] = 0;
+					$_COOKIE["update"] = 0;
 				}
 			?>
 				
