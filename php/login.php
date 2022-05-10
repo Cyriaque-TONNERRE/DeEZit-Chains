@@ -21,7 +21,7 @@
 		
 		<div>
 				<?php
-					if(isset($_COOKIE["ID"]){
+					if(isset($_COOKIE["ID"])){
 						header("location:compte.php");
 					}
 					else{
@@ -49,7 +49,7 @@
 <?php
 	include("connexion_db.php");
 	if(isset($_POST['submit'])){
-		$username=$_POST["username"]
+		$username=$_POST["username"];
 		$pass=$_POST['password'];
 		$requete="select * from user where username='$username'"; //selectionner le mail, password, et ID de la table membre
 		$resultat=mysqli_query($connexion,$requete);//executer la requete
