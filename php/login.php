@@ -21,7 +21,7 @@
 		
 		<div>
 				<?php
-					if(isset($_SESSION["ID"]){
+					if(isset($_COOKIE["ID"]){
 						header("location:compte.php");
 					}
 					else{
@@ -60,8 +60,8 @@
 			else{
 				$row=mysqli_fetch_assoc($resultat);
 				if(mysqli_num_rows($resultat)==1 and password_verify($pass,$row['Password'])){
-				$_SESSION["ID"]=$row["ID"];
-				$_SESSION["user"]=$row["username"];
+				$_COOKIE[]["ID"]=$row["ID"];
+				$_COOKIE[]["user"]=$row["username"];
 				header("location:index.php");
 				}
 				else{
