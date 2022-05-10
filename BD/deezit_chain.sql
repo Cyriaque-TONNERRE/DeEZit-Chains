@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 10, 2022 at 01:54 PM
+-- Generation Time: May 10, 2022 at 02:12 PM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `user` (
   `ID` int(11) NOT NULL COMMENT 'primary key ',
-  `login` varchar(32) NOT NULL,
+  `username` varchar(32) NOT NULL,
   `password` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
