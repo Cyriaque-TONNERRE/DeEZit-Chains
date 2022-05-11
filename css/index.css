@@ -13,24 +13,26 @@
 * {
 	color: var(--txtcolor);
 	background-color: var(--backcolor);
-	font-family: Ezcriture;
 }
 
 @font-face {
-  font-family: "Ezcriture";
-  src: url("../font/rounded.ttf") format("truetype");
+	font-family: "Ezcriture";
+	src: url("../font/rounded.ttf") format("truetype");
 }
 
 nav {
-	display: block;
-	background-color: lightgrey;
+	display:block;
+	background-color: midnightblue;
 	padding: 1.5vw;
+	box-shadow: 0px 3px 3px #161C1C;
 }
 
 nav a {
+	display: block;
 	text-decoration: none;
 	font-size: 1.7vw;
-	background-color: lightgrey;
+	background-color: midnightblue;
+	color: #E8E9E4;
 }
 
 .gamemode {

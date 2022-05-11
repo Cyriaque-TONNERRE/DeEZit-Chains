@@ -3,11 +3,6 @@
 	padding: 0px;
 }
 
-
-@font-face {
-	font-family: "Ezcriture";
-	src: url("../font/rounded.ttf") format("truetype");
-}
 body{
 	background-color: var(--backcolor);
 	color: var(--txtcolor);
@@ -16,7 +11,7 @@ body{
 fieldset {
 	border-color: var(--txtcolor);
 	border-style:groove;
-	border-radius: 10px;
+	border-radiu: 10px;
 	background-color: #EBEBEB;
 	text-align: center;
 	margin: 2vw 30vw;

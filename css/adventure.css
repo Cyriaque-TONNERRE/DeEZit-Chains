@@ -1,0 +1,83 @@
+
+/*Reset CSS*/
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+/*Mise en place des variables*/
+:root{
+    --fond-gris:#ccc;
+    --orange-LBB:rgb(238, 155, 0);
+}
+.invisible{
+    opacity: 0;
+}
+table{
+    border-collapse: collapse;
+}
+
+.nordgauchebas{
+    border-top: 2px solid var(--orange-LBB);
+    border-bottom: 2px solid var(--orange-LBB);
+    border-left: 2px solid var(--orange-LBB);
+}
+.droitegauchebas{
+    border-right: 2px solid var(--orange-LBB);
+    border-bottom: 2px solid var(--orange-LBB);
+    border-left: 2px solid var(--orange-LBB);
+}
+.droitenordbas{
+    border-right: 2px solid var(--orange-LBB);
+    border-top: 2px solid var(--orange-LBB);
+    border-bottom: 2px solid var(--orange-LBB);
+}
+.droitenordgauche{
+    border-right: 2px solid var(--orange-LBB);
+    border-top: 2px solid var(--orange-LBB);
+    border-left: 2px solid var(--orange-LBB);
+}
+.nordgauche{
+    border-top: 2px solid var(--orange-LBB);
+    border-left: 2px solid var(--orange-LBB);
+}
+.norddroite{
+    border-top: 2px solid var(--orange-LBB);
+    border-right: 2px solid var(--orange-LBB);
+}
+.nordbas{
+    border-top: 2px solid var(--orange-LBB);
+    border-bottom: 2px solid var(--orange-LBB);
+}
+.gauchebas{
+    border-left: 2px solid var(--orange-LBB);
+    border-bottom: 2px solid var(--orange-LBB);
+}
+.gauchenord{
+    border-left: 2px solid var(--orange-LBB);
+    border-top: 2px solid var(--orange-LBB);
+}
+.gauchedroite{
+    border-left: 2px solid var(--orange-LBB);
+    border-right: 2px solid var(--orange-LBB);
+}
+.basdroite{
+    border-bottom: 2px solid var(--orange-LBB);
+    border-right: 2px solid var(--orange-LBB);
+}
+.gauche{
+    border-left: 2px solid var(--orange-LBB);
+}
+.droite{
+    border-right: 2px solid var(--orange-LBB);
+}
+.bas{
+    border-bottom: 2px solid var(--orange-LBB);
+}
+.nord{
+    border-top: 2px solid var(--orange-LBB);
+}
+
+
+
+
