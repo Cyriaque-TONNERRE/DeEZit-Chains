@@ -9,14 +9,21 @@
     <meta charset="UTF-8">
 	
 </head>
+
 <body>
-    <header> <!-- On place dans cette balise le contenue de l'en-tête -->
+    
+	<header>
 
     </header>
+	
+	
     <main>
-
+		
     </main>
-    <footer> 
+    
+	
+	<footer> 
         
     </footer>
+	
 </body>
