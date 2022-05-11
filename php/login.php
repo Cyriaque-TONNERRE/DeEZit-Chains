@@ -23,26 +23,28 @@
 			<nav class="formulaire">
 				
 				<form method="post" action="#">
-					<?php
-						if (isset($_COOKIE["ID"])) {
-							header("location:compte.php");
-						}
-						else {
-							echo '<label for="usernamehg">Username : </label >
-							<input type="text" name="username" id="username" value="" required/>
-							<br><br>
+					<fieldset>
+						<?php
+							if (isset($_COOKIE["ID"])) {
+								header("location:compte.php");
+							}
+							else {
+								echo '<label for="usernamehg">Username : </label >
+								<input type="text" name="username" id="username" value="" required/>
+								<br><br>
 
-							<label for="password">Password : </label >
-							<input type="password" name="password" id="password" value="" required/>
-							<br>
-							<a id="inscription" href="inscription.php">Not registered! register here</a>
+								<label for="password">Password : </label >
+								<input type="password" name="password" id="password" value="" required/>
+								<br>
+								<a id="inscription" href="inscription.php">Not registered! register here</a>
 
-							<br><br>
+								<br><br>
 
-							<input type="submit" name="submit" id="submit" value="Send"/>
-							<input type="reset" value="Delete">';
-						}
-					?>
+								<input type="submit" name="submit" id="submit" value="Send"/>
+								<input type="reset" value="Delete">';
+							}
+						?>
+					</fieldset>
 				<nav class="formulaire">
 				
 			<form method="post" action="#">
