@@ -7,6 +7,7 @@
     <meta name="keywords" content="DeEZit, Chain, Game, Ez">
     <meta name="author" content="Ez Team">
     <meta charset="UTF-8">
+	<link rel="stylesheet" href="../css/index.css">
 	
 </head>
 	
