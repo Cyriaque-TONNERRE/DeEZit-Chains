@@ -16,7 +16,7 @@
 
 		<?php
 		if (isset($_COOKIE["username"])) {
-			echo "<a href='compte.php'>Account</a>";
+			echo "<a href='logout.php'>Logout</a>";
 		}
 		else {
 			echo "<a href='login.php'>Login</a>";
