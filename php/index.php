@@ -29,10 +29,10 @@
 	
     <main>
 		
-		<a class="gamemode" href="history.php">History Mode</a>
-		<a class="gamemode" href="#">Adventure Mode</a>
-		<a class="gamemode" href="#">Time Trial</a>
-		<a class="gamemode" href="#">Creative Mode</a>
+		<a class="gamemode" href="history.php">History Mode</a><br>
+		<a class="gamemode" href="#">Adventure Mode</a><br>
+		<a class="gamemode" href="#">Time Trial</a><br>
+		<a class="gamemode" href="#">Creative Mode</a><br>
     
 	</main>
 	

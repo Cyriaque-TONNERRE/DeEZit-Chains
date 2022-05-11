@@ -6,12 +6,13 @@
 
 /*Variables*/
 :root {
-	
+	--backcolor: #E8E9E4;
+	--txtcolor: #161C1C;
 }
 
 * {
-	color:#EBEBEB;
-	background-color:#2F3136;
+	color: var(--txtcolor);
+	background-color: var(--backcolor);
 }
 	
 a.gamemode {
