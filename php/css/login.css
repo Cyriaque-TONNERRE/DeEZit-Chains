@@ -1,38 +1,27 @@
 *{
 	margin:0px;
 	padding: 0px;
-	font-family: Ezcriture;
 }
 
-
-@font-face {
-	font-family: "Ezcriture";
-	src: url("../font/rounded.ttf") format("truetype");
-}
 body{
 	background-color: var(--backcolor);
 	color: var(--txtcolor);
 }
 
 fieldset {
-	font-family: Ezcriture;
 	border-color: var(--txtcolor);
 	border-style:groove;
-	border-radius: 10px;
+	border-radiu: 10px;
 	background-color: #EBEBEB;
 	text-align: center;
 	margin: 2vw 30vw;
 }
 
 nav.formulaire{
-	font-family: Ezcriture;
 	color:black;
 }
-nav{
-	font-family: Ezcriture;
-}
+
 nav.formulaire legend{
-	font-family: Ezcriture;
 	color:var(--txtcolor);
 	background-color:var(--backcolor);
 	border-style:solid;
