@@ -24,6 +24,7 @@
 				
 				<form method="post" action="#">
 					<fieldset>
+						<legend>Login :</legend>
 						<?php
 							if (isset($_COOKIE["ID"])) {
 								header("location:compte.php");
