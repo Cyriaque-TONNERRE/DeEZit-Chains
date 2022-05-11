@@ -35,7 +35,7 @@
 							<label for="password">Password : </label >
 							<input type="password" name="password" id="password" value="" required/>
 							<br>
-							<a id="inscription" href="inscription.php">Pas encore inscrit? Inscrit toi!</a>
+							<a id="inscription" href="inscription.php">Not registered! register here</a>
 
 							<br><br>
 
