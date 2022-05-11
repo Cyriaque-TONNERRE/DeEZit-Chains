@@ -13,12 +13,11 @@
 * {
 	color: var(--txtcolor);
 	background-color: var(--backcolor);
-	font-family: Ezcriture;
 }
 
 @font-face {
-  font-family: "Ezcriture";
-  src: url("../font/rounded.ttf") format("truetype");
+	font-family: "Ezcriture";
+	src: url("../font/rounded.ttf") format("truetype");
 }
 
 nav {
