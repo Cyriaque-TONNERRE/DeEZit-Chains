@@ -15,7 +15,7 @@
     <header>
 		
 		<?php
-		if (isset($_COOKIE["user"])) {
+		if (isset($_COOKIE["username"])) {
 			echo "<a href='compte.php'>Account</a>";
 		}
 		else {
