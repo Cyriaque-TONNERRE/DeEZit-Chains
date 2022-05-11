@@ -13,7 +13,6 @@
 * {
 	color: var(--txtcolor);
 	background-color: var(--backcolor);
-	font-family: Ezcriture;
 }
 
 @font-face {
@@ -28,9 +27,14 @@ nav {
 }
 
 nav a {
+	display: block;
 	text-decoration: none;
 	font-size: 1.7vw;
 	background-color: lightgrey;
+}
+
+main div {
+	margin-top: 5vw;
 }
 
 .gamemode {
