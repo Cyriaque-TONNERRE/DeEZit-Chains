@@ -58,8 +58,7 @@
 		else {
 			$row = mysqli_fetch_assoc($resultat);
 			if (mysqli_num_rows($resultat) == 1 and password_verify($password,$row['Password'])) {
-				$_COOKIE[]["ID"] = $row["ID"];
-				$_COOKIE[]["user"] = $row["username"];
+				$_COOKIE["user"] = $row["username"];
 				header("location:index.php");
 			}
 			else{
