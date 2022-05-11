@@ -28,7 +28,7 @@
 	
     <main>
 		
-		<a class="gamemode" href="#">History Mode</a>
+		<a class="gamemode" href="history.php">History Mode</a>
 		<a class="gamemode" href="#">Adventure Mode</a>
 		<a class="gamemode" href="#">Time Trial</a>
 		<a class="gamemode" href="#">Creative Mode</a>
