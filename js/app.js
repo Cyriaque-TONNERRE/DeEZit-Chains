@@ -40,9 +40,15 @@ function dragOver(e) {
 function dragEnter(e) {
     e.preventDefault(); //retire l'action par default de dragEnter qu'on ne veut pas
     this.className += ' hovered'; //ajoute la class hovered à l'objet actuel
-    this.append("add"); //ajout add dans la div actuel
-    console.log(textContent);
+    this.append("add");
+    console.log(document.getElementsByClassName('case').textContent);
+
+    /*if (textContent != "add") {
+        this.append("add"); //ajout add dans la div actuel
+        console.log("ajouter");
+    } else console.log("non");*/
 }
+
 
 function dragLeave() {
     this.className = 'case'; //définie la class de l'objet actuel à ' case'
