@@ -56,7 +56,7 @@
 				
 			<?php		
 				if(isset($_COOKIE["update"]) && $_COOKIE["update"] == 1) {
-					echo '<p class="update">Updtated</p>' ;
+					echo '<p class="update">Updtated</p>';
 					$_COOKIE["update"] = 0;
 				}
 			?>

@@ -37,7 +37,7 @@
 						<br><br>
 
 						<input type="submit" name="submit" id="submit" value="Send"/>
-						<input type="reset">';
+						<input type="reset" value="Delete">';
 					}
 				?>
 		</div>	

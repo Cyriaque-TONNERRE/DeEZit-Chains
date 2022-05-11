@@ -9,20 +9,20 @@
     <meta charset="UTF-8">
 	
 </head>
-
+	
 <body>
-    
-	<header>
-
+	
+    <header>
+		<a href="login.php">compte</a>
     </header>
 	
 	
     <main>
-		
+		<p>test</p>
     </main>
-    
 	
-	<footer> 
+	
+    <footer> 
         
     </footer>
 	

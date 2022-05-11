@@ -35,7 +35,7 @@
 					<input type="password" name="password" id="password" value="" required/>
 					<br><br>
 					<input type="submit" name="submit" id="submit" value="Submit"/>
-					<input type="reset">
+					<input type="reset" value="Delete">
 				</fieldset>
 					
 			</form>
@@ -74,7 +74,6 @@
 							$resultat = mysqli_query($connexion,$requete);
 							if ($resultat) {
 								$row = mysqli_fetch_assoc($resultat);
-								$_COOKIE['ID'] = $row['ID'];
 								$_COOKIE['user'] = $row['user'];
 								header("location:index.php");
 							}
