@@ -20,19 +20,46 @@
 	src: url("../font/rounded.ttf") format("truetype");
 }
 
+<<<<<<< HEAD
+.menu {
+	display: grid;
+	grid-template-columns: 40vw 45vw 10vw;
+	grid-template-rows: 100%;
+    padding: 1vw 0vw;
+	background-color: midnightblue;
+	border-bottom: solid;
+	border-color: #484848;
+=======
 nav {
 	display:block;
 	background-color: midnightblue;
 	padding: 1.5vw;
 	box-shadow: 0px 3px 3px #161C1C;
+>>>>>>> e7ac6714beaa1852dfb852425e1a67ddffa9238a
 }
 
-nav a {
-	display: block;
+.login {
+	grid-column: 3;
+	padding: 1vw 2.5vw;
+}
+
+.menu a {
+	font-size: 2.3vw;
+	font-weight: bold;
 	text-decoration: none;
+<<<<<<< HEAD
+	color: white;
+	background-color: midnightblue;
+}
+
+main div {
+	margin-top: 5vw;
+	grid-column: 2;
+=======
 	font-size: 1.7vw;
 	background-color: midnightblue;
 	color: #E8E9E4;
+>>>>>>> e7ac6714beaa1852dfb852425e1a67ddffa9238a
 }
 
 .gamemode {
