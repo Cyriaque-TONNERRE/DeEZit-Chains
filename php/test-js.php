@@ -29,7 +29,7 @@
 	
     <main>
 	
-		<div class="case">
+	<div class="case">
         <div class="base" draggable="true"></div>
     </div>
 
