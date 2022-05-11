@@ -13,7 +13,15 @@
 <body>
 	
     <header>
-		<a href="login.php">compte</a>
+		<?php
+		if (isset($_COOKIE["user"])) {
+			echo "<a href='compte.php'>Account</a>";
+		}
+		else {
+			echo "<a href='login.php'>Login</a>";
+		}
+		?>
+		
     </header>
 	
 	
