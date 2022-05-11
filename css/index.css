@@ -20,15 +20,24 @@
 	src: url("../font/rounded.ttf") format("truetype");
 }
 
-nav {
-	display:block;
+.menu {
+	display: grid;
+	grid-template-columns: 40vw 45vw 10vw;
+	grid-template-rows: 100%;
+    padding: 1vw 0vw;
 	background-color: midnightblue;
-	padding: 1.5vw;
-	box-shadow: 0px 3px 3px #161C1C;
+	border-bottom: solid;
+	border-color: #484848;
 }
 
-nav a {
-	display: block;
+.login {
+	grid-column: 3;
+	padding: 1vw 2.5vw;
+}
+
+.menu a {
+	font-size: 2.3vw;
+	font-weight: bold;
 	text-decoration: none;
 	font-size: 1.7vw;
 	background-color: midnightblue;

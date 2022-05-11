@@ -18,16 +18,16 @@
 	
 	
 	<nav>
-		
-		<?php
-		if (isset($_COOKIE["username"])) {
-			echo "<a href='logout.php'>Logout</a>";
-		}
-		else {
-			echo "<a href='login.php'>Login</a>";
-		}
-		?>
-		
+		<div class="menu">
+			<?php
+			if (isset($_COOKIE["username"])) {
+				echo "<a class='login' href='logout.php'>Logout</a>";
+			}
+			else {
+				echo "<a class='login' href='login.php'>Login</a>";
+			}
+			?>
+		</div>
 	</nav>
 	
 	
