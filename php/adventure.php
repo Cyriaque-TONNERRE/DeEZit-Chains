@@ -33,7 +33,7 @@
 	
 	
     <footer> 
-        
+        <?php
         $size = count($tab);
         echo "<table>";
         for ($colonne = 0; $colonne < $size; $colonne++){
