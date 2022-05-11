@@ -24,7 +24,7 @@
 				
 				<form method="post" action="#">
 					<?php
-						if (isset($_COOKIE["ID"])) {
+						if (isset($_COOKIE["username"])) {
 							header("location:compte.php");
 						}
 						else {
@@ -63,11 +63,11 @@
 		}
 		else {
 			$row = mysqli_fetch_assoc($resultat);
-			if (mysqli_num_rows($resultat) == 1 and password_verify($password,$row['Password'])) {
+			if (mysqli_num_rows($resultat) == 1 and password_verify($password,$row['password'])) {
 				setcookie("usermane",$row['username'],time()+365*24*3600);
 				header("location:index.php");
 			}
-			else{
+				else{
 				echo '<p class="error">Echec de connexion: identifiants incorrects</p>';
 			}
 		}
