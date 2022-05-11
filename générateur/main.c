@@ -80,7 +80,7 @@ int main(int argc,const char* argv[]) {
     // Si le nombre d'arguments est différent de 1
     if (argc != 3) {
         // Affiche un message d'erreur
-        printf("Aled\n");
+        return EXIT_FAILURE;
     }
     // Sinon
     else {
@@ -103,6 +103,10 @@ int main(int argc,const char* argv[]) {
         int taille = rand() % 5 + 5;
         // Création de la grille
         char* grille = malloc(taille * taille * sizeof(char));
+        //verifie si la grille est crée
+        if(grille == NULL){
+            return EXIT_FAILURE;
+        }
         // Initialise la grille
         for (int i = 0; i < taille * taille; i++) {
             grille[i] = '0';
@@ -110,7 +114,12 @@ int main(int argc,const char* argv[]) {
         for(int couleur_trait = 0; couleur_trait < nbcouleur; couleur_trait++){
 
             // Choisir un point de départ
+            anotherTime:;
             int x = rand() % (taille * taille);
+            //on verifie que la case n'est pas déja occupée
+            if (grille[x] != '0') {
+                goto anotherTime;
+            }
             position = x;
             // Choisir une direction de départ
             int sens = rand() % 4;
@@ -294,4 +303,5 @@ int main(int argc,const char* argv[]) {
             printf("\n");
         }
     }
+    return EXIT_SUCCESS;
 }
