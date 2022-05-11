@@ -1,3 +1,20 @@
+/*Reset CSS*/
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+/*Variables*/
+:root {
+	
+}
+
+* {
+	color:#EBEBEB;
+	background-color:#2F3136;
+}
+	
 a.gamemode {
-	float: right;
+	text-align: center;
+	text-decoration: none;
 }
