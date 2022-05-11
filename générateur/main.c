@@ -118,8 +118,15 @@ int main(int argc,const char* argv[]) {
             int x = rand() % (taille * taille);
             //on verifie que la case n'est pas déja occupée
             if (grille[x] != '0') {
+                if(chienDeGarde >= 5){
+                    chienDeGarde = 0;
+                    break;
+                }
                 goto anotherTime;
+                chienDeGarde++;
+
             }
+            chienDeGarde = 0;
             position = x;
             // Choisir une direction de départ
             int sens = rand() % 4;
