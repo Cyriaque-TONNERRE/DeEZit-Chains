@@ -24,7 +24,7 @@
 				
 				<form method="post" action="#">
 					<?php
-						if (isset($_COOKIE["ID"])) {
+						if (isset($_COOKIE["username"])) {
 							header("location:compte.php");
 						}
 						else {
