@@ -8,7 +8,6 @@
     <meta name="author" content="Ez Team">
     <meta charset="UTF-8">
 	<link rel="stylesheet" href="../css/index.css">
-	
 </head>
 	
 <body>
@@ -30,9 +29,9 @@
     <main>
 		
 		<a class="gamemode" href="history.php">History Mode</a><br>
-		<a class="gamemode" href="#">Adventure Mode</a><br>
-		<a class="gamemode" href="#">Time Trial</a><br>
-		<a class="gamemode" href="#">Creative Mode</a><br>
+		<a class="gamemode" href="adventure.php">Adventure Mode</a><br>
+		<a class="gamemode" href="time.php">Time Trial</a><br>
+		<a class="gamemode" href="creative.php">Creative Mode</a><br>
     
 	</main>
 	

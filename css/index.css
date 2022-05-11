@@ -15,7 +15,13 @@
 	background-color: var(--backcolor);
 }
 	
-a.gamemode {
+.gamemode {
+	display: block;
 	text-align: center;
 	text-decoration: none;
+	color: white;
+	background-color: #CFBB97;
+	border : 2px 1D456B solid;
+	border-radius: 100px;
+	padding: 5px;
 }
