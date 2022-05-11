@@ -33,10 +33,12 @@
 	
     <main>
 		
-		<a class="gamemode" href="history.php">History Mode</a><br>
-		<a class="gamemode" href="adventure.php">Adventure Mode</a><br>
-		<a class="gamemode" href="time.php">Time Trial</a><br>
-		<a class="gamemode" href="creative.php">Creative Mode</a><br>
+		<div>
+			<a class="gamemode" href="history.php">History Mode</a><br>
+			<a class="gamemode" href="adventure.php">Adventure Mode</a><br>
+			<a class="gamemode" href="time.php">Time Trial</a><br>
+			<a class="gamemode" href="creative.php">Creative Mode</a><br>
+		</div>
     
 	</main>
 	
