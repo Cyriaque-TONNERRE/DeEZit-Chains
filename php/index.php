@@ -13,6 +13,7 @@
 <body>
 	
     <header>
+		
 		<?php
 		if (isset($_COOKIE["user"])) {
 			echo "<a href='compte.php'>Account</a>";
@@ -26,8 +27,10 @@
 	
 	
     <main>
+		
 		<p>test</p>
-    </main>
+    
+	</main>
 	
 	
     <footer> 
