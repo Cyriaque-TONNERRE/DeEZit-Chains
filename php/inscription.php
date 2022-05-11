@@ -74,7 +74,7 @@
 							$resultat = mysqli_query($connexion,$requete);
 							if ($resultat) {
 								$row = mysqli_fetch_assoc($resultat);
-								$_COOKIE['user'] = $row['user'];
+								setcookie("username", $row = ["username"], time() + (365*24*3600));
 								header("location:index.php");
 							}
 						}
