@@ -1,0 +1,33 @@
+*{
+	margin:0px;
+	padding: 0px;
+}
+
+body{
+	background-color: var(--backcolor);
+	color: var(--txtcolor);
+}
+
+fieldset {
+	border-color: var(--txtcolor);
+	border-style:groove;
+	border-radiu: 10px;
+	background-color: #EBEBEB;
+	text-align: center;
+	margin: 2vw 30vw;
+}
+
+nav.formulaire{
+	color:black;
+}
+
+nav.formulaire legend{
+	color:var(--txtcolor);
+	background-color:var(--backcolor);
+	border-style:solid;
+	border-width: 2px;
+	border-radius: 10px;
+	border-color: var(--txtcolor) ;
+	padding: 1px 4px 1px 4px;
+}
+

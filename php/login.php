@@ -7,6 +7,8 @@
     <meta name="keywords" content="DeEZit, Chain, Game, Ez">
     <meta name="author" content="Ez Team">
     <meta charset="UTF-8">
+	<link rel="stylesheet" href="../css/login.css">
+	<link rel="stylesheet" href="../css/index.css">
 </head>
 
 
@@ -20,26 +22,35 @@
 	<main>
 		
 		<div>
-				<?php
-					if (isset($_COOKIE["ID"])) {
-						header("location:compte.php");
-					}
-					else {
-						echo '<label for="usernamehg">Username : </label >
-						<input type="text" name="username" id="username" value="" required/>
-						<br><br>
+			<nav class="formulaire">
+				
+				<form method="post" action="#">
+					<fieldset>
+						<legend>Login :</legend>
+						<?php
+							if (isset($_COOKIE["ID"])) {
+								header("location:compte.php");
+							}
+							else {
+								echo '<label for="usernamehg">Username : </label >
+								<input type="text" name="username" id="username" value="" required/>
+								<br><br>
 
-						<label for="password">Password : </label >
-						<input type="password" name="password" id="password" value="" required/>
-						<br>
-						<a id="inscription" href="inscription.php">Pas encore inscrit? Inscrit toi!</a>
+								<label for="password">Password : </label >
+								<input type="password" name="password" id="password" value="" required/>
+								<br>
+								<a id="inscription" href="inscription.php">Not registered! register here</a>
 
-						<br><br>
+								<br><br>
 
-						<input type="submit" name="submit" id="submit" value="Send"/>
-						<input type="reset">';
-					}
-				?>
+								<input type="submit" name="submit" id="submit" value="Send"/>
+								<input type="reset" value="Delete">';
+							}
+						?>
+					</fieldset>
+				<nav class="formulaire">
+				
+			<form method="post" action="#">
 		</div>	
 			
 	</main>
@@ -57,9 +68,8 @@
 		}
 		else {
 			$row = mysqli_fetch_assoc($resultat);
-			if (mysqli_num_rows($resultat) == 1 and password_verify($password,$row['Password'])) {
-				$_COOKIE[]["ID"] = $row["ID"];
-				$_COOKIE[]["user"] = $row["username"];
+			if (mysqli_num_rows($resultat) == 1 and password_verify($password,$row['password'])) {
+				setcookie("username", $row["username"], time() + (365*24*3600));
 				header("location:index.php");
 			}
 			else{

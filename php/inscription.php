@@ -35,7 +35,7 @@
 					<input type="password" name="password" id="password" value="" required/>
 					<br><br>
 					<input type="submit" name="submit" id="submit" value="Submit"/>
-					<input type="reset">
+					<input type="reset" value="Delete">
 				</fieldset>
 					
 			</form>
@@ -45,6 +45,7 @@
 		</div>
 		
 		<?php
+			$i=0;
 			include("connexion_db.php");
 			if(isset($_POST["submit"])){
 				$username=$_POST['username'];
@@ -63,8 +64,9 @@
 					else {
 						$username = $_POST["username"];
 						$password = password_hash($_POST["password"],PASSWORD_DEFAULT);
-						$requete = "INSERT INTO user VALUES (NULL,'$username','$password')";
+						$requete = "INSERT INTO user VALUES ('$i','$username','$password')";
 						$resultat = mysqli_query($connexion,$requete);
+						$i+=1;
 						if ($resultat == FALSE) {
 							echo "<p>Erreur d'exécution de la requete :".mysqli_error($connexion)."</p>" ;
 							die();
@@ -74,8 +76,7 @@
 							$resultat = mysqli_query($connexion,$requete);
 							if ($resultat) {
 								$row = mysqli_fetch_assoc($resultat);
-								$_COOKIE['ID'] = $row['ID'];
-								$_COOKIE['user'] = $row['user'];
+								setcookie("username", $row["username"], time() + (365*24*3600));
 								header("location:index.php");
 							}
 						}
