@@ -21,7 +21,7 @@
 		
 		<?php
 			include("connexion_db.php");
-			$username=$_COOKIE["username"];
+			$username = $_COOKIE["username"];
 			$requete = "SELECT * FROM user WHERE username='$username'";
 			$resultat = mysqli_query($connexion,$requete);
 			if ($resultat == FALSE) {
