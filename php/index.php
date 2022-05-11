@@ -13,7 +13,12 @@
 <body>
 	
     <header>
-
+	
+    </header>
+	
+	
+	<nav>
+		
 		<?php
 		if (isset($_COOKIE["username"])) {
 			echo "<a href='logout.php'>Logout</a>";
@@ -23,7 +28,7 @@
 		}
 		?>
 		
-    </header>
+	</nav>
 	
 	
     <main>
