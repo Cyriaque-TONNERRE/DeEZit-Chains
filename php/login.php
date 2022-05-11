@@ -64,7 +64,7 @@
 		else {
 			$row = mysqli_fetch_assoc($resultat);
 			if (mysqli_num_rows($resultat) == 1 and password_verify($password,$row['password'])) {
-				setcookie("usermane",$row['username'],time()+365*24*3600);
+				setcookie("username", $row["username"], time() + (365*24*3600));
 				header("location:index.php");
 			}
 			else{
