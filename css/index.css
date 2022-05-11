@@ -19,11 +19,18 @@
 	display: block;
 	text-align: center;
 	text-decoration: none;
-	font-size: 150%;
+	font-size: 2.5vw;
 	color: white;
 	background-color: #CFBB97;
 	border : 2px goldenrod solid;
 	border-radius: 100px;
-	padding: 30px;
-	margin: 0px 40%;
+	padding: 1.5vw;
+	margin: 1vw 35vw;
+}
+
+.gamemode:hover {
+	font-size: 3vw;
+	padding: 2vw;
+	margin: 0.25vw 33vw;
+	background-color: goldenrod;
 }
