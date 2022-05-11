@@ -28,7 +28,10 @@
 	
     <main>
 		
-		<p>test</p>
+		<a href="#">History Mode</a>
+		<a href="#">Adventure Mode</a>
+		<a href="#">Time Trial</a>
+		<a href="#">Creative Mode</a>
     
 	</main>
 	
