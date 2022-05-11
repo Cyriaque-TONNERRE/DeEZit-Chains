@@ -28,10 +28,10 @@
 	
     <main>
 		
-		<a href="#">History Mode</a>
-		<a href="#">Adventure Mode</a>
-		<a href="#">Time Trial</a>
-		<a href="#">Creative Mode</a>
+		<a class="gamemode" href="#">History Mode</a>
+		<a class="gamemode" href="#">Adventure Mode</a>
+		<a class="gamemode" href="#">Time Trial</a>
+		<a class="gamemode" href="#">Creative Mode</a>
     
 	</main>
 	
