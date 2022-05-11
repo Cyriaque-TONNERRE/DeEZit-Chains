@@ -19,9 +19,11 @@
 	display: block;
 	text-align: center;
 	text-decoration: none;
+	font-size: 150%;
 	color: white;
 	background-color: #CFBB97;
 	border : 2px 1D456B solid;
 	border-radius: 100px;
-	padding: 5px;
+	padding: 30px;
+	margin: 0px 40%;
 }
