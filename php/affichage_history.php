@@ -33,14 +33,17 @@
 	
     <main>
         <?php
-        $id = $_GET["id"];
-        ?>
-        <script>
-            const level = localStorage.getItem("level");
-            const
+        $json = file_get_contents('../level.json');
+        $data = json_decode($json, false);
+        foreach ($data->test->level as $cle=>$val) {
+            echo " ".$val;
+        }
 
-        </script>
-	</main>
+
+
+
+        ?>
+    </main>
 	
 	
     <footer> 
