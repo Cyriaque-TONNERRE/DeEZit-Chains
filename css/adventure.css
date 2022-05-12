@@ -5,6 +5,12 @@
     padding: 0px;
 }
 
+/*Fonts*/
+@font-face {
+    font-family: 'korean';
+    src: url('../font/Korean.ttf') format('truetype');
+}
+
 /*Mise en place des variables*/
 :root{
     --fond-gris:#ccc;
@@ -78,6 +84,39 @@ table{
     border-top: 2px solid var(--orange-LBB);
 }
 
+.case {
+    height: 6vw;
+    width: 6vw;
+    text-align: center;
+    font-family: Korean, serif;
+    font-size: 3vw;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
 
+.r {
+    background-color: red;
+}
 
+.g {
+    background-color: green;
+}
 
+.p {
+    background-color: purple;
+}
+
+.b {
+    background-color: blue;
+}
+
+.y {
+    background-color: yellow;
+}
+
+#r2 {
+    background-color: red;
+}
