@@ -36,8 +36,9 @@
         $id = $_GET["id"];
         ?>
         <script>
-            var level = localStorage.getItem("level");
-            var lvl = JSON.parse(level);
+            const level = localStorage.getItem("level");
+            const
+
         </script>
 	</main>
 	
