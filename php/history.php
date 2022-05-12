@@ -30,10 +30,18 @@
         ?>
 
     </nav>
-	
+
     <main>
 
-	</main>
+        <div>
+            <?php
+            for ($i=1; $i<6;$i++){
+                echo "<a id='$i' class='level' href='affichage_history?id=$i.php'>$i</a><br>";
+            }
+            ?>
+        </div>
+
+    </main>
 	
 	
     <footer> 
