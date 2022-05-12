@@ -8,6 +8,7 @@
     <meta name="author" content="Ez Team">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/adventure.css">
 </head>
 
 
@@ -34,6 +35,9 @@
 	
     <footer> 
         <?php
+        $seed = "Test";
+        $tab = array();
+        exec("randomGenerate.exe $seed 5", $tab);
         $size = count($tab);
         echo "<table>";
         for ($colonne = 0; $colonne < $size; $colonne++){
@@ -111,6 +115,9 @@
                     else if($bas == false){
                         echo "<td class=bas>".$tab[$colonne][$ligne]."</td>";
                     }
+                    else{
+                        echo "<td>".$tab[$colonne][$ligne]."</td>";
+                    }
 
 
                     
@@ -118,7 +125,7 @@
                         
                 }
                 else{
-                    echo "<td class=invisible>".$tab[$colonne][$ligne]."</td>";
+                    echo "<td class=invisible >".$tab[$colonne][$ligne]."</td>";
                 }
             }
             echo "</tr>";
