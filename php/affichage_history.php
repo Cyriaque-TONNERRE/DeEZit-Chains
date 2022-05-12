@@ -33,9 +33,11 @@
 	
     <main>
         <?php
+        $id = "Niv".$_GET["id"];
+        echo $id."<br>";
         $json = file_get_contents('../level.json');
         $data = json_decode($json, false);
-        foreach ($data->test->level as $cle=>$val) {
+        foreach ($data->$id->level as $cle=>$val) {
             echo " ".$val;
         }
         ?>

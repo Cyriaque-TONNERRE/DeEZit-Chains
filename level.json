@@ -1,5 +1,5 @@
 {
-  "1" : {
+  "Niv1" : {
     "name": "Level 1",
     "author": "Ez Team",
     "level": [
@@ -8,7 +8,7 @@
       0, "x", 0
     ]
   },
-  "2" : {
+  "Niv2" : {
     "name": "Level 2",
     "author": "Ez Team",
     "level": [
@@ -17,7 +17,7 @@
       "x", 0, 0
     ]
   },
-  "3" : {
+  "Niv3" : {
     "name": "Level 3",
     "author": "Ez Team",
     "level": [
@@ -26,7 +26,7 @@
       "x", 0, 0
     ]
   },
-  "4" : {
+  "Niv4" : {
     "name": "Level 4",
     "author": "Ez Team",
     "level": [
@@ -35,7 +35,7 @@
       1, 1, 3
     ]
   },
-  "5" : {
+  "Niv5" : {
     "name": "Level 5",
     "author": "Ez Team",
     "level": [
@@ -45,7 +45,7 @@
       0, 0, 0, 0
     ]
   },
-  "6" : {
+  "Niv6" : {
     "name": "Level 6",
     "author": "Ez Team",
     "level": [
@@ -55,7 +55,7 @@
       0, 0, 0, 0
     ]
   },
-  "7" : {
+  "Niv7" : {
     "name": "Level 7",
     "author": "Ez Team",
     "level": [
@@ -65,7 +65,7 @@
       0, 0, 0, 0
     ]
   },
-  "8" : {
+  "Niv8" : {
     "name": "Level 8",
     "author": "Ez Team",
     "level": [
@@ -75,7 +75,7 @@
       0, 0, 0, 0
     ]
   },
-  "9" : {
+  "Niv9" : {
     "name": "Level 9",
     "author": "Ez Team",
     "level": [
@@ -85,7 +85,7 @@
       0, 0, 0, 0
     ]
   },
-  "10" : {
+  "Niv10" : {
     "name": "Level 10",
     "author": "Ez Team",
     "level": [
@@ -95,7 +95,7 @@
       "x", 7, 6, 0
     ]
   },
-  "11" : {
+  "Niv11" : {
     "name": "Level 11",
     "author": "Ez Team",
     "level": [
@@ -105,7 +105,7 @@
       0, 0, 0, "r"
     ]
   },
-  "12" : {
+  "Niv12" : {
     "name": "Level 12",
     "author": "Ez Team",
     "level": [
@@ -115,7 +115,7 @@
       "x", 5, 0, 0
     ]
   },
-  "13" : {
+  "Niv13" : {
     "name": "Level 13",
     "author": "Ez Team",
     "level": [
@@ -126,7 +126,7 @@
       2, 3, 1, 1
     ]
   },
-  "14" : {
+  "Niv14" : {
     "name": "Level 14",
     "author": "Ez Team",
     "level": [
@@ -135,7 +135,7 @@
       5, 6, "r"
     ]
   },
-  "15" : {
+  "Niv15" : {
     "name": "Level 15",
     "author": "Ez Team",
     "level": [
@@ -145,7 +145,7 @@
       4, 3, 0, 2, 2
     ]
   },
-  "16" : {
+  "Niv16" : {
     "name": "Level 16",
     "author": "Ez Team",
     "level": [
@@ -155,7 +155,7 @@
       0, "r", 1, 1
     ]
   },
-  "17" : {
+  "Niv17" : {
     "name": "Level 17",
     "author": "Ez Team",
     "level": [
@@ -166,7 +166,7 @@
       0, 1, "b", 0, 0
     ]
   },
-  "18" : {
+  "Niv18" : {
     "name": "Level 18",
     "author": "Ez Team",
     "level": [
@@ -176,7 +176,7 @@
       6, 7, 0, 5
     ]
   },
-  "19" : {
+  "Niv19" : {
     "name": "Level 19",
     "author": "Ez Team",
     "level": [
@@ -186,7 +186,7 @@
       0, 0, 0, 0, 0, 0
     ]
   },
-  "20" : {
+  "Niv20" : {
     "name": "Level 20",
     "author": "Ez Team",
     "level": [
