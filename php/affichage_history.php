@@ -32,7 +32,13 @@
     </nav>
 	
     <main>
-
+        <?php
+        $id = $_GET["id"];
+        ?>
+        <script>
+            var level = localStorage.getItem("level");
+            var lvl = JSON.parse(level);
+        </script>
 	</main>
 	
 	
