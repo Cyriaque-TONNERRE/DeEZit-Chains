@@ -64,6 +64,7 @@
 	padding: 1.15vw;
 	margin: 0.37vw 35vw;
 	background-color: goldenrod;
+	box-shadow: 0.3vw 0.3vw 0.2vw #0F0F0F;
 }
 
 #history:hover {
