@@ -6,8 +6,8 @@
 
 /*Variables*/
 :root {
-	--backcolor: #E8E9E4;
 	--txtcolor: #161C1C;
+	--backcolor: #E8E9E4;
 }
 
 * {
@@ -31,8 +31,13 @@
 	border-color: #484848;
 }
 
-.login {
+.setting {
 	grid-column: 3;
+	padding: 3vw 2.5vw;
+}
+
+.login {
+	grid-column: 1;
 	padding: 1vw 2.5vw;
 }
 
