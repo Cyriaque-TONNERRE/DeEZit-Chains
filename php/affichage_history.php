@@ -38,10 +38,6 @@
         foreach ($data->test->level as $cle=>$val) {
             echo " ".$val;
         }
-
-
-
-
         ?>
     </main>
 	
