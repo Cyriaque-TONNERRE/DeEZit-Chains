@@ -33,7 +33,7 @@
         <div class="base" draggable="true"></div>
     </div>
 
-    <div class="case"></div>
+    <div class="case" id="1"></div>
     <div class="case"></div>
     <div class="case"></div>
     <div class="case"></div>
@@ -49,7 +49,7 @@
     <div class="case"></div>
     <div class="case"></div>
 
-    <script src="../js/app.js"	></script>
+    <script src="../js/test-js.js"></script>
 		
 	</main>
 	

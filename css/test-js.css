@@ -33,3 +33,7 @@ body {
     background: #f4f4f4;
     border-style: dashed;
 }
+
+#entered {
+    background-color: blue;
+}
