@@ -1,0 +1,38 @@
+/*Reset CSS*/
+* {
+    margin: 0px;
+    padding: 0px;
+    color: var(--txtcolor);
+    background-color: var(--backcolor);
+}
+
+/*Variables*/
+:root {
+    --txtcolor: #161C1C;
+    --backcolor: #E8E9E4;
+}
+
+@font-face {
+    font-family: "Ezcriture";
+    src: url("../font/rounded.ttf") format("truetype");
+}
+
+a{
+    text-decoration: none;
+}
+.level{
+    display:inline-grid;
+    grid-template-columns: 20vw 20vw 20vw 20vw 20vw;
+    grid-template-rows: 20%;
+    text-align: center;
+    text-decoration: none;
+    font-family: Ezcriture;
+    font-size: 1vw;
+    color: black;
+    background-color: #CFBB97;
+    border : 2px goldenrod solid;
+    border-radius: 100px;
+    padding: 1.3vw;
+    margin: 0.5vw 37vw;
+
+}

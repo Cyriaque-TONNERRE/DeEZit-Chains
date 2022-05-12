@@ -8,7 +8,7 @@
     <meta name="author" content="Ez Team">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/index.css">
-	
+	<link rel="stylesheet" href="../css/history.css"/>
 </head>
 	
 <body>
