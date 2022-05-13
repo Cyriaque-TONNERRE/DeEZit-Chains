@@ -12,66 +12,63 @@
 
 
 <body>
-	
-    <header>
-	
-    </header>
-		
-	
-	<main>
-		
-		<?php
-			include("connexion_db.php");
-			$username = $_COOKIE["username"];
-			$requete = "SELECT * FROM user WHERE username='$username'";
-			$resultat = mysqli_query($connexion,$requete);
-			if ($resultat == FALSE) {
-				echo "<p>Erreur d'exécution de la requete :".mysqli_error($connexion)."</p>" ;
-				die();
-			}
-			else {
-				$row = mysqli_fetch_assoc($resultat);
-			}
-		?>
-		
-		<div>
-			<nav class="formulaire">
-				
-			<form method="post" action="modifier.php">
-				
-				<fieldset>
-					<legend>Account :</legend>
-					<br>
-					<label for="nom">Username :</label >
-					<input type="text" name="username" id="username" value=<?php echo $row['username'];?> required/>
-					<br><br>
-					<label for="password">Password :</label >
-					<input type="password" name="password" id="password" value="" required/>
-					<br><br>
-					<input type="submit" name="submit" id="submit" value="Submit"/>
-					<input type="reset">
-					<br><br>
-					<button><a class="button" href="logout.php">Logout</a></button>
-				</fieldset>
-				
-			</form>
-				
-			<?php		
-				if(isset($_COOKIE["update"]) && $_COOKIE["update"] == 1) {
-					echo '<p class="update">Updtated</p>';
-					$_COOKIE["update"] = 0;
-				}
-			?>
-				
-			</nav>
-		</div>	
-			
-	</main>
-	
-	
-	<footer>
-	
-	</footer>    
+
+<header>
+
+</header>
+
+
+<main>
+
+    <?php
+    include("connexion_db.php");
+    $username = $_COOKIE["username"];
+    $requete = "SELECT * FROM user WHERE username='$username'";
+    $resultat = mysqli_query($connexion,$requete);
+    if ($resultat == FALSE) {
+        echo "<p>Erreur d'exécution de la requete :".mysqli_error($connexion)."</p>" ;
+        die();
+    }
+    else {
+        $row = mysqli_fetch_assoc($resultat);
+    }
+    ?>
+
+    <div>
+        <nav class="formulaire">
+            <form method="post" action="modifier.php">
+                <fieldset>
+                    <legend>Account :</legend>
+                    <br>
+                    <label for="nom">Username :</label >
+                    <input type="text" name="username" id="username" value=<?php echo $row['username'];?> required/>
+                    <br><br>
+                    <label for="password">Password :</label >
+                    <input type="password" name="password" id="password" value="" required/>
+                    <br><br>
+                    <input type="submit" name="submit" id="submit" value="Submit"/>
+                    <input type="reset">
+                    <br><br>
+                    <button><a class="button" href="logout.php">Logout</a></button>
+                </fieldset>
+            </form>
+
+            <?php
+            if(isset($_COOKIE["update"]) && $_COOKIE["update"] == 1) {
+                echo '<p class="update">Updtated</p>';
+                $_COOKIE["update"] = 0;
+            }
+            ?>
+
+        </nav>
+    </div>
+
+</main>
+
+
+<footer>
+
+</footer>
 
 </body>
 
