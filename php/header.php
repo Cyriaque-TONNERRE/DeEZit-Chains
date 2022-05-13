@@ -11,6 +11,7 @@ $nom = explode('.', end($array))[0];?>
     <meta name="author" content="Ez Team">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/header.css">
+    <?php echo "<link rel='stylesheet' href='../css/$nom.css'>" ?>
     <?php
     if (isset($_COOKIE["theme"])) {	//si le cookie existe
         $theme = $_COOKIE["theme"];	//on récupère le theme choisi enregistré dans le cookie
@@ -19,8 +20,8 @@ $nom = explode('.', end($array))[0];?>
         $theme = "white";
     }
     ?>
-    <link rel="stylesheet" href ="css/<?php echo $theme; ?>.css"/>
-    <?php echo "<link rel='stylesheet' href='../css/$nom.css'>" ?>
+    <?php echo "<link rel='stylesheet' href ='../css/$theme.css'/>" ?>
+
 
 
 </head>
@@ -30,7 +31,7 @@ $nom = explode('.', end($array))[0];?>
 
 <header>
 
-    <div class="connexion">
+    <div class="header">
         <div class="logo">
             <img src="../image/test.gif" alt="logo">
         </div>

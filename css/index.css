@@ -1,9 +1,4 @@
 /*Reset CSS*/
-* {
-	margin: 0;
-	padding: 0;
-}
-
 .gamemode {
 	text-align: center;
 	text-decoration: none;
@@ -17,7 +12,7 @@
 	height: 4vw;
 	margin-left: auto;
 	margin-right: auto;
-	padding-top: 2.5vw;
+	padding-top: 2vw;
 }
 
 .gamemode:hover {
@@ -28,7 +23,8 @@
 }
 
 .button {
-	margin-top: 5vw;
+	padding-top: 2vw;
+	padding-bottom: 4.3vw;
 	display: grid;
 	grid-template-rows: 8vw 8vw 8vw 8vw;
 	align-items: center;
