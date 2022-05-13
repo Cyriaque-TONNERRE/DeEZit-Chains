@@ -1,7 +1,7 @@
 <?php require './header.php'; ?>
 
 <main>
-		
+
     <div>
         <nav class="formulaire">
             <form method="post" action="#">
@@ -28,7 +28,7 @@
             </form>
         </nav>
     </div>
-			
+
 </main>
 
 <?php
@@ -54,16 +54,16 @@ if (isset($_POST['submit'])){
     }
 }
 mysqli_close($connexion);
-	
-	
-	
 
-?>		
-		
+
+
+
+?>
+
 <footer>
-	   	
+
 </footer>
-  
+
 
 </body>
 

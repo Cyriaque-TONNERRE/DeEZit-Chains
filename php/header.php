@@ -9,6 +9,9 @@
     <meta name="author" content="Ez Team">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/header.css">
+    <?php
+
+    ?>
 
 </head>
 
@@ -25,7 +28,7 @@
             <h1> DeEZit Chain </h1>
         </div>
         <?php
-        if (!isset($_SESSION['id'])) {
+        if (!isset($_SESSION['username'])) {
             echo '<div class="poubelle"></div>';
         }
         ?>
@@ -35,7 +38,7 @@
             </a>
         </div>
         <?php
-        if (isset($_SESSION['id'])) {
+        if (isset($_SESSION['username'])) {
             echo '<div class="setting">
                     <a href="setting.php">
                         <img src="../image/setting.svg" alt="setting">
