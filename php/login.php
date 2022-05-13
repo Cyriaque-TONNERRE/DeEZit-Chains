@@ -1,4 +1,4 @@
-<?php require './header.php'; 
+<?php require './header.php';
 if (isset($_COOKIE["username"])) {
     header("location:index.php");
 }
@@ -15,7 +15,7 @@ if (isset($_COOKIE["username"])) {
                     <input class="input" type="text" name="username" id="username" placeholder="Username" required/>
                     <label for="password"></label >
                     <input class="input" type="password" name="password" id="password" placeholder="Password" required/>
-                    <input class="input-button" type="submit" name="submit" id="submit" value="Send">
+                    <input class="input-button" type="submit" name="submit" id="submit" value="Login">
                     <a id="inscription" href="inscription.php">Not registered! Register here.</a>
 
                 </div>
