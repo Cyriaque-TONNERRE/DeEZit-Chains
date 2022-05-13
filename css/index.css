@@ -1,5 +1,4 @@
 /*Reset CSS*/
-
 .gamemode {
 	text-align: center;
 	text-decoration: none;
@@ -24,7 +23,7 @@
 }
 
 .button {
-	margin-top: 5vw;
+	margin-top: 2vw;
 	display: grid;
 	grid-template-rows: 8vw 8vw 8vw 8vw;
 	align-items: center;
