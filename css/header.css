@@ -5,32 +5,43 @@
 
 .logo img{
     width: auto;
-    height: 7vw;
+    height: 5vw;
     margin-top: 0.5vw;
     margin-left: 1vw;
 }
 
 .titre {
-  margin-left: 5vw;
-  font-size: 2.6vw;
-  font-family: Ezcriture;
+  font-size: 2vw;
+  font-family: Ezcriture, monospace;
   text-align: center;
-  margin-top: -1.5vw;
+  margin-top: -1vw;
 }
 
 
-.connected login a img{
+.connexion .login a img{
   width: auto;
-  height: 6vw;
+  height: 4vw;
   margin-top: 1vw;
   filter: invert(63%) sepia(20%) saturate(1569%) hue-rotate(79deg) brightness(89%) contrast(82%);
 }
 
-
-
-.connected{
-  display: grid;
-  grid-template-columns: 9vw 73vw 10vw 9vw;
-  grid-template-rows: 8vw;
-  background: mistyrose;
+.connexion .setting a img{
+  width: auto;
+  height: 4vw;
+  margin-top: 1vw;
+  filter: invert(23%) sepia(76%) saturate(6722%) hue-rotate(356deg) brightness(94%) contrast(127%);
 }
+
+
+.connexion{
+  width: 105%;
+  margin-left: -0.5vw;
+  margin-top: -0.4vw;
+  display: grid;
+  grid-template-columns: 6vw 83vw 6vw 6vw;
+  grid-template-rows: 6vw;
+  box-shadow: 0 -1vw 1.2vw 0.3vw rgba(0,0,0,0.75);
+  -webkit-box-shadow: 0 -1vw 1.2vw 0.3vw rgba(0,0,0,0.75);
+  -moz-box-shadow: 0 -1vw 1.2vw 0.3vw rgba(0,0,0,0.75);
+}
+
