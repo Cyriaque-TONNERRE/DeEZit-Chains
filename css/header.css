@@ -23,14 +23,14 @@
 }
 
 
-.connexion .login a img{
+.header .login a img{
   width: auto;
   height: 4vw;
   margin-top: 1vw;
   filter: invert(63%) sepia(20%) saturate(1569%) hue-rotate(79deg) brightness(89%) contrast(82%);
 }
 
-.connexion .setting a img{
+.header .setting a img{
   width: auto;
   height: 4vw;
   margin-top: 1vw;
@@ -38,7 +38,7 @@
 }
 
 
-.connexion{
+.header {
   display: grid;
   grid-template-columns: 7vw 82vw 6vw 6vw;
   grid-template-rows: 6vw;

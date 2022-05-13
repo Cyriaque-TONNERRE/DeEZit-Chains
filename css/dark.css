@@ -1,24 +1,14 @@
-body {
+* {
+	margin: 0;
+	padding: 0;
+}
+
+header {
 	color:#EBEBEB;
 	background-color:#2F3136;
 }
 
-.Menu {
-	border-color: whitesmoke;
-}
-
-
-.preTxt a {
+main {
 	color:#EBEBEB;
-	text-decoration: none;
+	background-color: black;
 }
-
-.butheme {
-	text-decoration: none;
-	color: black;
-	background-color: whitesmoke;
-	border : 2px white solid;
-	border-radius: 100px;
-	padding: 5px;
-}
-

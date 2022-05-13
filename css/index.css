@@ -23,7 +23,8 @@
 }
 
 .button {
-	margin-top: 2vw;
+	padding-top: 2vw;
+	padding-bottom: 4.3vw;
 	display: grid;
 	grid-template-rows: 8vw 8vw 8vw 8vw;
 	align-items: center;
