@@ -10,8 +10,14 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/header.css">
     <?php
-
+    if (isset($_COOKIE["theme"])) {	//si le cookie existe
+        $theme = $_COOKIE["theme"];	//on récupère le theme choisi enregistré dans le cookie
+    }
+    else{
+        $theme = "white";
+    }
     ?>
+    <link rel="stylesheet" href ="css/<?php echo $theme; ?>.css"/>
 
 </head>
 
