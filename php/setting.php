@@ -26,6 +26,13 @@
                         <input type='radio' name='theme' value='dark'/>
                         <label for='dark'>Dark Theme</label>";
             } ?>
+            <?php if(isset($_COOKIE["mute"])){
+                echo "<button>Unmute</button>";
+            }
+            else{
+                echo "<button>Mute</button>";
+            }
+            ?>
             <hr>
             <input type="submit" name="Envoyer" Value="Envoyer"/>
         </fieldset>
