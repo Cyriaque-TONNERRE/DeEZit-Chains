@@ -25,16 +25,25 @@
                         <label for='white'>White Theme</label>
                         <input type='radio' name='theme' value='dark'/>
                         <label for='dark'>Dark Theme</label>";
-            } ?>
-            <?php if(isset($_COOKIE["mute"])){
-                echo "<button>Unmute</button>";
+            }?>
+
+            <br><br><hr><br>
+
+            <?php
+            if (isset($_COOKIE["sound"])) {
+                echo "<input type='range' id='sound' name='sound'
+                min='0' max='100' value='$_COOKIE[sound]' step='10'>
+                <label for='sound'>Sound</label>
+                <input type='submit' name='Envoyer' Value='Envoyer'/>";
             }
-            else{
-                echo "<button>Mute</button>";
+            else {
+                echo "<input type='range' id='sound' name='sound'
+                min='0' max='1' value='0.5' step='10'>
+                <label for='sound'>Sound</label>
+                <input type='submit' name='Envoyer' Value='Envoyer'/>";
             }
+
             ?>
-            <hr>
-            <input type="submit" name="Envoyer" Value="Envoyer"/>
         </fieldset>
     </form>
 </main>
