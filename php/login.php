@@ -1,9 +1,9 @@
 <?php require './header.php'; ?>
+
 <main>
 		
     <div>
         <nav class="formulaire">
-				
             <form method="post" action="#">
                 <fieldset>
                     <legend>Login :</legend>
@@ -12,25 +12,21 @@
                         header("location:compte.php");
                     }
                     else {
-                        echo '<label for="usernamehg">Username : </label >
-								<input type="text" name="username" id="username" value="" required/>
+                        echo '<label for="username">Username : </label >
+                                <input type="text" name="username" id="username" value="" required/>
 								<br><br>
-
 								<label for="password">Password : </label >
 								<input type="password" name="password" id="password" value="" required/>
 								<br>
 								<a id="inscription" href="inscription.php">Not registered! register here</a>
-
 								<br><br>
-
 								<input type="submit" name="submit" id="submit" value="Send"/>
 								<input type="reset" value="Delete">';
                     }
                     ?>
                 </fieldset>
-                <nav class="formulaire">
-				
-                    <form method="post" action="#">
+            </form>
+        </nav>
     </div>
 			
 </main>
@@ -49,7 +45,7 @@ if (isset($_POST['submit'])){
     else {
         $row = mysqli_fetch_assoc($resultat);
         if (mysqli_num_rows($resultat) == 1 and password_verify($password,$row['password'])) {
-            setcookie("username", $row["username"], time() + (365*24*3600));
+            $_SESSION["username"] = $row["username"];
             header("location:index.php");
         }
         else{
@@ -64,12 +60,11 @@ mysqli_close($connexion);
 
 ?>		
 		
-<footer> <!-- On place dans cette balise le contenue du pied de page -->
+<footer>
 	   	
 </footer>
   
 
 </body>
 
-
-i</html>
+</html>
