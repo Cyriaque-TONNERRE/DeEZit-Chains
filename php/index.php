@@ -13,14 +13,14 @@
 <body>
 	
     <header>
-	
+        <?php require './header.php'; ?>
     </header>
 	
 	
 	<nav>
 		<div class="menu">
 			<?php
-			if (isset($_COOKIE["username"])) {
+			if (isset($_SESSION["username"])) {
 				echo "<a class='login' href='logout.php'>Logout</a>";
 			}
 			else {
