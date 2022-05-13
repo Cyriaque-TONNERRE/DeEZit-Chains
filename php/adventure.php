@@ -32,13 +32,13 @@
 <main>
     <?php
 
-    $seed = "TB";
+    $seed = "TBAA";
     $tab = array();
     if (DIRECTORY_SEPARATOR == '\\') {
-        exec("randomGenerate.exe $seed 1", $tab);
+        exec("randomGenerate.exe $seed 2", $tab);
     } else {
         exec("chmod a+x ./randomGenerate");
-        exec("./randomGenerate $seed 1", $tab);
+        exec("./randomGenerate $seed 2", $tab);
     }
     $size = count($tab);
     echo "<table id='tableau'>";
@@ -179,7 +179,7 @@
                 }
                 else{
                     if (ctype_digit($tab[$colonne][$ligne])){
-                        echo "<td class='case' id=".$tab[$colonne][$ligne].">".$tab[$colonne][$ligne]."</td>";
+                        echo "<td class='case unused'' id=".$tab[$colonne][$ligne].">".$tab[$colonne][$ligne]."</td>";
                     } else {
                         echo "<td draggable='true' class='".$tab[$colonne][$ligne]."'></td>";
                     }
@@ -199,7 +199,11 @@
     echo "</table>";
 
     ?>
-    <script src="../js/app.js"></script>
+    <script src="../js/red.js"></script>
+    <script src="../js/green.js"></script>
+    <script src="../js/purple.js"></script>
+    <script src="../js/blue.js"></script>
+    <script src="../js/yellow.js"></script>
 </main>
 	
 
