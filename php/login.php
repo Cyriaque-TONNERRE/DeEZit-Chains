@@ -1,30 +1,24 @@
-<?php require './header.php'; ?>
+<?php require './header.php'; 
+if (isset($_COOKIE["username"])) {
+    header("location:index.php");
+}
+?>
 
 <main>
 
     <div>
         <nav class="formulaire">
             <form method="post" action="#">
-                <fieldset>
-                    <legend>Login :</legend>
-                    <?php
-                    if (isset($_COOKIE["ID"])) {
-                        header("location:compte.php");
-                    }
-                    else {
-                        echo '<label for="username">Username : </label >
-                                <input type="text" name="username" id="username" value="" required/>
-								<br><br>
-								<label for="password">Password : </label >
-								<input type="password" name="password" id="password" value="" required/>
-								<br>
-								<a id="inscription" href="inscription.php">Not registered! register here</a>
-								<br><br>
-								<input type="submit" name="submit" id="submit" value="Send"/>
-								<input type="reset" value="Delete">';
-                    }
-                    ?>
-                </fieldset>
+                <div class="loginBox">
+                    <h1>Login</h1>
+                    <label for="username"></label >
+                    <input class="input" type="text" name="username" id="username" placeholder="Username" required/>
+                    <label for="password"></label >
+                    <input class="input" type="password" name="password" id="password" placeholder="Password" required/>
+                    <input class="input-button" type="submit" name="submit" id="submit" value="Send">
+                    <a id="inscription" href="inscription.php">Not registered! Register here.</a>
+
+                </div>
             </form>
         </nav>
     </div>
