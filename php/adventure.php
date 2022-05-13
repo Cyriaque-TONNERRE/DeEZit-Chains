@@ -196,7 +196,7 @@
         }
         echo "</tr>";
     }
-    echo "<table>";
+    echo "</table>";
 
     ?>
     <script src="../js/app.js"></script>
