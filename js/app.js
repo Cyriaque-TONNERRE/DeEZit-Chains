@@ -27,7 +27,7 @@ function dragStart() { // FONCTION dragStart
 function dragEnd() { //FONCTION dragEnd
     //this.className = 'base'; //define la class de l'objet actuel a 'base'
     this.classList.remove("tenu");
-    if(track.length === 0){
+    if(track.length === 1){
         this.setAttribute('draggable', true);
     }
     else{
@@ -63,7 +63,6 @@ function dragOver(e) {
 function dragEnter(e) {
     e.preventDefault(); //retire l'action par default de dragEnter qu'on ne veut pas
     console.log("renter");
-    console.log(track);
     //if(((this.cellIndex==track[0].cellIndex+1 || this.cellIndex==track[0].cellIndex-1 || this.cellIndex==track[0].cellIndex) && this.className!="invicible")^((this.cellIndex==track[0].parentNode.rowIndex+1 || this.cellIndex==track[0].parentNode.rowIndex-1 || this.cellIndex==track[0].parentNode.rowIndex) && this.className!="invicible")){
         if(this === track[1]){ //Retirer élément
 
@@ -76,13 +75,11 @@ function dragEnter(e) {
             dragEnter(e);
         }
         else if((track.indexOf(this) === -1) && securite){
-            console.log("je rentre ici bébé");
             if (this.className !== "r") {
-                console.log("je rentre ici bébé également");
-                ajout++;
                 if(lvl <= parseInt(this.id)){
-                    console.log("je rentre ici bébé également aussi");
-                    this.className += ' r';  //ajoute la class 'r2' à l'objet actuel
+                    ajout++;
+                    next_tour = false;
+                    this.className += ' r';  //ajoute la class 'r' à l'objet actuel
                     this.classList.remove("unused");
                     last = this;
                     lvl = parseInt(this.id);
@@ -130,9 +127,8 @@ function dragLeave() {
     }
     if(track.length === 2){
         next_tour = true;
-        //ajout=-1;
     }
-    console.log("there :",next_tour);
+
 
     if(track.length === 1){
         start.setAttribute('draggable', true);
