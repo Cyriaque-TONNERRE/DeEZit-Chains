@@ -1,0 +1,22 @@
+body {
+	color:black;
+	background-color: whitesmoke;
+}
+
+.Menu {
+	border-color: #484848;
+}
+
+.preTxt a {
+	color:black;
+	text-decoration: none;
+}
+
+.butheme {
+	text-decoration: none;
+	color: #EBEBEB;
+	background-color: #2F3136;
+	border : 2px black solid;
+	border-radius: 100px;
+	padding: 5px;
+}

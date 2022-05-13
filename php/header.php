@@ -1,17 +1,27 @@
-<?php session_start();?>
+<?php session_start();
+$array = explode('/', $_SERVER['PHP_SELF']);
+$nom = explode('.', end($array))[0];?>
 <!DOCTYPE html>
-
 <html lang="fr">
 <head>
     <title> DeEZit Chain </title>
+
     <meta name="description" content="Projet Informatique 2022">
     <meta name="keywords" content="DeEZit, Chain, Game, Ez">
     <meta name="author" content="Ez Team">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/header.css">
     <?php
-
+    if (isset($_COOKIE["theme"])) {	//si le cookie existe
+        $theme = $_COOKIE["theme"];	//on récupère le theme choisi enregistré dans le cookie
+    }
+    else{
+        $theme = "white";
+    }
     ?>
+    <link rel="stylesheet" href ="css/<?php echo $theme; ?>.css"/>
+    <?php echo "<link rel='stylesheet' href='../css/$nom.css'>" ?>
+
 
 </head>
 
