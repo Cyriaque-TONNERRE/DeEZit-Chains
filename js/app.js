@@ -19,7 +19,7 @@ red.addEventListener('dragend', dragEnd); //event: lorsqu'on lache l'objet appel
 function dragStart() { // FONCTION dragStart
     this.className += ' tenu'; //ajoute la class 'tenu' à l'objet actuel
     last = this;
-    
+
 
     //setTimeout(() => (this.className = 'invisible'), 0); //permet de rendre l'objet invisible lorsqu'on drag sinon il reste afficher à son ancienne pos
 }
@@ -27,14 +27,13 @@ function dragStart() { // FONCTION dragStart
 function dragEnd() { //FONCTION dragEnd
     //this.className = 'base'; //define la class de l'objet actuel a 'base'
     this.classList.remove("tenu");
-    if(track.length === 1){
+    if (track.length === 1) {
         this.setAttribute('draggable', true);
-    }
-    else{
+    } else {
         this.setAttribute('draggable', false);
     }
 
-    
+
 
 
 }
@@ -61,43 +60,71 @@ function dragOver(e) {
 }
 
 function dragEnter(e) {
+
     e.preventDefault(); //retire l'action par default de dragEnter qu'on ne veut pas
     console.log("renter");
-    //if(((this.cellIndex==track[0].cellIndex+1 || this.cellIndex==track[0].cellIndex-1 || this.cellIndex==track[0].cellIndex) && this.className!="invicible")^((this.cellIndex==track[0].parentNode.rowIndex+1 || this.cellIndex==track[0].parentNode.rowIndex-1 || this.cellIndex==track[0].parentNode.rowIndex) && this.className!="invicible")){
-        if(this === track[1]){ //Retirer élément
+    if (this === track[1]) { //Retirer élément
 
-            securite = false;
-            track[0].classList.remove("r");
-            track[0].className += ' unused';
-            lvl = parseInt(track[0].id);
-            track[0].setAttribute('draggable', false);
-            track.shift();
-            dragEnter(e);
-        }
-        else if((track.indexOf(this) === -1) && securite){
-            if (this.className !== "r") {
-                if(lvl <= parseInt(this.id)){
+        securite = false;
+        track[0].classList.remove("r");
+        track[0].className += ' unused';
+        lvl = parseInt(track[0].id);
+        track[0].setAttribute('draggable', false);
+        track.shift();
+        dragEnter(e);
+    } else if ((track.indexOf(this) === -1) && securite) {
+        let voisin = false;
+        if (this.className !== "r") {
+            if (lvl <= parseInt(this.id)) {
+                if (this.cellIndex - 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex - 1 >= 0) {
+                    console.log("1");
+                    if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex - 1].classList.contains("r")) {
+                        voisin = true;
+                        console.log("true");
+                    }
+                }
+                if (this.cellIndex + 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex + 1 >= 0) {
+                    console.log("2");
+                    if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex + 1].classList.contains("r")) {
+                        voisin = true;
+                        console.log("true");
+                    }
+                }
+                if (this.parentNode.rowIndex - 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex - 1 >= 0) {
+                    console.log("3");
+                    if (document.getElementById("tableau").rows[this.parentNode.rowIndex - 1].cells[this.cellIndex].classList.contains("r")) {
+                        voisin = true;
+                        console.log("true");
+                    }
+                }
+                if (this.parentNode.rowIndex + 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex + 1 >= 0) {
+                    console.log("4");
+                    if (document.getElementById("tableau").rows[this.parentNode.rowIndex + 1].cells[this.cellIndex].classList.contains("r")) {
+                        voisin = true;
+                        console.log("true");
+                    }
+                }
+                if (voisin == true) {
                     ajout++;
                     next_tour = false;
-                    this.className += ' r';  //ajoute la class 'r' à l'objet actuel
+                    this.className += ' r'; //ajoute la class 'r' à l'objet actuel
                     this.classList.remove("unused");
                     last = this;
                     lvl = parseInt(this.id);
                     track[0].setAttribute('draggable', false);
                     track.unshift(this);
                     track[0].setAttribute('draggable', true);
-                    if(document.querySelector('.unused') === null){
+                    if (document.querySelector('.unused') === null) {
                         //Victoire
-                        document.location.href="index.php";
+                        document.location.href = "index.php";
                     }
                 }
             }
         }
-        else if(!securite){
-            securite = true;
-        }
+    } else if (!securite) {
+        securite = true;
+    }
 
-  //  }
 
 }
 
@@ -105,54 +132,51 @@ function dragEnter(e) {
 
 function dragLeave() {
     console.log("Sortie");
-    if(track.length === 2 && ajout===0){
+    if (track.length === 2 && ajout === 0) {
         track[0].classList.remove("r");
         track[0].className += ' unused';
         track[0].setAttribute('draggable', false);
         start.setAttribute('draggable', true);
         track.shift();
         lvl = 1;
-        ajout=-1;
-    }
-    else if(next_tour){
+        ajout = -1;
+    } else if (next_tour) {
         track[0].classList.remove("r");
         track[0].className += ' unused';
         track[0].setAttribute('draggable', false);
         start.setAttribute('draggable', true);
         track.shift();
         lvl = 1;
-        ajout=-1;
+        ajout = -1;
         next_tour = false;
 
     }
-    if(track.length === 2){
+    if (track.length === 2) {
         next_tour = true;
     }
 
 
-    if(track.length === 1){
+    if (track.length === 1) {
         start.setAttribute('draggable', true);
     }
 
-    if (this.classList.contains("case")) {
-    } else {
+    if (this.classList.contains("case")) {} else {
         this.className += ' case'; //définie la class de l'objet actuel à ' case'
     }
 
 
-    
-    
-    
+
+
+
 }
-    
+
 
 
 function dragDrop() {
     console.log("Drop");
-    if(track.length !== 1){
+    if (track.length !== 1) {
         track[0].setAttribute('draggable', true);
-    }
-    else{
+    } else {
         start.setAttribute('draggable', true);
     }
 

@@ -41,7 +41,7 @@
         exec("./randomGenerate $seed 1", $tab);
     }
     $size = count($tab);
-    echo "<table>";
+    echo "<table id='tableau'>";
     for ($colonne = 0; $colonne < $size; $colonne++){
         echo "<tr>";
         for ($ligne = 0; $ligne < $size; $ligne++){
