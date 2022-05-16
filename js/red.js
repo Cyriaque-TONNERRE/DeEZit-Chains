@@ -79,6 +79,7 @@ function dragOverr(e) {
         }
 
     }
+    console.log(now);
 
 
 }
@@ -129,7 +130,7 @@ function dragEnterr(e) {
 
                         }
                     }
-                    if (voisinr == true) {
+                    if (voisinr === true) {
                         ajoutr++;
                         next_tourr = false;
                         this.className += ' r'; //ajoute la class 'r' à l'objet actuel
@@ -204,7 +205,7 @@ function dragDropr() {
         startr.setAttribute('draggable', true);
     }
     blocker = false;
-    console.log("je lache");
+
 
     if (document.querySelector('.unused') === null) {
         //Victoire

@@ -60,7 +60,6 @@ function dragOver(e) {
 
 function dragEnter(e) {
     if (now === 'b') {
-        console.log("secu true");
 
         e.preventDefault(); //retire l'action par default de dragEnter qu'on ne veut pas
         if (this === trackb[1]) { //Retirer élément
@@ -74,7 +73,7 @@ function dragEnter(e) {
             dragEnter(e);
         } else if ((trackb.indexOf(this) === -1) && securiteb) {
             let voisinb = false;
-            if (this.className !== "b") {
+            if (this.className.contains("unused")) {
                 if (lvlb <= parseInt(this.id)) {
                     if (this.cellIndex - 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex - 1 >= 0) {
                         if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex - 1] == document.getElementById("tableau").rows[trackb[0].parentNode.rowIndex].cells[trackb[0].cellIndex]) {
