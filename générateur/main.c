@@ -114,19 +114,13 @@ int main(int argc,const char* argv[]) {
         for(int couleur_trait = 0; couleur_trait < nbcouleur; couleur_trait++){
 
             // Choisir un point de départ
-            anotherTime:;
-            int x = rand() % (taille * taille);
-            //on verifie que la case n'est pas déja occupée
-            if (grille[x] != '0') {
-                if(chienDeGarde >= 5){
-                    chienDeGarde = 0;
-                    break;
-                }
-                goto anotherTime;
-                chienDeGarde++;
 
+            int x = rand() % (taille * taille);
+            printf("%d\n",x);
+            //on verifie que la case n'est pas déja occupée
+            while (grille[x] != '0') {
+                x = rand() % (taille * taille);
             }
-            chienDeGarde = 0;
             position = x;
             // Choisir une direction de départ
             int sens = rand() % 4;
@@ -136,7 +130,7 @@ int main(int argc,const char* argv[]) {
             switch (sens) {
                 // Front
                 case 0:
-                    if (not_wall(x, sens, taille)) {
+                    if (not_wall(x, sens, taille) && not_already_used(x, sens, taille, grille)) {
                         grille[x - taille ] = '1';
                         position = x - taille;
                     }
@@ -144,21 +138,21 @@ int main(int argc,const char* argv[]) {
 
                 // Droite
                 case 1:
-                    if (not_wall(x, sens, taille)) {
+                    if (not_wall(x, sens, taille) && not_already_used(x, sens, taille, grille)) {
                         grille[x + 1] = '1';
                         position = x + 1;
                     }
                     break;
                 // Gauche
                 case 2:
-                    if (not_wall(x, sens, taille)) {
+                    if (not_wall(x, sens, taille) && not_already_used(x, sens, taille, grille)) {
                         grille[x - 1] = '1';
                         position = x - 1;
                     }
                     break;
                 // Back
                 case 3:
-                    if (not_wall(x, sens, taille)) {
+                    if (not_wall(x, sens, taille) && not_already_used(x, sens, taille, grille)) {
                         grille[x + taille] = '1';
                         position = x + taille;
                     }
