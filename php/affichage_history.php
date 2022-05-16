@@ -38,9 +38,19 @@
         $json = file_get_contents('../level.json');
         $data = json_decode($json, false);
         foreach ($data->$id->level as $cle=>$val) {
-            echo " ".$val;
+            echo " ".$val."<br>";
         }
         ?>
+        
+        <?php
+        $green = false;
+        $purple = false;
+        $yellow = false;
+        $blue = false;
+        $size = count($data->$id->level);
+        echo $size;
+        ?>
+
     </main>
 	
 	
