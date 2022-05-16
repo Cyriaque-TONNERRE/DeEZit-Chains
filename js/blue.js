@@ -73,7 +73,7 @@ function dragEnter(e) {
             dragEnter(e);
         } else if ((trackb.indexOf(this) === -1) && securiteb) {
             let voisinb = false;
-            if (this.className.contains("unused")) {
+            if (this.classList.contains("unused")) {
                 if (lvlb <= parseInt(this.id)) {
                     if (this.cellIndex - 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex - 1 >= 0) {
                         if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex - 1] === document.getElementById("tableau").rows[trackb[0].parentNode.rowIndex].cells[trackb[0].cellIndex]) {
