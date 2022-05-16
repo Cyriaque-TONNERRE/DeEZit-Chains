@@ -1,6 +1,7 @@
 const red = document.querySelector('.r'); //variable qui recup la base
 //const green = document.querySelector('.g'); //variable qui recup la base
 const box = document.querySelectorAll('.case'); //variable qui recup toutes les cases
+const mouse = document.querySelector('tableau');
 let lvlr = 1;
 let trackr = [];
 startr = document.querySelector('.r');
@@ -9,26 +10,43 @@ securiter = true;
 next_tourr = false;
 ajoutr = -1;
 blocker = false;
-
-
+var start = null,
+    delta = null;
+let posxr = 0;
+let posyr = 0;
 
 red.addEventListener('dragstart', dragStartr); //event: lorsqu'on commence a drag appel la fonction dragStart
 red.addEventListener('dragend', dragEndr); //event: lorsqu'on lache l'objet appel la fonction dargEnd
+red.addEventListener('drag', drag);
 //green.addEventListener('dragstart', dragStart); //event: lorsqu'on commence a drag appel la fonction dragStart
 //green.addEventListener('dragend', dragEnd); //event: lorsqu'on lache l'objet appel la fonction dargEnd
 
-function dragStartr() { // FONCTION dragStart
+function drag(e) {
+    e.preventDefault();
+    delta = { x: posxr - e.clientX, y: posyr - e.clientY };
+    posxr = e.clientX;
+    posyr = e.clientY;
+    console.log(delta);
+
+    //console.log(posxr, posyr);
+}
+
+function dragStartr(e) { // FONCTION dragStart
+    posxr = e.clientX;
+    posyr = e.clientY;
     this.className += ' tenu'; //ajoute la class 'tenu' à l'objet actuel
     now = 'r';
     lastr = this;
     blocker = true;
 
 
+
     //setTimeout(() => (this.className = 'invisible'), 0); //permet de rendre l'objet invisible lorsqu'on drag sinon il reste afficher à son ancienne pos
 }
 
-function dragEndr() { //FONCTION dragEnd
+function dragEndr(e) { //FONCTION dragEnd
     //this.className = 'base'; //define la class de l'objet actuel a 'base'
+    start = delta = null;
     this.classList.remove("tenu");
     if (trackr.length === 1) {
         this.setAttribute('draggable', true);
@@ -52,13 +70,10 @@ for (const vide of box) { //créer un event pour tout les élément de box
 
     vide.addEventListener('drop', dragDropr); //event: lorsqu'on drop l'item
 
-
 }
 
 
-
 function dragOverr(e) {
-
 
     e.preventDefault(); //retire l'action par default de dragOver qu'on ne veut pas
     if (!blocker) {
@@ -85,7 +100,6 @@ function dragOverr(e) {
 }
 
 function dragEnterr(e) {
-    
     if (now === 'r') {
 
         e.preventDefault(); //retire l'action par default de dragEnter qu'on ne veut pas
