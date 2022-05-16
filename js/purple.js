@@ -1,4 +1,3 @@
-
 const purple = document.querySelector('.p'); //variable qui recup la base
 let lvlp = 1;
 let trackp = [];
@@ -60,10 +59,10 @@ function dragOverp(e) {
 }
 
 function dragEnterp(e) {
-    if(now === 'p'){
+    if (now === 'p') {
 
         e.preventDefault(); //retire l'action par default de dragEnter qu'on ne veut pas
-        
+
         if (this === trackp[1]) { //Retirer élément
 
             securitep = false;
@@ -78,31 +77,31 @@ function dragEnterp(e) {
             if (this.classList.contains('unused')) {
                 if (lvlp <= parseInt(this.id)) {
                     if (this.cellIndex - 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex - 1 >= 0) {
-                        
-                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex - 1].classList.contains("p")) {
+
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex - 1] == document.getElementById("tableau").rows[trackp[0].parentNode.rowIndex].cells[trackp[0].cellIndex]) {
                             voisinp = true;
-                            
+
                         }
                     }
                     if (this.cellIndex + 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex + 1 >= 0) {
-                        
-                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex + 1].classList.contains("p")) {
+
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex + 1] == document.getElementById("tableau").rows[trackp[0].parentNode.rowIndex].cells[trackp[0].cellIndex]) {
                             voisinp = true;
-                            
+
                         }
                     }
                     if (this.parentNode.rowIndex - 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex - 1 >= 0) {
-                    
-                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex - 1].cells[this.cellIndex].classList.contains("p")) {
+
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex - 1].cells[this.cellIndex] == document.getElementById("tableau").rows[trackp[0].parentNode.rowIndex].cells[trackp[0].cellIndex]) {
                             voisinp = true;
-                            
+
                         }
                     }
                     if (this.parentNode.rowIndex + 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex + 1 >= 0) {
-                        
-                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex + 1].cells[this.cellIndex].classList.contains("p")) {
+
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex + 1].cells[this.cellIndex] == document.getElementById("tableau").rows[trackp[0].parentNode.rowIndex].cells[trackp[0].cellIndex]) {
                             voisinp = true;
-                            
+
                         }
                     }
                     if (voisinp == true) {
@@ -129,8 +128,8 @@ function dragEnterp(e) {
 
 
 function dragLeavep() {
-    if(now === 'p'){
-    
+    if (now === 'p') {
+
         if (trackp.length === 2 && ajoutp === 0) {
             trackp[0].classList.remove("p");
             trackp[0].className += ' unused';
@@ -173,7 +172,7 @@ function dragLeavep() {
 
 
 function dragDropp() {
-    
+
     if (trackp.length !== 1) {
         trackp[0].setAttribute('draggable', true);
     } else {

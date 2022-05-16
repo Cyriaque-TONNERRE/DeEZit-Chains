@@ -61,9 +61,9 @@ function dragOverg(e) {
 }
 
 function dragEnterg(e) {
-    if(now === 'g'){
+    if (now === 'g') {
         e.preventDefault(); //retire l'action par default de dragEnter qu'on ne veut pas
-        
+
         if (this === trackg[1]) { //Retirer élément
 
             securiteg = false;
@@ -78,30 +78,30 @@ function dragEnterg(e) {
             if (this.classList.contains('unused')) {
                 if (lvlg <= parseInt(this.id)) {
                     if (this.cellIndex - 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex - 1 >= 0) {
-                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex - 1].classList.contains("g")) {
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex - 1] == document.getElementById("tableau").rows[trackg[0].parentNode.rowIndex].cells[trackg[0].cellIndex]) {
                             voising = true;
-                            
+
                         }
                     }
                     if (this.cellIndex + 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex + 1 >= 0) {
-                        
-                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex + 1].classList.contains("g")) {
+
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex + 1] == document.getElementById("tableau").rows[trackg[0].parentNode.rowIndex].cells[trackg[0].cellIndex]) {
                             voising = true;
-                            
+
                         }
                     }
                     if (this.parentNode.rowIndex - 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex - 1 >= 0) {
-                    
-                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex - 1].cells[this.cellIndex].classList.contains("g")) {
+
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex - 1].cells[this.cellIndex] == document.getElementById("tableau").rows[trackg[0].parentNode.rowIndex].cells[trackg[0].cellIndex]) {
                             voising = true;
-                            
+
                         }
                     }
                     if (this.parentNode.rowIndex + 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex + 1 >= 0) {
-                        
-                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex + 1].cells[this.cellIndex].classList.contains("g")) {
+
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex + 1].cells[this.cellIndex] == document.getElementById("tableau").rows[trackg[0].parentNode.rowIndex].cells[trackg[0].cellIndex]) {
                             voising = true;
-                            
+
                         }
                     }
                     if (voising == true) {
@@ -114,7 +114,7 @@ function dragEnterg(e) {
                         trackg[0].setAttribute('draggable', false);
                         trackg.unshift(this);
                         trackg[0].setAttribute('draggable', true);
-                        
+
                     }
                 }
             }
@@ -129,39 +129,39 @@ function dragEnterg(e) {
 
 
 function dragLeaveg() {
-    if(now === 'g'){
-    
-    if (trackg.length === 2 && ajoutg === 0) {
-        trackg[0].classList.remove("g");
-        trackg[0].className += ' unused';
-        trackg[0].setAttribute('draggable', false);
-        startg.setAttribute('draggable', true);
-        trackg.shift();
-        lvlg = 1;
-        ajoutg = -1;
-    } else if (next_tourg) {
-        trackg[0].classList.remove("g");
-        trackg[0].className += ' unused';
-        trackg[0].setAttribute('draggable', false);
-        startg.setAttribute('draggable', true);
-        trackg.shift();
-        lvlg = 1;
-        ajoutg = -1;
-        next_tourg = false;
+    if (now === 'g') {
 
-    }
-    if (trackg.length === 2) {
-        next_tourg = true;
-    }
+        if (trackg.length === 2 && ajoutg === 0) {
+            trackg[0].classList.remove("g");
+            trackg[0].className += ' unused';
+            trackg[0].setAttribute('draggable', false);
+            startg.setAttribute('draggable', true);
+            trackg.shift();
+            lvlg = 1;
+            ajoutg = -1;
+        } else if (next_tourg) {
+            trackg[0].classList.remove("g");
+            trackg[0].className += ' unused';
+            trackg[0].setAttribute('draggable', false);
+            startg.setAttribute('draggable', true);
+            trackg.shift();
+            lvlg = 1;
+            ajoutg = -1;
+            next_tourg = false;
+
+        }
+        if (trackg.length === 2) {
+            next_tourg = true;
+        }
 
 
-    if (trackg.length === 1) {
-        startg.setAttribute('draggable', true);
-    }
+        if (trackg.length === 1) {
+            startg.setAttribute('draggable', true);
+        }
 
-    if (this.classList.contains("case")) {} else {
-        this.className += ' case'; //définie la class de l'objet actuel à ' case'
-    }
+        if (this.classList.contains("case")) {} else {
+            this.className += ' case'; //définie la class de l'objet actuel à ' case'
+        }
 
 
 
@@ -172,7 +172,7 @@ function dragLeaveg() {
 
 
 function dragDropg() {
-    
+
     if (trackg.length !== 1) {
         trackg[0].setAttribute('draggable', true);
     } else {

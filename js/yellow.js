@@ -1,4 +1,3 @@
-
 const yellow = document.querySelector('.y'); //variable qui recup la base
 let lvly = 1;
 let tracky = [];
@@ -60,10 +59,10 @@ function dragOvery(e) {
 }
 
 function dragEntery(e) {
-    if(now === 'y'){
+    if (now === 'y') {
 
         e.preventDefault(); //retire l'action par default de dragEnter qu'on ne veut pas
-        
+
         if (this === tracky[1]) { //Retirer élément
 
             securitey = false;
@@ -78,31 +77,31 @@ function dragEntery(e) {
             if (this.classList.contains('unused')) {
                 if (lvly <= parseInt(this.id)) {
                     if (this.cellIndex - 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex - 1 >= 0) {
-                        
-                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex - 1].classList.contains("y")) {
+
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex - 1] == document.getElementById("tableau").rows[tracky[0].parentNode.rowIndex].cells[tracky[0].cellIndex]) {
                             voisiny = true;
-                            
+
                         }
                     }
                     if (this.cellIndex + 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex + 1 >= 0) {
-                        
-                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex + 1].classList.contains("y")) {
+
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex + 1] == document.getElementById("tableau").rows[tracky[0].parentNode.rowIndex].cells[tracky[0].cellIndex]) {
                             voisiny = true;
-                            
+
                         }
                     }
                     if (this.parentNode.rowIndex - 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex - 1 >= 0) {
-                    
-                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex - 1].cells[this.cellIndex].classList.contains("y")) {
+
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex - 1].cells[this.cellIndex] == document.getElementById("tableau").rows[tracky[0].parentNode.rowIndex].cells[tracky[0].cellIndex]) {
                             voisiny = true;
-                            
+
                         }
                     }
                     if (this.parentNode.rowIndex + 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex + 1 >= 0) {
-                        
-                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex + 1].cells[this.cellIndex].classList.contains("y")) {
+
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex + 1].cells[this.cellIndex] == document.getElementById("tableau").rows[tracky[0].parentNode.rowIndex].cells[tracky[0].cellIndex]) {
                             voisiny = true;
-                            
+
                         }
                     }
                     if (voisiny == true) {
@@ -129,8 +128,8 @@ function dragEntery(e) {
 
 
 function dragLeavey() {
-    if(now === 'y'){
-    
+    if (now === 'y') {
+
         if (tracky.length === 2 && ajouty === 0) {
             tracky[0].classList.remove("y");
             tracky[0].className += ' unused';
@@ -173,7 +172,7 @@ function dragLeavey() {
 
 
 function dragDropy() {
-    
+
     if (tracky.length !== 1) {
         tracky[0].setAttribute('draggable', true);
     } else {

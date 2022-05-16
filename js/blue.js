@@ -58,7 +58,7 @@ function dragOver(e) {
 }
 
 function dragEnter(e) {
-    if(now === 'b'){
+    if (now === 'b') {
         console.log("secu true");
 
         e.preventDefault(); //retire l'action par default de dragEnter qu'on ne veut pas
@@ -76,22 +76,22 @@ function dragEnter(e) {
             if (this.className !== "b") {
                 if (lvlb <= parseInt(this.id)) {
                     if (this.cellIndex - 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex - 1 >= 0) {
-                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex - 1].classList.contains("b")) {
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex - 1] == document.getElementById("tableau").rows[trackb[0].parentNode.rowIndex].cells[trackb[0].cellIndex]) {
                             voisinb = true;
                         }
                     }
                     if (this.cellIndex + 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex + 1 >= 0) {
-                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex + 1].classList.contains("b")) {
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex + 1] == document.getElementById("tableau").rows[trackb[0].parentNode.rowIndex].cells[trackb[0].cellIndex]) {
                             voisinb = true;
                         }
                     }
                     if (this.parentNode.rowIndex - 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex - 1 >= 0) {
-                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex - 1].cells[this.cellIndex].classList.contains("b")) {
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex - 1].cells[this.cellIndex] == document.getElementById("tableau").rows[trackb[0].parentNode.rowIndex].cells[trackb[0].cellIndex]) {
                             voisinb = true;
                         }
                     }
                     if (this.parentNode.rowIndex + 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex + 1 >= 0) {
-                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex + 1].cells[this.cellIndex].classList.contains("b")) {
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex + 1].cells[this.cellIndex] == document.getElementById("tableau").rows[trackb[0].parentNode.rowIndex].cells[trackb[0].cellIndex]) {
                             voisinb = true;
                         }
                     }
@@ -120,7 +120,7 @@ function dragEnter(e) {
 
 
 function dragLeave() {
-    if(now === 'b'){
+    if (now === 'b') {
         if (trackb.length === 2 && ajoutb === 0) {
             trackb[0].classList.remove("b");
             trackb[0].className += ' unused';

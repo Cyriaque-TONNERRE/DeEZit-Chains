@@ -58,24 +58,20 @@ for (const vide of box) { //créer un event pour tout les élément de box
 
 function dragOverr(e) {
     e.preventDefault(); //retire l'action par default de dragOver qu'on ne veut pas
-    if(!blocker){
-        if(this.classList.contains('r')){
+    if (!blocker) {
+        if (this.classList.contains('r')) {
             now = 'r';
             blocker = true;
-        }
-        else if(this.classList.contains('b')){
+        } else if (this.classList.contains('b')) {
             now = 'b';
             blocker = true;
-        }
-        else if(this.classList.contains('g')){
+        } else if (this.classList.contains('g')) {
             now = 'g';
             blocker = true;
-        }
-        else if(this.classList.contains('p')){
+        } else if (this.classList.contains('p')) {
             now = 'p';
             blocker = true;
-        }
-        else if(this.classList.contains('y')){
+        } else if (this.classList.contains('y')) {
             now = 'y';
             blocker = true;
         }
@@ -86,10 +82,10 @@ function dragOverr(e) {
 }
 
 function dragEnterr(e) {
-    if(now === 'r'){
+    if (now === 'r') {
 
         e.preventDefault(); //retire l'action par default de dragEnter qu'on ne veut pas
-        
+
         if (this === trackr[1]) { //Retirer élément
 
             securiter = false;
@@ -103,32 +99,32 @@ function dragEnterr(e) {
             let voisinr = false;
             if (this.classList.contains('unused')) {
                 if (lvlr <= parseInt(this.id)) {
-                    if (this.cellIndex - 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex - 1 >= 0) {
-                        
-                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex - 1].classList.contains("r")) {
+                    if (this.cellIndex - 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex - 1 >= 0) { //cell - 1
+
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex - 1] == document.getElementById("tableau").rows[trackr[0].parentNode.rowIndex].cells[trackr[0].cellIndex]) {
                             voisinr = true;
-                            
+
                         }
                     }
-                    if (this.cellIndex + 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex + 1 >= 0) {
-                        
-                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex + 1].classList.contains("r")) {
+                    if (this.cellIndex + 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex + 1 >= 0) { //cel + 1
+
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex + 1] == document.getElementById("tableau").rows[trackr[0].parentNode.rowIndex].cells[trackr[0].cellIndex]) {
                             voisinr = true;
-                            
+
                         }
                     }
                     if (this.parentNode.rowIndex - 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex - 1 >= 0) {
-                    
-                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex - 1].cells[this.cellIndex].classList.contains("r")) {
+
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex - 1].cells[this.cellIndex] == document.getElementById("tableau").rows[trackr[0].parentNode.rowIndex].cells[trackr[0].cellIndex]) {
                             voisinr = true;
-                            
+
                         }
                     }
                     if (this.parentNode.rowIndex + 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex + 1 >= 0) {
-                        
-                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex + 1].cells[this.cellIndex].classList.contains("r")) {
+
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex + 1].cells[this.cellIndex] == document.getElementById("tableau").rows[trackr[0].parentNode.rowIndex].cells[trackr[0].cellIndex]) {
                             voisinr = true;
-                            
+
                         }
                     }
                     if (voisinr == true) {
@@ -147,7 +143,7 @@ function dragEnterr(e) {
         } else if (!securiter) {
             securiter = true;
         }
-    }   
+    }
 
 
 }
@@ -155,40 +151,40 @@ function dragEnterr(e) {
 
 
 function dragLeaver() {
-    if(now === 'r'){
-    
-    if (trackr.length === 2 && ajoutr === 0) {
-        trackr[0].classList.remove("r");
-        trackr[0].className += ' unused';
-        trackr[0].setAttribute('draggable', false);
-        startr.setAttribute('draggable', true);
-        trackr.shift();
-        lvlr = 1;
-        ajoutr = -1;
-    } else if (next_tourr) {
-        trackr[0].classList.remove("r");
-        trackr[0].className += ' unused';
-        trackr[0].setAttribute('draggable', false);
-        startr.setAttribute('draggable', true);
-        trackr.shift();
-        lvlr = 1;
-        ajoutr = -1;
-        next_tourr = false;
+    if (now === 'r') {
 
-    }
-    if (trackr.length === 2) {
-        next_tourr = true;
-    }
+        if (trackr.length === 2 && ajoutr === 0) {
+            trackr[0].classList.remove("r");
+            trackr[0].className += ' unused';
+            trackr[0].setAttribute('draggable', false);
+            startr.setAttribute('draggable', true);
+            trackr.shift();
+            lvlr = 1;
+            ajoutr = -1;
+        } else if (next_tourr) {
+            trackr[0].classList.remove("r");
+            trackr[0].className += ' unused';
+            trackr[0].setAttribute('draggable', false);
+            startr.setAttribute('draggable', true);
+            trackr.shift();
+            lvlr = 1;
+            ajoutr = -1;
+            next_tourr = false;
+
+        }
+        if (trackr.length === 2) {
+            next_tourr = true;
+        }
 
 
-    if (trackr.length === 1) {
-        startr.setAttribute('draggable', true);
-    }
+        if (trackr.length === 1) {
+            startr.setAttribute('draggable', true);
+        }
 
-    if (this.classList.contains("case")) {} else {
-        this.className += ' case'; //définie la class de l'objet actuel à ' case'
+        if (this.classList.contains("case")) {} else {
+            this.className += ' case'; //définie la class de l'objet actuel à ' case'
+        }
     }
-}
 
 
 
@@ -199,7 +195,7 @@ function dragLeaver() {
 
 
 function dragDropr() {
-    
+
     if (trackr.length !== 1) {
         trackr[0].setAttribute('draggable', true);
     } else {
