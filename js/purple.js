@@ -69,7 +69,7 @@ function dragEnterp(e) {
             securitep = false;
             trackp[0].classList.remove("p");
             trackp[0].className += ' unused';
-            lvlp = parseInt(trackp[0].id);
+            lvlp = parseInt(trackr[1].id);
             trackp[0].setAttribute('draggable', false);
             trackp.shift();
             dragEnterp(e);

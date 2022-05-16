@@ -71,7 +71,7 @@ function dragEnterg(e) {
             securiteg = false;
             trackg[0].classList.remove("g");
             trackg[0].className += ' unused';
-            lvlg = parseInt(trackg[0].id);
+            lvlg = parseInt(trackg[1].id);
             trackg[0].setAttribute('draggable', false);
             trackg.shift();
             dragEnterg(e);
