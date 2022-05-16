@@ -8,6 +8,7 @@
     <meta name="author" content="Ez Team">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/adventure.css">
 
 </head>
 
@@ -46,23 +47,23 @@
     $tab = $data->$id->level;
     $colours = 0;
     $size = count($data->$id->level);
-    echo $colours;
     $red = false;
     $green = false;
     $purple = false;
     $yellow = false;
     $blue = false;
-    for ($clr = 0 ; $clr < $size ; $clr++) {
-        print_r($tab[$clr]);
-        foreach ($tab[$clr] as $val) {
-            if ($val == 'x' || $val == 'b' || $val == 'g' || $val == 'y' || $val == 'p') {
+    foreach ($tab as $cle=>$val) {
+        $split =  str_split($val);
+        foreach ($split as $clef=>$vale) {
+            if ($vale == 'r' || $vale == 'b' || $vale == 'g' || $vale == 'y' || $vale == 'p') {
                 $colours++;
             }
         }
     }
+    echo $colours;
 
 
-    /*echo "<table id='tableau'>";
+    echo "<table id='tableau'>";
     for ($colonne = 0; $colonne < $size; $colonne++) {
         echo "<tr>";
         for ($ligne = 0; $ligne < $size; $ligne++) {
@@ -72,23 +73,23 @@
                 $droite = false;
                 $gauche = false;
                 $bas = false;
-                if($colonne > 0){
-                    if($tab[$colonne-1][$ligne] != 0){
+                if ($colonne > 0) {
+                    if ($tab[$colonne-1][$ligne] != 0) {
                         $nord = true;
                     }
                 }
                 if($ligne > 0){
-                    if($tab[$colonne][$ligne-1] != 0){
+                    if($tab[$colonne][$ligne-1] != 0) {
                         $gauche = true;
                     }
                 }
                 if($colonne < $size-1){
-                    if($tab[$colonne+1][$ligne] != 0){
+                    if($tab[$colonne+1][$ligne] != 0) {
                         $bas = true;
                     }
                 }
                 if($ligne < $size-1){
-                    if($tab[$colonne][$ligne+1] != 0){
+                    if($tab[$colonne][$ligne+1] != 0) {
                         $droite = true;
                     }
                 }
@@ -223,8 +224,33 @@
 
                 }
             }
+            else{
+                echo "<td class=invisible >".$tab[$colonne][$ligne]."</td>";
+            }
         }
-    }*/
+        echo "</tr>";
+    }
+    echo "</table>";
+
+    echo "<script src='../js/red.js'></script>";
+
+    if($blue == true){
+        echo "<script src='../js/blue.js'></script>";
+    }
+
+    if($purple == true){
+        echo "<script src='../js/purple.js'></script>";
+    }
+
+
+    if($yellow == true){
+        echo "<script src='../js/yellow.js'></script>";
+    }
+
+    if($green == true){
+        echo "<script src='../js/green.js'></script>";
+    }
+
     ?>
 
 </main>
