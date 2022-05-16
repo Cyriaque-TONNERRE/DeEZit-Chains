@@ -1,7 +1,7 @@
 <?php 
-	session_start(); //Démarrer la session
-	if(isset($_COOKIE["username"])){ // si un utilisateur est authentifié
-		setcookie("username","",0);
-		header("Location:index.php");
-	}
+session_start(); //Dï¿½marrer la session
+if(isset($_SESSION["username"])){ // si un utilisateur est authentifiï¿½
+    session_destroy(); // on dï¿½truit la session
+}
+header("Location: index.php"); // on redirige vers la page d'accueil
 ?>
