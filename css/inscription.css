@@ -24,7 +24,6 @@ nav.formulaire legend{
 	border-style:solid;
 	border-width: 2px;
 	border-radius: 10px;
-	border-color: var(--txtcolor) ;
 	padding: 1px 4px 1px 4px;
 }
 
@@ -43,6 +42,7 @@ nav.formulaire legend{
 	margin: 1.4vw auto;
 	border-radius: 2vw;
 	border-style: solid;
+	border-color: #e3e3e3;
 	border-width: 0.3vw;
 	text-align: center;
 	font-family: rounded, serif;

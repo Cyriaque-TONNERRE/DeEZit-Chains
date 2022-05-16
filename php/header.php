@@ -40,6 +40,9 @@ $nom = explode('.', end($array))[0];?>
         <div class="login">
             <a href="login.php">
                 <img src="../image/login.svg" alt="login">
+                <div class="pop-up">
+                    test
+                </div>
             </a>
         </div>
         <div class="setting">
