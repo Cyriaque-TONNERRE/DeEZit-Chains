@@ -116,7 +116,6 @@ int main(int argc,const char* argv[]) {
             // Choisir un point de départ
 
             int x = rand() % (taille * taille);
-            printf("%d\n",x);
             //on verifie que la case n'est pas déja occupée
             while (grille[x] != '0') {
                 x = rand() % (taille * taille);
