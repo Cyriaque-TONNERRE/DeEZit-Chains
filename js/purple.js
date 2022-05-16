@@ -79,33 +79,33 @@ function dragEnterp(e) {
                 if (lvlp <= parseInt(this.id)) {
                     if (this.cellIndex - 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex - 1 >= 0) {
 
-                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex - 1] == document.getElementById("tableau").rows[trackp[0].parentNode.rowIndex].cells[trackp[0].cellIndex]) {
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex - 1] === document.getElementById("tableau").rows[trackp[0].parentNode.rowIndex].cells[trackp[0].cellIndex]) {
                             voisinp = true;
 
                         }
                     }
                     if (this.cellIndex + 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex + 1 >= 0) {
 
-                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex + 1] == document.getElementById("tableau").rows[trackp[0].parentNode.rowIndex].cells[trackp[0].cellIndex]) {
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex + 1] === document.getElementById("tableau").rows[trackp[0].parentNode.rowIndex].cells[trackp[0].cellIndex]) {
                             voisinp = true;
 
                         }
                     }
                     if (this.parentNode.rowIndex - 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex - 1 >= 0) {
 
-                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex - 1].cells[this.cellIndex] == document.getElementById("tableau").rows[trackp[0].parentNode.rowIndex].cells[trackp[0].cellIndex]) {
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex - 1].cells[this.cellIndex] === document.getElementById("tableau").rows[trackp[0].parentNode.rowIndex].cells[trackp[0].cellIndex]) {
                             voisinp = true;
 
                         }
                     }
                     if (this.parentNode.rowIndex + 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex + 1 >= 0) {
 
-                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex + 1].cells[this.cellIndex] == document.getElementById("tableau").rows[trackp[0].parentNode.rowIndex].cells[trackp[0].cellIndex]) {
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex + 1].cells[this.cellIndex] === document.getElementById("tableau").rows[trackp[0].parentNode.rowIndex].cells[trackp[0].cellIndex]) {
                             voisinp = true;
 
                         }
                     }
-                    if (voisinp == true) {
+                    if (voisinp === true) {
                         ajoutp++;
                         next_tourp = false;
                         this.className += ' p'; //ajoute la class 'r' à l'objet actuel
