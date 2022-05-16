@@ -48,3 +48,16 @@
   overflow: hidden;
 }
 
+.pop-up {
+  display: none;
+  color: black;
+  background-color: white;
+  position: absolute;
+  z-index: 10;
+  border: 0.2vw black solid;
+  border-radius: 2vw;
+}
+
+.header .login:hover .pop-up {
+  display: block;
+}

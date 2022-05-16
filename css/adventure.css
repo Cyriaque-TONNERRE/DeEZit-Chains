@@ -98,25 +98,37 @@ table{
 }
 
 .r {
+    height: 6vw;
+    width: 6vw;
     background-color: red;
 }
 
 .g {
+    height: 6vw;
+    width: 6vw;
     background-color: green;
 }
 
 .p {
+    height: 6vw;
+    width: 6vw;
     background-color: purple;
 }
 
 .b {
+    height: 6vw;
+    width: 6vw;
     background-color: blue;
 }
 
 .y {
+    height: 6vw;
+    width: 6vw;
     background-color: yellow;
 }
 
 #r2 {
+    height: 6vw;
+    width: 6vw;
     background-color: red;
 }

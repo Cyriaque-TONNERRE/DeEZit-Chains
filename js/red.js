@@ -21,6 +21,7 @@ function dragStartr() { // FONCTION dragStart
     this.className += ' tenu'; //ajoute la class 'tenu' à l'objet actuel
     now = 'r';
     lastr = this;
+    blocker = true;
 
 
     //setTimeout(() => (this.className = 'invisible'), 0); //permet de rendre l'objet invisible lorsqu'on drag sinon il reste afficher à son ancienne pos
@@ -57,6 +58,7 @@ for (const vide of box) { //créer un event pour tout les élément de box
 
 
 function dragOverr(e) {
+
     e.preventDefault(); //retire l'action par default de dragOver qu'on ne veut pas
     if (!blocker) {
         if (this.classList.contains('r')) {
