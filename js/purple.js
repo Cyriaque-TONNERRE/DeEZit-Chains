@@ -18,6 +18,7 @@ purple.addEventListener('dragend', dragEndp); //event: lorsqu'on lache l'objet a
 function dragStartp() { // FONCTION dragStart
     this.className += ' tenu'; //ajoute la class 'tenu' à l'objet actuel
     lastp = this;
+    now = 'p';
 
 
     //setTimeout(() => (this.className = 'invisible'), 0); //permet de rendre l'objet invisible lorsqu'on drag sinon il reste afficher à son ancienne pos
@@ -59,69 +60,67 @@ function dragOverp(e) {
 }
 
 function dragEnterp(e) {
+    if(now === 'p'){
 
-    e.preventDefault(); //retire l'action par default de dragEnter qu'on ne veut pas
-    
-    if (this === trackp[1]) { //Retirer élément
+        e.preventDefault(); //retire l'action par default de dragEnter qu'on ne veut pas
+        
+        if (this === trackp[1]) { //Retirer élément
 
-        securitep = false;
-        trackp[0].classList.remove("r");
-        trackp[0].className += ' unused';
-        lvlp = parseInt(trackp[0].id);
-        trackp[0].setAttribute('draggable', false);
-        trackp.shift();
-        dragEnterp(e);
-    } else if ((trackp.indexOf(this) === -1) && securitep) {
-        let voisinp = false;
-        if (this.classList.contains('unused')) {
-            if (lvlp <= parseInt(this.id)) {
-                if (this.cellIndex - 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex - 1 >= 0) {
+            securitep = false;
+            trackp[0].classList.remove("p");
+            trackp[0].className += ' unused';
+            lvlp = parseInt(trackp[0].id);
+            trackp[0].setAttribute('draggable', false);
+            trackp.shift();
+            dragEnterp(e);
+        } else if ((trackp.indexOf(this) === -1) && securitep) {
+            let voisinp = false;
+            if (this.classList.contains('unused')) {
+                if (lvlp <= parseInt(this.id)) {
+                    if (this.cellIndex - 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex - 1 >= 0) {
+                        
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex - 1].classList.contains("p")) {
+                            voisinp = true;
+                            
+                        }
+                    }
+                    if (this.cellIndex + 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex + 1 >= 0) {
+                        
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex + 1].classList.contains("p")) {
+                            voisinp = true;
+                            
+                        }
+                    }
+                    if (this.parentNode.rowIndex - 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex - 1 >= 0) {
                     
-                    if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex - 1].classList.contains("p")) {
-                        voisinp = true;
-                        
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex - 1].cells[this.cellIndex].classList.contains("p")) {
+                            voisinp = true;
+                            
+                        }
                     }
-                }
-                if (this.cellIndex + 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex + 1 >= 0) {
-                    
-                    if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex + 1].classList.contains("p")) {
-                        voisinp = true;
+                    if (this.parentNode.rowIndex + 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex + 1 >= 0) {
                         
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex + 1].cells[this.cellIndex].classList.contains("p")) {
+                            voisinp = true;
+                            
+                        }
                     }
-                }
-                if (this.parentNode.rowIndex - 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex - 1 >= 0) {
-                   
-                    if (document.getElementById("tableau").rows[this.parentNode.rowIndex - 1].cells[this.cellIndex].classList.contains("p")) {
-                        voisinp = true;
-                        
-                    }
-                }
-                if (this.parentNode.rowIndex + 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex + 1 >= 0) {
-                    
-                    if (document.getElementById("tableau").rows[this.parentNode.rowIndex + 1].cells[this.cellIndex].classList.contains("p")) {
-                        voisinp = true;
-                        
-                    }
-                }
-                if (voisinp == true) {
-                    ajoutp++;
-                    next_tourp = false;
-                    this.className += ' p'; //ajoute la class 'r' à l'objet actuel
-                    this.classList.remove("unused");
-                    lastp = this;
-                    lvlp = parseInt(this.id);
-                    trackp[0].setAttribute('draggable', false);
-                    trackp.unshift(this);
-                    trackp[0].setAttribute('draggable', true);
-                    if (document.querySelector('.unused') === null) {
-                        //Victoire
-                        document.location.href = "index.php";
+                    if (voisinp == true) {
+                        ajoutp++;
+                        next_tourp = false;
+                        this.className += ' p'; //ajoute la class 'r' à l'objet actuel
+                        this.classList.remove("unused");
+                        lastp = this;
+                        lvlp = parseInt(this.id);
+                        trackp[0].setAttribute('draggable', false);
+                        trackp.unshift(this);
+                        trackp[0].setAttribute('draggable', true);
                     }
                 }
             }
+        } else if (!securitep) {
+            securitep = true;
         }
-    } else if (!securitep) {
-        securitep = true;
     }
 
 
@@ -130,37 +129,39 @@ function dragEnterp(e) {
 
 
 function dragLeavep() {
+    if(now === 'p'){
     
-    if (trackp.length === 2 && ajoutp === 0) {
-        trackp[0].classList.remove("p");
-        trackp[0].className += ' unused';
-        trackp[0].setAttribute('draggable', false);
-        startp.setAttribute('draggable', true);
-        trackp.shift();
-        lvlp = 1;
-        ajoutp = -1;
-    } else if (next_tourp) {
-        trackp[0].classList.remove("r");
-        trackp[0].className += ' unused';
-        trackp[0].setAttribute('draggable', false);
-        startp.setAttribute('draggable', true);
-        trackp.shift();
-        lvlp = 1;
-        ajoutp = -1;
-        next_tourp = false;
+        if (trackp.length === 2 && ajoutp === 0) {
+            trackp[0].classList.remove("p");
+            trackp[0].className += ' unused';
+            trackp[0].setAttribute('draggable', false);
+            startp.setAttribute('draggable', true);
+            trackp.shift();
+            lvlp = 1;
+            ajoutp = -1;
+        } else if (next_tourp) {
+            trackp[0].classList.remove("p");
+            trackp[0].className += ' unused';
+            trackp[0].setAttribute('draggable', false);
+            startp.setAttribute('draggable', true);
+            trackp.shift();
+            lvlp = 1;
+            ajoutp = -1;
+            next_tourp = false;
 
-    }
-    if (trackp.length === 2) {
-        next_tourp = true;
-    }
+        }
+        if (trackp.length === 2) {
+            next_tourp = true;
+        }
 
 
-    if (trackp.length === 1) {
-        startp.setAttribute('draggable', true);
-    }
+        if (trackp.length === 1) {
+            startp.setAttribute('draggable', true);
+        }
 
-    if (this.classList.contains("case")) {} else {
-        this.className += ' case'; //définie la class de l'objet actuel à ' case'
+        if (this.classList.contains("case")) {} else {
+            this.className += ' case'; //définie la class de l'objet actuel à ' case'
+        }
     }
 
 

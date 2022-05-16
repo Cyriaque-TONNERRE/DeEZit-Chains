@@ -32,13 +32,19 @@
 <main>
     <?php
 
-    $seed = "TBAA";
+    $seed = time();
+    $colours = time()%5 + 1;
     $tab = array();
+    $green = false;
+    $purple = false;
+    $yellow = false;
+    $blue = false;
+
     if (DIRECTORY_SEPARATOR == '\\') {
-        exec("randomGenerate.exe $seed 2", $tab);
+        exec("randomGenerate.exe $seed $colours", $tab);
     } else {
         exec("chmod a+x ./randomGenerate");
-        exec("./randomGenerate $seed 2", $tab);
+        exec("./randomGenerate $seed $colours", $tab);
     }
     $size = count($tab);
     echo "<table id='tableau'>";
@@ -185,6 +191,24 @@
                     }
                 }
 
+                if($colours >= 2 && $tab[$colonne][$ligne] == 'g'){
+                   $green = true;
+
+                }
+                else if($colours >= 3 && $tab[$colonne][$ligne] == 'b'){
+                    $blue = true;
+
+                }
+                else if($colours >= 4 && $tab[$colonne][$ligne] == 'y'){
+                    $yellow = true;
+
+                }
+                else if($colours == 5 && $tab[$colonne][$ligne] == 'p'){
+                    $purple = true;
+
+                }
+                
+
 
                     
 
@@ -198,12 +222,32 @@
     }
     echo "</table>";
 
+    
+    echo "<script src='../js/red.js'></script>";
+
+
+
+    if($blue == true){
+        echo "<script src='../js/blue.js'></script>";
+    }
+    
+    if($purple == true){
+        echo "<script src='../js/purple.js'></script>";
+    }
+
+    
+    if($yellow == true){
+        echo "<script src='../js/yellow.js'></script>";
+    }
+
+    
+    if($green == true){
+        echo "<script src='../js/green.js'></script>";
+    }
+
+
     ?>
-    <script src="../js/red.js"></script>
-    <script src="../js/green.js"></script>
-    <script src="../js/purple.js"></script>
-    <script src="../js/blue.js"></script>
-    <script src="../js/yellow.js"></script>
+    
 </main>
 	
 

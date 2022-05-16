@@ -18,6 +18,7 @@ yellow.addEventListener('dragend', dragEndy); //event: lorsqu'on lache l'objet a
 function dragStarty() { // FONCTION dragStart
     this.className += ' tenu'; //ajoute la class 'tenu' à l'objet actuel
     lasty = this;
+    now = 'y';
 
 
     //setTimeout(() => (this.className = 'invisible'), 0); //permet de rendre l'objet invisible lorsqu'on drag sinon il reste afficher à son ancienne pos
@@ -59,69 +60,67 @@ function dragOvery(e) {
 }
 
 function dragEntery(e) {
+    if(now === 'y'){
 
-    e.preventDefault(); //retire l'action par default de dragEnter qu'on ne veut pas
-    
-    if (this === tracky[1]) { //Retirer élément
+        e.preventDefault(); //retire l'action par default de dragEnter qu'on ne veut pas
+        
+        if (this === tracky[1]) { //Retirer élément
 
-        securitey = false;
-        tracky[0].classList.remove("r");
-        tracky[0].className += ' unused';
-        lvly = parseInt(tracky[0].id);
-        tracky[0].setAttribute('draggable', false);
-        tracky.shift();
-        dragEntery(e);
-    } else if ((tracky.indexOf(this) === -1) && securitey) {
-        let voisiny = false;
-        if (this.classList.contains('unused')) {
-            if (lvly <= parseInt(this.id)) {
-                if (this.cellIndex - 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex - 1 >= 0) {
+            securitey = false;
+            tracky[0].classList.remove("y");
+            tracky[0].className += ' unused';
+            lvly = parseInt(tracky[0].id);
+            tracky[0].setAttribute('draggable', false);
+            tracky.shift();
+            dragEntery(e);
+        } else if ((tracky.indexOf(this) === -1) && securitey) {
+            let voisiny = false;
+            if (this.classList.contains('unused')) {
+                if (lvly <= parseInt(this.id)) {
+                    if (this.cellIndex - 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex - 1 >= 0) {
+                        
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex - 1].classList.contains("y")) {
+                            voisiny = true;
+                            
+                        }
+                    }
+                    if (this.cellIndex + 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex + 1 >= 0) {
+                        
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex + 1].classList.contains("y")) {
+                            voisiny = true;
+                            
+                        }
+                    }
+                    if (this.parentNode.rowIndex - 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex - 1 >= 0) {
                     
-                    if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex - 1].classList.contains("y")) {
-                        voisiny = true;
-                        
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex - 1].cells[this.cellIndex].classList.contains("y")) {
+                            voisiny = true;
+                            
+                        }
                     }
-                }
-                if (this.cellIndex + 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex + 1 >= 0) {
-                    
-                    if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex + 1].classList.contains("y")) {
-                        voisiny = true;
+                    if (this.parentNode.rowIndex + 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex + 1 >= 0) {
                         
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex + 1].cells[this.cellIndex].classList.contains("y")) {
+                            voisiny = true;
+                            
+                        }
                     }
-                }
-                if (this.parentNode.rowIndex - 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex - 1 >= 0) {
-                   
-                    if (document.getElementById("tableau").rows[this.parentNode.rowIndex - 1].cells[this.cellIndex].classList.contains("y")) {
-                        voisiny = true;
-                        
-                    }
-                }
-                if (this.parentNode.rowIndex + 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex + 1 >= 0) {
-                    
-                    if (document.getElementById("tableau").rows[this.parentNode.rowIndex + 1].cells[this.cellIndex].classList.contains("y")) {
-                        voisiny = true;
-                        
-                    }
-                }
-                if (voisiny == true) {
-                    ajouty++;
-                    next_toury = false;
-                    this.className += ' y'; //ajoute la class 'r' à l'objet actuel
-                    this.classList.remove("unused");
-                    lasty = this;
-                    lvly = parseInt(this.id);
-                    tracky[0].setAttribute('draggable', false);
-                    tracky.unshift(this);
-                    tracky[0].setAttribute('draggable', true);
-                    if (document.querySelector('.unused') === null) {
-                        //Victoire
-                        document.location.href = "index.php";
+                    if (voisiny == true) {
+                        ajouty++;
+                        next_toury = false;
+                        this.className += ' y'; //ajoute la class 'r' à l'objet actuel
+                        this.classList.remove("unused");
+                        lasty = this;
+                        lvly = parseInt(this.id);
+                        tracky[0].setAttribute('draggable', false);
+                        tracky.unshift(this);
+                        tracky[0].setAttribute('draggable', true);
                     }
                 }
             }
+        } else if (!securitey) {
+            securitey = true;
         }
-    } else if (!securitey) {
-        securitey = true;
     }
 
 
@@ -130,37 +129,39 @@ function dragEntery(e) {
 
 
 function dragLeavey() {
+    if(now === 'y'){
     
-    if (tracky.length === 2 && ajouty === 0) {
-        tracky[0].classList.remove("y");
-        tracky[0].className += ' unused';
-        tracky[0].setAttribute('draggable', false);
-        starty.setAttribute('draggable', true);
-        tracky.shift();
-        lvly = 1;
-        ajouty = -1;
-    } else if (next_tourp) {
-        tracky[0].classList.remove("r");
-        tracky[0].className += ' unused';
-        tracky[0].setAttribute('draggable', false);
-        starty.setAttribute('draggable', true);
-        tracky.shift();
-        lvly = 1;
-        ajouty = -1;
-        next_toury = false;
+        if (tracky.length === 2 && ajouty === 0) {
+            tracky[0].classList.remove("y");
+            tracky[0].className += ' unused';
+            tracky[0].setAttribute('draggable', false);
+            starty.setAttribute('draggable', true);
+            tracky.shift();
+            lvly = 1;
+            ajouty = -1;
+        } else if (next_toury) {
+            tracky[0].classList.remove("y");
+            tracky[0].className += ' unused';
+            tracky[0].setAttribute('draggable', false);
+            starty.setAttribute('draggable', true);
+            tracky.shift();
+            lvly = 1;
+            ajouty = -1;
+            next_toury = false;
 
-    }
-    if (tracky.length === 2) {
-        next_toury = true;
-    }
+        }
+        if (tracky.length === 2) {
+            next_toury = true;
+        }
 
 
-    if (tracky.length === 1) {
-        starty.setAttribute('draggable', true);
-    }
+        if (tracky.length === 1) {
+            starty.setAttribute('draggable', true);
+        }
 
-    if (this.classList.contains("case")) {} else {
-        this.className += ' case'; //définie la class de l'objet actuel à ' case'
+        if (this.classList.contains("case")) {} else {
+            this.className += ' case'; //définie la class de l'objet actuel à ' case'
+        }
     }
 
 

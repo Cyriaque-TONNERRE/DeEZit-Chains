@@ -8,6 +8,7 @@ trackg.unshift(startg);
 securiteg = true;
 next_tourg = false;
 ajoutg = -1;
+now = 0;
 
 
 
@@ -19,7 +20,7 @@ green.addEventListener('dragend', dragEndg); //event: lorsqu'on lache l'objet ap
 function dragStartg() { // FONCTION dragStart
     this.className += ' tenu'; //ajoute la class 'tenu' à l'objet actuel
     lastg = this;
-
+    now = 'g';
 
     //setTimeout(() => (this.className = 'invisible'), 0); //permet de rendre l'objet invisible lorsqu'on drag sinon il reste afficher à son ancienne pos
 }
@@ -60,68 +61,66 @@ function dragOverg(e) {
 }
 
 function dragEnterg(e) {
+    if(now === 'g'){
+        e.preventDefault(); //retire l'action par default de dragEnter qu'on ne veut pas
+        
+        if (this === trackg[1]) { //Retirer élément
 
-    e.preventDefault(); //retire l'action par default de dragEnter qu'on ne veut pas
-    
-    if (this === trackg[1]) { //Retirer élément
-
-        securiteg = false;
-        trackg[0].classList.remove("g");
-        trackg[0].className += ' unused';
-        lvlg = parseInt(trackg[0].id);
-        trackg[0].setAttribute('draggable', false);
-        trackg.shift();
-        dragEnterg(e);
-    } else if ((trackg.indexOf(this) === -1) && securiteg) {
-        let voising = false;
-        if (this.classList.contains('unused')) {
-            if (lvlg <= parseInt(this.id)) {
-                if (this.cellIndex - 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex - 1 >= 0) {
-                    if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex - 1].classList.contains("g")) {
-                        voising = true;
-                        
+            securiteg = false;
+            trackg[0].classList.remove("g");
+            trackg[0].className += ' unused';
+            lvlg = parseInt(trackg[0].id);
+            trackg[0].setAttribute('draggable', false);
+            trackg.shift();
+            dragEnterg(e);
+        } else if ((trackg.indexOf(this) === -1) && securiteg) {
+            let voising = false;
+            if (this.classList.contains('unused')) {
+                if (lvlg <= parseInt(this.id)) {
+                    if (this.cellIndex - 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex - 1 >= 0) {
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex - 1].classList.contains("g")) {
+                            voising = true;
+                            
+                        }
                     }
-                }
-                if (this.cellIndex + 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex + 1 >= 0) {
+                    if (this.cellIndex + 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex + 1 >= 0) {
+                        
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex + 1].classList.contains("g")) {
+                            voising = true;
+                            
+                        }
+                    }
+                    if (this.parentNode.rowIndex - 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex - 1 >= 0) {
                     
-                    if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex + 1].classList.contains("g")) {
-                        voising = true;
-                        
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex - 1].cells[this.cellIndex].classList.contains("g")) {
+                            voising = true;
+                            
+                        }
                     }
-                }
-                if (this.parentNode.rowIndex - 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex - 1 >= 0) {
-                   
-                    if (document.getElementById("tableau").rows[this.parentNode.rowIndex - 1].cells[this.cellIndex].classList.contains("g")) {
-                        voising = true;
+                    if (this.parentNode.rowIndex + 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex + 1 >= 0) {
                         
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex + 1].cells[this.cellIndex].classList.contains("g")) {
+                            voising = true;
+                            
+                        }
                     }
-                }
-                if (this.parentNode.rowIndex + 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex + 1 >= 0) {
-                    
-                    if (document.getElementById("tableau").rows[this.parentNode.rowIndex + 1].cells[this.cellIndex].classList.contains("g")) {
-                        voising = true;
+                    if (voising == true) {
+                        ajoutg++;
+                        next_tourg = false;
+                        this.className += ' g'; //ajoute la class 'r' à l'objet actuel
+                        this.classList.remove("unused");
+                        lastg = this;
+                        lvlg = parseInt(this.id);
+                        trackg[0].setAttribute('draggable', false);
+                        trackg.unshift(this);
+                        trackg[0].setAttribute('draggable', true);
                         
-                    }
-                }
-                if (voising == true) {
-                    ajoutg++;
-                    next_tourg = false;
-                    this.className += ' g'; //ajoute la class 'r' à l'objet actuel
-                    this.classList.remove("unused");
-                    lastg = this;
-                    lvlg = parseInt(this.id);
-                    trackg[0].setAttribute('draggable', false);
-                    trackg.unshift(this);
-                    trackg[0].setAttribute('draggable', true);
-                    if (document.querySelector('.unused') === null) {
-                        //Victoire
-                        document.location.href = "index.php";
                     }
                 }
             }
+        } else if (!securiteg) {
+            securiteg = true;
         }
-    } else if (!securiteg) {
-        securiteg = true;
     }
 
 
@@ -130,6 +129,7 @@ function dragEnterg(e) {
 
 
 function dragLeaveg() {
+    if(now === 'g'){
     
     if (trackg.length === 2 && ajoutg === 0) {
         trackg[0].classList.remove("g");
@@ -166,7 +166,7 @@ function dragLeaveg() {
 
 
 
-
+    }
 }
 
 
