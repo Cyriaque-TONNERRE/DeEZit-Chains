@@ -32,18 +32,18 @@
             <?php
             if (isset($_COOKIE["sound"])) {
                 echo "<input type='range' id='sound' name='sound'
-                min='0' max='100' value='$_COOKIE[sound]' step='10'>
-                <label for='sound'>Sound</label>
-                <input type='submit' name='Envoyer' Value='Envoyer'/>";
+                min='0' max='100' value='$_COOKIE[barsound]' step='10'>
+                <label for='sound'>Music : $_COOKIE[barsound] %</label>";
             }
             else {
                 echo "<input type='range' id='sound' name='sound'
-                min='0' max='1' value='0.5' step='10'>
-                <label for='sound'>Sound</label>
-                <input type='submit' name='Envoyer' Value='Envoyer'/>";
+                min='0' max='100' value='50' step='10'>
+                <label for='sound'>Music : 50 %</label>";
             }
 
             ?>
+            <br>
+            <input type='submit' name='Envoyer' Value='Envoyer'/>
         </fieldset>
     </form>
 </main>
