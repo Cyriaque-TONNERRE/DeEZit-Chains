@@ -159,6 +159,7 @@ function dragLeaveg() {
 
         if (trackg.length === 1) {
             startg.setAttribute('draggable', true);
+            blocker = false;
         }
 
         if (this.classList.contains("case")) {} else {

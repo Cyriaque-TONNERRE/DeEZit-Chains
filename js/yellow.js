@@ -157,6 +157,7 @@ function dragLeavey() {
 
         if (tracky.length === 1) {
             starty.setAttribute('draggable', true);
+            blocker = false;
         }
 
         if (this.classList.contains("case")) {} else {

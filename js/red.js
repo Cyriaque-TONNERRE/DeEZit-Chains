@@ -59,6 +59,7 @@ for (const vide of box) { //créer un event pour tout les élément de box
 
 function dragOverr(e) {
 
+
     e.preventDefault(); //retire l'action par default de dragOver qu'on ne veut pas
     if (!blocker) {
         if (this.classList.contains('r')) {
@@ -79,12 +80,12 @@ function dragOverr(e) {
         }
 
     }
-    console.log(now);
 
 
 }
 
 function dragEnterr(e) {
+    
     if (now === 'r') {
 
         e.preventDefault(); //retire l'action par default de dragEnter qu'on ne veut pas
@@ -94,7 +95,7 @@ function dragEnterr(e) {
             securiter = false;
             trackr[0].classList.remove("r");
             trackr[0].className += ' unused';
-            lvlr = parseInt(trackr[0].id);
+            lvlr = parseInt(trackr[1].id);
             trackr[0].setAttribute('draggable', false);
             trackr.shift();
             dragEnterr(e);
@@ -149,6 +150,7 @@ function dragEnterr(e) {
     }
 
 
+
 }
 
 
@@ -182,6 +184,7 @@ function dragLeaver() {
 
         if (trackr.length === 1) {
             startr.setAttribute('draggable', true);
+            blocker = false;
         }
 
         if (this.classList.contains("case")) {} else {
@@ -198,7 +201,6 @@ function dragLeaver() {
 
 
 function dragDropr() {
-
     if (trackr.length !== 1) {
         trackr[0].setAttribute('draggable', true);
     } else {

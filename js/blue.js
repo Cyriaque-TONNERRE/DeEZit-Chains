@@ -147,6 +147,7 @@ function dragLeave() {
 
         if (trackb.length === 1) {
             startb.setAttribute('draggable', true);
+            blocker = false;
         }
 
         if (this.classList.contains("case")) {} else {
