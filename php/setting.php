@@ -1,7 +1,27 @@
-<?php require './header.php'; ?>
+<?php require './header.php';?>
 
 <main>
-    <form method="post" action="chgmt_setting.php">
+    Theme:
+    <span id="Dark">
+        Light
+    </span>
+    <script>
+        document.getElementById("Dark").onclick = function () {
+            if (document.getElementById("Dark").innerHTML === 'Dark') {
+                document.getElementById("header_theme").href = '../css/dark_header.css';
+                document.getElementById("body_theme").href = `../css/dark_setting.css`;
+                document.cookie = "theme=dark";
+                document.getElementById("Dark").innerHTML = 'Light';
+            } else {
+                document.getElementById("header_theme").href = '../css/header.css';
+                document.getElementById("body_theme").href = `../css/setting.css`;
+                document.cookie = "theme=light";
+                document.getElementById("Dark").innerHTML = 'Dark';
+            }
+
+
+        }
+    </script>
         <fieldset>
             <legend>SETTINGS</legend>
             <label>Theme :</label>
