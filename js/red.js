@@ -79,6 +79,7 @@ function dragOverr(e) {
         }
 
     }
+    console.log(now);
 
 
 }
@@ -103,33 +104,33 @@ function dragEnterr(e) {
                 if (lvlr <= parseInt(this.id)) {
                     if (this.cellIndex - 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex - 1 >= 0) { //cell - 1
 
-                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex - 1] == document.getElementById("tableau").rows[trackr[0].parentNode.rowIndex].cells[trackr[0].cellIndex]) {
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex - 1] === document.getElementById("tableau").rows[trackr[0].parentNode.rowIndex].cells[trackr[0].cellIndex]) {
                             voisinr = true;
 
                         }
                     }
                     if (this.cellIndex + 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex + 1 >= 0) { //cel + 1
 
-                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex + 1] == document.getElementById("tableau").rows[trackr[0].parentNode.rowIndex].cells[trackr[0].cellIndex]) {
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex + 1] === document.getElementById("tableau").rows[trackr[0].parentNode.rowIndex].cells[trackr[0].cellIndex]) {
                             voisinr = true;
 
                         }
                     }
                     if (this.parentNode.rowIndex - 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex - 1 >= 0) {
 
-                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex - 1].cells[this.cellIndex] == document.getElementById("tableau").rows[trackr[0].parentNode.rowIndex].cells[trackr[0].cellIndex]) {
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex - 1].cells[this.cellIndex] === document.getElementById("tableau").rows[trackr[0].parentNode.rowIndex].cells[trackr[0].cellIndex]) {
                             voisinr = true;
 
                         }
                     }
                     if (this.parentNode.rowIndex + 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex + 1 >= 0) {
 
-                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex + 1].cells[this.cellIndex] == document.getElementById("tableau").rows[trackr[0].parentNode.rowIndex].cells[trackr[0].cellIndex]) {
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex + 1].cells[this.cellIndex] === document.getElementById("tableau").rows[trackr[0].parentNode.rowIndex].cells[trackr[0].cellIndex]) {
                             voisinr = true;
 
                         }
                     }
-                    if (voisinr == true) {
+                    if (voisinr === true) {
                         ajoutr++;
                         next_tourr = false;
                         this.className += ' r'; //ajoute la class 'r' à l'objet actuel
@@ -204,7 +205,7 @@ function dragDropr() {
         startr.setAttribute('draggable', true);
     }
     blocker = false;
-    console.log("je lache");
+
 
     if (document.querySelector('.unused') === null) {
         //Victoire
