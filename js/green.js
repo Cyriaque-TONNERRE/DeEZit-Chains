@@ -18,9 +18,11 @@ green.addEventListener('dragstart', dragStartg); //event: lorsqu'on commence a d
 green.addEventListener('dragend', dragEndg); //event: lorsqu'on lache l'objet appel la fonction dargEnd
 
 function dragStartg() { // FONCTION dragStart
+    
     this.className += ' tenu'; //ajoute la class 'tenu' à l'objet actuel
     lastg = this;
     now = 'g';
+    blocker = true;
 
     //setTimeout(() => (this.className = 'invisible'), 0); //permet de rendre l'objet invisible lorsqu'on drag sinon il reste afficher à son ancienne pos
 }
