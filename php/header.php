@@ -10,17 +10,22 @@ $nom = explode('.', end($array))[0];?>
     <meta name="keywords" content="DeEZit, Chain, Game, Ez">
     <meta name="author" content="Ez Team">
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/header.css">
-    <?php echo "<link rel='stylesheet' href='../css/$nom.css'>" ?>
+    <link rel="stylesheet" href="../css/header.css" id="header_theme">
     <?php
     if (isset($_COOKIE["theme"])) {	//si le cookie existe
-        $theme = $_COOKIE["theme"];	//on récupère le theme choisi enregistré dans le cookie
+        if ($_COOKIE["theme"] == "dark") {	//si le cookie est égal à dark
+            echo "<link rel='stylesheet' href='../css/dark_header.css' id='header_theme'>";
+            echo "<link rel='stylesheet' href='../css/dark_$nom.css' id='body_theme'>";
+        } else {
+            echo "<link rel='stylesheet' href='../css/header.css' id='header_theme'>";
+            echo "<link rel='stylesheet' href='../css/$nom.css' id='body_theme'>";
+        }
+    } else {
+        echo "<link rel='stylesheet' href='../css/header.css' id='header_theme'>";
+        echo "<link rel='stylesheet' href='../css/$nom.css' id='body_theme'>";
     }
-    else{
-        $theme = "white";
-    }
+
     ?>
-    <?php echo "<link rel='stylesheet' href ='../css/$theme.css'/>" ?>
 
 
 

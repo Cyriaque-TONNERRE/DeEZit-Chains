@@ -1,0 +1,38 @@
+/*Reset CSS*/
+body {
+	background-color: #333333;
+}
+.gamemode {
+	text-align: center;
+	text-decoration: none;
+	font-family: Ezcriture, serif;
+	font-size: 2.4vw;
+	color: #ffffff;
+	background-color: #304468;
+	border : 0.3vw #255adf solid;
+	border-radius: 100vw;
+	width: 24vw;
+	height: 4vw;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 2vw;
+	padding-top: 1.8vw;
+}
+
+.gamemode:hover {
+	font-size: 2.5vw;
+	width: 27vw;
+	height: 4.7vw;
+	background-color: #214cb9;
+
+}
+
+.button {
+	padding-top: 2vw;
+	padding-bottom: 4.3vw;
+	display: grid;
+	grid-template-rows: 8vw 8vw 8vw 8vw;
+	align-items: center;
+	justify-items: center;
+	gap: 1vw;
+}

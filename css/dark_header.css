@@ -1,0 +1,93 @@
+@font-face {
+  font-family: "Ezcriture";
+  src: url("../font/rounded.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Rounded';
+  src: url('../font/almostseriousaccent.ttf') format('truetype');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.logo img{
+    width: auto;
+    height: 5vw;
+    margin-top: 0.5vw;
+    margin-left: 1vw;
+}
+
+.titre {
+  font-size: 2vw;
+  font-family: Ezcriture, monospace;
+  text-align: center;
+  padding-top: 1vw;
+  color: white;
+}
+
+.header {
+  background-color: #333333;
+}
+
+.header .login img, .header .login a img {
+  width: auto;
+  height: 4vw;
+  margin-top: 1vw;
+  filter: invert(63%) sepia(69%) saturate(3801%) hue-rotate(281deg) brightness(80%) contrast(95%);
+}
+
+.header .setting a img{
+  width: auto;
+  height: 4vw;
+  margin-top: 1vw;
+  filter: invert(85%) sepia(90%) saturate(5888%) hue-rotate(102deg) brightness(113%) contrast(101%);
+}
+
+
+.header {
+  display: grid;
+  grid-template-columns: 7vw 81vw 6vw 6vw;
+  grid-template-rows: 6vw;
+  box-shadow: 0 -1vw 1.3vw 0.3vw rgba(255, 255, 255, 0.75);
+  -webkit-box-shadow: 0 -1vw 1.6vw 0.3vw rgba(255, 255, 255, 0.75);
+  -moz-box-shadow: 0 -1vw 1.3vw 0.3vw rgba(255, 255, 255, 0.75);
+  overflow: hidden;
+}
+
+.pop-up {
+  display: none;
+  color: white;
+  background-color: #333333;
+  position: absolute;
+  z-index: 10;
+  border: 0.2vw #1c1c1c solid;
+  border-radius: 1vw;
+  padding: 1vw;
+  font-size: 1.2vw;
+  font-family: Rounded, monospace;
+}
+
+.pop-up a {
+  text-decoration: none;
+  color: white;
+  display: block;
+  width: 8vw;
+  height: 2vw;
+  margin-top: 1vw;
+  padding-top: 0.38vw;
+  border-radius: 2vw;
+  border-color: #1c1c1c;
+  border-style: solid;
+  border-width: 0.2vw;
+  text-align: center;
+  font-family: rounded, serif;
+  font-size: 1vw;
+  background-color: #c94db2;
+}
+
+.header .login:hover .pop-up {
+  display: block;
+}
