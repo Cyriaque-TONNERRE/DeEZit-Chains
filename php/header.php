@@ -30,7 +30,6 @@ $nom = explode('.', end($array))[0];?>
 <body>
 
 <header>
-
     <div class="header">
         <div class="logo">
             <img src="../image/test.gif" alt="logo">
@@ -38,25 +37,15 @@ $nom = explode('.', end($array))[0];?>
         <div class="titre">
             <h1> DeEZit Chain </h1>
         </div>
-        <?php
-        if (!isset($_SESSION['username'])) {
-            echo '<div class="poubelle"></div>';
-        }
-        ?>
         <div class="login">
             <a href="login.php">
                 <img src="../image/login.svg" alt="login">
             </a>
         </div>
-        <?php
-        if (isset($_SESSION['username'])) {
-            echo '<div class="setting">
-                    <a href="setting.php">
-                        <img src="../image/setting.svg" alt="setting">
-                    </a>
-                </div>';
-        }
-        ?>
+        <div class="setting">
+            <a href="setting.php">
+                <img src="../image/setting.svg" alt="setting">
+            </a>
+        </div>
     </div>
-
 </header>
