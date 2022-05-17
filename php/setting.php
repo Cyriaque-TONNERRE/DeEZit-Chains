@@ -25,7 +25,7 @@
                 }
             }
         </script>
-        <br>
+        <span class="Sound_title">Sound:</span>
         <input type="range" min="0" max="100" id="Sound">
         <script>
             document.getElementById("Sound").oninput = function () {

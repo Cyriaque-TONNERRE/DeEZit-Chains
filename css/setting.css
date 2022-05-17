@@ -42,3 +42,37 @@
     padding-bottom: 0.8vw;
     font-size: 3vw;
 }
+
+
+#Sound {
+    display: block;
+    -webkit-appearance: none;  /* Override default CSS styles */
+    width: 80%; /* Full-width */
+    height: 1vw; /* Specified height */
+    background: #ffffff; /* Grey background */
+    outline: none; /* Remove outline */
+    border: 0.2vw solid #e3e3e3;
+    border-radius: 1vw;
+    margin-top: 1vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#Sound::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 1.4vw; /* Set a specific slider handle width */
+    height: 1.4vw; /* Slider handle height */
+    background: #36b24d; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
+#Sound::-moz-range-thumb {
+    width: 1.5vw; /* Set a specific slider handle width */
+    height: 1.5vw; /* Slider handle height */
+    border-radius: 1vw;
+    border: #e3e3e3 solid 0.2vw;
+    background: #36b24d; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
