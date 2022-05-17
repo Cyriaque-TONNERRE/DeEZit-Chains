@@ -10,30 +10,22 @@ securiter = true;
 next_tourr = false;
 ajoutr = -1;
 blocker = false;
-var start = null,
-    delta = null;
-let posxr = 0;
-let posyr = 0;
+let delta = null;
+let posx = 0;
+let posy = 0;
 
+red.addEventListener('drag', dragr);
 red.addEventListener('dragstart', dragStartr); //event: lorsqu'on commence a drag appel la fonction dragStart
 red.addEventListener('dragend', dragEndr); //event: lorsqu'on lache l'objet appel la fonction dargEnd
-red.addEventListener('drag', drag);
 //green.addEventListener('dragstart', dragStart); //event: lorsqu'on commence a drag appel la fonction dragStart
 //green.addEventListener('dragend', dragEnd); //event: lorsqu'on lache l'objet appel la fonction dargEnd
 
-function drag(e) {
-    e.preventDefault();
-    delta = { x: posxr - e.clientX, y: posyr - e.clientY };
-    posxr = e.clientX;
-    posyr = e.clientY;
-    console.log(delta);
 
-    //console.log(posxr, posyr);
-}
+
 
 function dragStartr(e) { // FONCTION dragStart
-    posxr = e.clientX;
-    posyr = e.clientY;
+    // posxr = e.clientX;
+    // posyr = e.clientY;
     this.className += ' tenu'; //ajoute la class 'tenu' à l'objet actuel
     now = 'r';
     lastr = this;
@@ -46,7 +38,6 @@ function dragStartr(e) { // FONCTION dragStart
 
 function dragEndr(e) { //FONCTION dragEnd
     //this.className = 'base'; //define la class de l'objet actuel a 'base'
-    start = delta = null;
     this.classList.remove("tenu");
     if (trackr.length === 1) {
         this.setAttribute('draggable', true);
@@ -70,12 +61,22 @@ for (const vide of box) { //créer un event pour tout les élément de box
 
     vide.addEventListener('drop', dragDropr); //event: lorsqu'on drop l'item
 
+    vide.addEventListener('drag', dragr);
 }
 
+function dragr(e) {
+    delta = { x: posx - e.clientX, y: posy - e.clientY };
+    posx = e.clientX;
+    posy = e.clientY;
+    console.log(delta);
+}
 
 function dragOverr(e) {
 
     e.preventDefault(); //retire l'action par default de dragOver qu'on ne veut pas
+    // deltar = { x: posxr - e.clientX, y: posyr - e.clientY };
+    // posxr = e.clientX;
+    // posyr = e.clientY;
     if (!blocker) {
         if (this.classList.contains('r')) {
             now = 'r';
@@ -100,70 +101,72 @@ function dragOverr(e) {
 }
 
 function dragEnterr(e) {
+
     if (now === 'r') {
+        if ((delta.x > -2 && delta.x < 2) && (delta.y > -2 && delta.y < 2)) {
+            e.preventDefault(); //retire l'action par default de dragEnter qu'on ne veut pas
 
-        e.preventDefault(); //retire l'action par default de dragEnter qu'on ne veut pas
 
-        if (this === trackr[1]) { //Retirer élément
+            if (this === trackr[1]) { //Retirer élément
 
-            securiter = false;
-            trackr[0].classList.remove("r");
-            trackr[0].className += ' unused';
-            lvlr = parseInt(trackr[1].id);
-            trackr[0].setAttribute('draggable', false);
-            trackr.shift();
-            dragEnterr(e);
-        } else if ((trackr.indexOf(this) === -1) && securiter) {
-            let voisinr = false;
-            if (this.classList.contains('unused')) {
-                if (lvlr <= parseInt(this.id)) {
-                    if (this.cellIndex - 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex - 1 >= 0) { //cell - 1
+                securiter = false;
+                trackr[0].classList.remove("r");
+                trackr[0].className += ' unused';
+                lvlr = parseInt(trackr[1].id);
+                trackr[0].setAttribute('draggable', false);
+                trackr.shift();
+                dragEnterr(e);
+            } else if ((trackr.indexOf(this) === -1) && securiter) {
+                let voisinr = false;
+                if (this.classList.contains('unused')) {
+                    if (lvlr <= parseInt(this.id)) {
+                        if (this.cellIndex - 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex - 1 >= 0) { //cell - 1
 
-                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex - 1] === document.getElementById("tableau").rows[trackr[0].parentNode.rowIndex].cells[trackr[0].cellIndex]) {
-                            voisinr = true;
+                            if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex - 1] === document.getElementById("tableau").rows[trackr[0].parentNode.rowIndex].cells[trackr[0].cellIndex]) {
+                                voisinr = true;
 
+                            }
                         }
-                    }
-                    if (this.cellIndex + 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex + 1 >= 0) { //cel + 1
+                        if (this.cellIndex + 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex + 1 >= 0) { //cel + 1
 
-                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex + 1] === document.getElementById("tableau").rows[trackr[0].parentNode.rowIndex].cells[trackr[0].cellIndex]) {
-                            voisinr = true;
+                            if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex + 1] === document.getElementById("tableau").rows[trackr[0].parentNode.rowIndex].cells[trackr[0].cellIndex]) {
+                                voisinr = true;
 
+                            }
                         }
-                    }
-                    if (this.parentNode.rowIndex - 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex - 1 >= 0) {
+                        if (this.parentNode.rowIndex - 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex - 1 >= 0) {
 
-                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex - 1].cells[this.cellIndex] === document.getElementById("tableau").rows[trackr[0].parentNode.rowIndex].cells[trackr[0].cellIndex]) {
-                            voisinr = true;
+                            if (document.getElementById("tableau").rows[this.parentNode.rowIndex - 1].cells[this.cellIndex] === document.getElementById("tableau").rows[trackr[0].parentNode.rowIndex].cells[trackr[0].cellIndex]) {
+                                voisinr = true;
 
+                            }
                         }
-                    }
-                    if (this.parentNode.rowIndex + 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex + 1 >= 0) {
+                        if (this.parentNode.rowIndex + 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex + 1 >= 0) {
 
-                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex + 1].cells[this.cellIndex] === document.getElementById("tableau").rows[trackr[0].parentNode.rowIndex].cells[trackr[0].cellIndex]) {
-                            voisinr = true;
+                            if (document.getElementById("tableau").rows[this.parentNode.rowIndex + 1].cells[this.cellIndex] === document.getElementById("tableau").rows[trackr[0].parentNode.rowIndex].cells[trackr[0].cellIndex]) {
+                                voisinr = true;
 
+                            }
                         }
-                    }
-                    if (voisinr === true) {
-                        ajoutr++;
-                        next_tourr = false;
-                        this.className += ' r'; //ajoute la class 'r' à l'objet actuel
-                        this.classList.remove("unused");
-                        lastr = this;
-                        lvlr = parseInt(this.id);
-                        trackr[0].setAttribute('draggable', false);
-                        trackr.unshift(this);
-                        trackr[0].setAttribute('draggable', true);
+                        if (voisinr === true) {
+                            ajoutr++;
+                            next_tourr = false;
+                            this.className += ' r'; //ajoute la class 'r' à l'objet actuel
+                            this.classList.remove("unused");
+                            lastr = this;
+                            lvlr = parseInt(this.id);
+                            trackr[0].setAttribute('draggable', false);
+                            trackr.unshift(this);
+                            trackr[0].setAttribute('draggable', true);
+                        }
                     }
                 }
+            } else if (!securiter) {
+                securiter = true;
             }
-        } else if (!securiter) {
-            securiter = true;
-        }
+        } else console.log("flash");
+
     }
-
-
 
 }
 
