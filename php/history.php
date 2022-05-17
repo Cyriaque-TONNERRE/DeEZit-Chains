@@ -7,7 +7,7 @@
     <meta name="keywords" content="DeEZit, Chain, Game, Ez">
     <meta name="author" content="Ez Team">
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/index.css">
+
 	<link rel="stylesheet" href="../css/history.css"/>
 </head>
 	
@@ -33,10 +33,18 @@
 
     <main>
 
-        <div>
+        <div id="table">
             <?php
-            for ($i = 1; $i <= 20;$i++) {
-                echo "<a id='$i' class='level' href='affichage_history.php?id=$i'>$i</a><br>";
+            for($j=0; $j < 4; $j++){
+                echo "<div >";
+
+            for ($i = 0; $i < 5;$i++) {
+                $h = 5 * $j + $i + 1;
+                echo "<div class='line$j' class='col$i'><a href='affichage_history.php?id=$h'>
+                <input class ='btn' type='button' value='$h' /></a></div><br><br>";
+
+            }
+            echo "</div>";
             }
             ?>
         </div>

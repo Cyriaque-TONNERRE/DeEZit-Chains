@@ -2,8 +2,6 @@
 * {
     margin: 0px;
     padding: 0px;
-    color: var(--txtcolor);
-    background-color: var(--backcolor);
 }
 
 /*Variables*/
@@ -17,22 +15,67 @@
     src: url("../font/rounded.ttf") format("truetype");
 }
 
-a{
-    text-decoration: none;
-}
-.level{
-    display:inline-grid;
-    grid-template-columns: 20vw 20vw 20vw 20vw 20vw;
-    grid-template-rows: 20%;
-    text-align: center;
-    text-decoration: none;
-    font-family: Ezcriture;
-    font-size: 1vw;
-    color: black;
-    background-color: #CFBB97;
-    border : 2px goldenrod solid;
-    border-radius: 100px;
-    padding: 1.3vw;
-    margin: 0.5vw 37vw;
 
+#table{
+    display:grid;
+    grid-template-columns: repeat(5, 10vw);
+    grid-template-rows: repeat(4,15vh);
+    grid-gap: 1vw;
+    margin-right: auto;
+    margin-left: auto;
+    horiz-align: center;
+    vertical-align: auto;
+}
+
+#line{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.col0{
+    grid-column: 0;
+}
+.col1{
+    grid-column: 1;
+}
+.col2{
+    grid-column: 2;
+}
+.col3{
+    grid-column: 3;
+}
+.col4{
+    grid-column: 4;
+}
+
+.line0{
+    grid-row: 0;
+}
+.line1{
+    grid-row:1;
+}
+.line2{
+    grid-row: 2;
+}
+.line3{
+    grid-row: 3;
+}
+
+.btn{
+    border: 0.1vw solid #ddd;
+    background-color: #f0f0f0;
+    padding: 2vw 3vw;
+    border-radius: 1vw;
+    -o-transition: background-color .2s ease-in;
+    -moz-transition: background-color .2s ease-in;
+    -webkit-transition: background-color .2s ease-in;
+    transition: background-color .2s ease-in;
+}
+
+.btn:hover {
+    background-color: #e5e5e5;
+}
+
+.btn:active {
+    background-color: #ccc;
 }
