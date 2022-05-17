@@ -11,7 +11,7 @@
             Adventure Mode
         </a>
         <a class="gamemode" href="time.php">
-            Time Mode
+            Time Trial
         </a>
         <a class="gamemode" href="creative.php">
             Creative Mode
