@@ -67,135 +67,117 @@ function dragOver(e) {
 
 function dragEnter(e) {
 
-    <<
-    << << < Updated upstream
-    securiteb = false;
-    trackb[0].classList.remove("b");
-    trackb[0].className += ' unused';
-    lvlb = parseInt(trackb[1].id);
-    trackb[0].setAttribute('draggable', false);
-    trackb.shift();
-    dragEnter(e);
-} else if ((trackb.indexOf(this) === -1) && securiteb) {
-    let voisinb = false;
-    if (this.classList.contains("unused")) {
-        if (lvlb <= parseInt(this.id)) {
-            if (this.cellIndex - 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex - 1 >= 0) {
-                if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex - 1] === document.getElementById("tableau").rows[trackb[0].parentNode.rowIndex].cells[trackb[0].cellIndex]) {
-                    voisinb = true; ===
-                    === =
-                    if (now === 'b') {
-                        if ((delta.x > -2 && delta.x < 2) && (delta.y > -2 && delta.y < 2)) {
-                            e.preventDefault(); //retire l'action par default de dragEnter qu'on ne veut pas
-                            if (this === trackb[1]) { //Retirer élément
+    if (now === 'b') {
+        if ((delta.x > -2 && delta.x < 2) && (delta.y > -2 && delta.y < 2)) {
+            e.preventDefault(); //retire l'action par default de dragEnter qu'on ne veut pas
+            if (this === trackb[1]) { //Retirer élément
 
-                                securiteb = false;
-                                trackb[0].classList.remove("b");
-                                trackb[0].className += ' unused';
-                                lvlb = parseInt(trackr[1].id);
-                                trackb[0].setAttribute('draggable', false);
-                                trackb.shift();
-                                dragEnter(e);
-                            } else if ((trackb.indexOf(this) === -1) && securiteb) {
-                                let voisinb = false;
-                                if (this.classList.contains("unused")) {
-                                    if (lvlb <= parseInt(this.id)) {
-                                        if (this.cellIndex - 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex - 1 >= 0) {
-                                            if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex - 1] === document.getElementById("tableau").rows[trackb[0].parentNode.rowIndex].cells[trackb[0].cellIndex]) {
-                                                voisinb = true;
-                                            } >>>
-                                            >>> > Stashed changes
-                                        }
-                                        if (this.cellIndex + 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex + 1 >= 0) {
-                                            if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex + 1] === document.getElementById("tableau").rows[trackb[0].parentNode.rowIndex].cells[trackb[0].cellIndex]) {
-                                                voisinb = true;
-                                            }
-                                        }
-                                        if (this.parentNode.rowIndex - 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex - 1 >= 0) {
-                                            if (document.getElementById("tableau").rows[this.parentNode.rowIndex - 1].cells[this.cellIndex] === document.getElementById("tableau").rows[trackb[0].parentNode.rowIndex].cells[trackb[0].cellIndex]) {
-                                                voisinb = true;
-                                            }
-                                        }
-                                        if (this.parentNode.rowIndex + 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex + 1 >= 0) {
-                                            if (document.getElementById("tableau").rows[this.parentNode.rowIndex + 1].cells[this.cellIndex] === document.getElementById("tableau").rows[trackb[0].parentNode.rowIndex].cells[trackb[0].cellIndex]) {
-                                                voisinb = true;
-                                            }
-                                        }
-                                        if (voisinb === true) {
-                                            ajoutb++;
-                                            next_tourb = false;
-                                            this.className += ' b'; //ajoute la class 'b' à l'objet actuel
-                                            this.classList.remove("unused");
-                                            lastb = this;
-                                            lvlb = parseInt(this.id);
-                                            trackb[0].setAttribute('draggable', false);
-                                            trackb.unshift(this);
-                                            trackb[0].setAttribute('draggable', true);
-
-                                        }
-                                    }
-                                }
-                            } else if (!securiteb) {
-                                securiteb = true;
+                securiteb = false;
+                trackb[0].classList.remove("b");
+                trackb[0].className += ' unused';
+                lvlb = parseInt(trackr[1].id);
+                trackb[0].setAttribute('draggable', false);
+                trackb.shift();
+                dragEnter(e);
+            } else if ((trackb.indexOf(this) === -1) && securiteb) {
+                let voisinb = false;
+                if (this.classList.contains("unused")) {
+                    if (lvlb <= parseInt(this.id)) {
+                        if (this.cellIndex - 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex - 1 >= 0) {
+                            if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex - 1] === document.getElementById("tableau").rows[trackb[0].parentNode.rowIndex].cells[trackb[0].cellIndex]) {
+                                voisinb = true;
                             }
-                        } else console.log("flash");
-                    }
-
-                }
-
-
-
-                function dragLeave() {
-                    if (now === 'b') {
-                        if (trackb.length === 2 && ajoutb === 0) {
-                            trackb[0].classList.remove("b");
-                            trackb[0].className += ' unused';
-                            trackb[0].setAttribute('draggable', false);
-                            startb.setAttribute('draggable', true);
-                            trackb.shift();
-                            lvlb = 1;
-                            ajoutb = -1;
-                        } else if (next_tourb) {
-                            trackb[0].classList.remove("b");
-                            trackb[0].className += ' unused';
-                            trackb[0].setAttribute('draggable', false);
-                            startb.setAttribute('draggable', true);
-                            trackb.shift();
-                            lvlb = 1;
-                            ajoutb = -1;
+                        }
+                        if (this.cellIndex + 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex + 1 >= 0) {
+                            if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex + 1] === document.getElementById("tableau").rows[trackb[0].parentNode.rowIndex].cells[trackb[0].cellIndex]) {
+                                voisinb = true;
+                            }
+                        }
+                        if (this.parentNode.rowIndex - 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex - 1 >= 0) {
+                            if (document.getElementById("tableau").rows[this.parentNode.rowIndex - 1].cells[this.cellIndex] === document.getElementById("tableau").rows[trackb[0].parentNode.rowIndex].cells[trackb[0].cellIndex]) {
+                                voisinb = true;
+                            }
+                        }
+                        if (this.parentNode.rowIndex + 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex + 1 >= 0) {
+                            if (document.getElementById("tableau").rows[this.parentNode.rowIndex + 1].cells[this.cellIndex] === document.getElementById("tableau").rows[trackb[0].parentNode.rowIndex].cells[trackb[0].cellIndex]) {
+                                voisinb = true;
+                            }
+                        }
+                        if (voisinb === true) {
+                            ajoutb++;
                             next_tourb = false;
+                            this.className += ' b'; //ajoute la class 'b' à l'objet actuel
+                            this.classList.remove("unused");
+                            lastb = this;
+                            lvlb = parseInt(this.id);
+                            trackb[0].setAttribute('draggable', false);
+                            trackb.unshift(this);
+                            trackb[0].setAttribute('draggable', true);
 
-                        }
-                        if (trackb.length === 2) {
-                            next_tourb = true;
-                        }
-
-
-                        if (trackb.length === 1) {
-                            startb.setAttribute('draggable', true);
-                            blocker = false;
-                        }
-
-                        if (this.classList.contains("case")) {} else {
-                            this.className += ' case'; //définie la class de l'objet actuel à ' case'
                         }
                     }
-
-
-
-
-
                 }
+            } else if (!securiteb) {
+                securiteb = true;
+            }
+        } else console.log("flash");
+    }
+
+}
 
 
 
-                function dragDrop() {
-                    if (trackb.length !== 1) {
-                        trackb[0].setAttribute('draggable', true);
-                    } else {
-                        startb.setAttribute('draggable', true);
-                    }
+function dragLeave() {
+    if (now === 'b') {
+        if (trackb.length === 2 && ajoutb === 0) {
+            trackb[0].classList.remove("b");
+            trackb[0].className += ' unused';
+            trackb[0].setAttribute('draggable', false);
+            startb.setAttribute('draggable', true);
+            trackb.shift();
+            lvlb = 1;
+            ajoutb = -1;
+        } else if (next_tourb) {
+            trackb[0].classList.remove("b");
+            trackb[0].className += ' unused';
+            trackb[0].setAttribute('draggable', false);
+            startb.setAttribute('draggable', true);
+            trackb.shift();
+            lvlb = 1;
+            ajoutb = -1;
+            next_tourb = false;
 
-                    //this.className += 'case'; //définie la class de l'objet actuel à ' case'
-                    //this.append(red); //change la position de la base à l'élément actuel
-                }
+        }
+        if (trackb.length === 2) {
+            next_tourb = true;
+        }
+
+
+        if (trackb.length === 1) {
+            startb.setAttribute('draggable', true);
+            blocker = false;
+        }
+
+        if (this.classList.contains("case")) {} else {
+            this.className += ' case'; //définie la class de l'objet actuel à ' case'
+        }
+    }
+
+
+
+
+
+}
+
+
+
+function dragDrop() {
+    if (trackb.length !== 1) {
+        trackb[0].setAttribute('draggable', true);
+    } else {
+        startb.setAttribute('draggable', true);
+    }
+
+    //this.className += 'case'; //définie la class de l'objet actuel à ' case'
+    //this.append(red); //change la position de la base à l'élément actuel
+}
