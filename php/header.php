@@ -34,6 +34,47 @@ $nom = explode('.', end($array))[0];?>
 
 <body>
 
+<audio id="bgsound" autoplay loop hidden>
+    <source src="../sound/LANETROTRO.mp3">
+    Your browser does not support the audio
+</audio>
+
+<script>
+    function getCookie(cookieName) {
+        const name = cookieName + "=";
+        const ca = document.cookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            const c = ca[i].trim();
+            if ((c.indexOf(name)) === 0) {
+                console.log('found')
+                return c.substr(name.length);
+            }
+
+        }
+        console.log('not found')
+        return null;
+    }
+
+    currenTime = getCookie('currentTime');
+    if (currenTime !== null) {
+        console.log('recorded time: ' + currenTime);
+        document.getElementById('bgsound').currentTime = currenTime;
+    }
+
+    function setVolume() {
+        const monElementAudio = document.getElementById('bgsound');
+        monElementAudio.volume = getCookie('volume');
+    }
+
+    addEventListener('click', event => {
+        //enregistrer monElementAudio.currentTime dans un cookie
+        document.cookie = `currentTime=${document.getElementById('bgsound').currentTime}; expires=${new Date(new Date().getTime() + 31536000000).toUTCString()}; path=/`;
+        console.log(document.getElementById('bgsound').currentTime);
+        console.log(document.cookie);
+    })
+
+</script>
+
 <header>
     <div class="header">
         <div class="logo">
