@@ -9,7 +9,7 @@ next_tourb = false;
 ajoutb = -1;
 
 
-
+blue.addEventListener('drag', dragb);
 blue.addEventListener('dragstart', dragStart); //event: lorsqu'on commence a drag appel la fonction dragStart
 blue.addEventListener('dragend', dragEnd); //event: lorsqu'on lache l'objet appel la fonction dargEnd
 
@@ -48,9 +48,16 @@ for (const vide of box) { //créer un event pour tout les élément de box
 
     vide.addEventListener('drop', dragDrop); //event: lorsqu'on drop l'item
 
+    vide.addEventListener('drag', dragb);
 
 }
 
+function dragb(e) {
+    delta = { x: posx - e.clientX, y: posy - e.clientY };
+    posx = e.clientX;
+    posy = e.clientY;
+    // console.log(deltar);
+}
 
 
 function dragOver(e) {
@@ -59,11 +66,8 @@ function dragOver(e) {
 }
 
 function dragEnter(e) {
-    if (now === 'b') {
 
-        e.preventDefault(); //retire l'action par default de dragEnter qu'on ne veut pas
-        if (this === trackb[1]) { //Retirer élément
-
+<<<<<<< Updated upstream
             securiteb = false;
             trackb[0].classList.remove("b");
             trackb[0].className += ' unused';
@@ -78,42 +82,63 @@ function dragEnter(e) {
                     if (this.cellIndex - 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex - 1 >= 0) {
                         if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex - 1] === document.getElementById("tableau").rows[trackb[0].parentNode.rowIndex].cells[trackb[0].cellIndex]) {
                             voisinb = true;
-                        }
-                    }
-                    if (this.cellIndex + 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex + 1 >= 0) {
-                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex + 1] === document.getElementById("tableau").rows[trackb[0].parentNode.rowIndex].cells[trackb[0].cellIndex]) {
-                            voisinb = true;
-                        }
-                    }
-                    if (this.parentNode.rowIndex - 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex - 1 >= 0) {
-                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex - 1].cells[this.cellIndex] === document.getElementById("tableau").rows[trackb[0].parentNode.rowIndex].cells[trackb[0].cellIndex]) {
-                            voisinb = true;
-                        }
-                    }
-                    if (this.parentNode.rowIndex + 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex + 1 >= 0) {
-                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex + 1].cells[this.cellIndex] === document.getElementById("tableau").rows[trackb[0].parentNode.rowIndex].cells[trackb[0].cellIndex]) {
-                            voisinb = true;
-                        }
-                    }
-                    if (voisinb === true) {
-                        ajoutb++;
-                        next_tourb = false;
-                        this.className += ' b'; //ajoute la class 'b' à l'objet actuel
-                        this.classList.remove("unused");
-                        lastb = this;
-                        lvlb = parseInt(this.id);
-                        trackb[0].setAttribute('draggable', false);
-                        trackb.unshift(this);
-                        trackb[0].setAttribute('draggable', true);
+=======
+    if (now === 'b') {
+        if ((delta.x > -2 && delta.x < 2) && (delta.y > -2 && delta.y < 2)) {
+            e.preventDefault(); //retire l'action par default de dragEnter qu'on ne veut pas
+            if (this === trackb[1]) { //Retirer élément
 
+                securiteb = false;
+                trackb[0].classList.remove("b");
+                trackb[0].className += ' unused';
+                lvlb = parseInt(trackr[1].id);
+                trackb[0].setAttribute('draggable', false);
+                trackb.shift();
+                dragEnter(e);
+            } else if ((trackb.indexOf(this) === -1) && securiteb) {
+                let voisinb = false;
+                if (this.classList.contains("unused")) {
+                    if (lvlb <= parseInt(this.id)) {
+                        if (this.cellIndex - 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex - 1 >= 0) {
+                            if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex - 1] === document.getElementById("tableau").rows[trackb[0].parentNode.rowIndex].cells[trackb[0].cellIndex]) {
+                                voisinb = true;
+                            }
+>>>>>>> Stashed changes
+                        }
+                        if (this.cellIndex + 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex + 1 >= 0) {
+                            if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex + 1] === document.getElementById("tableau").rows[trackb[0].parentNode.rowIndex].cells[trackb[0].cellIndex]) {
+                                voisinb = true;
+                            }
+                        }
+                        if (this.parentNode.rowIndex - 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex - 1 >= 0) {
+                            if (document.getElementById("tableau").rows[this.parentNode.rowIndex - 1].cells[this.cellIndex] === document.getElementById("tableau").rows[trackb[0].parentNode.rowIndex].cells[trackb[0].cellIndex]) {
+                                voisinb = true;
+                            }
+                        }
+                        if (this.parentNode.rowIndex + 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex + 1 >= 0) {
+                            if (document.getElementById("tableau").rows[this.parentNode.rowIndex + 1].cells[this.cellIndex] === document.getElementById("tableau").rows[trackb[0].parentNode.rowIndex].cells[trackb[0].cellIndex]) {
+                                voisinb = true;
+                            }
+                        }
+                        if (voisinb === true) {
+                            ajoutb++;
+                            next_tourb = false;
+                            this.className += ' b'; //ajoute la class 'b' à l'objet actuel
+                            this.classList.remove("unused");
+                            lastb = this;
+                            lvlb = parseInt(this.id);
+                            trackb[0].setAttribute('draggable', false);
+                            trackb.unshift(this);
+                            trackb[0].setAttribute('draggable', true);
+
+                        }
                     }
                 }
+            } else if (!securiteb) {
+                securiteb = true;
             }
-        } else if (!securiteb) {
-            securiteb = true;
-        }
+        } else console.log("flash");
     }
-
 
 }
 
