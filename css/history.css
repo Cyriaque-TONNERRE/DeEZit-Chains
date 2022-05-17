@@ -18,8 +18,8 @@
 
 #table{
     display:grid;
-    grid-template-columns: repeat(5, 10vw);
-    grid-template-rows: repeat(4,15vh);
+    grid-template-columns: repeat(4, 10vw);
+    grid-template-rows: repeat(5,15vh);
     grid-gap: 1vw;
     margin-right: auto;
     margin-left: auto;
@@ -44,9 +44,6 @@
 .col3{
     grid-column: 3;
 }
-.col4{
-    grid-column: 4;
-}
 
 .line0{
     grid-row: 0;
@@ -59,6 +56,9 @@
 }
 .line3{
     grid-row: 3;
+}
+.line4{
+    grid-row:4;
 }
 
 .btn{

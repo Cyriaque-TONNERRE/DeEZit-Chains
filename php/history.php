@@ -39,8 +39,8 @@
                 echo "<div >";
 
             for ($i = 0; $i < 5;$i++) {
-                $h = 5 * $j + $i + 1;
-                echo "<div class='line$j' class='col$i'><a href='affichage_history.php?id=$h'>
+                $h = 5 * $i + $j + 1;
+                echo "<div class='line$i' class='col$j'><a href='affichage_history.php?id=$h'>
                 <input class ='btn' type='button' value='$h' /></a></div><br><br>";
 
             }
