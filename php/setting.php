@@ -25,11 +25,14 @@
                 }
             }
         </script>
-        <span class="Sound_title">Sound:</span>
+        <div id="Sound_title">
+            Sound : 50%
+        </div>
         <input type="range" min="0" max="100" id="Sound">
         <script>
             document.getElementById("Sound").oninput = function () {
                 document.cookie = `volume=${this.value / 100}; expires=${new Date(new Date().getTime() + 31536000000).toUTCString()}; path=/`;
+                document.getElementById("Sound_title").innerHTML = `Sound : ${this.value}%`;
                 setVolume();
             }
         </script>

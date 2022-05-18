@@ -26,6 +26,7 @@ $nom = explode('.', end($array))[0];?>
     }
 
     ?>
+    <link rel="script" href="../js/fonctions.js">
 
 
 

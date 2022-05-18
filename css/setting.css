@@ -1,5 +1,5 @@
 .change_theme {
-    font-size: 1vw;
+    font-size: 1.3vw;
     font-family: rounded, serif;
     text-align: center;
     margin-top: 1vw;
@@ -26,10 +26,10 @@
 .param_box {
     display: block;
     width: 30vw;
-    height: 33vw;
+    height: 23vw;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 5vw;
+    margin-top: 8vw;
     box-shadow: 0 0 1vw 0 rgba(0,0,0,0.75);
     -webkit-box-shadow: 0 0 1vw 0 rgba(0,0,0,0.75);
     -moz-box-shadow: 0 0 1vw 0 rgba(0,0,0,0.75);
@@ -76,9 +76,10 @@
     cursor: pointer; /* Cursor on hover */
 }
 
-.Sound_title {
-    font-size: 1vw;
+#Sound_title {
+    font-size: 1.3vw;
     font-family: rounded, serif;
     text-align: center;
-    margin-top: 1vw;
+    display: block;
+    margin: 3vw auto 2vw;
 }
