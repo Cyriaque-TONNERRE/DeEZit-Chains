@@ -78,7 +78,7 @@ $nom = explode('.', end($array))[0];?>
             <a href="index.php"><img src="../image/test.gif" alt="logo"></a>
         </div>
         <div class="titre">
-            <h1> DeEZit Chain </h1>
+            <h1 id="test"> DeEZit Chain </h1>
         </div>
         <?php if(isset($_SESSION['username'])) { echo
         "<div class='login'>

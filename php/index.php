@@ -17,6 +17,18 @@
         </a>
     </div>
 
+    <script src="../js/confetti.min.js"></script>
+    <script>
+        let confetti = new Confetti('test');
+
+        // Edit given parameters
+        confetti.setCount(100);
+        confetti.setSize(1.5);
+        confetti.setPower(50);
+        confetti.setFade(false);
+        confetti.destroyTarget(false);
+    </script>
+
 </main>
 
 
