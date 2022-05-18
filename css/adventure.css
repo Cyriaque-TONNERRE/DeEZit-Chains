@@ -25,6 +25,8 @@
 }
 table{
     border-collapse: collapse;
+    width: 100%;
+    height: 100%;
 }
 
 .nordgauchebas{
@@ -88,24 +90,36 @@ table{
     border-top: 2px solid var(--orange-LBB);
 }
 
+.game {
+    width: 70vh;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5vh auto;
+}
+
 .case {
-    height: 6vw;
-    width: 6vw;
+    height: 10%;
+    width: 10%;
     text-align: center;
     font-family: Korean, serif;
-    font-size: 3vw;
     -webkit-user-select: none;
     -webkit-touch-callout: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
 }
+
+
+
 .letter {
-    height: 6vw;
-    width: 6vw;
+    height: 10%;
+    width: 10%;
     text-align: center;
     font-family: futureLight, serif;
-    font-size: 4vw;
+    font-size: 1vw;
     -webkit-user-select: none;
     -webkit-touch-callout: none;
     -moz-user-select: none;
@@ -115,37 +129,36 @@ table{
 }
 
 .r {
-    height: 6vw;
-    width: 6vw;
+    height: 10%;
+    width: 10%;
     background-color: red;
 }
 
 .g {
-    height: 6vw;
-    width: 6vw;
+    height: 10%;
+    width: 10%;
     background-color: green;
 }
 
 .p {
-    height: 6vw;
-    width: 6vw;
+    height: 10%;
+    width: 10%;
     background-color: purple;
 }
 
 .b {
-    height: 6vw;
-    width: 6vw;
+    height: 10%;
+    width: 10%;
     background-color: blue;
 }
 
 .y {
-    height: 6vw;
-    width: 6vw;
+    height: 10%;
+    width: 10%;
     background-color: yellow;
 }
 
-#r2 {
-    height: 6vw;
-    width: 6vw;
-    background-color: red;
+.invisible {
+    height: 10%;
+    width: 10%;
 }
