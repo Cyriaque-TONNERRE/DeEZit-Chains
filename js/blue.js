@@ -1,5 +1,6 @@
 const blue = document.querySelector('.b'); //variable qui recup la base
 //const box = document.querySelectorAll('.case'); //variable qui recup toutes les cases
+blue.addEventListener("click", clearb);
 lvlb = 1;
 trackb = [];
 startb = document.querySelector('.b');
@@ -26,7 +27,6 @@ function dragStart() { // FONCTION dragStart
 
 function dragEnd() { //FONCTION dragEnd
     //this.className = 'base'; //define la class de l'objet actuel a 'base'
-    this.classList.remove("tenu");
     if (trackb.length === 1) {
         this.setAttribute('draggable', true);
     } else {
@@ -174,4 +174,22 @@ function dragDrop() {
 
     //this.className += 'case'; //définie la class de l'objet actuel à ' case'
     //this.append(red); //change la position de la base à l'élément actuel
+}
+
+function clearb(){
+    const caseliste = document.querySelectorAll('.b');
+    if(caseliste !== null){
+        for (let i = 0; i < caseliste.length; i++) {
+            caseliste[i].classList.remove('b');
+            caseliste[i].className += " unused";
+            caseliste[i].setAttribute('draggable', false);
+        }
+        lvlb = 1;
+        trackb = [];
+        trackb.unshift(startb);
+        blocker = false;
+        startb.className += ' b';
+        startb.setAttribute('draggable', true);
+    }
+
 }

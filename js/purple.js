@@ -1,4 +1,5 @@
 const purple = document.querySelector('.p'); //variable qui recup la base
+purple.addEventListener("click", clearp);
 lvlp = 1;
 trackp = [];
 startp = document.querySelector('.p');
@@ -184,4 +185,22 @@ function dragDropp() {
 
     //this.className += 'case'; //définie la class de l'objet actuel à ' case'
     //this.append(red); //change la position de la base à l'élément actuel
+}
+
+function clearp(){
+    const caseliste = document.querySelectorAll('.p');
+    if(caseliste !== null){
+        for (let i = 0; i < caseliste.length; i++) {
+            caseliste[i].classList.remove('p');
+            caseliste[i].className += " unused";
+            caseliste[i].setAttribute('draggable', false);
+        }
+        lvlp = 1;
+        trackp = [];
+        trackp.unshift(startp);
+        blocker = false;
+        startp.className += ' p';
+        startp.setAttribute('draggable', true);
+    }
+
 }

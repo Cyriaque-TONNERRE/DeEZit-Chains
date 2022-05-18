@@ -1,4 +1,5 @@
 const yellow = document.querySelector('.y'); //variable qui recup la base
+yellow.addEventListener("click", cleary);
 lvly = 1;
 tracky = [];
 starty = document.querySelector('.y');
@@ -27,7 +28,6 @@ function dragStarty() { // FONCTION dragStart
 
 function dragEndy() { //FONCTION dragEnd
     //this.className = 'base'; //define la class de l'objet actuel a 'base'
-    this.classList.remove("tenu");
     if (tracky.length === 1) {
         this.setAttribute('draggable', true);
     } else {
@@ -184,4 +184,22 @@ function dragDropy() {
 
     //this.className += 'case'; //définie la class de l'objet actuel à ' case'
     //this.append(red); //change la position de la base à l'élément actuel
+}
+
+function cleary(){
+    const caseliste = document.querySelectorAll('.y');
+    if(caseliste !== null){
+        for (let i = 0; i < caseliste.length; i++) {
+            caseliste[i].classList.remove('y');
+            caseliste[i].className += " unused";
+            caseliste[i].setAttribute('draggable', false);
+        }
+        lvly = 1;
+        tracky = [];
+        tracky.unshift(starty);
+        blocker = false;
+        starty.className += ' y';
+        starty.setAttribute('draggable', true);
+    }
+
 }
