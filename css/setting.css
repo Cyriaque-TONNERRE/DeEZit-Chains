@@ -76,3 +76,9 @@
     cursor: pointer; /* Cursor on hover */
 }
 
+.Sound_title {
+    font-size: 1vw;
+    font-family: rounded, serif;
+    text-align: center;
+    margin-top: 1vw;
+}

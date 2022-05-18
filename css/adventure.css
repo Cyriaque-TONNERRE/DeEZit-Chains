@@ -103,6 +103,10 @@ table{
     background-color: red;
 }
 
+.r:enabled{
+    opacity: 0.1;
+}
+
 .g {
     height: 6vw;
     width: 6vw;
