@@ -13,7 +13,7 @@ blocker = false;
 let delta = null;
 let posx = 0;
 let posy = 0;
-secublocker = false;
+
 
 red.addEventListener('drag', drag);
 red.addEventListener('dragstart', dragStartr); //event: lorsqu'on commence a drag appel la fonction dragStart
@@ -69,7 +69,7 @@ function drag(e) {
     delta = { x: posx - e.clientX, y: posy - e.clientY };
     posx = e.clientX;
     posy = e.clientY;
-    if (!blocker && !secublocker) {
+    if (!blocker ) {
         if (this.classList.contains('r')) {
             now = 'r';
             blocker = true;
@@ -86,17 +86,13 @@ function drag(e) {
             now = 'y';
             blocker = true;
         }
-        console.log(now);
-
     }
-    //console.log(delta);
 }
 
 function dragOverr(e) {
 
     e.preventDefault(); //retire l'action par default de dragOver qu'on ne veut pas
-    // deltar = { x: posxr - e.clientX, y: posyr - e.clientY };
-    // posxr = e.clientX;
+
 
 
 
@@ -208,11 +204,8 @@ function dragLeaver() {
         if (trackr.length === 1) {
             startr.setAttribute('draggable', true);
             blocker = false;
-            secublocker = true;
         }
-        else{
-            secublocker = false;
-        }
+
 
         if (this.classList.contains("case")) {} else {
             this.className += ' case'; //définie la class de l'objet actuel à ' case'
@@ -234,7 +227,6 @@ function dragDrop() {
         startr.setAttribute('draggable', true);
     }
     blocker = false;
-    secublocker = false
 
 
     if (document.querySelector('.unused') === null) {

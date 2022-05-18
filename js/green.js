@@ -161,11 +161,8 @@ function dragLeaveg() {
         if (trackg.length === 1) {
             startg.setAttribute('draggable', true);
             blocker = false;
-            secublocker = true;
         }
-        else{
-            secublocker = false;
-        }
+
 
         if (this.classList.contains("case")) {} else {
             this.className += ' case'; //définie la class de l'objet actuel à ' case'

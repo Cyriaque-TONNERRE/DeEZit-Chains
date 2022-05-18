@@ -159,10 +159,6 @@ function dragLeavey() {
         if (tracky.length === 1) {
             starty.setAttribute('draggable', true);
             blocker = false;
-            secublocker = true;
-        }
-        else{
-            secublocker = false;
         }
 
         if (this.classList.contains("case")) {} else {

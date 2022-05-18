@@ -159,10 +159,6 @@ function dragLeavep() {
         if (trackp.length === 1) {
             startp.setAttribute('draggable', true);
             blocker = false;
-            secublocker = true;
-        }
-        else{
-            secublocker = false;
         }
 
         if (this.classList.contains("case")) {} else {

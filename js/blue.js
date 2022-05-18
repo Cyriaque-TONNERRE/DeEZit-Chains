@@ -150,10 +150,6 @@ function dragLeave() {
         if (trackb.length === 1) {
             startb.setAttribute('draggable', true);
             blocker = false;
-            secublocker = true;
-        }
-        else{
-            secublocker = false;
         }
 
         if (this.classList.contains("case")) {} else {
