@@ -8,52 +8,51 @@
     <meta name="author" content="Ez Team">
     <meta charset="UTF-8">
 
-	<link rel="stylesheet" href="../css/history.css"/>
+    <link rel="stylesheet" href="../css/history.css"/>
 </head>
-	
+
 <body>
-	
-    <header>
 
-		
-    </header>
+<header>
 
-    <nav>
 
+</header>
+
+<nav>
+
+    <?php
+    if (isset($_COOKIE["username"])) {
+        echo "<a href='logout.php'>Logout</a>";
+    }
+    else {
+        echo "<a href='login.php'>Login</a>";
+    }
+    ?>
+
+</nav>
+
+<main>
+
+    <div id="table">
         <?php
-        if (isset($_COOKIE["username"])) {
-            echo "<a href='logout.php'>Logout</a>";
-        }
-        else {
-            echo "<a href='login.php'>Login</a>";
+        for ($i = 0; $i < 10; $i++) {
+
+            for ($j = 0; $j < 5; $j++) {
+                $num = 5 * $i + $j + 1;
+                echo "<a class='line$i' class='col$j' href='affichage_history.php?id=$num'>
+                <input class ='btn' type='button' value='$num' /></a><br><br>";
+
+            }
+
         }
         ?>
+    </div>
 
-    </nav>
+</main>
 
-    <main>
 
-        <div id="table">
-            <?php
-            for($j=0; $j < 4; $j++){
-                echo "<div >";
+<footer>
 
-            for ($i = 0; $i < 5;$i++) {
-                $h = 5 * $i + $j + 1;
-                echo "<div class='line$i' class='col$j'><a href='affichage_history.php?id=$h'>
-                <input class ='btn' type='button' value='$h' /></a></div><br><br>";
+</footer>
 
-            }
-            echo "</div>";
-            }
-            ?>
-        </div>
-
-    </main>
-	
-	
-    <footer> 
-        
-    </footer>
-	
 </body>
