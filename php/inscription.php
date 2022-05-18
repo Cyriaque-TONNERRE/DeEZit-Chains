@@ -57,7 +57,7 @@ if (isset($_COOKIE["username"])) {
                         $_SESSION["username"] = $row["username"];
                         header("location:index.php");
                     }
-                }
+                }   
             }
         }
     }
