@@ -224,6 +224,12 @@ session_start();
         echo "</tr>";
     }
     echo "</table>";
+    $clear="clearr()";
+    if($blue == true) $clear= $clear.";clearb()";
+    if($purple == true) $clear= $clear.";clearp()";
+    if($yellow == true) $clear= $clear.";cleary()";
+    if($green == true) $clear= $clear.";clearg()";
+    echo "<button id='reset' onclick='$clear'>reset</button>";
 
     
     echo "<script src='../js/red.js'></script>";
