@@ -1,7 +1,7 @@
 const blue = document.querySelector('.b'); //variable qui recup la base
 //const box = document.querySelectorAll('.case'); //variable qui recup toutes les cases
-let lvlb = 1;
-let trackb = [];
+lvlb = 1;
+trackb = [];
 startb = document.querySelector('.b');
 trackb.unshift(startb);
 securiteb = true;

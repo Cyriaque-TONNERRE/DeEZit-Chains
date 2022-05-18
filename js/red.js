@@ -2,8 +2,8 @@ const red = document.querySelector('.r'); //variable qui recup la base
 //const green = document.querySelector('.g'); //variable qui recup la base
 const box = document.querySelectorAll('.case'); //variable qui recup toutes les cases
 const mouse = document.querySelector('tableau');
-let lvlr = 1;
-let trackr = [];
+lvlr = 1;
+trackr = [];
 startr = document.querySelector('.r');
 trackr.unshift(startr);
 securiter = true;

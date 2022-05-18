@@ -1,6 +1,6 @@
 const purple = document.querySelector('.p'); //variable qui recup la base
-let lvlp = 1;
-let trackp = [];
+lvlp = 1;
+trackp = [];
 startp = document.querySelector('.p');
 trackp.unshift(startp);
 securitep = true;

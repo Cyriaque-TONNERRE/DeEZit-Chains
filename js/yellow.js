@@ -1,6 +1,6 @@
 const yellow = document.querySelector('.y'); //variable qui recup la base
-let lvly = 1;
-let tracky = [];
+lvly = 1;
+tracky = [];
 starty = document.querySelector('.y');
 tracky.unshift(starty);
 securitey = true;

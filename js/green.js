@@ -1,8 +1,8 @@
 //const red = document.querySelector('.r'); //variable qui recup la base
 const green = document.querySelector('.g'); //variable qui recup la base
 //const box = document.querySelectorAll('.case'); //variable qui recup toutes les cases
-let lvlg = 1;
-let trackg = [];
+lvlg = 1;
+trackg = [];
 startg = document.querySelector('.g');
 trackg.unshift(startg);
 securiteg = true;
