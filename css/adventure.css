@@ -10,6 +10,10 @@
     font-family: 'korean';
     src: url('../font/Korean.ttf') format('truetype');
 }
+@font-face {
+    font-family: 'futureLight';
+    src: url('../font/buick\ rounded.ttf') format('truetype');
+}
 
 /*Mise en place des variables*/
 :root{
@@ -96,15 +100,24 @@ table{
     -ms-user-select: none;
     user-select: none;
 }
+.letter {
+    height: 6vw;
+    width: 6vw;
+    text-align: center;
+    font-family: futureLight, serif;
+    font-size: 4vw;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-weight: 800;
+}
 
 .r {
     height: 6vw;
     width: 6vw;
     background-color: red;
-}
-
-.r:enabled{
-    opacity: 0.1;
 }
 
 .g {
