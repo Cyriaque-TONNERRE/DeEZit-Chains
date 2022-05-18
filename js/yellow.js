@@ -13,6 +13,7 @@ yellow.addEventListener('dragstart', dragStarty); //event: lorsqu'on commence a 
 yellow.addEventListener('dragend', dragEndy); //event: lorsqu'on lache l'objet appel la fonction dargEnd
 //green.addEventListener('dragstart', dragStart); //event: lorsqu'on commence a drag appel la fonction dragStart
 //green.addEventListener('dragend', dragEnd); //event: lorsqu'on lache l'objet appel la fonction dargEnd
+yellow.addEventListener('drag', drag);
 
 function dragStarty() { // FONCTION dragStart
     this.className += ' tenu'; //ajoute la class 'tenu' à l'objet actuel
@@ -158,6 +159,10 @@ function dragLeavey() {
         if (tracky.length === 1) {
             starty.setAttribute('draggable', true);
             blocker = false;
+            secublocker = true;
+        }
+        else{
+            secublocker = false;
         }
 
         if (this.classList.contains("case")) {} else {

@@ -16,6 +16,7 @@ now = 0;
 //red.addEventListener('dragend', dragEnd); //event: lorsqu'on lache l'objet appel la fonction dargEnd
 green.addEventListener('dragstart', dragStartg); //event: lorsqu'on commence a drag appel la fonction dragStart
 green.addEventListener('dragend', dragEndg); //event: lorsqu'on lache l'objet appel la fonction dargEnd
+green.addEventListener('drag', drag);
 
 function dragStartg() { // FONCTION dragStart
     
@@ -160,6 +161,10 @@ function dragLeaveg() {
         if (trackg.length === 1) {
             startg.setAttribute('draggable', true);
             blocker = false;
+            secublocker = true;
+        }
+        else{
+            secublocker = false;
         }
 
         if (this.classList.contains("case")) {} else {

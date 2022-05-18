@@ -13,8 +13,9 @@ blocker = false;
 let delta = null;
 let posx = 0;
 let posy = 0;
+secublocker = false;
 
-red.addEventListener('drag', dragr);
+red.addEventListener('drag', drag);
 red.addEventListener('dragstart', dragStartr); //event: lorsqu'on commence a drag appel la fonction dragStart
 red.addEventListener('dragend', dragEndr); //event: lorsqu'on lache l'objet appel la fonction dargEnd
 //green.addEventListener('dragstart', dragStart); //event: lorsqu'on commence a drag appel la fonction dragStart
@@ -59,25 +60,16 @@ for (const vide of box) { //créer un event pour tout les élément de box
 
     vide.addEventListener('dragleave', dragLeaver); //event: lorsqu'on quitte une zone de drop
 
-    vide.addEventListener('drop', dragDropr); //event: lorsqu'on drop l'item
+    vide.addEventListener('drop', dragDrop); //event: lorsqu'on drop l'item
 
-    vide.addEventListener('drag', dragr);
+    vide.addEventListener('drag', drag);
 }
 
-function dragr(e) {
+function drag(e) {
     delta = { x: posx - e.clientX, y: posy - e.clientY };
     posx = e.clientX;
     posy = e.clientY;
-    console.log(delta);
-}
-
-function dragOverr(e) {
-
-    e.preventDefault(); //retire l'action par default de dragOver qu'on ne veut pas
-    // deltar = { x: posxr - e.clientX, y: posyr - e.clientY };
-    // posxr = e.clientX;
-    // posyr = e.clientY;
-    if (!blocker) {
+    if (!blocker && !secublocker) {
         if (this.classList.contains('r')) {
             now = 'r';
             blocker = true;
@@ -94,16 +86,31 @@ function dragOverr(e) {
             now = 'y';
             blocker = true;
         }
+        console.log(now);
 
     }
+    //console.log(delta);
+}
+
+function dragOverr(e) {
+
+    e.preventDefault(); //retire l'action par default de dragOver qu'on ne veut pas
+    // deltar = { x: posxr - e.clientX, y: posyr - e.clientY };
+    // posxr = e.clientX;
+
 
 
 }
 
 function dragEnterr(e) {
+    if (!((delta.x > -2 && delta.x < 2) && (delta.y > -2 && delta.y < 2)) && !blocker) { //Tentative anti agression nucléaire
+        //Revoir ici
+        console.log("append");
+        dragDrop(e);
+        return 0;
+    }
 
     if (now === 'r') {
-        if ((delta.x > -2 && delta.x < 2) && (delta.y > -2 && delta.y < 2)) {
             e.preventDefault(); //retire l'action par default de dragEnter qu'on ne veut pas
 
 
@@ -164,7 +171,6 @@ function dragEnterr(e) {
             } else if (!securiter) {
                 securiter = true;
             }
-        } else console.log("flash");
 
     }
 
@@ -202,6 +208,10 @@ function dragLeaver() {
         if (trackr.length === 1) {
             startr.setAttribute('draggable', true);
             blocker = false;
+            secublocker = true;
+        }
+        else{
+            secublocker = false;
         }
 
         if (this.classList.contains("case")) {} else {
@@ -217,13 +227,14 @@ function dragLeaver() {
 
 
 
-function dragDropr() {
+function dragDrop() {
     if (trackr.length !== 1) {
         trackr[0].setAttribute('draggable', true);
     } else {
         startr.setAttribute('draggable', true);
     }
     blocker = false;
+    secublocker = false
 
 
     if (document.querySelector('.unused') === null) {

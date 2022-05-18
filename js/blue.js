@@ -9,7 +9,8 @@ next_tourb = false;
 ajoutb = -1;
 
 
-blue.addEventListener('drag', dragb);
+
+blue.addEventListener('drag', drag);
 blue.addEventListener('dragstart', dragStart); //event: lorsqu'on commence a drag appel la fonction dragStart
 blue.addEventListener('dragend', dragEnd); //event: lorsqu'on lache l'objet appel la fonction dargEnd
 
@@ -48,16 +49,10 @@ for (const vide of box) { //créer un event pour tout les élément de box
 
     vide.addEventListener('drop', dragDrop); //event: lorsqu'on drop l'item
 
-    vide.addEventListener('drag', dragb);
 
 }
 
-function dragb(e) {
-    delta = { x: posx - e.clientX, y: posy - e.clientY };
-    posx = e.clientX;
-    posy = e.clientY;
-    // console.log(deltar);
-}
+
 
 
 function dragOver(e) {
@@ -68,7 +63,6 @@ function dragOver(e) {
 function dragEnter(e) {
 
     if (now === 'b') {
-        if ((delta.x > -2 && delta.x < 2) && (delta.y > -2 && delta.y < 2)) {
             e.preventDefault(); //retire l'action par default de dragEnter qu'on ne veut pas
             if (this === trackb[1]) { //Retirer élément
 
@@ -120,10 +114,10 @@ function dragEnter(e) {
             } else if (!securiteb) {
                 securiteb = true;
             }
-        } else console.log("flash");
-    }
-
+    } else console.log("flash");
+    
 }
+
 
 
 
@@ -156,6 +150,10 @@ function dragLeave() {
         if (trackb.length === 1) {
             startb.setAttribute('draggable', true);
             blocker = false;
+            secublocker = true;
+        }
+        else{
+            secublocker = false;
         }
 
         if (this.classList.contains("case")) {} else {
