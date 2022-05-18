@@ -5,12 +5,11 @@ if (isset($_COOKIE["username"])) {
 ?>
 
 <main>
-
     <div>
         <nav class="formulaire">
             <form method="post" action="#">
                 <div class="loginBox">
-                    <h1>Register</h1>
+                    <h1 id="inscript_conf">Register</h1>
                     <label for="username"></label >
                     <input class="input" type="text" name="username" id="username" placeholder="Username" required/>
                     <label for="password"></label >
@@ -21,7 +20,6 @@ if (isset($_COOKIE["username"])) {
             </form>
         </nav>
     </div>
-
 </main>
 
     <?php
@@ -38,7 +36,6 @@ if (isset($_COOKIE["username"])) {
         else {
             if(mysqli_num_rows($resultat) != 0) {
                 echo "<p class='error'>There is already an account with this username.</p>";
-                echo '<a href="login.php">Login</a>';
             }
             else {
                 $username = $_POST["username"];
