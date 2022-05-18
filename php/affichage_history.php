@@ -40,7 +40,7 @@
                     <?php
                     require './connexion_db.php';
                     if ($connexion) {
-                        $requete = "SELECT username,history_lvl,time_trial from user ORDER by adventure_lvl limit 5";
+                        $requete = "SELECT username,history_lvl,time_trial from user ORDER by 2 desc limit 5";
                         $resultat = mysqli_query($connexion, $requete); //Executer la requete
 
                         //essaie d'ajout pour voir son classement dans le leaderboard (toutes les modifs en 2)
