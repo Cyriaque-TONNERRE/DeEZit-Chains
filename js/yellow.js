@@ -69,7 +69,7 @@ function dragEntery(e) {
             securitey = false;
             tracky[0].classList.remove("y");
             tracky[0].className += ' unused';
-            lvly = parseInt(trackr[1].id);
+            lvly = parseInt(tracky[1].id);
             tracky[0].setAttribute('draggable', false);
             tracky.shift();
             dragEntery(e);
