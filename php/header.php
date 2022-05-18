@@ -26,15 +26,11 @@ $nom = explode('.', end($array))[0];?>
     }
 
     ?>
-    <link rel="script" href="../js/fonctions.js">
-
-
 
 </head>
 
 
 <body>
-
 <audio id="bgsound" autoplay loop hidden>
     <source src="../sound/LANETROTRO.mp3">
     Your browser does not support the audio
