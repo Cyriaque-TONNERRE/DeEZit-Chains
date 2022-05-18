@@ -203,6 +203,7 @@ function clearg(){
         blocker = false;
         startg.className += ' g';
         startg.setAttribute('draggable', true);
+        startg.classList.remove('unused');
     }
 
 }

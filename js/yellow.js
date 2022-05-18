@@ -200,6 +200,7 @@ function cleary(){
         blocker = false;
         starty.className += ' y';
         starty.setAttribute('draggable', true);
+        starty.classList.remove('unused');
     }
 
 }

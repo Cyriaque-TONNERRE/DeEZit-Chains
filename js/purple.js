@@ -201,6 +201,7 @@ function clearp(){
         blocker = false;
         startp.className += ' p';
         startp.setAttribute('draggable', true);
+        startp.classList.remove('unused');
     }
 
 }

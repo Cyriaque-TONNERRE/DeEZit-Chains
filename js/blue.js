@@ -190,6 +190,7 @@ function clearb(){
         blocker = false;
         startb.className += ' b';
         startb.setAttribute('draggable', true);
+        startb.classList.remove('unused');
     }
 
 }

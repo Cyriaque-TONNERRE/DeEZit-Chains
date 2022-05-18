@@ -228,7 +228,7 @@ function dragDrop() {
     }
     blocker = false;
 
-
+    console.log(document.querySelector('.unused'));
     if (document.querySelector('.unused') === null) {
         //Victoire
         document.location.href = "adventure.php";
@@ -251,6 +251,7 @@ function clearr(){
         trackr.unshift(startr);
         blocker = false;
         startr.className += ' r';
+        startr.classList.remove('unused');
         startr.setAttribute('draggable', true);
     }
 
