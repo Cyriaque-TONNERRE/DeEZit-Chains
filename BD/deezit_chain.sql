@@ -2,10 +2,10 @@
 -- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost:3306
--- Généré le : lun. 16 mai 2022 à 11:32
--- Version du serveur :  5.7.24
--- Version de PHP : 8.0.1
+-- Host: localhost:3306
+-- Generation Time: May 18, 2022 at 02:16 PM
+-- Server version: 5.7.24
+-- PHP Version: 8.0.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,46 +18,49 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `deezit_chain`
+-- Database: `deezit_chain`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
   `ID` int(11) NOT NULL,
   `username` varchar(64) NOT NULL,
-  `password` varchar(64) NOT NULL
+  `password` varchar(64) NOT NULL,
+  `history_lvl` int(32) NOT NULL,
+  `adventure_lvl` int(32) NOT NULL,
+  `time_trial` int(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `user`
+-- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`ID`, `username`, `password`) VALUES
-(1, 'Le Bajito', '$2y$10$EyZorGAG46wmC6QJMArMdeyTv9di3zQ3kbw9S2YsMs462ZTBB8Noe'),
-(2, 'admin@student.junia.com', '$2y$10$Kcubtm/1b/RnJh4KNMbV8e32/3DY6O/l3DXO14zfkvO35foFOk9SO'),
-(3, 'marcoesttropbosamere', '$2y$10$Q06eNqZ/ilDEuqES4qmBZOcqV/YpfwQ5tZNv8yYYf0cn7ij9/jCpK');
+INSERT INTO `user` (`ID`, `username`, `password`, `history_lvl`, `adventure_lvl`, `time_trial`) VALUES
+(1, 'Le Bajito', '$2y$10$EyZorGAG46wmC6QJMArMdeyTv9di3zQ3kbw9S2YsMs462ZTBB8Noe', 6, 0, 0),
+(2, 'vince_id', '$2y$10$T7J8nOgwUFHBczPR.TV9yOVTItvE/FObaM4pU0dx72kK0x4VjngEC', 5, 0, 0),
+(3, 'Never', '$2y$10$lDT4YvrHGQeDqQMbdf/eA.Ak/tEU.cHdxh.g1BXSAXQE5N5IxLta.', 4, 0, 0);
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`ID`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
