@@ -46,7 +46,7 @@ function generate_table(value) {
 }
 function hide(){
     console.log("good");
-    const pop = document.querySelector('.pop-up');
+    const pop = document.querySelector('.tmp');
     pop.classList.add("disparition");
     generate_table(this.value);
     document.getElementById("colorlist").classList.remove('disparition');
