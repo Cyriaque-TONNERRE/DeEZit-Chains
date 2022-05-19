@@ -185,21 +185,20 @@ table {
 .back {
     background-color: #CFBB97;
     border: 0.3vw goldenrod solid;
-    border-radius: 30px;
+    border-radius: 2vw;
     padding: 1vw;
     text-decoration: none;
     color: black;
     font-family: rounded, serif;
-    font-size: 3vw;
+    font-size: 2vw;
     margin-left: 1vw;
     margin-top: 2vw;
-    display: inline-block;
+    display: inline-table;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
 .back:hover {
-    font-size: 3.5vw;
     background-color: #deb346;
 }
