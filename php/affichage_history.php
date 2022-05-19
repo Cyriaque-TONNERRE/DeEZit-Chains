@@ -7,7 +7,7 @@
         <?php
         $id = "Niv".$_GET["id"];
         if (isset($_SESSION["username"])) {
-            if ($_GET["id"] <= $_SESSION["username"]) {
+            if ($_GET["id"] > $_SESSION["username"]) {
                 include("connexion_db.php");
                 $requete = "UPDATE user SET history_lvl='$_GET[id]' WHERE username='$_SESSION[username]'";
                 $resultat = mysqli_query($connexion, $requete);
