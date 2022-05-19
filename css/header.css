@@ -1,95 +1,96 @@
 @font-face {
-  font-family: "Ezcriture";
-  src: url("../font/rounded.ttf") format("truetype");
+    font-family: "Ezcriture";
+    src: url("../font/rounded.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'Rounded';
-  src: url('../font/almostseriousaccent.ttf') format('truetype');
+    font-family: 'Rounded';
+    src: url('../font/almostseriousaccent.ttf') format('truetype');
 }
 
 * {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
-.logo img{
+.logo img {
     width: auto;
     height: 5vw;
     margin-top: 0.5vw;
     margin-left: 1vw;
 }
 
-.classement img{
-  width: auto;
-  height: 4vw;
-  margin-top: 1vw;
-  margin-right: 0.5vw;
+.classement img {
+    width: auto;
+    height: 4vw;
+    margin-top: 1vw;
+    margin-right: 0.5vw;
 }
+
 .titre {
-  font-size: 2vw;
-  font-family: Ezcriture, monospace;
-  text-align: center;
-  padding-top: 1vw;
+    font-size: 2vw;
+    font-family: Ezcriture, monospace;
+    text-align: center;
+    padding-top: 1vw;
+    user-select: none;
 }
 
-
-.header .login img, .header .login a img {
-  width: auto;
-  height: 4vw;
-  margin-top: 1vw;
-  filter: invert(63%) sepia(20%) saturate(1569%) hue-rotate(79deg) brightness(89%) contrast(82%);
+.header .login img,
+.header .login a img {
+    width: auto;
+    height: 4vw;
+    margin-top: 1vw;
+    filter: invert(63%) sepia(20%) saturate(1569%) hue-rotate(79deg) brightness(89%) contrast(82%);
 }
 
-.header .setting a img{
-  width: auto;
-  height: 4vw;
-  margin-top: 1vw;
-  filter: invert(23%) sepia(76%) saturate(6722%) hue-rotate(356deg) brightness(94%) contrast(127%);
+.header .setting a img {
+    width: auto;
+    height: 4vw;
+    margin-top: 1vw;
+    filter: invert(23%) sepia(76%) saturate(6722%) hue-rotate(356deg) brightness(94%) contrast(127%);
 }
-
 
 .header {
-  display: grid;
-  grid-template-columns: 7vw 11vw 64vw 6vw 6vw 6vw;
-  grid-template-rows: 6vw;
-  box-shadow: 0 -1vw 1.3vw 0.3vw rgba(0,0,0,0.75);
-  -webkit-box-shadow: 0 -1vw 1.6vw 0.3vw rgba(0,0,0,0.75);
-  -moz-box-shadow: 0 -1vw 1.3vw 0.3vw rgba(0,0,0,0.75);
-  overflow: hidden;
+    display: grid;
+    grid-template-columns: 7vw 11vw 64vw 6vw 6vw 6vw;
+    grid-template-rows: 6vw;
+    box-shadow: 0 -1vw 1.3vw 0.3vw rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0 -1vw 1.6vw 0.3vw rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0 -1vw 1.3vw 0.3vw rgba(0, 0, 0, 0.75);
+    overflow: hidden;
 }
 
 .pop-up {
-  display: none;
-  color: black;
-  background-color: white;
-  position: absolute;
-  z-index: 10;
-  border: 0.2vw #e3e3e3 solid;
-  border-radius: 1vw;
-  padding: 1vw;
-  font-size: 1.2vw;
-  font-family: Rounded, monospace;
+    display: none;
+    color: black;
+    background-color: white;
+    position: absolute;
+    z-index: 10;
+    border: 0.2vw #e3e3e3 solid;
+    border-radius: 1vw;
+    padding: 1vw;
+    font-size: 1.2vw;
+    font-family: Rounded, monospace;
 }
 
 .pop-up a {
-  text-decoration: none;
-  color: black;
-  display: block;
-  width: 8vw;
-  height: 2vw;
-  margin-top: 1vw;
-  padding-top: 0.38vw;
-  border-radius: 2vw;
-  border-color: #e3e3e3;
-  border-style: solid;
-  border-width: 0.2vw;
-  text-align: center;
-  font-family: rounded, serif;
-  font-size: 1vw;
-  background-color: #36b24d;
+    text-decoration: none;
+    color: black;
+    display: block;
+    width: 8vw;
+    height: 2vw;
+    margin-top: 1vw;
+    padding-top: 0.38vw;
+    border-radius: 2vw;
+    border-color: #e3e3e3;
+    border-style: solid;
+    border-width: 0.2vw;
+    text-align: center;
+    font-family: rounded, serif;
+    font-size: 1vw;
+    background-color: #36b24d;
 }
 
 .header .login:hover .pop-up {
-  display: block;
+    display: block;
 }
