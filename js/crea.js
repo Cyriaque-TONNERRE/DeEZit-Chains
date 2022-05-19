@@ -90,6 +90,7 @@ function contenu(){
     
     
     function dragStartr(e) { // FONCTION dragStart
+        console.log('start');
         if(nowc !== 0){
             console.log(chemin);
             for (let m = 0; m < chemin.length; m++) {
@@ -166,8 +167,8 @@ function contenu(){
     
     function dragOverr(e) {
         e.preventDefault(); //retire l'action par default de dragOver qu'on ne veut pas
-        if(this.id === '0' && nowc !== 0){
-            this.classList.add(nowc);
+        if(this.id === '0' && newc !== 0){
+            this.classList.add(newc);
         }
     }
     
@@ -180,9 +181,12 @@ function contenu(){
     
     function dragLeaver(e) {
         e.preventDefault();
-        if(this.classList.contains(nowc)){
-            this.classList.remove(nowc);
+        if(newc !== 0){
+            if(this.classList.contains(newc)){
+                this.classList.remove(newc);
+            }
         }
+
 
     }
     
@@ -190,9 +194,10 @@ function contenu(){
     
     function dragDrop(e) {
         e.preventDefault();
-        if(this.id === '0' && nowc !== 0){
+        if(this.id === '0' && nowc !== 0 && newc !== 0){
             this.id = nowc;
             let racine = document.querySelector('.'+nowc+'.drag');
+            newc = 0;
             racine.setAttribute('draggable', false);
             racine.classList += ' disparition';
             chemin.unshift(this);
