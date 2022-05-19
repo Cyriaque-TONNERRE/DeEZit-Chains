@@ -274,6 +274,9 @@ function contenu(){
                     }
                     else{
                         lvl++;
+                        if(lvl === 9){
+                            blockerlvl = true;
+                        }
                     }
                     
                     this.innerHTML = lvl;
@@ -289,34 +292,40 @@ function contenu(){
             
                 }
                 if(lvl === 9 || del === true && !blockerlvl){
-                    del = false;
-                    lvl = "";
-                    this.innerHTML = lvl;
-                    this.id = 0;
-                    if(this.classList.contains('valid')){
-                        this.classList.remove('valid');
-                    }
-
-                    est_nouveau = false;
-                    if(chemin.indexOf(this) !== null){
-                        console.log(chemin);
-                        if(chemin.indexOf(this) !== chemin.length){
-                            time = chemin.indexOf(this) + 1;
-                            for (let j = 0; j < time; j++) {
-                                
-                                chemin[0].innerHTML = "";
-                                chemin[0].id = 0;
-                                if(chemin[0].classList.contains('valid')){
-                                    chemin[0].classList.remove('valid');
-                                }
-                                chemin.shift();
-                            }
-
-                            
-                            
-                            
+                    if(!blockerlvl){
+                        del = false;
+                        lvl = "";
+                        this.innerHTML = lvl;
+                        this.id = 0;
+                        if(this.classList.contains('valid')){
+                            this.classList.remove('valid');
                         }
+
+                        est_nouveau = false;
+                        if(chemin.indexOf(this) !== null){
+                            console.log(chemin);
+                            if(chemin.indexOf(this) !== chemin.length){
+                                time = chemin.indexOf(this) + 1;
+                                for (let j = 0; j < time; j++) {
+                                    
+                                    chemin[0].innerHTML = "";
+                                    chemin[0].id = 0;
+                                    if(chemin[0].classList.contains('valid')){
+                                        chemin[0].classList.remove('valid');
+                                    }
+                                    chemin.shift();
+                                }
+
+                                
+                                
+                                
+                            }
+                        }
+                        
                     }
+                        
+
+                    
 
                 }
                 
