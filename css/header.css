@@ -18,6 +18,7 @@
     height: 5vw;
     margin-top: 0.5vw;
     margin-left: 1vw;
+    user-select: none;
 }
 
 .classement img {
@@ -25,6 +26,7 @@
     height: 4vw;
     margin-top: 1vw;
     margin-right: 0.5vw;
+    user-select: none;
 }
 
 .titre {
@@ -41,6 +43,7 @@
     height: 4vw;
     margin-top: 1vw;
     filter: invert(63%) sepia(20%) saturate(1569%) hue-rotate(79deg) brightness(89%) contrast(82%);
+    user-select: none;
 }
 
 .header .setting a img {
@@ -48,6 +51,7 @@
     height: 4vw;
     margin-top: 1vw;
     filter: invert(23%) sepia(76%) saturate(6722%) hue-rotate(356deg) brightness(94%) contrast(127%);
+    user-select: none;
 }
 
 .header {
