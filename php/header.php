@@ -11,6 +11,7 @@ $nom = explode('.', end($array))[0];?>
     <meta name="author" content="Ez Team">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/header.css" id="header_theme">
+    <script src="https://kit.fontawesome.com/5f5041c2bc.js" crossorigin="anonymous"></script>
     <?php
     if (isset($_COOKIE["theme"])) {	//si le cookie existe
         if ($_COOKIE["theme"] == "dark") {	//si le cookie est égal à dark
