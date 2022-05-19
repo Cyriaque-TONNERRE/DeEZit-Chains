@@ -93,7 +93,7 @@
 
 .btn {
     border: 0.1vw solid #ddd;
-    background-color: #f0adad;
+    background-color: #b8b4ff;
     color: black;
     padding: 2vw 3vw;
     border-radius: 1vw;
@@ -131,7 +131,7 @@
 }
 
 .btn:hover {
-    background-color: #FFE600;
+    background-color: #9690fa;
 }
 
 .btn_done:hover {
@@ -139,7 +139,7 @@
 }
 
 .btn_close:hover {
-    background-color: #B51200;
+    background-color: #ed5f5f;
 }
 
 .btn:active {
