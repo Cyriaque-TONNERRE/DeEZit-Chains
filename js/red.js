@@ -22,9 +22,6 @@ red.addEventListener('dragend', dragEndr); //event: lorsqu'on lache l'objet appe
 //green.addEventListener('dragstart', dragStart); //event: lorsqu'on commence a drag appel la fonction dragStart
 //green.addEventListener('dragend', dragEnd); //event: lorsqu'on lache l'objet appel la fonction dargEnd
 
-
-
-
 function dragStartr(e) { // FONCTION dragStart
     // posxr = e.clientX;
     // posyr = e.clientY;
@@ -69,7 +66,7 @@ function drag(e) {
     delta = { x: posx - e.clientX, y: posy - e.clientY };
     posx = e.clientX;
     posy = e.clientY;
-    if (!blocker ) {
+    if (!blocker) {
         if (this.classList.contains('r')) {
             now = 'r';
             blocker = true;
@@ -107,66 +104,66 @@ function dragEnterr(e) {
     }
 
     if (now === 'r') {
-            e.preventDefault(); //retire l'action par default de dragEnter qu'on ne veut pas
+        e.preventDefault(); //retire l'action par default de dragEnter qu'on ne veut pas
 
 
-            if (this === trackr[1]) { //Retirer élément
+        if (this === trackr[1]) { //Retirer élément
 
-                securiter = false;
-                trackr[0].classList.remove("r");
-                trackr[0].className += ' unused';
-                lvlr = parseInt(trackr[1].id);
-                trackr[0].setAttribute('draggable', false);
-                trackr.shift();
-                dragEnterr(e);
-            } else if ((trackr.indexOf(this) === -1) && securiter) {
-                let voisinr = false;
-                if (this.classList.contains('unused')) {
-                    if (lvlr <= parseInt(this.id)) {
-                        if (this.cellIndex - 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex - 1 >= 0) { //cell - 1
+            securiter = false;
+            trackr[0].classList.remove("r");
+            trackr[0].className += ' unused';
+            lvlr = parseInt(trackr[1].id);
+            trackr[0].setAttribute('draggable', false);
+            trackr.shift();
+            dragEnterr(e);
+        } else if ((trackr.indexOf(this) === -1) && securiter) {
+            let voisinr = false;
+            if (this.classList.contains('unused')) {
+                if (lvlr <= parseInt(this.id)) {
+                    if (this.cellIndex - 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex - 1 >= 0) { //cell - 1
 
-                            if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex - 1] === document.getElementById("tableau").rows[trackr[0].parentNode.rowIndex].cells[trackr[0].cellIndex]) {
-                                voisinr = true;
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex - 1] === document.getElementById("tableau").rows[trackr[0].parentNode.rowIndex].cells[trackr[0].cellIndex]) {
+                            voisinr = true;
 
-                            }
-                        }
-                        if (this.cellIndex + 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex + 1 >= 0) { //cel + 1
-
-                            if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex + 1] === document.getElementById("tableau").rows[trackr[0].parentNode.rowIndex].cells[trackr[0].cellIndex]) {
-                                voisinr = true;
-
-                            }
-                        }
-                        if (this.parentNode.rowIndex - 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex - 1 >= 0) {
-
-                            if (document.getElementById("tableau").rows[this.parentNode.rowIndex - 1].cells[this.cellIndex] === document.getElementById("tableau").rows[trackr[0].parentNode.rowIndex].cells[trackr[0].cellIndex]) {
-                                voisinr = true;
-
-                            }
-                        }
-                        if (this.parentNode.rowIndex + 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex + 1 >= 0) {
-
-                            if (document.getElementById("tableau").rows[this.parentNode.rowIndex + 1].cells[this.cellIndex] === document.getElementById("tableau").rows[trackr[0].parentNode.rowIndex].cells[trackr[0].cellIndex]) {
-                                voisinr = true;
-
-                            }
-                        }
-                        if (voisinr === true) {
-                            ajoutr++;
-                            next_tourr = false;
-                            this.className += ' r'; //ajoute la class 'r' à l'objet actuel
-                            this.classList.remove("unused");
-                            lastr = this;
-                            lvlr = parseInt(this.id);
-                            trackr[0].setAttribute('draggable', false);
-                            trackr.unshift(this);
-                            trackr[0].setAttribute('draggable', true);
                         }
                     }
+                    if (this.cellIndex + 1 < (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex + 1 >= 0) { //cel + 1
+
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex].cells[this.cellIndex + 1] === document.getElementById("tableau").rows[trackr[0].parentNode.rowIndex].cells[trackr[0].cellIndex]) {
+                            voisinr = true;
+
+                        }
+                    }
+                    if (this.parentNode.rowIndex - 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex - 1 >= 0) {
+
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex - 1].cells[this.cellIndex] === document.getElementById("tableau").rows[trackr[0].parentNode.rowIndex].cells[trackr[0].cellIndex]) {
+                            voisinr = true;
+
+                        }
+                    }
+                    if (this.parentNode.rowIndex + 1 < (document.getElementById("tableau").rows.length) && this.parentNode.rowIndex + 1 >= 0) {
+
+                        if (document.getElementById("tableau").rows[this.parentNode.rowIndex + 1].cells[this.cellIndex] === document.getElementById("tableau").rows[trackr[0].parentNode.rowIndex].cells[trackr[0].cellIndex]) {
+                            voisinr = true;
+
+                        }
+                    }
+                    if (voisinr === true) {
+                        ajoutr++;
+                        next_tourr = false;
+                        this.className += ' r'; //ajoute la class 'r' à l'objet actuel
+                        this.classList.remove("unused");
+                        lastr = this;
+                        lvlr = parseInt(this.id);
+                        trackr[0].setAttribute('draggable', false);
+                        trackr.unshift(this);
+                        trackr[0].setAttribute('draggable', true);
+                    }
                 }
-            } else if (!securiter) {
-                securiter = true;
             }
+        } else if (!securiter) {
+            securiter = true;
+        }
 
     }
 
@@ -231,16 +228,29 @@ function dragDrop() {
     console.log(document.querySelector('.unused'));
     if (document.querySelector('.unused') === null) {
         //Victoire
-        document.location.href = "adventure.php";
+
+        var URL = window.location.href;
+        if (URL.includes("affichage_history.php")) {
+            number = URL.substring(URL.indexOf('=') + 1);
+            if (Number(number) < 50) {
+                number = Number(number) + 1;
+            } else number = 50;
+            number = number.toString();
+            document.location.href = "affichage_history.php?id=" + number;
+
+        } else {
+            document.location.href = "adventure.php";
+
+        }
     }
 
     //this.className += 'case'; //définie la class de l'objet actuel à ' case'
     //this.append(red); //change la position de la base à l'élément actuel
 }
- 
-function clearr(){
+
+function clearr() {
     const caseliste = document.querySelectorAll('.r');
-    if(caseliste !== null){
+    if (caseliste !== null) {
         for (let i = 0; i < caseliste.length; i++) {
             caseliste[i].classList.remove('r');
             caseliste[i].className += " unused";
