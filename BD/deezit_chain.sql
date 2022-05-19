@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : jeu. 19 mai 2022 à 09:25
+-- Généré le : jeu. 19 mai 2022 à 15:07
 -- Version du serveur :  5.7.24
 -- Version de PHP : 8.0.1
 
@@ -41,9 +41,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`ID`, `username`, `password`, `history_lvl`, `adventure_lvl`, `time_trial`) VALUES
-(1, 'Le Bajito', '$2y$10$EyZorGAG46wmC6QJMArMdeyTv9di3zQ3kbw9S2YsMs462ZTBB8Noe', 0, 0, 0),
-(2, 'vince_id', '$2y$10$T7J8nOgwUFHBczPR.TV9yOVTItvE/FObaM4pU0dx72kK0x4VjngEC', 0, 0, 0),
-(3, 'Never', '$2y$10$lDT4YvrHGQeDqQMbdf/eA.Ak/tEU.cHdxh.g1BXSAXQE5N5IxLta.', 0, 0, 0);
+(1, 'Le Bajito', '$2y$10$EyZorGAG46wmC6QJMArMdeyTv9di3zQ3kbw9S2YsMs462ZTBB8Noe', 1, 0, 0),
+(2, 'vince_id', '$2y$10$T7J8nOgwUFHBczPR.TV9yOVTItvE/FObaM4pU0dx72kK0x4VjngEC', 1, 0, 0),
+(3, 'Never', '$2y$10$lDT4YvrHGQeDqQMbdf/eA.Ak/tEU.cHdxh.g1BXSAXQE5N5IxLta.', 1, 0, 0);
 
 --
 -- Index pour les tables déchargées
@@ -63,7 +63,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
