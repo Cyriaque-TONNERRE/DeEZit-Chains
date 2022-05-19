@@ -77,7 +77,7 @@ $nom = explode('.', end($array))[0];?>
 <header>
     <div class="header">
         <div class="logo">
-            <a href="index.php"><img src="../image/test.gif" alt="logo"></a>
+            <a draggable="false" href="index.php"><img draggable="false" src="../image/test.gif" alt="logo"></a>
         </div>
 
         <div class="center-txt">
@@ -87,29 +87,29 @@ $nom = explode('.', end($array))[0];?>
             <h1 id="test"> DeEZit Chain </h1>
         </div>
         <div class="classement">
-            <a href="leaderboard.php"><img src="../image/trophy.svg" alt="trophy"></a>
+            <a draggable="false" href="leaderboard.php"><img draggable="false" src="../image/trophy.svg" alt="trophy"></a>
         </div>
         <?php if(isset($_SESSION['username'])) { echo
         "<div class='login'>
-            <img src='../image/login.svg' alt='login'>
+            <img draggable='false' src='../image/login.svg' alt='login'>
             <div class='pop-up'>
                 Bonjour ".$_SESSION['username']."
                 <br />
-                <a href='logout.php'>Se déconnecter</a>
+                <a draggable='false' href='logout.php'>Se déconnecter</a>
             </div>
         </div>";
         } else { echo "
         <div class='login'>
-            <a href='login.php'>
-                <img src='../image/login.svg' alt='login'>
+            <a draggable='false' href='login.php'>
+                <img draggable='false' src='../image/login.svg' alt='login'>
             </a>
         </div>";
         }
         ?>
 
         <div class="setting">
-            <a href="setting.php">
-                <img src="../image/setting.svg" alt="setting">
+            <a draggable='false' href="setting.php">
+                <img draggable='false' src="../image/setting.svg" alt="setting">
             </a>
         </div>
     </div>
