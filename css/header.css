@@ -20,6 +20,12 @@
     margin-left: 1vw;
 }
 
+.classement img{
+  width: auto;
+  height: 4vw;
+  margin-top: 1vw;
+  margin-right: 0.5vw;
+}
 .titre {
   font-size: 2vw;
   font-family: Ezcriture, monospace;
@@ -45,7 +51,7 @@
 
 .header {
   display: grid;
-  grid-template-columns: 7vw 81vw 6vw 6vw;
+  grid-template-columns: 7vw 11vw 64vw 6vw 6vw 6vw;
   grid-template-rows: 6vw;
   box-shadow: 0 -1vw 1.3vw 0.3vw rgba(0,0,0,0.75);
   -webkit-box-shadow: 0 -1vw 1.6vw 0.3vw rgba(0,0,0,0.75);
