@@ -12,6 +12,7 @@
         $row = mysqli_fetch_assoc($resultat2);
 
         if (isset($_SESSION["username"])) {
+            if (isset($row["history_lvl"])){
             if ($_GET["id"] > $row["history_lvl"]) {
 
                 $requete = "UPDATE user SET history_lvl='$_GET[id]' WHERE username='$_SESSION[username]'";
@@ -21,6 +22,7 @@
                     die();
                 }
             }
+        }
         }
         else {
             if (isset($_COOKIE["history_lvl"])) {
