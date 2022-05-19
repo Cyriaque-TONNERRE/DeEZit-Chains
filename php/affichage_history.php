@@ -6,6 +6,28 @@
     <div class="game">
         <?php
         $id = "Niv".$_GET["id"];
+        if (isset($_SESSION["username"])) {
+            if ($_GET["id"] <= $_SESSION["username"]) {
+                include("connexion_db.php");
+                $requete = "UPDATE user SET history_lvl='$_GET[id]' WHERE username='$_SESSION[username]'";
+                $resultat = mysqli_query($connexion, $requete);
+                if ($resultat == false) {
+                    echo "<p>Erreur d'exécution de la requete :".mysqli_error($connexion)."</p>";
+                    die();
+                }
+            }
+        }
+        else {
+            if (isset($_COOKIE["history_lvl"])) {
+                if ($_GET["id"] <= $_COOKIE["history_lvl"]) {
+                    setcookie("history_lvl", $_GET['id'], time() + (365 * 24 * 3600));
+                }
+            }
+            else {
+                setcookie("history_lvl", $_GET['id'], time() + (365 * 24 * 3600));
+            }
+        }
+
         $json = file_get_contents('../level.json');
         $data = json_decode($json, false);
         $tab = $data->$id->level;

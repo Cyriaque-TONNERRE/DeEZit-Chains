@@ -12,7 +12,7 @@
                     $username = $_SESSION["username"];
                     $requete = "SELECT history_lvl FROM user WHERE username='$username'";
                     $resultat = mysqli_query($connexion,$requete);
-                    if ($resultat == FALSE) {
+                    if ($resultat == false) {
                         echo "<p>Erreur d'exécution de la requete :".mysqli_error($connexion)."</p>";
                         die();
                     }
