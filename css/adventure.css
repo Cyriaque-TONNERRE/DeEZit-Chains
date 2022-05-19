@@ -1,92 +1,113 @@
-
 /*Reset CSS*/
-*{
+
+* {
     margin: 0px;
     padding: 0px;
 }
 
+
 /*Fonts*/
+
 @font-face {
     font-family: 'korean';
     src: url('../font/Korean.ttf') format('truetype');
 }
+
 @font-face {
     font-family: 'futureLight';
     src: url('../font/rounded.ttf') format('truetype');
 }
 
+
 /*Mise en place des variables*/
-:root{
-    --fond-gris:#ccc;
-    --orange-LBB:rgb(238, 155, 0);
+
+:root {
+    --fond-gris: #ccc;
+    --orange-LBB: rgb(238, 155, 0);
 }
-.invisible{
+
+.invisible {
     opacity: 0;
 }
-table{
+
+table {
     border-collapse: collapse;
     width: 100%;
     height: 100%;
 }
 
-.nordgauchebas{
+.nordgauchebas {
     border-top: 2px solid var(--orange-LBB);
     border-bottom: 2px solid var(--orange-LBB);
     border-left: 2px solid var(--orange-LBB);
 }
-.droitegauchebas{
+
+.droitegauchebas {
     border-right: 2px solid var(--orange-LBB);
     border-bottom: 2px solid var(--orange-LBB);
     border-left: 2px solid var(--orange-LBB);
 }
-.droitenordbas{
+
+.droitenordbas {
     border-right: 2px solid var(--orange-LBB);
     border-top: 2px solid var(--orange-LBB);
     border-bottom: 2px solid var(--orange-LBB);
 }
-.droitenordgauche{
+
+.droitenordgauche {
     border-right: 2px solid var(--orange-LBB);
     border-top: 2px solid var(--orange-LBB);
     border-left: 2px solid var(--orange-LBB);
 }
-.nordgauche{
+
+.nordgauche {
     border-top: 2px solid var(--orange-LBB);
     border-left: 2px solid var(--orange-LBB);
 }
-.norddroite{
+
+.norddroite {
     border-top: 2px solid var(--orange-LBB);
     border-right: 2px solid var(--orange-LBB);
 }
-.nordbas{
+
+.nordbas {
     border-top: 2px solid var(--orange-LBB);
     border-bottom: 2px solid var(--orange-LBB);
 }
-.gauchebas{
+
+.gauchebas {
     border-left: 2px solid var(--orange-LBB);
     border-bottom: 2px solid var(--orange-LBB);
 }
-.gauchenord{
+
+.gauchenord {
     border-left: 2px solid var(--orange-LBB);
     border-top: 2px solid var(--orange-LBB);
 }
-.gauchedroite{
+
+.gauchedroite {
     border-left: 2px solid var(--orange-LBB);
     border-right: 2px solid var(--orange-LBB);
 }
-.basdroite{
+
+.basdroite {
     border-bottom: 2px solid var(--orange-LBB);
     border-right: 2px solid var(--orange-LBB);
 }
-.gauche{
+
+.gauche {
     border-left: 2px solid var(--orange-LBB);
 }
-.droite{
+
+.droite {
     border-right: 2px solid var(--orange-LBB);
 }
-.bas{
+
+.bas {
     border-bottom: 2px solid var(--orange-LBB);
 }
-.nord{
+
+.nord {
     border-top: 2px solid var(--orange-LBB);
 }
 
@@ -111,8 +132,6 @@ table{
     -ms-user-select: none;
     user-select: none;
 }
-
-
 
 .letter {
     height: 10%;
@@ -161,4 +180,25 @@ table{
 .invisible {
     height: 10%;
     width: 10%;
+}
+
+.back {
+    background-color: #CFBB97;
+    border: 0.3vw goldenrod solid;
+    border-radius: 2vw;
+    padding: 1vw;
+    text-decoration: none;
+    color: black;
+    font-family: rounded, serif;
+    font-size: 2vw;
+    margin-left: 1vw;
+    margin-top: 2vw;
+    display: inline-table;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.back:hover {
+    background-color: #deb346;
 }
