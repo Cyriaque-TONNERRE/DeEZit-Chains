@@ -19,7 +19,7 @@
         }
         else {
             if (isset($_COOKIE["history_lvl"])) {
-                if ($_GET["id"] <= $_COOKIE["history_lvl"]) {
+                if ($_GET["id"] > $_COOKIE["history_lvl"]) {
                     setcookie("history_lvl", $_GET['id'], time() + (365 * 24 * 3600));
                 }
             }
