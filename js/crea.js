@@ -266,16 +266,27 @@ function contenu(){
                 est_nouveau = true;
                 blockerlvl = false;
 
+                nouvellecase = false;
 
                 let lvl = parseInt(this.id);
                 if(this !== chemin[0] && chemin.indexOf(this) === -1){
                     console.log('ajout');
                     chemin.unshift(this);
+                    nouvellecase = true;
+                    
+                    
                     
                 }
                 if(lvl !== 9){
                     if(lvl < chemin[1].id){
-                        lvl = chemin[1].id
+                        console.log("bug from here ?");
+                        if(nouvellecase){
+                            lvl = chemin[1].id
+                        }
+                        else{
+                           lvl++; 
+                        }
+                        nouvellecase = false;
                     }
                     else if(chemin.indexOf(this) !== 0 && chemin.length !== 1){
                         console.log('ok');
@@ -452,7 +463,7 @@ function contenu(){
                                     caseliste[i].classList.remove('okay');
                                 }
                             }
-                            
+
                             if (this.cellIndex - 1 < (document.getElementById("tableau_crea").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex - 1 >= 0) { //cell - 1G
                                 //GAUCHE
                                 if((document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex-1].id) === '0'){
