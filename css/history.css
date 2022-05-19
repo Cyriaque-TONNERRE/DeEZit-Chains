@@ -23,7 +23,8 @@
     grid-template-columns: 10vw 10vw 10vw 10vw 10vw;
     grid-template-rows: 10vw 10vw 10vw 10vw 10vw 10vw 10vw 10vw 10vw 10vw;
     grid-gap: 2vw;
-    margin: 5vw 24vw 0vw 24vw;
+    margin: 5vw 23vw 5vw 23vw;
+    justify-content: center;
 }
 
 #line {
@@ -92,42 +93,57 @@
 }
 
 .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 0.1vw solid #ddd;
     background-color: #b8b4ff;
     color: black;
     padding: 2vw 3vw;
     border-radius: 1vw;
     text-decoration: none;
+    font-size: 50px;
+    font-family: Ezcriture;
     -o-transition: background-color .2s ease-in;
     -moz-transition: background-color .2s ease-in;
     -webkit-transition: background-color .2s ease-in;
-    transition: background-color .2s ease-in;
+    transition: background-color .1.5s ease-in;
 }
 
 .btn_done {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 0.1vw solid #ddd;
     background-color: #B2F0BE;
     color: black;
     padding: 2vw 3vw;
     border-radius: 1vw;
     text-decoration: none;
+    font-size: 50px;
+    font-family: Ezcriture;
     -o-transition: background-color .2s ease-in;
     -moz-transition: background-color .2s ease-in;
     -webkit-transition: background-color .2s ease-in;
-    transition: background-color .2s ease-in;
+    transition: background-color .1.5s ease-in;
 }
 
 .btn_close {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 0.1vw solid #ddd;
     background-color: #4E525A;
     color: black;
     padding: 2vw 3vw;
     border-radius: 1vw;
     text-decoration: none;
+    font-size: 50px;
+    font-family: Ezcriture;
     -o-transition: background-color .2s ease-in;
     -moz-transition: background-color .2s ease-in;
     -webkit-transition: background-color .2s ease-in;
-    transition: background-color .2s ease-in;
+    transition: background-color .1.5s ease-in;
 }
 
 .btn:hover {
