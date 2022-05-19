@@ -33,7 +33,7 @@ $nom = explode('.', end($array))[0];?>
 
 <body>
 <audio id="bgsound" autoplay loop hidden>
-    <source src="../sound/Melodie-Elodie%20%5BDrill%20Remix%5D%20Version%20Longue%20(Elodie%20Du%20Ghetto)%20%5BMpgun.com%5D.mp3">
+    <source src="../sound/LANETROTRO.mp3">
     Your browser does not support the audio
 </audio>
 
