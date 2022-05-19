@@ -10,11 +10,12 @@
 
         include("connexion_db.php");
         if (isset($_SESSION["username"])) {
+            $requete2 = "SELECT * FROM user where username='$_SESSION[username]'";
+            $resultat2 = mysqli_query($connexion,$requete2);
+            $row = mysqli_fetch_assoc($resultat2);
             if (isset($row["history_lvl"])){
-                $requete2 = "SELECT * FROM user where username='$_SESSION[username]'";
-                $resultat2 = mysqli_query($connexion,$requete2);
-                $row = mysqli_fetch_assoc($resultat2);
-            if ($_GET["id"] > $row["history_lvl"]) {
+
+                if ($_GET["id"] > $row["history_lvl"]) {
 
                 $requete = "UPDATE user SET history_lvl='$_GET[id]' WHERE username='$_SESSION[username]'";
                 $resultat = mysqli_query($connexion, $requete);
