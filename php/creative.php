@@ -1,41 +1,43 @@
-<!DOCTYPE html>
-
-<html lang="fr">
-<head>
-    <title> DeEZit Chain </title>
-    <meta name="description" content="Projet Informatique 2022">
-    <meta name="keywords" content="DeEZit, Chain, Game, Ez">
-    <meta name="author" content="Ez Team">
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/index.css">
+<?php
+require 'header.php';
+?>
+    
 	
-</head>
-	
-<body>
-	
-    <header>
 
-
-		
-    </header>
-
-    <nav>
-
-        <?php
-        if (isset($_COOKIE["username"])) {
-            echo "<a href='logout.php'>Logout</a>";
-        }
-        else {
-            echo "<a href='login.php'>Login</a>";
-        }
-        ?>
-
-    </nav>
     <main>
+    <div class = "pop-up">
+        Choisissez la taille du tableau :
+        <br>
+        <input type="range" min="5" max="10" id="Range" value="5">
+        <span id='sizeval'>5</span>
+        <button id='hide' onclick='hide()'>Valider</button>
+    
 
+    </div>
+    <div id='tableau'>
+
+    </div>
+    <div class="disparition" id='colorlist'>
+        <div draggable="true" class='r drag'>
+            
+        </div>
+        <div draggable="true" class='g drag'>
+            
+        </div>
+        <div draggable="true" class='b drag'>
+            
+        </div>
+        <div draggable="true" class='p drag'>
+            
+        </div>
+        <div draggable="true" class='y drag'>
+            
+        </div>
+        
+    </div>
 	</main>
-	
-	
+    
+	<script src="../js/crea.js"></script>
     <footer> 
         
     </footer>

@@ -18,6 +18,16 @@
     height: 5vw;
     margin-top: 0.5vw;
     margin-left: 1vw;
+    user-select: none;
+}
+
+.classement img {
+  width: auto;
+  height: 4vw;
+  margin-top: 1vw;
+  margin-right: 0.5vw;
+  user-select: none;
+  filter: invert(85%) sepia(90%) saturate(5888%) hue-rotate(102deg) brightness(113%) contrast(101%);
 }
 
 .titre {
@@ -26,6 +36,7 @@
   text-align: center;
   padding-top: 1vw;
   color: white;
+  user-select: none;
 }
 
 .header {
@@ -49,7 +60,7 @@
 
 .header {
   display: grid;
-  grid-template-columns: 7vw 81vw 6vw 6vw;
+  grid-template-columns: 7vw 11vw 64vw 6vw 6vw 6vw;
   grid-template-rows: 6vw;
   box-shadow: 0 -1vw 1.3vw 0.3vw rgba(255, 255, 255, 0.75);
   -webkit-box-shadow: 0 -1vw 1.6vw 0.3vw rgba(255, 255, 255, 0.75);
