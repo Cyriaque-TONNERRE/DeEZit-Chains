@@ -1,0 +1,52 @@
+.pop-up{
+    background-color: gray;
+    display:block;
+}
+.disparition{
+    display: none;
+}
+.case{
+    border: 2px orange solid;
+}
+.r {
+    height: 6vw;
+    width: 6vw;
+    background-color: red;
+}
+
+.g {
+    height: 6vw;
+    width: 6vw;
+    background-color: green;
+}
+
+.p {
+    height: 6vw;
+    width: 6vw;
+    background-color: purple;
+}
+
+.b {
+    height: 6vw;
+    width: 6vw;
+    background-color: blue;
+}
+
+.y {
+    height: 6vw;
+    width: 6vw;
+    background-color: yellow;
+}
+
+.hover{
+    background-color: gray;
+}
+
+td{
+    height: 50px;
+    width: 50px;
+}
+
+.okay{
+    background-color: aqua;
+}
