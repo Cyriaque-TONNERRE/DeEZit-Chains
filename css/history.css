@@ -1,10 +1,13 @@
 /*Reset CSS*/
+
 * {
     margin: 0px;
     padding: 0px;
 }
 
+
 /*Variables*/
+
 :root {
     --txtcolor: #161C1C;
     --backcolor: #E8E9E4;
@@ -14,7 +17,6 @@
     font-family: "Ezcriture";
     src: url("../font/rounded.ttf") format("truetype");
 }
-
 
 #table {
     display: grid;
@@ -29,58 +31,70 @@
     margin-right: auto;
 }
 
-
 .col0 {
     grid-column: 1;
 }
+
 .col1 {
     grid-column: 2;
 }
+
 .col2 {
     grid-column: 3;
 }
+
 .col3 {
     grid-column: 4;
 }
+
 .col4 {
     grid-column: 5;
 }
 
-
 .line0 {
     grid-row: 1;
 }
+
 .line1 {
     grid-row: 2;
 }
+
 .line2 {
     grid-row: 3;
 }
+
 .line3 {
     grid-row: 4;
 }
+
 .line4 {
     grid-row: 5;
 }
+
 .line5 {
     grid-row: 6;
 }
+
 .line6 {
     grid-row: 7;
 }
+
 .line7 {
     grid-row: 8;
 }
+
 .line8 {
     grid-row: 9;
 }
+
 .line9 {
     grid-row: 10;
 }
 
 .btn {
     border: 0.1vw solid #ddd;
-    background-color: #F0D2B2;
+    background-color: #f0adad;
+    color: black;
     padding: 2vw 3vw;
     border-radius: 1vw;
     text-decoration: none;
@@ -93,6 +107,7 @@
 .btn_done {
     border: 0.1vw solid #ddd;
     background-color: #B2F0BE;
+    color: black;
     padding: 2vw 3vw;
     border-radius: 1vw;
     text-decoration: none;
@@ -105,6 +120,7 @@
 .btn_close {
     border: 0.1vw solid #ddd;
     background-color: #4E525A;
+    color: black;
     padding: 2vw 3vw;
     border-radius: 1vw;
     text-decoration: none;
