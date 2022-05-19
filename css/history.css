@@ -80,7 +80,31 @@
 
 .btn {
     border: 0.1vw solid #ddd;
-    background-color: #f0f0f0;
+    background-color: #F0D2B2;
+    padding: 2vw 3vw;
+    border-radius: 1vw;
+    text-decoration: none;
+    -o-transition: background-color .2s ease-in;
+    -moz-transition: background-color .2s ease-in;
+    -webkit-transition: background-color .2s ease-in;
+    transition: background-color .2s ease-in;
+}
+
+.btn_done {
+    border: 0.1vw solid #ddd;
+    background-color: #B2F0BE;
+    padding: 2vw 3vw;
+    border-radius: 1vw;
+    text-decoration: none;
+    -o-transition: background-color .2s ease-in;
+    -moz-transition: background-color .2s ease-in;
+    -webkit-transition: background-color .2s ease-in;
+    transition: background-color .2s ease-in;
+}
+
+.btn_close {
+    border: 0.1vw solid #ddd;
+    background-color: #4E525A;
     padding: 2vw 3vw;
     border-radius: 1vw;
     text-decoration: none;
@@ -91,7 +115,15 @@
 }
 
 .btn:hover {
-    background-color: #e5e5e5;
+    background-color: #FFE600;
+}
+
+.btn_done:hover {
+    background-color: #73F08C;
+}
+
+.btn_close:hover {
+    background-color: #B51200;
 }
 
 .btn:active {
