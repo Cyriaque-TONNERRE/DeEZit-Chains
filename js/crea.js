@@ -247,7 +247,7 @@ function contenu(){
     }
 
     function increaseNum(){
-        if(newc !== 0){
+        if(nowc !== 0){
             if(this.id !== 'r' && this.id !== 'b' && this.id !== 'g' && this.id !== 'p' && this.id !== 'y' && (this.classList.contains('okay') || this.classList.contains('valid')) && !(this.classList.contains('used')))
             {
                 est_nouveau = true;

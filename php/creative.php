@@ -5,7 +5,7 @@ require 'header.php';
 	
 
     <main>
-    <div class = "pop-up">
+    <div class = "tmp">
         Choisissez la taille du tableau :
         <br>
         <input type="range" min="5" max="10" id="Range" value="5">
