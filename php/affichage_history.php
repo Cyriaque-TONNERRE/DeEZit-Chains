@@ -1,8 +1,8 @@
 <?php require './header.php'; ?>
 <link rel='stylesheet' href='../css/adventure.css'>
-
+    
 <main>
-
+    <a href='history.php' class='back'><i class='fa-solid fa-arrow-left'></i> Back</a> 
     <div class="game">
         <?php
         $id = "Niv".$_GET["id"];
@@ -55,8 +55,6 @@
                 }
             }
         }
-
-        echo "<a href='history.php' class='back'><i class='fa-solid fa-arrow-left'></i></a>";
 
         echo "<table id='tableau'>";
         for ($colonne = 0; $colonne < $size; $colonne++){
