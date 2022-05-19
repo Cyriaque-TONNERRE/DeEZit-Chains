@@ -37,6 +37,7 @@ $nom = explode('.', end($array))[0];?>
 </audio>
 
 <script>
+    setVolume();
     function getCookie(cookieName) {
         const name = cookieName + "=";
         const ca = document.cookie.split(';');
@@ -60,6 +61,7 @@ $nom = explode('.', end($array))[0];?>
 
     function setVolume() {
         const monElementAudio = document.getElementById('bgsound');
+        console.log(getCookie('volume'));
         monElementAudio.volume = getCookie('volume');
     }
 
