@@ -24,7 +24,7 @@
     }
     ?>
 
-    <h1>Félicitation gros sac à merde</h1>
+    <h1>Félicitation, tu as fini le mode aventure !</h1>
     <a href="history.php">Retour au menu</a>
 
 </main>
