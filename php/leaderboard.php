@@ -1,4 +1,6 @@
-<?php require './header.php'; ?>
+<?php require './header.php';
+?>
+
 
 
 <head>
@@ -13,6 +15,7 @@
 </head>
 <body>
 <!-- Search box. -->
+
 <input type="text" id="search" placeholder="Search" />
 
 <!-- Suggestions will be displayed in below div. -->
@@ -21,8 +24,8 @@
 <main>
 
     <div>
-        <table><tr><h1>Leaderboard</h1></tr> </h1>
-
+        <table><tr><h1>Leaderboard</h1></tr></h1>
+            <br>
             <?php
             include("connexion_db.php");
             $requete = "SELECT username,adventure_lvl,time_trial FROM user ORDER BY adventure_lvl DESC, time_trial ASC, username ASC limit 100";
@@ -41,7 +44,7 @@
                 echo "<tr>
 						<th>Rank</th>
 						<th>Username</th>
-						<th>Level</th>
+						<th>Aventure</th>
 						<th>Time Trial</th>
 					</tr>";
                 $nbreLignes = mysqli_num_rows($resultat); //Nombre de ligne du retour de la requete
