@@ -48,7 +48,7 @@
                     }
                     else {
                         setcookie("history_lvl", 1, time() + (365 * 24 * 3600));
-                        
+                        header("Location: history.php");
                     }
                 }
             }
