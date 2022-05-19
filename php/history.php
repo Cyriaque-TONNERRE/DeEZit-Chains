@@ -34,7 +34,21 @@
                 }
                 else {
                     if (isset($_COOKIE["history_lvl"])) {
-
+                        if ($num <= $_COOKIE["history_lvl"]) {
+                            if ($num == $_COOKIE["history_lvl"]) {
+                                echo "<a class='btn' class='line$i' class='col$j' href='affichage_history.php?id=$num'>$num</a>";
+                            }
+                            else {
+                                echo "<a class='btn_done' class='line$i' class='col$j' href='affichage_history.php?id=$num'>$num</a>";
+                            }
+                        }
+                        else {
+                            echo "<p class='btn_close' class='line$i' class='col$j' href='affichage_history.php?id=$num'>$num</p>";
+                        }
+                    }
+                    else {
+                        setcookie("history_lvl", 1, time() + (365 * 24 * 3600));
+                        
                     }
                 }
             }

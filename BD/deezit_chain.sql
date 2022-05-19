@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : jeu. 19 mai 2022 à 06:47
+-- Généré le : jeu. 19 mai 2022 à 09:25
 -- Version du serveur :  5.7.24
 -- Version de PHP : 8.0.1
 
@@ -31,9 +31,9 @@ CREATE TABLE `user` (
   `ID` int(11) NOT NULL,
   `username` varchar(64) NOT NULL,
   `password` varchar(64) NOT NULL,
-  `history_lvl` int(32) NOT NULL,
-  `adventure_lvl` int(32) NOT NULL,
-  `time_trial` int(32) NOT NULL
+  `history_lvl` int(32) NOT NULL DEFAULT '1',
+  `adventure_lvl` int(32) DEFAULT NULL,
+  `time_trial` int(32) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
