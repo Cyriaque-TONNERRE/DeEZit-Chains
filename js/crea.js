@@ -194,6 +194,7 @@ function contenu(){
             this.id = nowc;
             let racine = document.querySelector('.'+nowc+'.drag');
             racine.setAttribute('draggable', false);
+            racine.classList += ' disparition';
             chemin.unshift(this);
             //here
 
