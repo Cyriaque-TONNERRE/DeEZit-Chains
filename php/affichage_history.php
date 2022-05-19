@@ -56,7 +56,7 @@
             }
         }
 
-        echo "<a href='history.php'class='back'><i class='fa-solid fa-arrow-left'></i></a>";
+        echo "<a href='history.php' class='back'><i class='fa-solid fa-arrow-left'></i></a>";
 
         echo "<table id='tableau'>";
         for ($colonne = 0; $colonne < $size; $colonne++){
