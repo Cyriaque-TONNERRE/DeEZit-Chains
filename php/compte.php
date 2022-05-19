@@ -22,7 +22,7 @@
 
     <?php
     include("connexion_db.php");
-    $username = $_COOKIE["username"];
+    $username = $_SESSION["username"];
     $requete = "SELECT * FROM user WHERE username='$username'";
     $resultat = mysqli_query($connexion,$requete);
     if ($resultat == FALSE) {
@@ -54,9 +54,9 @@
             </form>
 
             <?php
-            if(isset($_COOKIE["update"]) && $_COOKIE["update"] == 1) {
+            if(isset($_SESSION["update"]) && $_SESSION["update"] == 1) {
                 echo '<p class="update">Updtated</p>';
-                $_COOKIE["update"] = 0;
+                $_SESSION["update"] = 0;
             }
             ?>
 

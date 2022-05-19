@@ -7,6 +7,7 @@
         for ($i = 0; $i < 10; $i++) {
             for ($j = 0; $j < 5; $j++) {
                 $num = 5 * $i + $j + 1;
+                if ($_SESSION["username"])
                 echo "<a class='btn' class='line$i' class='col$j' href='affichage_history.php?id=$num'>$num</a>";
             }
         }

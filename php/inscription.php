@@ -1,5 +1,5 @@
 <?php require './header.php';
-if (isset($_COOKIE["username"])) {
+if (isset($_SESSION["username"])) {
     header("location:index.php");
 }
 ?>
@@ -29,7 +29,7 @@ if (isset($_COOKIE["username"])) {
         $requete = "SELECT * FROM user WHERE username='$username'";
         $resultat = mysqli_query($connexion,$requete);
 
-        if ($resultat == FALSE){
+        if ($resultat == FALSE) {
             echo "<p>Erreur d'exécution de la requete :".mysqli_error($connexion)."</p>" ;
             die();
         }

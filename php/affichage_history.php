@@ -170,27 +170,22 @@
                         }
                     }
 
-                    if($colours >= 2 && $tab[$colonne][$ligne] == 'g'){
+                    if($tab[$colonne][$ligne] == 'g'){
                         $green = true;
 
                     }
-                    else if($colours >= 3 && $tab[$colonne][$ligne] == 'b'){
+                    else if($tab[$colonne][$ligne] == 'b'){
                         $blue = true;
 
                     }
-                    else if($colours >= 4 && $tab[$colonne][$ligne] == 'y'){
+                    else if($tab[$colonne][$ligne] == 'y'){
                         $yellow = true;
 
                     }
-                    else if($colours == 5 && $tab[$colonne][$ligne] == 'p'){
+                    else if($tab[$colonne][$ligne] == 'p'){
                         $purple = true;
 
                     }
-
-
-
-
-
 
                 }
                 else{
