@@ -234,10 +234,12 @@ function dragDrop() {
             number = URL.substring(URL.indexOf('=') + 1);
             if (Number(number) < 50) {
                 number = Number(number) + 1;
-            } else number = 50;
-            number = number.toString();
-            document.location.href = "affichage_history.php?id=" + number;
-
+                number = number.toString();
+                document.location.href = "affichage_history.php?id=" + number;
+            }
+            else {
+                document.location.href = "congrats_history.php";
+            }
         } else {
             document.location.href = "adventure.php";
 
