@@ -16,15 +16,15 @@
 }
 
 
-#table{
-    display:grid;
+#table {
+    display: grid;
     grid-template-columns: 10vw 10vw 10vw 10vw 10vw;
     grid-template-rows: 10vw 10vw 10vw 10vw 10vw 10vw 10vw 10vw 10vw 10vw;
-    grid-gap: 1vw;
+    grid-gap: 2vw;
     margin: 5vw 24vw 0vw 24vw;
 }
 
-#line{
+#line {
     margin-left: auto;
     margin-right: auto;
 }
@@ -83,6 +83,7 @@
     background-color: #f0f0f0;
     padding: 2vw 3vw;
     border-radius: 1vw;
+    text-decoration: none;
     -o-transition: background-color .2s ease-in;
     -moz-transition: background-color .2s ease-in;
     -webkit-transition: background-color .2s ease-in;
