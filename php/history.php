@@ -20,14 +20,14 @@
                         $row = mysqli_fetch_assoc($resultat);
                         if (mysqli_num_rows($resultat) == 1 && $num <= $row["history_lvl"]) {
                             if ($num == $row["history_lvl"]) {
-                                echo "<a class='btn' class='line$i' class='col$j' href='affichage_history.php?id=$num'>$num</a>";
+                                echo "<a draggable='false' class='btn' class='line$i' class='col$j' href='affichage_history.php?id=$num'>$num</a>";
                             }
                             else {
-                                echo "<a class='btn_done' class='line$i' class='col$j' href='affichage_history.php?id=$num'>$num</a>";
+                                echo "<a draggable='false' class='btn_done' class='line$i' class='col$j' href='affichage_history.php?id=$num'>$num</a>";
                             }
                         }
                         else {
-                            echo "<p class='btn_close' class='line$i' class='col$j' href='affichage_history.php?id=$num'>$num</p>";
+                            echo "<p draggable='false' class='btn_close' class='line$i' class='col$j' href='affichage_history.php?id=$num'>$num</p>";
                         }
                     }
 
@@ -36,14 +36,14 @@
                     if (isset($_COOKIE["history_lvl"])) {
                         if ($num <= $_COOKIE["history_lvl"]) {
                             if ($num == $_COOKIE["history_lvl"]) {
-                                echo "<a class='btn' class='line$i' class='col$j' href='affichage_history.php?id=$num'>$num</a>";
+                                echo "<a draggable='false' class='btn' class='line$i' class='col$j' href='affichage_history.php?id=$num'>$num</a>";
                             }
                             else {
-                                echo "<a class='btn_done' class='line$i' class='col$j' href='affichage_history.php?id=$num'>$num</a>";
+                                echo "<a draggable='false' class='btn_done' class='line$i' class='col$j' href='affichage_history.php?id=$num'>$num</a>";
                             }
                         }
                         else {
-                            echo "<p class='btn_close' class='line$i' class='col$j' href='affichage_history.php?id=$num'>$num</p>";
+                            echo "<p draggable='false' class='btn_close' class='line$i' class='col$j' href='affichage_history.php?id=$num'>$num</p>";
                         }
                     }
                     else {

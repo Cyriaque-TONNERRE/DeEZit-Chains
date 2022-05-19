@@ -1,35 +1,36 @@
 /*Reset CSS*/
+
 .gamemode {
-	text-align: center;
-	text-decoration: none;
-	font-family: Ezcriture, serif;
-	font-size: 2.4vw;
-	color: black;
-	background-color: #CFBB97;
-	border : 0.3vw goldenrod solid;
-	border-radius: 100vw;
-	width: 24vw;
-	height: 4vw;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 2vw;
-	padding-top: 1.8vw;
+    text-align: center;
+    text-decoration: none;
+    font-family: Ezcriture, serif;
+    font-size: 2.4vw;
+    color: black;
+    background-color: #CFBB97;
+    border: 0.3vw goldenrod solid;
+    border-radius: 100vw;
+    width: 24vw;
+    height: 4vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2vw;
+    padding-top: 1.8vw;
+    user-select: none;
 }
 
 .gamemode:hover {
-	font-size: 2.5vw;
-	width: 27vw;
-	height: 4.7vw;
-	background-color: #deb346;
-
+    font-size: 2.5vw;
+    width: 27vw;
+    height: 4.7vw;
+    background-color: #deb346;
 }
 
 .button {
-	padding-top: 2vw;
-	padding-bottom: 4.3vw;
-	display: grid;
-	grid-template-rows: 8vw 8vw 8vw 8vw;
-	align-items: center;
-	justify-items: center;
-	gap: 1vw;
+    padding-top: 2vw;
+    padding-bottom: 4.3vw;
+    display: grid;
+    grid-template-rows: 8vw 8vw 8vw 8vw;
+    align-items: center;
+    justify-items: center;
+    gap: 1vw;
 }

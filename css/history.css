@@ -108,6 +108,7 @@
     -moz-transition: background-color .2s ease-in;
     -webkit-transition: background-color .2s ease-in;
     transition: background-color .1.5s ease-in;
+    user-select: none;
 }
 
 .btn_done {
@@ -126,6 +127,7 @@
     -moz-transition: background-color .2s ease-in;
     -webkit-transition: background-color .2s ease-in;
     transition: background-color .1.5s ease-in;
+    user-select: none;
 }
 
 .btn_close {
@@ -144,6 +146,7 @@
     -moz-transition: background-color .2s ease-in;
     -webkit-transition: background-color .2s ease-in;
     transition: background-color .1.5s ease-in;
+    user-select: none;
 }
 
 .btn:hover {
