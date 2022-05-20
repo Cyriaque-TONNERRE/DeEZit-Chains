@@ -20,11 +20,11 @@
 <div class="button">
     <a draggable='false' class="gamemode" href="leaderboard_aventure.php">
         Adventure Mode
-        <img src="../image/Adventurer_Hat.svg" alt="Adventurer hat" id="hat"/>
+        <img src="../image/Adventurer_Hat.svg" alt="Adventurer hat" id="hat" draggable='false'/>
     </a>
     <a draggable='false' class="gamemode2" href="leaderboard_time_trial.php">
         Time Trial
-        <img src="../image/clock.svg" alt="clock" id="clock"/>
+        <img src="../image/clock.svg" alt="clock" id="clock" draggable='false'/>
     </a>
 </div>
 

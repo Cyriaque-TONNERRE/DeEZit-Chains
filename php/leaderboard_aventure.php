@@ -31,7 +31,7 @@
 
         else {
 
-            echo "<img src='../image/podium.svg   ' alt='podium'/>";
+            echo "<img src='../image/podium.svg' alt='podium' draggable='false'/>";
             echo "<table><tr>
 						<th>Rank</th>
 						<th>Username</th>
