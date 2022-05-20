@@ -1,6 +1,6 @@
 value = 5;
-newc = 0;
-nowc = 0;
+newc = 0; //Variable de protection pour éviter la duplication de couleurs
+nowc = 0; //Variable afin de conserver la couleur dans laquelle nous sommes
 del = false;
 blockerlvl = false;
 function generate_table(value) {
@@ -18,9 +18,6 @@ function generate_table(value) {
         var row = document.createElement("tr");
 
         for (var j = 0; j < value; j++) {
-        // Create a <td> element and a text node, make the text
-        // node the contents of the <td>, and put the <td> at
-        // the end of the table row
         var cell = document.createElement("td");
         var cellText = document.createTextNode("");
         cell.appendChild(cellText);
@@ -29,7 +26,6 @@ function generate_table(value) {
         cell.setAttribute("id", '0');
         }
 
-        // add the row to the end of the table body
         tblBody.appendChild(row);
     }
    
@@ -45,6 +41,7 @@ function generate_table(value) {
     
 }
 function hide(){
+    //Cacher la pop-up
     console.log("good");
     const pop = document.querySelector('.tmp');
     pop.classList.add("disparition");
@@ -74,6 +71,7 @@ function contenu(){
     console.log(color_cases);
     const box = document.querySelectorAll('.case'); //variable qui recup toutes les cases
     
+    
     const mouse = document.querySelector('tableau');
     
     for (const racines of color_cases) { //créer un event pour tout les élément de box
@@ -81,7 +79,10 @@ function contenu(){
         racines.addEventListener('drag', drag);
         racines.addEventListener('dragstart', dragStartr); //event: lorsqu'on commence a drag appel la fonction dragStart
         racines.addEventListener('dragend', dragEndr); //event: lorsqu'on lache l'objet appel la fonction dargEnd
+        racines.classList += ' disparition';
+        
     }
+    document.querySelector('.r.drag').classList.remove('disparition');
     
     
     
@@ -200,6 +201,18 @@ function contenu(){
             newc = 0;
             racine.setAttribute('draggable', false);
             racine.classList += ' disparition';
+            if(nowc === 'r'){
+                document.querySelector('.g.drag').classList.remove('disparition');
+            }
+            else if(nowc === 'g'){
+                document.querySelector('.b.drag').classList.remove('disparition');
+            }
+            else if(nowc === 'b'){
+                document.querySelector('.p.drag').classList.remove('disparition');
+            }
+            else if(nowc === 'p'){
+                document.querySelector('.y.drag').classList.remove('disparition');
+            }
             chemin.unshift(this);
             //here
 
@@ -253,16 +266,27 @@ function contenu(){
                 est_nouveau = true;
                 blockerlvl = false;
 
+                nouvellecase = false;
 
                 let lvl = parseInt(this.id);
                 if(this !== chemin[0] && chemin.indexOf(this) === -1){
                     console.log('ajout');
                     chemin.unshift(this);
+                    nouvellecase = true;
+                    
+                    
                     
                 }
                 if(lvl !== 9){
                     if(lvl < chemin[1].id){
-                        lvl = chemin[1].id
+                        console.log("bug from here ?");
+                        if(nouvellecase){
+                            lvl = chemin[1].id
+                        }
+                        else{
+                           lvl++; 
+                        }
+                        nouvellecase = false;
                     }
                     else if(chemin.indexOf(this) !== 0 && chemin.length !== 1){
                         console.log('ok');
@@ -382,13 +406,115 @@ function contenu(){
                         
                     }
                 }
+            }
+            else if(this.id === 'r' || this.id === 'b' || this.id === 'g' || this.id === 'p' || this.id === 'y'){
+                console.log('test');
+                if(this.id === 'r' && nowc !== 'r'){
+                    road = cheminR;
+                    cheminR = [];
+                    cheminR.unshift(road[road.length]);
                 }
+                else if(this.id === 'g' && nowc !== 'g'){
+                    road = cheminG;
+                    cheminG = [];
+                    cheminG.unshift(road[road.length-1]);
+                }
+                else if(this.id === 'b' && nowc !== 'b'){
+                    road = cheminB;
+                    cheminB = [];
+                    cheminB.unshift(road[road.length-1]);
+                }
+                else if(this.id === 'p' && nowc !== 'p'){
+                    road = cheminP;
+                    cheminP = [];
+                    cheminP.unshift(road[road.length-1]);
+                }
+                else if(this.id === 'y' && nowc !== 'y'){
+                    road = cheminY;
+                    cheminY = [];
+                    cheminY.unshift(road[road.length-1]);
+                }
+                else{
+                    
+                    road = chemin;
+                    chemin = [];
+                    chemin.unshift(road[road.length-1]);
+                }
+                console.log(road);
+
+                if(road !== null){
+                    if(road.length !== 0){
+                        let time = road.length - 1;
+                        for (let o = 0; o < time; o++) {
+                                        
+                            road[0].innerHTML = "";
+                            road[0].id = 0;
+                            if(road[0].classList.contains('valid')){
+                                road[0].classList.remove('valid');
+                            }
+                            road.shift();
+
+                        }
+
+                        if(nowc === this.id){
+                            let caseliste = document.querySelectorAll('.okay');
+                            if(caseliste !== null){
+                                for (let i = 0; i < caseliste.length; i++) {
+                                    caseliste[i].classList.remove('okay');
+                                }
+                            }
+
+                            if (this.cellIndex - 1 < (document.getElementById("tableau_crea").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex - 1 >= 0) { //cell - 1G
+                                //GAUCHE
+                                if((document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex-1].id) === '0'){
+                                    if(!(document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex-1].classList.contains('okay'))){
+                                        document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex-1].classList += ' okay';
+                                    }
+                                }
+                
+                            
+                            }
+                            if (this.cellIndex + 1 < (document.getElementById("tableau_crea").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex + 1 >= 0) { //cel + 1D
+                                //DROITE
+                                //Chiffre -> Pb
+                                if((document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex+1].id) === '0'){
+                                    if(!(document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex+1].classList.contains('okay'))){
+                                        document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex+1].classList += ' okay';
+                                    }
+                                }
+                                
+                            }
+                            if (this.parentNode.rowIndex - 1 < (document.getElementById("tableau_crea").rows.length) && this.parentNode.rowIndex - 1 >= 0) {
+                                //HAUT
+                                if((document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex - 1].cells[this.cellIndex].id) === '0'){
+                                    if(!(document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex - 1].cells[this.cellIndex].classList.contains('okay'))){
+                                        document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex - 1].cells[this.cellIndex].classList += ' okay';
+                                    }
+                                }
+                                
+                            }
+                            if (this.parentNode.rowIndex + 1 < (document.getElementById("tableau_crea").rows.length) && this.parentNode.rowIndex + 1 >= 0) {
+                                //BAS
+                                if((document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex + 1].cells[this.cellIndex].id) === '0'){
+                                    if(!(document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex + 1].cells[this.cellIndex].classList.contains('okay'))){
+                                        document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex + 1].cells[this.cellIndex].classList += ' okay';
+                                    }
+                                }
+                                
+                            }
+                        }
+                    }
+                }
+            }
                 
         }
+        
 
     }
      
     
 }
+
+
 
 
