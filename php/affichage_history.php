@@ -2,7 +2,6 @@
 <link rel='stylesheet' href='../css/adventure.css'>
     
 <main>
-    <a href='history.php' class='back'><i class='fa-solid fa-arrow-left'></i> Back</a> 
     <div class="game">
         <?php
         $id = "Niv".$_GET["id"];
@@ -254,7 +253,7 @@
         }
 
         ?>
-
+        <a href='history.php' class='back'><i class='fa-solid fa-arrow-left'></i> Back</a>
         <footer>
 
         </footer>
