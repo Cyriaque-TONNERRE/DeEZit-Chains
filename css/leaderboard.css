@@ -1,37 +1,75 @@
-tr{
+.gamemode{
+    float: left;
     text-align: center;
-    background: #5FACD3;
-}
-td {
-    text-align: center;
-
-}
-th{
-    text-align: center;
-    padding: 0vw 1vw ;
-    background: #F0E8DA;
-}
-.active{font-weight: bold}
-.rank1{color:gold}
-.rank2{color: silver;}
-.rank3{color: orange}
-h1{text-align: center}
-table, th, td{
-    text-align: center;
+    text-decoration: inherit;
+    font-family: Ezcriture,Serif;
+    font-size: 2.4vw;
+    color:black;
+    background-color: lightgrey;
     margin-left: auto;
     margin-right: auto;
+    user-select: none;
+    border-radius: 0.5vw;
+    width: 49.5%;
+    height: 61vh;
+    padding-top: 10vw;
+    padding-bottom: 0.5vw;
+    -o-transition: background-color .2s ease-in;
+    -moz-transition: background-color .2s ease-in;
+    -webkit-transition: background-color .2s ease-in;
+    transition: background-color .1.5s ease-in;
 }
-table{
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 60%;
-    border-radius: 2vw 2vw 0 0;
-    overflow: hidden;
-    box-shadow: 0 2px 12px rgba(32,32,32,.3);
+.gamemode:hover {
+    background-color: silver;
 }
-tr:nth-child(even){
-    background-color: #479ECD;
+.gamemode2{
+    float: right;
+    text-align: center;
+    text-decoration: inherit;
+    font-family: Ezcriture,Serif;
+    font-size: 2.4vw;
+    color:black;
+    background-color: lightgrey;
+    margin-left: auto;
+    margin-right: auto;
+    user-select: none;
+    border-radius: 0.5vw;
+    width: 49.5%;
+    height: 61vh;
+    padding-top: 10vw;
+    padding-bottom: 0.5vw;
+    -o-transition: background-color .2s ease-in;
+    -moz-transition: background-color .2s ease-in;
+    -webkit-transition: background-color .2s ease-in;
+    transition: background-color .1.5s ease-in;
+}
+.gamemode2:hover{
+    background-color: silver;
+}
+.button {
+    padding: 2vh 2vh;
+    display: block;
+    grid-template-rows: 8vw 8vw;
+    align-items: center;
+    justify-items: center;
+    gap: 1vw;
 }
 
 
+img {
+    display: block;
+    position: relative;
+    height: 20vw;
+    width: auto;
+    text-align: center;
+    user-select: none;
+    margin-top: 2.9vw;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: middle;
+}
 
+#clock {
+    margin-top:0.3vw;
+    height: 21vw;
+}

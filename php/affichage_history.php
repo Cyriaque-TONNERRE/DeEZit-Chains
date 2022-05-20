@@ -1,8 +1,10 @@
 <?php require './header.php'; ?>
 <link rel='stylesheet' href='../css/adventure.css'>
-
+    
 <main>
+    <a href='history.php' class='back align-left'><i class='fa-solid fa-arrow-left'></i> Back</a>
     <div class="game">
+
         <?php
         $id = "Niv".$_GET["id"];
         if (isset($_SESSION["username"])) {
@@ -253,8 +255,6 @@
         }
 
         ?>
-        <a href='history.php' class='back'><i class='fa-solid fa-arrow-left'></i> Back</a>
-
 
         <footer>
 
