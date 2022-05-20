@@ -14,15 +14,13 @@
     height: 61vh;
     padding-top: 10vw;
     padding-bottom: 0.5vw;
-
+    -o-transition: background-color .2s ease-in;
+    -moz-transition: background-color .2s ease-in;
+    -webkit-transition: background-color .2s ease-in;
+    transition: background-color .1.5s ease-in;
 }
-.button {
-    padding: 2vh 2vh;
-    display: block;
-    grid-template-rows: 8vw 8vw;
-    align-items: center;
-    justify-items: center;
-    gap: 1vw;
+.gamemode:hover {
+    background-color: silver;
 }
 .gamemode2{
     float: right;
@@ -40,7 +38,23 @@
     height: 61vh;
     padding-top: 10vw;
     padding-bottom: 0.5vw;
+    -o-transition: background-color .2s ease-in;
+    -moz-transition: background-color .2s ease-in;
+    -webkit-transition: background-color .2s ease-in;
+    transition: background-color .1.5s ease-in;
 }
+.gamemode2:hover{
+    background-color: silver;
+}
+.button {
+    padding: 2vh 2vh;
+    display: block;
+    grid-template-rows: 8vw 8vw;
+    align-items: center;
+    justify-items: center;
+    gap: 1vw;
+}
+
 
 img {
     display: block;
