@@ -6,8 +6,8 @@
     <div class="game">
         <?php
         $id = "Niv".$_GET["id"];
-        include("connexion_db.php");
         if (isset($_SESSION["username"])) {
+            include("connexion_db.php");
             $requete2 = "SELECT * FROM user where username='$_SESSION[username]'";
             $resultat2 = mysqli_query($connexion,$requete2);
             $row = mysqli_fetch_assoc($resultat2);
