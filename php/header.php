@@ -69,7 +69,7 @@ $nom = explode('.', end($array))[0];?>
 
     addEventListener('click', event => {
         //enregistrer monElementAudio.currentTime dans un cookie
-        document.cookie = `currentTime=${document.getElementById('bgsound').currentTime}; expires=${new Date(new Date().getTime() + 31536000000).toUTCString()}; path=/`;s
+        document.cookie = `currentTime=${document.getElementById('bgsound').currentTime}; expires=${new Date(new Date().getTime() + 31536000000).toUTCString()}; path=/`;
     })
 
 </script>
