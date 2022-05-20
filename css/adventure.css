@@ -18,6 +18,11 @@
     src: url('../font/rounded.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'pencriture';
+    src: url('../font/pencriture.ttf') format('truetype');
+}
+
 
 /*Mise en place des variables*/
 
@@ -137,7 +142,7 @@ table {
     height: 10%;
     width: 10%;
     text-align: center;
-    font-family: futureLight, serif;
+    font-family: pencriture, serif;
     font-size: 1vw;
     -webkit-user-select: none;
     -webkit-touch-callout: none;

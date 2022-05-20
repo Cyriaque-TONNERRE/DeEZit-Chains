@@ -1,6 +1,6 @@
 <?php require './header.php'; ?>
 <link rel='stylesheet' href='../css/adventure.css'>
-    
+
 <main>
     <div class="game">
         <?php
@@ -254,6 +254,8 @@
 
         ?>
         <a href='history.php' class='back'><i class='fa-solid fa-arrow-left'></i> Back</a>
+
+
         <footer>
 
         </footer>
