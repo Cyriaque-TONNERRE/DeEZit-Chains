@@ -49,12 +49,10 @@ $nom = explode('.', end($array))[0];?>
         for (let i = 0; i < ca.length; i++) {
             const c = ca[i].trim();
             if ((c.indexOf(name)) === 0) {
-                console.log('found')
                 return c.substr(name.length);
             }
 
         }
-        console.log('not found')
         return null;
     }
 
@@ -66,15 +64,12 @@ $nom = explode('.', end($array))[0];?>
 
     function setVolume() {
         const monElementAudio = document.getElementById('bgsound');
-        console.log(getCookie('volume'));
         monElementAudio.volume = getCookie('volume');
     }
 
     addEventListener('click', event => {
         //enregistrer monElementAudio.currentTime dans un cookie
         document.cookie = `currentTime=${document.getElementById('bgsound').currentTime}; expires=${new Date(new Date().getTime() + 31536000000).toUTCString()}; path=/`;
-        console.log(document.getElementById('bgsound').currentTime);
-        console.log(document.cookie);
     })
 
 </script>
