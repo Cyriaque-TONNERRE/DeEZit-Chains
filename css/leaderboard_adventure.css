@@ -1,0 +1,77 @@
+tr{
+    text-align: center;
+}
+td {
+    text-align: center;
+
+}
+th{
+    text-align: center;
+    padding: 0vw 1vw ;
+    background: #F0E8DA;
+}
+.active{font-weight: bold}
+.rank1{color:gold}
+.rank2{color: silver;}
+.rank3{color: orange}
+div h2 {
+    text-align: center;
+    font-weight: bold;
+    padding-top: 1vw;
+
+}
+h4{text-align: center;
+    font-weight: lighter;
+}
+table, th, td{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+table{
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 60%;
+    border-radius: 2vw 2vw 0 0;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(32,32,32,.3);
+}
+img{
+    display: block;
+    height: 20vw;
+    width: 30vw;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 4;
+}
+.back {
+    background-color: #CFBB97;
+    border: 0.3vw goldenrod solid;
+    border-radius: 2vw;
+    padding: 1vw;
+    text-decoration: none;
+    color: black;
+    font-family: rounded, serif;
+    font-size: 1.5vw;
+    margin-left: 1vw;
+    margin-top: 1vw;
+    display: inline-table;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.back:hover {
+    background-color: #deb346;
+}
+.align-left{
+    position:absolute;
+}
+#wrapper {
+    text-align:left;
+}
+
+.align-center{
+    text-align: center;
+}
