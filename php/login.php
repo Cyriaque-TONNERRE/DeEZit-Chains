@@ -52,7 +52,6 @@ mysqli_close($connexion);
 ?>
 
 <footer>
-
 </footer>
 
 
