@@ -64,6 +64,9 @@ $crypt = [
 ];
 $decrypted_id = array_search($id,$crypt);
 $next_id = $decrypted_id +1;
+if (!isset($_COOKIE["id"])){
+    header('Location: ./index.php');
+}
 if ($_COOKIE["id"] == $id) {
     if ($decrypted_id > 50) {
         header("Location: ./congrats_history.php");
