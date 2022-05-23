@@ -1,0 +1,93 @@
+
+.change_theme {
+    font-size: 1.3vw;
+    font-family: rounded, serif;
+    text-align: center;
+    margin-top: 1vw;
+}
+
+#Dark {
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    width: 8vw;
+    height: 2vw;
+    margin-top: 1vw;
+    padding-top: 0.38vw;
+    border-radius: 2vw;
+    border-color: #3f3f3f;
+    border-style: solid;
+    border-width: 0.2vw;
+    text-align: center;
+    font-family: rounded, serif;
+    font-size: 1vw;
+    background-color: #36b24d;
+}
+
+body{
+    background-color: #3f3f3f;
+}
+.param_box {
+    color: white;
+    display: block;
+    background-color: #3f3f3f;
+    width: 30vw;
+    height: 23vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8vw;
+    box-shadow: 0 0 1vw 0 rgba(255,255,255,.75);
+    -webkit-box-shadow: 0 0 1vw 0 rgba(255,255,255,.75);
+    -moz-box-shadow: 0 0 1vw 0 rgba(255,255,255,255.75);
+}
+
+.param_box h1 {
+    text-align: center;
+    font-family: Ezcriture, serif;
+    padding-top: 3vw;
+    padding-bottom: 0.8vw;
+    font-size: 3vw;
+}
+
+
+#Sound {
+
+    display: block;
+    -webkit-appearance: none;  /* Override default CSS styles */
+    width: 80%; /* Full-width */
+    height: 1vw; /* Specified height */
+    background: #3f3f3f; /* Grey background */
+    outline: none; /* Remove outline */
+    border: 0.2vw solid #ffffff;
+    border-radius: 1vw;
+    margin-top: 1vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#Sound::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 1.4vw; /* Set a specific slider handle width */
+    height: 1.4vw; /* Slider handle height */
+    background: #36b24d; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
+#Sound::-moz-range-thumb {
+    width: 1.5vw; /* Set a specific slider handle width */
+    height: 1.5vw; /* Slider handle height */
+    border-radius: 1vw;
+    border: #ffffff solid 0.2vw;
+    background: #36b24d; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
+#Sound_title {
+    color: white;
+    font-size: 1.3vw;
+    font-family: rounded, serif;
+    text-align: center;
+    display: block;
+    margin: 3vw auto 2vw;
+}
