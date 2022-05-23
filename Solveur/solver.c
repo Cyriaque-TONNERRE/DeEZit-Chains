@@ -22,8 +22,6 @@ int initialisation(char **tab, coord *tableau){
             tableau[j+i*sizeof(tab)].x = j;
             tableau[j+i*sizeof(tab)].y = i;
             tableau[j+i*sizeof(tab)].value = tab[i][j];
-            tableau[j+i*sizeof(tab)].used = false;
-            tableau[j+i*sizeof(tab)].changeSens = false;
             //printf("\nX : %d |",tableau[j+i*sizeof(tab)].x);
             //printf(" Y : %d |",tableau[j+i*sizeof(tab)].y);
             //printf(" Used : %d |",tableau[j+i*sizeof(tab)].used);

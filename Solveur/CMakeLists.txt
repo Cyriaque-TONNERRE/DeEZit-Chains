@@ -8,4 +8,4 @@ include_directories(.)
 add_executable(Solveur
         fonctions.c
         fonctions.h
-        solver.c)
+        solveur.c functions.c functions.h)
