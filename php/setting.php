@@ -35,14 +35,12 @@
 
         </script>
         <div id="Sound_title">
-            Sound : <?php echo $_COOKIE["volume"]*100 ?>%
+            Sound : 50%
         </div>
-<<<<<<< Updated upstream
-        <input type="range" min="0" max="100" value="<?php echo $_COOKIE["volume"]*100 ?>" id="Sound">
-=======
+
 
         <input type="range" min="0" max="100" id="Sound">
->>>>>>> Stashed changes
+
         <script>
             document.getElementById("Sound").oninput = function () {
                 document.cookie = `volume=${this.value / 100}; expires=${new Date(new Date().getTime() + 31536000000).toUTCString()}; path=/`;
