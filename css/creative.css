@@ -1,6 +1,16 @@
 .tmp{
     background-color: gray;
     display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20vw;
+    height: 9vw;
+    font-size: 1vw;
+    text-align: center;
+    margin-top: 35vh;
+    border: #e3e3e3 solid 0.3vw;
+    border-radius: 2vw;
+    padding-top: 1.5vw;
 }
 .disparition{
     display: none;
@@ -48,5 +58,46 @@ td{
 }
 
 .okay{
-    background-color: aqua;
+    background-color: #119a66;
+}
+
+
+#Range {
+    display: block;
+    -webkit-appearance: none;  /* Override default CSS styles */
+    width: 84%; /* Full-width */
+    height: 1vw; /* Specified height */
+    background: #ffffff; /* Grey background */
+    outline: none; /* Remove outline */
+    border: 0.2vw solid #e3e3e3;
+    border-radius: 1vw;
+    margin-top: 1vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#Range::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 1.4vw; /* Set a specific slider handle width */
+    height: 1.4vw; /* Slider handle height */
+    background: #36b24d; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
+#Range::-moz-range-thumb {
+    width: 1.5vw; /* Set a specific slider handle width */
+    height: 1.5vw; /* Slider handle height */
+    border-radius: 1vw;
+    border: #e3e3e3 solid 0.2vw;
+    background: #36b24d; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
+#hide {
+    display: block;
+    width: 5vw;
+    height: 2vw;
+    font-size: 1.2vw;
+
 }

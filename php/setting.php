@@ -26,9 +26,9 @@
             }
         </script>
         <div id="Sound_title">
-            Sound : 50%
+            Sound : <?php echo $_COOKIE["volume"]*100 ?>%
         </div>
-        <input type="range" min="0" max="100" id="Sound">
+        <input type="range" min="0" max="100" value="<?php echo $_COOKIE["volume"]*100 ?>" id="Sound">
         <script>
             document.getElementById("Sound").oninput = function () {
                 document.cookie = `volume=${this.value / 100}; expires=${new Date(new Date().getTime() + 31536000000).toUTCString()}; path=/`;
