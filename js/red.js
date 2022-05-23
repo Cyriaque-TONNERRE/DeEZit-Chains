@@ -232,11 +232,11 @@ function dragDrop() {
         var URL = window.location.href;
         if (URL.includes("affichage_history.php")) {
             number = URL.substring(URL.indexOf('=') + 1);
-            document.cookie = `id=${number}; expires=${new Date(new Date().getTime() + 200).toUTCString()}; path=/`;
+            document.cookie = `id=${number}; expires=${new Date(new Date().getTime() + 2000).toUTCString()}; path=/`;
             document.location.href = "redirect.php?id=" + number;
         } else {
             document.location.href = "adventure.php";
-            document.cookie = `id=${number}; expires=${new Date(new Date().getTime() + 200).toUTCString()}; path=/`;
+            document.cookie = `id=${number}; expires=${new Date(new Date().getTime() + 2000).toUTCString()}; path=/`;
         }
     }
 
