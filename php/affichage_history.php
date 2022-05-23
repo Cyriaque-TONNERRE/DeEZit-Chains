@@ -101,6 +101,7 @@
 
         $json = file_get_contents('../level.json');
         $data = json_decode($json, false);
+        
         $tab = $data->$id->level;
         $colours = 0;
         $size = count($data->$id->level);
