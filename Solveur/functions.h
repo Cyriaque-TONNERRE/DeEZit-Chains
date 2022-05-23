@@ -19,4 +19,8 @@ int nb_cases(coord *tableau);
 
 int solver_recursif(coord *tableau,coord *couleur,int nb_color,int x,int y,int complete_case,int complete_color,bool fin_color);
 
-int solver(coord *tableau, coord *couleur, int nb_color, int x, int y);
+int solver(coord *tableau, coord *couleur, int nb_color);
+
+void display_coord(coord pos);
+
+void display_coordTab(coord *tableau, int taille);
