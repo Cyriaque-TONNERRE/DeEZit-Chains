@@ -17,7 +17,7 @@ coord *couleur(coord *tableau,char *tab,int **nb_color);
 
 int nb_cases(coord *tableau);
 
-int solver_recursif(coord *tableau,coord *couleur,int nb_color,int x,int y,int complete_case,int complete_color,bool fin_color);
+int solver_recursif(coord *tableau,coord *couleur,int nb_color,int x,int y,int complete_case,int complete_color,bool fin_color,coord previous);
 
 int solver(coord *tableau, coord *couleur, int nb_color);
 

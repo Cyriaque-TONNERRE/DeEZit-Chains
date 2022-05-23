@@ -57,7 +57,7 @@ int nb_cases(coord *tableau) {
 }
 
 
-int solver_recursif(coord *tableau, coord *couleur, int nb_color, int x, int y, int complete_case, int complete_color, bool fin_color) {
+int solver_recursif(coord *tableau, coord *couleur, int nb_color, int x, int y, int complete_case, int complete_color, bool fin_color,coord previous) {
     coord current;
     if (complete_case == nb_cases(tableau)) {
         printf("\nca marche !!");
@@ -65,46 +65,59 @@ int solver_recursif(coord *tableau, coord *couleur, int nb_color, int x, int y, 
     }
 
     if (complete_case == 0 || (fin_color == true && complete_color < nb_color)) {
+
         current = couleur[complete_color];
-        display_coord(current);
-        current.used = true;
+        tableau[x + (y)*(int)sizeof(tableau)].used=true;
     }
     else if(fin_color==true){
         printf("\npas le bon chemin");
+        //current.used = false;
+        //tableau[x + (y)*(int)sizeof(tableau)].used=false;
+        complete_case=complete_case-1;
         return 0;
     }
     else {
         current = tableau[x + y * (int)sizeof(tableau)];
-        current.used=true;
+        tableau[x + (y)*(int)sizeof(tableau)].used=true;
     }
+    display_coord(previous);
     display_coord(current);
-
-    solver_recursif(tableau, couleur, nb_color, x, y, complete_case+1, complete_color+1, true); // FIN
+    printf("\ncomplete: %d",complete_case);
+    printf("\nfin");
+    solver_recursif(tableau, couleur, nb_color, x, y, complete_case, complete_color+1, true,tableau[x + (y)*(int)sizeof(tableau)]); // FIN
 
      //HAUT
     if (current.y > 0 && tableau[x + (y-1)*(int)sizeof(tableau)].value != '0' && tableau[x + (y-1)*(int)sizeof(tableau)].used == false) { //haut, pas 0, pas used
-        solver_recursif(tableau,couleur, nb_color, x, y-1, complete_case+1, complete_color, false);
-        //printf("\nhaut");
+        printf("\nhaut");
+
+        //display_coord(current);
+        solver_recursif(tableau,couleur, nb_color, x, y-1, complete_case+1, complete_color, false,tableau[x + (y)*(int)sizeof(tableau)]);
     }
     // DROITE
     if ((current.x < sizeof(tableau) - 1) && tableau[(x+1) + y*(int)sizeof(tableau)].value != '0' && tableau[x + (x+1)*(int)sizeof(tableau)].used == false) { //droite, pas 0, pas used
-        solver_recursif(tableau,couleur, nb_color, x+1, y, complete_case+1, complete_color, false);
-        //printf("\ndroite");
+        printf("\ndroite");
+       // display_coord(current);
+        solver_recursif(tableau,couleur, nb_color, x+1, y, complete_case+1, complete_color, false,tableau[x + (y)*(int)sizeof(tableau)]);
+
     }
     // BAS
     if ((current.y < sizeof(tableau) - 1) && tableau[x + (y+1)*(int)sizeof(tableau)].value != '0' && tableau[x + (y+1)*(int)sizeof(tableau)].used == false) { //haut, pas 0, pas used
-        solver_recursif(tableau,couleur, nb_color, x, y+1, complete_case+1, complete_color, false);
-        //printf("\nbas");
+        printf("\nbas");
+        //display_coord(current);
+        solver_recursif(tableau,couleur, nb_color, x, y+1, complete_case+1, complete_color, false,tableau[x + (y)*(int)sizeof(tableau)]);
     }
     // GAUCHE
     if ((current.x > 0) && tableau[(x-1) + y*(int)sizeof(tableau)].value != '0' && tableau[x + (x-1)*(int)sizeof(tableau)].used == false) { //haut, pas 0, pas used
-        solver_recursif(tableau,couleur, nb_color, x-1, y, complete_case+1, complete_color, false);
-        //printf("\ngauche");
+        printf("\ngauche");
+        //display_coord(current);
+        printf(" \n value: %c used: %d",tableau[(x-1) + y*(int)sizeof(tableau)].value,tableau[(x-1) + y*(int)sizeof(tableau)].used);
+
+        solver_recursif(tableau,couleur, nb_color, x-1, y, complete_case+1, complete_color, false,tableau[x + (y)*(int)sizeof(tableau)]);
     }
 
 
 }
 
 int solver(coord *tableau, coord *couleur, int nb_color){
-    solver_recursif(tableau,couleur,nb_color,0,0,0,0,false);
+    solver_recursif(tableau,couleur,nb_color,0,0,1,0,false,tableau[0]);
 }
