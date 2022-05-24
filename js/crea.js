@@ -452,52 +452,99 @@ function contenu(){
                 this.setAttribute("draggable",true);
                 this.classList += " deplacements";
                 if(this.id === 'r' && nowc !== 'r'){
-                    if(cheminR.length === 0){
-                        cheminR.unshift(this);
-                    }
+
+                    //Changement vers rouge
+                    //Supprimer tout le rouge et enregistrer avant
                     road = cheminR;
-                    cheminR = [];
-                    cheminR.unshift(road[road.length-1]);
+                    if(nowc === 'g'){
+                        cheminG = chemin;
+                    }
+                    else if(nowc === 'b'){
+                        cheminB = chemin;
+                    }
+                    else if(nowc === 'p'){
+                        cheminP = chemin;
+                    }
+                    else if(nowc === 'y'){
+                        cheminY = chemin;
+                    }
+                    chemin = [];
+                    chemin.unshift(this);
                     nowc = 'r';
                 }
                 else if(this.id === 'g' && nowc !== 'g'){
-                    if(cheminG.length === 0){
-                        cheminG.unshift(this);
-                    }
                     road = cheminG;
-                    cheminG = [];
-                    cheminG.unshift(road[road.length-1]);
+                    if(nowc === 'r'){
+                        cheminR = chemin;
+                    }
+                    else if(nowc === 'b'){
+                        cheminB = chemin;
+                    }
+                    else if(nowc === 'p'){
+                        cheminP = chemin;
+                    }
+                    else if(nowc === 'y'){
+                        cheminY = chemin;
+                    }
+                    chemin = [];
+                    chemin.unshift(this);
                     nowc = 'g';
                 }
                 else if(this.id === 'b' && nowc !== 'b'){
-                    if(cheminB.length == 0){
-                        cheminB.unshift(this);
-                    }
                     road = cheminB;
-                    cheminB = [];
-                    cheminB.unshift(road[road.length-1]);
+                    if(nowc === 'r'){
+                        cheminR = chemin;
+                    }
+                    else if(nowc === 'g'){
+                        cheming = chemin;
+                    }
+                    else if(nowc === 'p'){
+                        cheminP = chemin;
+                    }
+                    else if(nowc === 'y'){
+                        cheminY = chemin;
+                    }
+                    chemin = [];
+                    chemin.unshift(this);
                     nowc = 'b';
                 }
                 else if(this.id === 'p' && nowc !== 'p'){
-                    if(cheminP.length === 0){
-                        cheminP.unshift(this);
-                    }
                     road = cheminP;
-                    cheminP = [];
-                    cheminP.unshift(road[road.length-1]);
+                    if(nowc === 'r'){
+                        cheminR = chemin;
+                    }
+                    else if(nowc === 'b'){
+                        cheminB = chemin;
+                    }
+                    else if(nowc === 'g'){
+                        cheminG = chemin;
+                    }
+                    else if(nowc === 'y'){
+                        cheminY = chemin;
+                    }
+                    chemin = [];
+                    chemin.unshift(this);
                     nowc = 'p';
                 }
                 else if(this.id === 'y' && nowc !== 'y'){
-                    if(cheminY.length === 0){
-                        cheminY.unshift(this);
+                    road = cheminy;
+                    if(nowc === 'r'){
+                        cheminR = chemin;
                     }
-                    road = cheminY;
-                    cheminY = [];
-                    cheminY.unshift(road[road.length-1]);
+                    else if(nowc === 'b'){
+                        cheminB = chemin;
+                    }
+                    else if(nowc === 'p'){
+                        cheminP = chemin;
+                    }
+                    else if(nowc === 'g'){
+                        cheminG = chemin;
+                    }
+                    chemin = [];
+                    chemin.unshift(this);
                     nowc = 'y';
                 }
                 else{
-                    console.log("c laaa");
                     road = chemin;
                     chemin = [];
                     chemin.unshift(road[road.length-1]);
@@ -505,6 +552,7 @@ function contenu(){
                 console.log(road);
 
                 if(road !== null){
+                    //Supression 
                     if(road.length !== 0){
                         let time = road.length - 1;
 
@@ -516,6 +564,9 @@ function contenu(){
                             road[0].id = 0;
                             if(road[0].classList.contains('valid')){
                                 road[0].classList.remove('valid');
+                            }
+                            if(road[0].classList.contains('used')){
+                                road[0].classList.remove('used');
                             }
                             road.shift();
 
