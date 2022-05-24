@@ -40,7 +40,7 @@ if (isset($_SESSION["username"])) {
             else {
                 $username = $_POST["username"];
                 $password = password_hash($_POST["password"],PASSWORD_DEFAULT);
-                $requete = "INSERT INTO user(username,password,history_lvl,adventure_lvl,time_trial) VALUES ('$username','$password','1','1','0')";
+                $requete = "INSERT INTO user(username,password,history_lvl,adventure_lvl,time_trial) VALUES ('$username','$password','1','0','0')";
                 $resultat = mysqli_query($connexion,$requete);
                 if ($resultat == FALSE) {
                     echo "<p>Erreur d'exécution de la requete :".mysqli_error($connexion)."</p>" ;
