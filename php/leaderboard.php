@@ -2,7 +2,6 @@
 ?>
 
 
-
 <head>
     <title>Live Search using AJAX</title>
     <!-- Including jQuery is required. -->
@@ -10,19 +9,19 @@
     <!-- Including our scripting file. -->
     <script type="text/javascript" src="../js/script.js"></script>
     <!-- Including CSS file. -->
-    <link rel="stylesheet" href="../css/leaderboard.css"/>
+
 
 
 </head>
 
 <main>
 <body>
-<div class="button">
-    <a draggable='false' class="gamemode" href="leaderboard_aventure.php">
+<div class="but">
+    <a draggable='false' class="mode" href="leaderboard_aventure.php">
         Adventure Mode
         <img src="../image/Adventurer_Hat.svg" alt="Adventurer hat" id="hat" draggable='false'/>
     </a>
-    <a draggable='false' class="gamemode2" href="leaderboard_time_trial.php">
+    <a draggable='false' class="mode2" href="leaderboard_time_trial.php">
         Time Trial
         <img src="../image/clock.svg" alt="clock" id="clock" draggable='false'/>
     </a>

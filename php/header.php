@@ -20,14 +20,20 @@ $nom = explode('.', end($array))[0];?>
     if (isset($_COOKIE["theme"])) {	//si le cookie existe
         if ($_COOKIE["theme"] == "dark") {	//si le cookie est égal à dark
             echo "<link rel='stylesheet' href='../css/dark_header.css' id='header_theme'>";
-            echo "<link rel='stylesheet' href='../css/dark_$nom.css' id='body_theme'>";
+            echo "<link rel='stylesheet' href='../css/dark_index.css' id='body_theme'>";
+            echo "<link rel='stylesheet' href='../css/dark_login.css' id='login_theme'>";
+            echo "<link rel='stylesheet' href='../css/dark_leaderboard.css' id='leaderboard_theme'>";
         } else {
             echo "<link rel='stylesheet' href='../css/header.css' id='header_theme'>";
             echo "<link rel='stylesheet' href='../css/$nom.css' id='body_theme'>";
+            echo "<link rel='stylesheet' href='../css/login.css' id ='login_theme'>";
+            echo "<link rel='stylesheet' href='../css/leaderboard.css' id='leaderboard_theme'>";
         }
     } else {
         echo "<link rel='stylesheet' href='../css/header.css' id='header_theme'>";
         echo "<link rel='stylesheet' href='../css/$nom.css' id='body_theme'>";
+        echo "<link rel='stylesheet' href='../css/login.css' id ='login_theme'>";
+
     }
 
     ?>

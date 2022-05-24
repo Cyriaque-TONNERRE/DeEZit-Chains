@@ -13,7 +13,7 @@
                                     <?php } else { ?>
                                         Light
                                     <?php }
-                                } else{?>
+                                } else { ?>
                                     Dark
                                 <?php } ?>
             </span>
@@ -23,12 +23,16 @@
                 if (document.getElementById("Dark").innerHTML === 'Dark') {
                     document.getElementById("header_theme").href = '../css/dark_header.css';
                     document.getElementById("body_theme").href = `../css/dark_setting.css`;
+                    document.getElementById("login_theme").href = '../css/dark_login.css';
+                    document.getElementById("leaderboard_theme").href = '../css/dark_leaderboard.css';
                     document.cookie = `theme=dark; expires=${new Date(new Date().getTime() + 31536000000).toUTCString()}; path=/`;
                     document.getElementById("Dark").innerHTML = 'Light';
 
                 } else {
                     document.getElementById("body_theme").href = `../css/setting.css`;
                     document.getElementById("header_theme").href = '../css/header.css';
+                    document.getElementById("login_theme").href = '../css/login.css';
+                    document.getElementById("leaderboard_theme").href = '../css/leaderboard.css';
                     document.cookie = `theme=light; expires=${new Date(new Date().getTime() + 31536000000).toUTCString()}; path=/`;
                     document.getElementById("Dark").innerHTML = 'Dark';
                 }
@@ -37,14 +41,13 @@
 
         </script>
         <div id="Sound_title">
-            <?php if (isset($_COOKIE['volume'])){
-                $value = round($_COOKIE['volume'] *100);
+            <?php if (isset($_COOKIE['volume'])) {
+                $value = round($_COOKIE['volume'] * 100);
                 echo "Sound : $value";
-            }
-            else{
+            } else {
                 echo "Sound : 50%";
             }
-        ?>
+            ?>
         </div>
 
 
