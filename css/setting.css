@@ -21,7 +21,9 @@
     font-family: rounded, serif;
     font-size: 1vw;
     background-color: #36b24d;
+    cursor: default;
 }
+
 
 .param_box {
     display: block;
