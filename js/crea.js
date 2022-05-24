@@ -2,6 +2,7 @@ value = 5;
 newc = 0; //Variable de protection pour éviter la duplication de couleurs
 nowc = 0; //Variable afin de conserver la couleur dans laquelle nous sommes
 del = false;
+deplacement_color = false
 blockerlvl = false;
 function generate_table(value) {
     // get the reference for the body
@@ -176,6 +177,18 @@ function contenu(){
     function dragEnterr(e) {
         e.preventDefault();
         //console.log('enter');
+        if(this.classList.contains("deplacements")){
+            chemin = [];
+            newc = nowc;
+            let caseliste = document.querySelectorAll('.okay');
+                for (let i = 0; i < caseliste.length; i++) {
+                    caseliste[i].classList.remove('okay');
+                }
+            last = this;
+            deplacement_color = true;
+            
+        }
+
     }
     
     
@@ -198,22 +211,47 @@ function contenu(){
         if(this.id === '0' && nowc !== 0 && newc !== 0){
             this.id = nowc;
             let racine = document.querySelector('.'+nowc+'.drag');
-            newc = 0;
+            if(!deplacement_color){
+                newc = 0;
+            }
+            
             racine.setAttribute('draggable', false);
+            let liste_couleurs = document.querySelectorAll('.colors'); //Permet de rendre la case draggable
+            for (let i = 0; i < liste_couleurs.length; i++) {
+                liste_couleurs[i].setAttribute("draggable",false);
+                if(liste_couleurs[i].classList.contains("deplacements")){
+                    liste_couleurs[i].classList.remove("deplacements");
+                }
+            }
+            if(deplacement_color){
+                last.id = '0';
+                last.classList.remove('remove');
+                last.classList.remove('colors');
+                
+                
+            }
+            
+            this.setAttribute("draggable",true);
+            this.classList += " deplacements";
+            this.classList += " colors";
             racine.classList += ' disparition';
-            if(nowc === 'r'){
-                document.querySelector('.g.drag').classList.remove('disparition');
+            if(!deplacement_color){
+                if(nowc === 'r'){
+                    document.querySelector('.g.drag').classList.remove('disparition');
+                }
+                else if(nowc === 'g'){
+                    document.querySelector('.b.drag').classList.remove('disparition');
+                }
+                else if(nowc === 'b'){
+                    document.querySelector('.p.drag').classList.remove('disparition');
+                }
+                else if(nowc === 'p'){
+                    document.querySelector('.y.drag').classList.remove('disparition');
+                }
             }
-            else if(nowc === 'g'){
-                document.querySelector('.b.drag').classList.remove('disparition');
-            }
-            else if(nowc === 'b'){
-                document.querySelector('.p.drag').classList.remove('disparition');
-            }
-            else if(nowc === 'p'){
-                document.querySelector('.y.drag').classList.remove('disparition');
-            }
+            
             chemin.unshift(this);
+            deplacement_color = false;
             //here
 
             if (this.cellIndex - 1 < (document.getElementById("tableau_crea").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex - 1 >= 0) { //cell - 1G
@@ -263,6 +301,8 @@ function contenu(){
         if(nowc !== 0){
             if(this.id !== 'r' && this.id !== 'b' && this.id !== 'g' && this.id !== 'p' && this.id !== 'y' && (this.classList.contains('okay') || this.classList.contains('valid')) && !(this.classList.contains('used')))
             {
+                deplacement_color = false;
+                
                 est_nouveau = true;
                 blockerlvl = false;
 
@@ -270,16 +310,16 @@ function contenu(){
 
                 let lvl = parseInt(this.id);
                 if(this !== chemin[0] && chemin.indexOf(this) === -1){
-                    console.log('ajout');
+                    chemin[0].setAttribute("draggable",false);
                     chemin.unshift(this);
                     nouvellecase = true;
+                    
                     
                     
                     
                 }
                 if(lvl !== 9){
                     if(lvl < chemin[1].id){
-                        console.log("bug from here ?");
                         if(nouvellecase){
                             lvl = chemin[1].id
                         }
@@ -289,9 +329,6 @@ function contenu(){
                         nouvellecase = false;
                     }
                     else if(chemin.indexOf(this) !== 0 && chemin.length !== 1){
-                        console.log('ok');
-                        console.log((chemin[chemin.indexOf(this)-1].id));
-                        console.log(lvl);
                         if(lvl < (chemin[chemin.indexOf(this)-1].id)){
                             lvl++;
                             if(lvl === 9){
@@ -333,7 +370,7 @@ function contenu(){
 
                         est_nouveau = false;
                         if(chemin.indexOf(this) !== null){
-                            console.log(chemin);
+                            
                             if(chemin.indexOf(this) !== chemin.length){
                                 time = chemin.indexOf(this) + 1;
                                 for (let j = 0; j < time; j++) {
@@ -346,9 +383,6 @@ function contenu(){
                                     chemin.shift();
                                 }
 
-                                
-                                
-                                
                             }
                         }
                         
@@ -408,34 +442,62 @@ function contenu(){
                 }
             }
             else if(this.id === 'r' || this.id === 'b' || this.id === 'g' || this.id === 'p' || this.id === 'y'){
-                console.log('test');
+                let liste_couleurs = document.querySelectorAll('.colors'); //Permet de rendre la case draggable
+                for (let i = 0; i < liste_couleurs.length; i++) {
+                    liste_couleurs[i].setAttribute("draggable",false);
+                    if(liste_couleurs[i].classList.contains("deplacements")){
+                        liste_couleurs[i].classList.remove("deplacements");
+                    }
+                }
+                this.setAttribute("draggable",true);
+                this.classList += " deplacements";
                 if(this.id === 'r' && nowc !== 'r'){
+                    if(cheminR.length === 0){
+                        cheminR.unshift(this);
+                    }
                     road = cheminR;
                     cheminR = [];
-                    cheminR.unshift(road[road.length]);
+                    cheminR.unshift(road[road.length-1]);
+                    nowc = 'r';
                 }
                 else if(this.id === 'g' && nowc !== 'g'){
+                    if(cheminG.length === 0){
+                        cheminG.unshift(this);
+                    }
                     road = cheminG;
                     cheminG = [];
                     cheminG.unshift(road[road.length-1]);
+                    nowc = 'g';
                 }
                 else if(this.id === 'b' && nowc !== 'b'){
+                    if(cheminB.length == 0){
+                        cheminB.unshift(this);
+                    }
                     road = cheminB;
                     cheminB = [];
                     cheminB.unshift(road[road.length-1]);
+                    nowc = 'b';
                 }
                 else if(this.id === 'p' && nowc !== 'p'){
+                    if(cheminP.length === 0){
+                        cheminP.unshift(this);
+                    }
                     road = cheminP;
                     cheminP = [];
                     cheminP.unshift(road[road.length-1]);
+                    nowc = 'p';
                 }
                 else if(this.id === 'y' && nowc !== 'y'){
+                    if(cheminY.length === 0){
+                        cheminY.unshift(this);
+                    }
                     road = cheminY;
                     cheminY = [];
                     cheminY.unshift(road[road.length-1]);
+                    nowc = 'y';
                 }
                 else{
-                    
+                    console.log("c laaa");
                     road = chemin;
                     chemin = [];
                     chemin.unshift(road[road.length-1]);
@@ -445,6 +507,9 @@ function contenu(){
                 if(road !== null){
                     if(road.length !== 0){
                         let time = road.length - 1;
+
+
+
                         for (let o = 0; o < time; o++) {
                                         
                             road[0].innerHTML = "";
@@ -455,54 +520,53 @@ function contenu(){
                             road.shift();
 
                         }
-
-                        if(nowc === this.id){
-                            let caseliste = document.querySelectorAll('.okay');
-                            if(caseliste !== null){
-                                for (let i = 0; i < caseliste.length; i++) {
-                                    caseliste[i].classList.remove('okay');
-                                }
-                            }
-
-                            if (this.cellIndex - 1 < (document.getElementById("tableau_crea").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex - 1 >= 0) { //cell - 1G
-                                //GAUCHE
-                                if((document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex-1].id) === '0'){
-                                    if(!(document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex-1].classList.contains('okay'))){
-                                        document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex-1].classList += ' okay';
-                                    }
-                                }
-                
                             
-                            }
-                            if (this.cellIndex + 1 < (document.getElementById("tableau_crea").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex + 1 >= 0) { //cel + 1D
-                                //DROITE
-                                //Chiffre -> Pb
-                                if((document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex+1].id) === '0'){
-                                    if(!(document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex+1].classList.contains('okay'))){
-                                        document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex+1].classList += ' okay';
-                                    }
-                                }
-                                
-                            }
-                            if (this.parentNode.rowIndex - 1 < (document.getElementById("tableau_crea").rows.length) && this.parentNode.rowIndex - 1 >= 0) {
-                                //HAUT
-                                if((document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex - 1].cells[this.cellIndex].id) === '0'){
-                                    if(!(document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex - 1].cells[this.cellIndex].classList.contains('okay'))){
-                                        document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex - 1].cells[this.cellIndex].classList += ' okay';
-                                    }
-                                }
-                                
-                            }
-                            if (this.parentNode.rowIndex + 1 < (document.getElementById("tableau_crea").rows.length) && this.parentNode.rowIndex + 1 >= 0) {
-                                //BAS
-                                if((document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex + 1].cells[this.cellIndex].id) === '0'){
-                                    if(!(document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex + 1].cells[this.cellIndex].classList.contains('okay'))){
-                                        document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex + 1].cells[this.cellIndex].classList += ' okay';
-                                    }
-                                }
-                                
+                        let caseliste = document.querySelectorAll('.okay');
+                        if(caseliste !== null){
+                            for (let i = 0; i < caseliste.length; i++) {
+                                caseliste[i].classList.remove('okay');
                             }
                         }
+
+                        if (this.cellIndex - 1 < (document.getElementById("tableau_crea").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex - 1 >= 0) { //cell - 1G
+                            //GAUCHE
+                            if((document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex-1].id) === '0'){
+                                if(!(document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex-1].classList.contains('okay'))){
+                                    document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex-1].classList += ' okay';
+                                }
+                            }
+            
+                        
+                        }
+                        if (this.cellIndex + 1 < (document.getElementById("tableau_crea").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex + 1 >= 0) { //cel + 1D
+                            //DROITE
+                            //Chiffre -> Pb
+                            if((document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex+1].id) === '0'){
+                                if(!(document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex+1].classList.contains('okay'))){
+                                    document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex+1].classList += ' okay';
+                                }
+                            }
+                            
+                        }
+                        if (this.parentNode.rowIndex - 1 < (document.getElementById("tableau_crea").rows.length) && this.parentNode.rowIndex - 1 >= 0) {
+                            //HAUT
+                            if((document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex - 1].cells[this.cellIndex].id) === '0'){
+                                if(!(document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex - 1].cells[this.cellIndex].classList.contains('okay'))){
+                                    document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex - 1].cells[this.cellIndex].classList += ' okay';
+                                }
+                            }
+                            
+                        }
+                        if (this.parentNode.rowIndex + 1 < (document.getElementById("tableau_crea").rows.length) && this.parentNode.rowIndex + 1 >= 0) {
+                            //BAS
+                            if((document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex + 1].cells[this.cellIndex].id) === '0'){
+                                if(!(document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex + 1].cells[this.cellIndex].classList.contains('okay'))){
+                                    document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex + 1].cells[this.cellIndex].classList += ' okay';
+                                }
+                            }
+                            
+                        }
+                        
                     }
                 }
             }
