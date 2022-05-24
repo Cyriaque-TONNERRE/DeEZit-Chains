@@ -20,7 +20,7 @@
 
 @font-face {
     font-family: 'pencriture';
-    src: url('../font/pencriture.ttf') format('truetype');
+    src: url('../font/deezit-chains.ttf') format('truetype');
 }
 
 
@@ -42,78 +42,87 @@ table {
 }
 
 .nordgauchebas {
-    border-top: 2px solid var(--orange-LBB);
+    /*border-top: 2px solid var(--orange-LBB);
     border-bottom: 2px solid var(--orange-LBB);
-    border-left: 2px solid var(--orange-LBB);
+    border-left: 2px solid var(--orange-LBB);*/
+    border-radius: 1vw 0 0 1vw;
 }
 
 .droitegauchebas {
-    border-right: 2px solid var(--orange-LBB);
+    /*border-right: 2px solid var(--orange-LBB);
     border-bottom: 2px solid var(--orange-LBB);
-    border-left: 2px solid var(--orange-LBB);
+    border-left: 2px solid var(--orange-LBB);*/
+    border-radius: 0 0 1vw 1vw;
 }
 
 .droitenordbas {
-    border-right: 2px solid var(--orange-LBB);
+    /*border-right: 2px solid var(--orange-LBB);
     border-top: 2px solid var(--orange-LBB);
-    border-bottom: 2px solid var(--orange-LBB);
+    border-bottom: 2px solid var(--orange-LBB);*/
+    border-radius: 0 1vw 1vw 0;
 }
 
 .droitenordgauche {
-    border-right: 2px solid var(--orange-LBB);
+    /*border-right: 2px solid var(--orange-LBB);
     border-top: 2px solid var(--orange-LBB);
-    border-left: 2px solid var(--orange-LBB);
+    border-left: 2px solid var(--orange-LBB);*/
+    border-radius: 1vw 1vw 0 0;
 }
 
 .nordgauche {
-    border-top: 2px solid var(--orange-LBB);
-    border-left: 2px solid var(--orange-LBB);
+    /*border-top: 2px solid var(--orange-LBB);
+    border-left: 2px solid var(--orange-LBB);*/
+    border-radius: 1vw 0 0 0;
 }
 
 .norddroite {
-    border-top: 2px solid var(--orange-LBB);
-    border-right: 2px solid var(--orange-LBB);
+    /*border-top: 2px solid var(--orange-LBB);
+    border-right: 2px solid var(--orange-LBB);*/
+    border-radius: 0 1vw 0 0;
 }
 
 .nordbas {
-    border-top: 2px solid var(--orange-LBB);
-    border-bottom: 2px solid var(--orange-LBB);
+    /*border-top: 2px solid var(--orange-LBB);
+    border-bottom: 2px solid var(--orange-LBB);*/
 }
 
 .gauchebas {
-    border-left: 2px solid var(--orange-LBB);
-    border-bottom: 2px solid var(--orange-LBB);
+    /*border-left: 2px solid var(--orange-LBB);
+    border-bottom: 2px solid var(--orange-LBB);*/
+    border-radius: 0 0 0 1vw;
 }
 
 .gauchenord {
-    border-left: 2px solid var(--orange-LBB);
-    border-top: 2px solid var(--orange-LBB);
+    /*border-left: 2px solid var(--orange-LBB);
+    border-top: 2px solid var(--orange-LBB);*/
+    border-radius: 1vw 0 0 0;
 }
 
 .gauchedroite {
-    border-left: 2px solid var(--orange-LBB);
-    border-right: 2px solid var(--orange-LBB);
+    /*border-left: 2px solid var(--orange-LBB);
+    border-right: 2px solid var(--orange-LBB);*/
 }
 
 .basdroite {
-    border-bottom: 2px solid var(--orange-LBB);
-    border-right: 2px solid var(--orange-LBB);
+    /*border-bottom: 2px solid var(--orange-LBB);
+    border-right: 2px solid var(--orange-LBB);*/
+    border-radius: 0 0 1vw 0;
 }
 
 .gauche {
-    border-left: 2px solid var(--orange-LBB);
+    /*border-left: 2px solid var(--orange-LBB);*/
 }
 
 .droite {
-    border-right: 2px solid var(--orange-LBB);
+    /*border-right: 2px solid var(--orange-LBB);*/
 }
 
 .bas {
-    border-bottom: 2px solid var(--orange-LBB);
+    /*border-bottom: 2px solid var(--orange-LBB);*/
 }
 
 .nord {
-    border-top: 2px solid var(--orange-LBB);
+    /*border-top: 2px solid var(--orange-LBB);*/
 }
 
 .game {
@@ -136,6 +145,7 @@ table {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    background-color: #e3e3e3;
 }
 
 .letter {
@@ -143,13 +153,12 @@ table {
     width: 10%;
     text-align: center;
     font-family: pencriture, serif;
-    font-size: 1vw;
+    font-size: 5vh;
     -webkit-user-select: none;
     -webkit-touch-callout: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    font-weight: 800;
 }
 
 .r {
