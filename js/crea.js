@@ -196,7 +196,7 @@ function contenu(){
     function dragLeaver(e) {
         e.preventDefault();
         if(newc !== 0){
-            if(this.classList.contains(newc)){
+            if(this.classList.contains(newc) && !this.classList.contains("deplacements")){
                 this.classList.remove(newc);
             }
         }
@@ -227,6 +227,7 @@ function contenu(){
                 last.id = '0';
                 last.classList.remove('remove');
                 last.classList.remove('colors');
+                last.classList.remove(newc);
                 
                 
             }
