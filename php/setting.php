@@ -49,12 +49,12 @@
             <span id="Dark" onclick="Clique()">
                                 <?php if (isset($_COOKIE['theme'])) {
                                     if ($_COOKIE['theme'] === 'light') { ?>
-                                        Light
-                                    <?php } else { ?>
                                         Dark
+                                    <?php } else { ?>
+                                        Light
                                     <?php }
                                 } else { ?>
-                                    Light
+                                    Dark
                                 <?php } ?>
             </span>
         </div>
