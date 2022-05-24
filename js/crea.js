@@ -785,6 +785,16 @@ function delete_case(){
 
 }
 
+function exporter(){
+
+    let tab = document.querySelectorAll('.case');
+    for (const boxes of tab) { 
+        console.log(boxes.id);
+
+    }
+
+}
+
 
 
 

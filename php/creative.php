@@ -33,6 +33,9 @@ require 'header.php';
         <div draggable="true" class='y drag' id='y'>
             
         </div>
+        <div>
+        <button id='reset' onclick='exporter()'>Exporter</button>
+        </div>
         
     </div>
 	</main>
