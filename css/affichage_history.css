@@ -1,0 +1,218 @@
+/*Reset CSS*/
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+/*Fonts*/
+
+@font-face {
+    font-family: 'korean';
+    src: url('../font/Korean.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'futureLight';
+    src: url('../font/rounded.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'pencriture';
+    src: url('../font/pencriture.ttf') format('truetype');
+}
+
+
+/*Mise en place des variables*/
+
+:root {
+    --fond-gris: #ccc;
+    --orange-LBB: rgb(238, 155, 0);
+}
+
+.invisible {
+    opacity: 0;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    height: 100%;
+}
+
+.nordgauchebas {
+    border-top: 2px solid var(--orange-LBB);
+    border-bottom: 2px solid var(--orange-LBB);
+    border-left: 2px solid var(--orange-LBB);
+}
+
+.droitegauchebas {
+    border-right: 2px solid var(--orange-LBB);
+    border-bottom: 2px solid var(--orange-LBB);
+    border-left: 2px solid var(--orange-LBB);
+}
+
+.droitenordbas {
+    border-right: 2px solid var(--orange-LBB);
+    border-top: 2px solid var(--orange-LBB);
+    border-bottom: 2px solid var(--orange-LBB);
+}
+
+.droitenordgauche {
+    border-right: 2px solid var(--orange-LBB);
+    border-top: 2px solid var(--orange-LBB);
+    border-left: 2px solid var(--orange-LBB);
+}
+
+.nordgauche {
+    border-top: 2px solid var(--orange-LBB);
+    border-left: 2px solid var(--orange-LBB);
+}
+
+.norddroite {
+    border-top: 2px solid var(--orange-LBB);
+    border-right: 2px solid var(--orange-LBB);
+}
+
+.nordbas {
+    border-top: 2px solid var(--orange-LBB);
+    border-bottom: 2px solid var(--orange-LBB);
+}
+
+.gauchebas {
+    border-left: 2px solid var(--orange-LBB);
+    border-bottom: 2px solid var(--orange-LBB);
+}
+
+.gauchenord {
+    border-left: 2px solid var(--orange-LBB);
+    border-top: 2px solid var(--orange-LBB);
+}
+
+.gauchedroite {
+    border-left: 2px solid var(--orange-LBB);
+    border-right: 2px solid var(--orange-LBB);
+}
+
+.basdroite {
+    border-bottom: 2px solid var(--orange-LBB);
+    border-right: 2px solid var(--orange-LBB);
+}
+
+.gauche {
+    border-left: 2px solid var(--orange-LBB);
+}
+
+.droite {
+    border-right: 2px solid var(--orange-LBB);
+}
+
+.bas {
+    border-bottom: 2px solid var(--orange-LBB);
+}
+
+.nord {
+    border-top: 2px solid var(--orange-LBB);
+}
+
+.game {
+    width: 70vh;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5vh auto;
+}
+
+.case {
+    height: 10%;
+    width: 10%;
+    text-align: center;
+    font-family: Korean, serif;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.letter {
+    height: 10%;
+    width: 10%;
+    text-align: center;
+    font-family: pencriture, serif;
+    font-size: 1vw;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-weight: 800;
+}
+
+.r {
+    height: 10%;
+    width: 10%;
+    background-color: red;
+}
+
+.g {
+    height: 10%;
+    width: 10%;
+    background-color: green;
+}
+
+.p {
+    height: 10%;
+    width: 10%;
+    background-color: purple;
+}
+
+.b {
+    height: 10%;
+    width: 10%;
+    background-color: blue;
+}
+
+.y {
+    height: 10%;
+    width: 10%;
+    background-color: yellow;
+}
+
+.invisible {
+    height: 10%;
+    width: 10%;
+}
+.back {
+    background-color: #CFBB97;
+    border: 0.3vw goldenrod solid;
+    border-radius: 2vw;
+    padding: 1vw;
+    text-decoration: none;
+    color: black;
+    font-family: rounded, serif;
+    font-size: 1.5vw;
+    margin-left: 1vw;
+    display: inline-table;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.back:hover {
+    background-color: #deb346;
+}
+.align-left{
+    position:absolute;
+}
+#wrapper {
+    text-align:left;
+}
+
+.align-center{
+    text-align: center;
+}
