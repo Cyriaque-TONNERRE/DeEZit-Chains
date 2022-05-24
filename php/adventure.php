@@ -4,7 +4,6 @@
     <?php
 
     $seed = time();
-    echo $seed;
     $colours = time()%5 + 1;
     $tab = array();
     $green = false;
