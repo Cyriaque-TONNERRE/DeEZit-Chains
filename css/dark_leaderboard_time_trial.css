@@ -1,10 +1,13 @@
+body{
+    background-color: #3f3f3f;
+}
 tr{
     text-align: center;
 }
 td {
     text-align: center;
-
 }
+
 th{
     text-align: center;
     padding: 0vw 1vw ;
@@ -14,6 +17,7 @@ th{
 .rank1{color:gold}
 .rank2{color: silver;}
 .rank3{color: orange}
+
 div h2 {
     text-align: center;
     font-weight: bold;
@@ -34,7 +38,7 @@ table{
     width: 60%;
     border-radius: 2vw 2vw 0 0;
     overflow: hidden;
-    box-shadow: 0 2px 12px rgba(32,32,32,.3);
+    box-shadow: 0 2px 12px rgba(223,223,223,.3);
 }
 #podium{
     display: block;
@@ -50,7 +54,7 @@ table{
     border-radius: 2vw;
     padding: 1vw;
     text-decoration: none;
-    color: black;
+    color: white;
     font-family: rounded, serif;
     font-size: 1.5vw;
     margin-left: 1vw;

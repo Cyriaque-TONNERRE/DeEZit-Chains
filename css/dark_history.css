@@ -5,6 +5,9 @@
     padding: 0px;
 }
 
+body{
+    background-color: #3f3f3f;;
+}
 
 /*Variables*/
 
@@ -96,9 +99,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 0.1vw solid #ddd;
+    border: 0.1vw solid #222;
     background-color: #b8b4ff;
-    color: black;
+    color: white;
     padding: 2vw 3vw;
     border-radius: 1vw;
     text-decoration: none;
@@ -115,9 +118,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 0.1vw solid #ddd;
+    border: 0.1vw solid #222;
     background-color: #B2F0BE;
-    color: black;
+    color: white;
     padding: 2vw 3vw;
     border-radius: 1vw;
     text-decoration: none;
@@ -134,9 +137,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 0.1vw solid #ddd;
+    border: 0.1vw solid #222;
     background-color: #4E525A;
-    color: black;
+    color: white;
     padding: 2vw 3vw;
     border-radius: 1vw;
     text-decoration: none;
@@ -162,5 +165,5 @@
 }
 
 .btn:active {
-    background-color: #ccc;
+    background-color: darkgrey;
 }

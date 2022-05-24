@@ -1,4 +1,6 @@
-
+body{
+    background-color: #3f3f3f;
+}
 .change_theme {
     font-size: 1.3vw;
     font-family: rounded, serif;
@@ -24,9 +26,7 @@
     background-color: #36b24d;
 }
 
-body{
-    background-color: #3f3f3f;
-}
+
 .param_box {
     color: white;
     display: block;

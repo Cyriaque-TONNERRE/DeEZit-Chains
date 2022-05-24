@@ -17,7 +17,7 @@
 <main>
 <body>
 <div class="but">
-    <a draggable='false' class="mode" href="leaderboard_aventure.php">
+    <a draggable='false' class="mode" href="leaderboard_adventure.php">
         Adventure Mode
         <img src="../image/Adventurer_Hat.svg" alt="Adventurer hat" id="hat" draggable='false'/>
     </a>

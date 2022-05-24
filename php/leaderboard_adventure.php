@@ -3,7 +3,7 @@
 
 <head>
     <title>Leaderboard</title>
-    <link rel="stylesheet" href="../css/leaderboard_adventure.css"/>
+
 </head>
 <main>
 
@@ -31,7 +31,7 @@
 
         else {
 
-            echo "<img src='../image/podium.svg' alt='podium' draggable='false'/>";
+            echo "<img src='../image/podium.svg' id='podium' alt='podium' draggable='false'/>";
             echo "<table><tr>
 						<th>Rank</th>
 						<th>Username</th>

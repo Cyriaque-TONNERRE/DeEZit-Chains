@@ -23,16 +23,11 @@
                 if (document.getElementById("Dark").innerHTML === 'Dark') {
                     document.getElementById("header_theme").href = '../css/dark_header.css';
                     document.getElementById("body_theme").href = `../css/dark_setting.css`;
-                    document.getElementById("login_theme").href = '../css/dark_login.css';
-                    document.getElementById("leaderboard_theme").href = '../css/dark_leaderboard.css';
                     document.cookie = `theme=dark; expires=${new Date(new Date().getTime() + 31536000000).toUTCString()}; path=/`;
                     document.getElementById("Dark").innerHTML = 'Light';
-
                 } else {
                     document.getElementById("body_theme").href = `../css/setting.css`;
                     document.getElementById("header_theme").href = '../css/header.css';
-                    document.getElementById("login_theme").href = '../css/login.css';
-                    document.getElementById("leaderboard_theme").href = '../css/leaderboard.css';
                     document.cookie = `theme=light; expires=${new Date(new Date().getTime() + 31536000000).toUTCString()}; path=/`;
                     document.getElementById("Dark").innerHTML = 'Dark';
                 }
@@ -43,15 +38,20 @@
         <div id="Sound_title">
             <?php if (isset($_COOKIE['volume'])) {
                 $value = round($_COOKIE['volume'] * 100);
-                echo "Sound : $value";
+                echo "Sound : $value%";
             } else {
                 echo "Sound : 50%";
             }
             ?>
         </div>
 
+        <?php if(isset($_COOKIE['volume'])){
+            echo "<input type='range' min='0' value = '$value' max='100' id='Sound'>";
+        } else{
+             echo "<input type='range' min='0' value = '50' max='100' id='Sound'>";
+        }  ?>
 
-        <input type="range" min="0" max="100" id="Sound">
+
 
         <script>
             document.getElementById("Sound").oninput = function () {
