@@ -76,7 +76,18 @@ $nom = explode('.', end($array))[0];?>
 <header>
     <div class="header">
         <div class="logo">
-            <a draggable="false" href="index.php"><img draggable="false" src="../image/test.gif" alt="logo"></a>
+            <?php if(isset($_COOKIE["theme"])) {
+                if ($_COOKIE["theme"] == "light") {
+                    echo "<a draggable='false' href='index.php'><img draggable='false' src='../image/logowhite.gif' alt='logo'></a>";
+                }
+                if ($_COOKIE["theme"] == "dark") {
+                    echo "<a draggable='false' href='index.php'><img draggable='false' src='../image/logodark.gif' alt='logo'></a>";
+                }
+            }
+            else {
+                echo "<a draggable='false' href='index.php'><img draggable='false' src='../image/logowhite.gif' alt='logo'></a>";
+            }?>
+
         </div>
 
         <div class="center-txt">
