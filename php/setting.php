@@ -13,7 +13,9 @@
                                     <?php } else { ?>
                                         Light
                                     <?php }
-                                } ?>
+                                } else{?>
+                                    Dark
+                                <?php } ?>
             </span>
         </div>
         <script>
@@ -35,7 +37,14 @@
 
         </script>
         <div id="Sound_title">
-            Sound : 50%
+            <?php if (isset($_COOKIE['volume'])){
+                $value = round($_COOKIE['volume'] *100);
+                echo "Sound : $value";
+            }
+            else{
+                echo "Sound : 50%";
+            }
+        ?>
         </div>
 
 
