@@ -1,6 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <ctype.h>
+
+/*
+ *  Aled Seeds
+ *  1653383441
+ *
+ */
+
 
 
 bool not_wall(int x, int sens, int taille) {
@@ -20,7 +28,7 @@ bool not_wall(int x, int sens, int taille) {
         valid = false;
         return false;
     }
-    if (sens == 3 && x > 0) {
+    if (sens == 3 && x > taille*taille - 1) {
         valid = false;
         return false;
     }
@@ -63,6 +71,19 @@ bool not_already_used(int x,int sens, int taille, char grille[]){
 
 }
 
+int countDiffZero(const char* grille, int taille){
+    /*
+    Compte le nombre de 0 dans le tableau
+    */
+    int nbZero = 0;
+    for(int i = 0; i < taille*taille; i++){
+        if(grille[i] != '0'){
+            nbZero++;
+        }
+    }
+    return nbZero;
+}
+
 unsigned hash_pjw (const void *str)
 {
     const char *s = str;
@@ -75,7 +96,7 @@ unsigned hash_pjw (const void *str)
     return h;
 }
 
-// Function: main avec 1 argument char*
+// Function: main avec 2 arguments
 int main(int argc,const char* argv[]) {
     // Si le nombre d'arguments est différent de 1
     if (argc != 3) {
@@ -89,16 +110,9 @@ int main(int argc,const char* argv[]) {
         char colors[5] = {'r','g','b','y','p'};
         int chienDeGarde = 0;
 
-
-
-        /* à faire
-         - 6 couleurs
-         - augmenter le chiffre
-         - regler taille chenille
-         - regler passage sur soit-même
-        */
         // Initialise l'aléatoire avec l'argument
         srand(hash_pjw(argv[1]));
+        reset:;
         // Taille de la grille
         int taille = rand() % 5 + 5;
         // Création de la grille
@@ -169,7 +183,9 @@ int main(int argc,const char* argv[]) {
 
 
                 if(rand() % 6 == 3){
-                    lvl++;
+                    if (lvl <9){
+                        lvl++;
+                    }
                 }
                 int sens2 = rand() % 3;
                 if (sens == 0) {
@@ -293,6 +309,33 @@ int main(int argc,const char* argv[]) {
                     chienDeGarde = 0;
                 }
 
+            }
+        }
+        if (countDiffZero(grille, taille) <= 1) {
+            goto reset;
+        } else {
+            bool test1 = true;
+            bool test2 = true;
+            bool test3 = true;
+            bool test4 = true;
+            for (int i = 0; i < taille * taille; i++) {
+                if (grille[i] != '0') {
+                    if (not_wall(i, 0, taille) && !isdigit(grille[i - taille]) && grille[i - taille] == '0') {
+                        test1 = false;
+                    }
+                    if (not_wall(i, 1, taille) && !isdigit(grille[i + 1]) && grille[i + 1] == '0') {
+                        test2 = false;
+                    }
+                    if (not_wall(i, 2, taille) && !isdigit(grille[i - 1]) && grille[i - 1] == '0') {
+                        test3 = false;
+                    }
+                    if (not_wall(i, 3, taille) && !isdigit(grille[i + taille]) &&grille[i + taille] == '0') {
+                        test4 = false;
+                    }
+                }
+            }
+            if (!test1 && !test2 && !test3 && !test4) {
+                goto reset;
             }
         }
         // Affiche la grille
