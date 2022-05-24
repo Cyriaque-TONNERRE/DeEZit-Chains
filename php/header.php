@@ -97,7 +97,7 @@ $nom = explode('.', end($array))[0];?>
             <h1 id="test"> DeEZit Chain </h1>
         </div>
         <div class="classement">
-            <a draggable="false" href="leaderboard.php"><img draggable="false" src="../image/trophy.svg" alt="trophy"></a>
+            <a draggable="false" href="leaderboard.php"><img draggable="false" src="../image/trophy.svg" id='trophy' alt="trophy"></a>
         </div>
         <?php if(isset($_SESSION['username'])) { echo
         "<div class='login'>

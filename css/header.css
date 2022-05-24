@@ -27,6 +27,7 @@
     margin-top: 1vw;
     margin-right: 0.5vw;
     user-select: none;
+    transition: 0.5s;
 }
 
 .titre {
@@ -52,6 +53,7 @@
     margin-top: 1vw;
     filter: invert(23%) sepia(76%) saturate(6722%) hue-rotate(356deg) brightness(94%) contrast(127%);
     user-select: none;
+    transition: 0.5s;
 }
 
 .header {
@@ -77,6 +79,7 @@
     font-family: Rounded, monospace;
 }
 
+
 .pop-up a {
     text-decoration: none;
     color: black;
@@ -93,8 +96,12 @@
     font-family: rounded, serif;
     font-size: 1vw;
     background-color: #36b24d;
+
 }
 
 .header .login:hover .pop-up {
     display: block;
+}
+#trophy:hover{
+    transform: translateY(0.5vh);
 }
