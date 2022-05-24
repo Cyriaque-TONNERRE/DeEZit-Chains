@@ -788,11 +788,28 @@ function delete_case(){
 function exporter(){
 
     let tab = document.querySelectorAll('.case');
-    for (const boxes of tab) { 
-        console.log(boxes.id);
-
+    const exporter = {
+        level: []
+    };
+    exporter.name = "à faire";
+    if (document.getElementsByClassName('pop-up')[0] !== undefined) {
+        exporter.author = document.getElementsByClassName('pop-up')[0].innerHTML.split(' ')[1];
+    } else (
+        exporter.author = "anonyme"
+    )
+    let i = 0;
+    let j = 0;
+    for (const boxes of tab) {
+        exporter.level[j] += boxes.id.toString();
+        i++;
+        if (i === value) {
+            const tmp = exporter.level[j];
+            exporter.level[j] = tmp.substring(9);
+            i = 0;
+            j++;
+        }
     }
-
+    console.log(exporter);
 }
 
 
