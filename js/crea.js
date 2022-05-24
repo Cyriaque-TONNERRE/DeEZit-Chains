@@ -801,6 +801,7 @@ function exporter(){
     let j = 0;
     for (const boxes of tab) {
         exporter.level[j] += boxes.id.toString();
+        console.log(j);
         i++;
         if (i === value) {
             const tmp = exporter.level[j];
