@@ -1,7 +1,47 @@
 <?php require './header.php'; ?>
 
 <main>
+    <script>
+        function Clique() {
+            if (getCookie("theme") === null) {
+                document.getElementById("body_theme").href = `../css/setting.css`;
+                document.getElementById("header_theme").href = '../css/header.css';
+                document.cookie = `theme=light; expires=${new Date(new Date().getTime() + 31536000000).toUTCString()}; path=/`;
+                document.getElementById("Dark").innerHTML = 'Light';
+            }
+            if (getCookie("theme") === 'dark') {
 
+                document.getElementById("header_theme").href = '../css/dark_header.css';
+                document.getElementById("body_theme").href = `../css/dark_setting.css`;
+                document.cookie = `theme=dark; expires=${new Date(new Date().getTime() + 31536000000).toUTCString()}; path=/`;
+                document.getElementById("Dark").innerHTML = 'Dark';
+            }
+            if (getCookie("theme") === 'light') {
+
+                document.getElementById("body_theme").href = `../css/setting.css`;
+                document.getElementById("header_theme").href = '../css/header.css';
+                document.cookie = `theme=light; expires=${new Date(new Date().getTime() + 31536000000).toUTCString()}; path=/`;
+                document.getElementById("Dark").innerHTML = 'Light';
+            }
+
+            console.log("fonction");
+            var testData = document.getElementById("Dark");
+            console.log(testData);
+            if (document.getElementById("Dark").innerHTML === 'Light') {
+                console.log("tamamanlagentille")
+                document.getElementById("header_theme").href = '../css/dark_header.css';
+                document.getElementById("body_theme").href = `../css/dark_setting.css`;
+                document.cookie = `theme=dark; expires=${new Date(new Date().getTime() + 31536000000).toUTCString()}; path=/`;
+                document.getElementById("Dark").innerHTML = 'Dark';
+            } else {
+                console.log("tamamanlamechante")
+                document.getElementById("body_theme").href = `../css/setting.css`;
+                document.getElementById("header_theme").href = '../css/header.css';
+                document.cookie = `theme=light; expires=${new Date(new Date().getTime() + 31536000000).toUTCString()}; path=/`;
+                document.getElementById("Dark").innerHTML = 'Light';
+            }
+        }
+    </script>
 
     <div class="param_box">
         <h1>Settings:</h1>
@@ -9,38 +49,18 @@
             Theme :
             <span id="Dark" onclick="Clique()">
                                 <?php if (isset($_COOKIE['theme'])) {
-                                    if ($_COOKIE['theme'] == 'light') { ?>
-                                        Dark
-                                    <?php } else { ?>
+                                    if ($_COOKIE['theme'] === 'light') { ?>
                                         Light
+                                    <?php } else { ?>
+                                        Dark
                                     <?php }
                                 } else { ?>
-                                    Dark <?php } ?>
+                                    Light
+                                <?php } ?>
+
             </span>
         </div>
-        <script>
-            function Clique() {
-                if (getCookie("theme") === null){
-                    document.getElementById("Dark").innerHTML = 'Light';
-                }
-                console.log("fonction");
-                var testData = document.getElementById("Dark");
-                console.log(testData);
-                if (document.getElementById("Dark").innerHTML === 'Light') {
-                    console.log("tamamanlagentille")
-                    document.getElementById("header_theme").href = '../css/dark_header.css';
-                    document.getElementById("body_theme").href = `../css/dark_setting.css`;
-                    document.cookie = `theme=dark; expires=${new Date(new Date().getTime() + 31536000000).toUTCString()}; path=/`;
-                    document.getElementById("Dark").innerHTML = 'Dark';
-                } else {
-                    console.log("tamamanlamechante")
-                    document.getElementById("body_theme").href = `../css/setting.css`;
-                    document.getElementById("header_theme").href = '../css/header.css';
-                    document.cookie = `theme=light; expires=${new Date(new Date().getTime() + 31536000000).toUTCString()}; path=/`;
-                    document.getElementById("Dark").innerHTML = 'Light';
-                }
-            }
-        </script>
+
 
         <div id="Sound_title">
             <?php if (isset($_COOKIE['volume'])) {
@@ -72,5 +92,3 @@
 <footer>
 
 </footer>
-
-
