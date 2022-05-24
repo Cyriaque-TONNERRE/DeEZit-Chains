@@ -18,19 +18,19 @@ require 'header.php';
 
     </div>
     <div class="disparition" id='colorlist'>
-        <div draggable="true" class='r drag'>
+        <div draggable="true" class='r drag' id='r'>
             
         </div>
-        <div draggable="true" class='g drag'>
+        <div draggable="true" class='g drag' id='g'>
             
         </div>
-        <div draggable="true" class='b drag'>
+        <div draggable="true" class='b drag' id='b'>
             
         </div>
-        <div draggable="true" class='p drag'>
+        <div draggable="true" class='p drag' id='p'>
             
         </div>
-        <div draggable="true" class='y drag'>
+        <div draggable="true" class='y drag' id='y'>
             
         </div>
         

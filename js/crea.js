@@ -68,7 +68,7 @@ function contenu(){
     cheminP = [];
 
     console.log("work");
-    const color_cases = document.querySelectorAll('.drag'); //variable qui recup la base
+    color_cases = document.querySelectorAll('.drag'); //variable qui recup la base
     console.log(color_cases);
     const box = document.querySelectorAll('.case'); //variable qui recup toutes les cases
     
@@ -81,6 +81,7 @@ function contenu(){
         racines.addEventListener('dragstart', dragStartr); //event: lorsqu'on commence a drag appel la fonction dragStart
         racines.addEventListener('dragend', dragEndr); //event: lorsqu'on lache l'objet appel la fonction dargEnd
         racines.classList += ' disparition';
+        
         
     }
     document.querySelector('.r.drag').classList.remove('disparition');
@@ -157,6 +158,8 @@ function contenu(){
         vide.addEventListener('drag', drag);
 
         vide.addEventListener("click", increaseNum);
+
+        vide.addEventListener("dblclick", delete_case);  
     }
     
     function drag(e) {
@@ -208,7 +211,7 @@ function contenu(){
     
     function dragDrop(e) {
         e.preventDefault();
-        if(this.id === '0' && nowc !== 0 && newc !== 0){
+        if(this.id === '0' && nowc !== 0 && newc !== 0 && !(this.classList.contains('used'))){
             this.id = nowc;
             let racine = document.querySelector('.'+nowc+'.drag');
             if(!deplacement_color){
@@ -228,8 +231,7 @@ function contenu(){
                 last.classList.remove('remove');
                 last.classList.remove('colors');
                 last.classList.remove(newc);
-                
-                
+
             }
             
             this.setAttribute("draggable",true);
@@ -528,7 +530,7 @@ function contenu(){
                     nowc = 'p';
                 }
                 else if(this.id === 'y' && nowc !== 'y'){
-                    road = cheminy;
+                    road = cheminY;
                     if(nowc === 'r'){
                         cheminR = chemin;
                     }
@@ -629,6 +631,158 @@ function contenu(){
     }
      
     
+}
+
+function supression_couleur(elem){
+    if(elem.id === 'r' || elem.id == 'g' || elem.id === 'b' || elem.id === 'p' || elem.id === 'y'){
+        console.log("eureka");
+        elem.setAttribute("draggable",false);
+        elem.classList = "case";
+        let caseliste = document.querySelectorAll('.okay');
+        if(caseliste !== null){
+            for (let i = 0; i < caseliste.length; i++) {
+                caseliste[i].classList.remove('okay');
+            }
+        }
+        for (let lst_racines of color_cases) { //créer un event pour tout les élément de box
+    
+            if (!(lst_racines.classList.contains("disparition"))){
+                lst_racines.classList += " disparition";
+            }
+            if(lst_racines.id === elem.id){
+                
+                if (lst_racines.classList.contains("disparition")){
+                    lst_racines.classList.remove("disparition");
+                    lst_racines.setAttribute("draggable",true);
+                }
+            }
+            
+            
+        }
+        elem.id = '0';
+
+    }
+}
+
+function retirer_chiffres(elem){
+    if(elem.id === 'g'){
+        road = cheminG;
+        cheminG = [];
+    }
+    else if(elem.id === 'r'){
+        road = cheminR;
+        cheminR = [];
+    }
+    else if(elem.id === 'b'){
+        road = cheminB;
+        cheminB = [];
+    }
+    else if(elem.id === 'y'){
+        road = cheminY;
+        cheminY = [];
+    }
+    else if(elem.id === 'p'){
+        road = cheminP;
+        cheminP = [];
+    }
+    let time = road.length - 1;
+
+    for (let o = 0; o < time; o++) {
+                                        
+        road[0].innerHTML = "";
+        road[0].id = 0;
+        if(road[0].classList.contains('valid')){
+            road[0].classList.remove('valid');
+        }
+        if(road[0].classList.contains('used')){
+            road[0].classList.remove('used');
+        }
+        road.shift();
+
+    }
+        
+    let caseliste = document.querySelectorAll('.okay');
+    if(caseliste !== null){
+        for (let i = 0; i < caseliste.length; i++) {
+            caseliste[i].classList.remove('okay');
+        }
+    }
+}
+
+function delete_case(){
+    if(this.id === 'r' || this.id == 'g' || this.id === 'b' || this.id === 'p' || this.id === 'y'){
+
+        if(this.id === 'y'){
+            supression_couleur(this);
+            chemin = [];
+            cheminY = [];
+        }
+        else if(this.id === 'p'){
+            chemin = [];
+            if(document.querySelector('.y.colors')){
+                retirer_chiffres(document.querySelector('.y.colors'));
+                supression_couleur(document.querySelector('.y.colors'));
+            }
+            supression_couleur(this);
+            
+        }
+        else if(this.id === 'b'){
+            chemin = [];
+            if(document.querySelector('.p.colors')){
+                retirer_chiffres(document.querySelector('.p.colors'));
+                supression_couleur(document.querySelector('.p.colors'));
+            }
+            if(document.querySelector('.y.colors')){
+                retirer_chiffres(document.querySelector('.y.colors'));
+                supression_couleur(document.querySelector('.y.colors'));
+            }
+            supression_couleur(this);
+            
+        }
+        else if(this.id === 'g'){
+            chemin = [];
+            if(document.querySelector('.b.colors')){
+                retirer_chiffres(document.querySelector('.b.colors'));
+                supression_couleur(document.querySelector('.b.colors'));
+            }
+            if(document.querySelector('.p.colors')){
+                retirer_chiffres(document.querySelector('.p.colors'));
+                supression_couleur(document.querySelector('.p.colors'));
+            }
+            if(document.querySelector('.y.colors')){
+                retirer_chiffres(document.querySelector('.y.colors'));
+                supression_couleur(document.querySelector('.y.colors'));
+            }
+            supression_couleur(this);
+            
+        }
+        else if(this.id === 'r'){
+            chemin = [];
+            if(document.querySelector('.g.colors')){
+                retirer_chiffres(document.querySelector('.g.colors'));
+                supression_couleur(document.querySelector('.g.colors'));
+            }
+            if(document.querySelector('.b.colors')){
+                retirer_chiffres(document.querySelector('.b.colors'));
+                supression_couleur(document.querySelector('.b.colors'));
+            }
+            if(document.querySelector('.p.colors')){
+                retirer_chiffres(document.querySelector('.p.colors'));
+                supression_couleur(document.querySelector('.p.colors'));
+            }
+            if(document.querySelector('.y.colors')){
+                retirer_chiffres(document.querySelector('.y.colors'));
+                supression_couleur(document.querySelector('.y.colors'));
+            }
+            supression_couleur(this);
+            
+        }
+
+    }
+
+
+    
+
 }
 
 
