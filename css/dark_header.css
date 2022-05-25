@@ -27,6 +27,7 @@
   margin-top: 1vw;
   margin-right: 0.5vw;
   user-select: none;
+  transition: 0.3s;
 }
 
 .titre {
@@ -47,6 +48,7 @@
   height: 4vw;
   margin-top: 1vw;
   filter: invert(63%) sepia(69%) saturate(3801%) hue-rotate(281deg) brightness(80%) contrast(95%);
+  transition: 0.3s;
 }
 
 .header .setting a img{
@@ -54,6 +56,7 @@
   height: 4vw;
   margin-top: 1vw;
   filter: invert(85%) sepia(90%) saturate(5888%) hue-rotate(102deg) brightness(113%) contrast(101%);
+  transition: 0.3s;
 }
 
 
@@ -100,4 +103,17 @@
 
 .header .login:hover .pop-up {
   display: block;
+}
+#trophy:hover{
+  transform: translateY(0.3vh);
+}
+.setting img:hover{
+  transform: translateY(0.3vh);
+}
+.login img{
+  transition: 0.3s;
+}
+
+.login img:hover{
+  transform: translateY(0.3vh);
 }

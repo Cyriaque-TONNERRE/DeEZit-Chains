@@ -53,8 +53,9 @@
     margin-top: 1vw;
     filter: invert(23%) sepia(76%) saturate(6722%) hue-rotate(356deg) brightness(94%) contrast(127%);
     user-select: none;
-    transition: 0.5s;
+    transition: 0.3s;
 }
+
 
 .header {
     display: grid;
@@ -77,6 +78,14 @@
     padding: 1vw;
     font-size: 1.2vw;
     font-family: Rounded, monospace;
+    transition: 0.3s;
+}
+.login img{
+    transition: 0.3s;
+}
+
+.login img:hover{
+    transform: translateY(0.3vh);
 }
 
 
@@ -103,5 +112,8 @@
     display: block;
 }
 #trophy:hover{
-    transform: translateY(0.5vh);
+    transform: translateY(0.3vh);
+}
+.setting img:hover{
+    transform: translateY(0.3vh);
 }
