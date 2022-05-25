@@ -31,9 +31,6 @@
     --orange-LBB: rgb(238, 155, 0);
 }
 
-body{
-    background-color: #3f3f3f;
-}
 .invisible {
     opacity: 0;
 }
@@ -148,8 +145,7 @@ table {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    background-color: #323236;
-    color: white;
+    background-color: #e3e3e3;
 }
 
 .letter {
@@ -163,7 +159,6 @@ table {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    color: #E8E9E4;
 }
 
 .r {

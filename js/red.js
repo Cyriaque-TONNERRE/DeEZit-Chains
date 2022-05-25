@@ -14,7 +14,7 @@ blocker = false;
 let delta = null;
 let posx = 0;
 let posy = 0;
-
+indice=Number(getCookie("time_lvl")) ;
 
 red.addEventListener('drag', drag);
 red.addEventListener('dragstart', dragStartr); //event: lorsqu'on commence a drag appel la fonction dragStart
@@ -234,7 +234,13 @@ function dragDrop() {
             number = URL.substring(URL.indexOf('=') + 1);
             document.cookie = `id=${number}; expires=${new Date(new Date().getTime() + 2000).toUTCString()}; path=/`;
             document.location.href = "redirect.php?id=" + number;
-        } else {
+        } else if (URL.includes("time.php")) {
+            indice= indice+1;
+            console.log(indice)
+            document.cookie = `time_lvl=${indice}; expires=${new Date(new Date().getTime() + 2000).toUTCString()}; path=/`;
+            document.location.href = "time.php";
+        }
+        else{
             document.location.href = "adventure.php";
             document.cookie = `id=${number}; expires=${new Date(new Date().getTime() + 2000).toUTCString()}; path=/`;
         }
