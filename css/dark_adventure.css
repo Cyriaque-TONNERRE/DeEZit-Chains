@@ -168,31 +168,31 @@ table {
 .r {
     height: 10%;
     width: 10%;
-    background-color: red;
+    background-color: #FD2101;
 }
 
 .g {
     height: 10%;
     width: 10%;
-    background-color: green;
+    background-color: #60D702;
 }
 
 .p {
     height: 10%;
     width: 10%;
-    background-color: purple;
+    background-color: #B600C6;
 }
 
 .b {
     height: 10%;
     width: 10%;
-    background-color: blue;
+    background-color: #01CAFD;
 }
 
 .y {
     height: 10%;
     width: 10%;
-    background-color: yellow;
+    background-color: #FBD801;
 }
 
 .invisible {
