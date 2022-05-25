@@ -14,7 +14,7 @@ if(isset($_POST["submit"])){
                 //Validé, lancement de la partie
                 $nomfichier = "../lvl_crea/".time().".".basename($_FILES["fichier"]["type"]);
                 move_uploaded_file($_FILES["fichier"]["tmp_name"],$nomfichier);
-                //header("Location:importgame.php?id=$nomfichier");
+                header("Location:importgame.php?id=$nomfichier");
             }
         }
     }
