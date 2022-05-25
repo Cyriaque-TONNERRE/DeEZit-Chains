@@ -12,7 +12,7 @@
         <a draggable='false' class="gamemode" href="time.php">
             Time Trial
         </a>
-        <a draggable='false' class="gamemode" href="creative.php">
+        <a draggable='false' class="gamemode" href="create.php">
             Creative Mode
         </a>
     </div>
