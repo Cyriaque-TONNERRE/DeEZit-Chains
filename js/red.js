@@ -243,7 +243,7 @@ function dragDrop() {
     }
     blocker = false;
 
-    console.log(document.querySelector('.unused'));
+    if(document.querySelector('.unused') === null){
         //Victoire
         var URL = window.location.href;
         if (URL.includes("affichage_history.php")) {
@@ -260,6 +260,7 @@ function dragDrop() {
             document.location.href = "adventure.php";
             document.cookie = `id=${number}; expires=${new Date(new Date().getTime() + 2000).toUTCString()}; path=/`;
         }
+    }
 }
 
     //this.className += 'case'; //définie la class de l'objet actuel à ' case'
