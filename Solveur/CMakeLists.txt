@@ -5,7 +5,4 @@ set(CMAKE_C_STANDARD 11)
 
 include_directories(.)
 
-add_executable(Solveur
-        fonctions.c
-        fonctions.h
-        solveur.c functions.c functions.h)
+add_executable(Solveur solver2.0.c)
