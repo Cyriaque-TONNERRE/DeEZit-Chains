@@ -195,3 +195,7 @@ table {
     height: 10%;
     width: 10%;
 }
+
+.disparition{
+    display: none;
+}
