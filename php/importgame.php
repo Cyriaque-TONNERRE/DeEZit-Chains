@@ -7,6 +7,7 @@ if(isset($_GET["id"])){
         $json = file_get_contents($_GET["id"]);
         $data = json_decode($json, false);
 
+
         $tab = $data->level;
         $colours = 0;
         $size = count($data->level);
