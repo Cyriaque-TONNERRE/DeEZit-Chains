@@ -1,6 +1,6 @@
 <?php require './header.php';?>
 <main>
-    <div class="game">
+    <div class="game" id="game">
     <?php
 
     $seed = time();
@@ -51,114 +51,114 @@
                 //Une fois qu'on sait où sont les chiffres, on ajuste la class pour ajuster les bordures de la bonne façon
                 if(($nord == false) && ($gauche == false) && ($bas == false)){
                     if (ctype_digit($tab[$colonne][$ligne])){
-                        echo "<td class='nordgauchebas case unused' id=".$tab[$colonne][$ligne].">".$tab[$colonne][$ligne]."</td>";
+                        echo "<td class='nordgauchebas case unused tab' id=".$tab[$colonne][$ligne].">".$tab[$colonne][$ligne]."</td>";
                     } else {
-                        echo "<td draggable='true' class='".$tab[$colonne][$ligne]." letter nordgauchebas' id='1'>X</td>";
+                        echo "<td draggable='true' class='".$tab[$colonne][$ligne]." letter nordgauchebas tab' id='0'>X</td>";
                     }
                 }
                 else if(($droite == false) && ($gauche == false) && ($bas == false)){
                     if (ctype_digit($tab[$colonne][$ligne])){
-                        echo "<td class='droitegauchebas case unused' id=".$tab[$colonne][$ligne].">".$tab[$colonne][$ligne]."</td>";
+                        echo "<td class='droitegauchebas case unused tab' id=".$tab[$colonne][$ligne].">".$tab[$colonne][$ligne]."</td>";
                     } else {
-                        echo "<td draggable='true' class='".$tab[$colonne][$ligne]." letter droitegauchebas' id='1'>X</td>";
+                        echo "<td draggable='true' class='".$tab[$colonne][$ligne]." letter droitegauchebas tab' id='0'>X</td>";
                     }
                 }
                 else if(($droite == false) && ($nord == false) && ($bas == false)){
                     if (ctype_digit($tab[$colonne][$ligne])) {
-                        echo "<td class='droitenordbas case unused' id=".$tab[$colonne][$ligne].">".$tab[$colonne][$ligne]."</td>";
+                        echo "<td class='droitenordbas case unused tab' id=".$tab[$colonne][$ligne].">".$tab[$colonne][$ligne]."</td>";
                     } else {
-                        echo "<td draggable='true' class='".$tab[$colonne][$ligne]." letter droitenordbas' id='1'>X</td>";
+                        echo "<td draggable='true' class='".$tab[$colonne][$ligne]." letter droitenordbas tab' id='0'>X</td>";
                     }
                 }
                 else if(($droite == false) && ($nord == false) && ($gauche == false)){
                     if (ctype_digit($tab[$colonne][$ligne])){
-                        echo "<td class='droitenordgauche case unused' id=".$tab[$colonne][$ligne].">".$tab[$colonne][$ligne]."</td>";
+                        echo "<td class='droitenordgauche case unused tab' id=".$tab[$colonne][$ligne].">".$tab[$colonne][$ligne]."</td>";
                     } else {
-                        echo "<td draggable='true' class='".$tab[$colonne][$ligne]." letter droitenordgauche' id='1'>X</td>";
+                        echo "<td draggable='true' class='".$tab[$colonne][$ligne]." letter droitenordgauche tab' id='0'>X</td>";
                     }
                 }
                 else if(($nord == false) && ($gauche == false)){
                     if (ctype_digit($tab[$colonne][$ligne])){
-                        echo "<td class='nordgauche case unused' id=".$tab[$colonne][$ligne].">".$tab[$colonne][$ligne]."</td>";
+                        echo "<td class='nordgauche case unused tab' id=".$tab[$colonne][$ligne].">".$tab[$colonne][$ligne]."</td>";
                     } else {
-                        echo "<td draggable='true' class='". $tab[$colonne][$ligne] ." letter nordgauche' id='1'>X</td>";
+                        echo "<td draggable='true' class='". $tab[$colonne][$ligne] ." letter nordgauche tab' id='0'>X</td>";
                     }
                 }
                 else if(($nord == false) && ($droite == false)){
                     if (ctype_digit($tab[$colonne][$ligne])){
-                        echo "<td class='norddroite case unused' id=".$tab[$colonne][$ligne].">".$tab[$colonne][$ligne]."</td>";
+                        echo "<td class='norddroite case unused tab' id=".$tab[$colonne][$ligne].">".$tab[$colonne][$ligne]."</td>";
                     } else {
-                        echo "<td draggable='true' class='". $tab[$colonne][$ligne] ." letter norddroite' id='1'>X</td>";
+                        echo "<td draggable='true' class='". $tab[$colonne][$ligne] ." letter norddroite tab' id='0'>X</td>";
                     }
                 }
                 else if(($nord == false) && ($bas == false)){
                     if (ctype_digit($tab[$colonne][$ligne])){
-                        echo "<td class='nordbas case unused' id=".$tab[$colonne][$ligne].">".$tab[$colonne][$ligne]."</td>";
+                        echo "<td class='nordbas case unused tab' id=".$tab[$colonne][$ligne].">".$tab[$colonne][$ligne]."</td>";
                     } else {
-                        echo "<td draggable='true' class='". $tab[$colonne][$ligne] ." letter nordbas' id='1'>X</td>";
+                        echo "<td draggable='true' class='". $tab[$colonne][$ligne] ." letter nordbas tab' id='0'>X</td>";
                     }
                 }
                 else if(($gauche == false) && ($bas == false)){
                     if (ctype_digit($tab[$colonne][$ligne])){
-                        echo "<td class='gauchebas case unused' id=".$tab[$colonne][$ligne].">".$tab[$colonne][$ligne]."</td>";
+                        echo "<td class='gauchebas case unused tab' id=".$tab[$colonne][$ligne].">".$tab[$colonne][$ligne]."</td>";
                     } else {
-                        echo "<td draggable='true' class='". $tab[$colonne][$ligne] ." letter gauchebas' id='1'>X</td>";
+                        echo "<td draggable='true' class='". $tab[$colonne][$ligne] ." letter gauchebas tab' id='0'>X</td>";
                     }
                 }
                 else if(($gauche == false) && ($nord == false)){
                     if (ctype_digit($tab[$colonne][$ligne])){
-                        echo "<td class='gauchenord case unused' id=".$tab[$colonne][$ligne].">".$tab[$colonne][$ligne]."</td>";
+                        echo "<td class='gauchenord case unused tab' id=".$tab[$colonne][$ligne].">".$tab[$colonne][$ligne]."</td>";
                     } else {
-                        echo "<td draggable='true' class='". $tab[$colonne][$ligne] ." letter gauchenord' id='1'>X</td>";
+                        echo "<td draggable='true' class='". $tab[$colonne][$ligne] ." letter gauchenord tab' id='0'>X</td>";
                     }
                 }
                 else if(($gauche == false) && ($droite == false)){
                     if (ctype_digit($tab[$colonne][$ligne])){
-                        echo "<td class='gauchedroite case unused' id=".$tab[$colonne][$ligne].">".$tab[$colonne][$ligne]."</td>";
+                        echo "<td class='gauchedroite case unused tab' id=".$tab[$colonne][$ligne].">".$tab[$colonne][$ligne]."</td>";
                     } else {
-                        echo "<td draggable='true' class='". $tab[$colonne][$ligne] ." letter gauchedroite' id='1'>X</td>";
+                        echo "<td draggable='true' class='". $tab[$colonne][$ligne] ." letter gauchedroite tab' id='0'>X</td>";
                     }
                 }
                 else if(($bas == false) && ($droite == false)){
                     if (ctype_digit($tab[$colonne][$ligne])){
-                        echo "<td class='basdroite case unused' id=".$tab[$colonne][$ligne].">".$tab[$colonne][$ligne]."</td>";
+                        echo "<td class='basdroite case unused tab' id=".$tab[$colonne][$ligne].">".$tab[$colonne][$ligne]."</td>";
                     } else {
-                        echo "<td draggable='true' class='". $tab[$colonne][$ligne] ." letter basdroite' id='1'>X</td>";
+                        echo "<td draggable='true' class='". $tab[$colonne][$ligne] ." letter basdroite tab' id='0'>X</td>";
                     }
                 }
                 else if($gauche == false){
                     if (ctype_digit($tab[$colonne][$ligne])){
-                        echo "<td class='gauche case unused' id=".$tab[$colonne][$ligne].">".$tab[$colonne][$ligne]."</td>";
+                        echo "<td class='gauche case unused tab' id=".$tab[$colonne][$ligne].">".$tab[$colonne][$ligne]."</td>";
                     } else {
-                        echo "<td draggable='true' class='". $tab[$colonne][$ligne] ." letter gauche' id='1'>X</td>";
+                        echo "<td draggable='true' class='". $tab[$colonne][$ligne] ." letter gauche tab' id='0'>X</td>";
                     }
                 }
                 else if($droite == false){
                     if (ctype_digit($tab[$colonne][$ligne])){
-                        echo "<td class='droite case unused' id=".$tab[$colonne][$ligne].">".$tab[$colonne][$ligne]."</td>";
+                        echo "<td class='droite case unused tab' id=".$tab[$colonne][$ligne].">".$tab[$colonne][$ligne]."</td>";
                     } else {
-                        echo "<td draggable='true' class='". $tab[$colonne][$ligne] ." letter droite' id='1'>X</td>";
+                        echo "<td draggable='true' class='". $tab[$colonne][$ligne] ." letter droite tab' id='0'>X</td>";
                     }
                 }
                 else if($nord == false){
                     if (ctype_digit($tab[$colonne][$ligne])){
-                        echo "<td class='nord case unused' id=".$tab[$colonne][$ligne].">".$tab[$colonne][$ligne]."</td>";
+                        echo "<td class='nord case unused tab' id=".$tab[$colonne][$ligne].">".$tab[$colonne][$ligne]."</td>";
                     } else {
-                        echo "<td draggable='true' class='". $tab[$colonne][$ligne] ." letter nord' id='1'>X</td>";
+                        echo "<td draggable='true' class='". $tab[$colonne][$ligne] ." letter nord tab' id='0'>X</td>";
                     }
                 }
                 else if($bas == false){
                     if (ctype_digit($tab[$colonne][$ligne])){
-                        echo "<td class='bas case unused' id=".$tab[$colonne][$ligne].">".$tab[$colonne][$ligne]."</td>";
+                        echo "<td class='bas case unused tab' id=".$tab[$colonne][$ligne].">".$tab[$colonne][$ligne]."</td>";
                     } else {
-                        echo "<td draggable='true' class='". $tab[$colonne][$ligne] ." letter bas' id='1'>X</td>";
+                        echo "<td draggable='true' class='". $tab[$colonne][$ligne] ." letter bas tab' id='0'>X</td>";
                     }
                 }
                 else{
                     if (ctype_digit($tab[$colonne][$ligne])){
-                        echo "<td class='case unused'' id=".$tab[$colonne][$ligne].">".$tab[$colonne][$ligne]."</td>";
+                        echo "<td class='case unused tab' id=".$tab[$colonne][$ligne].">".$tab[$colonne][$ligne]."</td>";
                     } else {
-                        echo "<td draggable='true' class='".$tab[$colonne][$ligne]." letter'>X</td>";
+                        echo "<td draggable='true' class='".$tab[$colonne][$ligne]." letter tab'>X</td>";
                     }
                 }
 
@@ -186,7 +186,7 @@
                         
             }
             else{
-                echo "<td class=invisible >".$tab[$colonne][$ligne]."</td>";
+                echo "<td class='invisible tab' id=0>".$tab[$colonne][$ligne]."</td>";
             }
         }
         echo "</tr>";
@@ -224,8 +224,20 @@
     }
 
 
-
+    
     ?>
+    
+    <div id="export_button">
+        <?php echo "<button id='reset' onclick='exporter($size)'>Exporter</button>"; ?>
+    </div>
+
+    <div class = "export disparition" id="exportationLvl">
+        <label for="name">Level Name : </label>
+        <input type="text" id="namelvl">
+        <button id='closeExporter' onclick='closeExporter()'>X</button>
+        <button id='download' onclick='install()'>download</button>
+    </div>
+    <script src='../js/adventureExport.js'></script>
 
 </main>
 	
