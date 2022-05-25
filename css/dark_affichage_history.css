@@ -4,7 +4,9 @@
     margin: 0px;
     padding: 0px;
 }
-
+body{
+    background-color: #3f3f3f;
+}
 
 /*Fonts*/
 
@@ -31,9 +33,6 @@
     --orange-LBB: rgb(238, 155, 0);
 }
 
-body{
-    background-color: #3f3f3f;
-}
 .invisible {
     opacity: 0;
 }
@@ -149,7 +148,7 @@ table {
     -ms-user-select: none;
     user-select: none;
     background-color: #111f28;
-    color: white;
+    color: #e3e3e3;
 }
 
 .letter {
@@ -168,34 +167,65 @@ table {
 .r {
     height: 10%;
     width: 10%;
-    background-color: red;
+    background-color: #FD2101;
 }
 
 .g {
     height: 10%;
     width: 10%;
-    background-color: green;
+    background-color: #60D702;
 }
 
 .p {
     height: 10%;
     width: 10%;
-    background-color: purple;
+    background-color: #B600C6;
 }
 
 .b {
     height: 10%;
     width: 10%;
-    background-color: blue;
+    background-color: #01CAFD;
 }
 
 .y {
     height: 10%;
     width: 10%;
-    background-color: yellow;
+    background-color: #FBD801;
 }
 
 .invisible {
     height: 10%;
     width: 10%;
+}
+
+.back {
+    background-color: #CFBB97;
+    border: 0.3vw goldenrod solid;
+    border-radius: 2vw;
+    padding: 1vw;
+    text-decoration: none;
+    color: white;
+    font-family: rounded, serif;
+    font-size: 1.5vw;
+    margin-left: 1vw;
+    display: inline-table;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.back:hover {
+    background-color: #deb346;
+}
+.align-left{
+    position:absolute;
+}
+#wrapper {
+    text-align:left;
+}
+
+.align-center{
+    text-align: center;
 }

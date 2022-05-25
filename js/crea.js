@@ -785,32 +785,79 @@ function delete_case(){
 
 }
 
+function download(filename, textInput) {
+
+    var element = document.createElement('a');
+    element.setAttribute('href','data:text/plain;charset=utf-8, ' + encodeURIComponent(textInput));
+    element.setAttribute('download', filename);
+    document.body.appendChild(element);
+    element.click();
+    //document.body.removeChild(element);
+}
+
+filename = "niveauExporter.json";
+document.getElementById("lvlName").oninput = function () {
+    filename = document.getElementById("lvlName").value;
+}
+
 function exporter(){
 
     let tab = document.querySelectorAll('.case');
-    const exporter = {
+    Fexporter = {
         level: []
     };
-    exporter.name = "à faire";
     if (document.getElementsByClassName('pop-up')[0] !== undefined) {
-        exporter.author = document.getElementsByClassName('pop-up')[0].innerHTML.split(' ')[1];
+        Fexporter.author = document.getElementsByClassName('pop-up')[0].innerHTML.split(' ')[1];
     } else (
-        exporter.author = "anonyme"
+        Fexporter.author = "anonyme"
     )
     let i = 0;
     let j = 0;
     for (const boxes of tab) {
-        exporter.level[j] += boxes.id.toString();
-        console.log(j);
+        Fexporter.level[j] += boxes.id.toString();
+        //console.log(exporter.level);
+        //console.log(j);
         i++;
-        if (i === value) {
-            const tmp = exporter.level[j];
-            exporter.level[j] = tmp.substring(9);
+        if (i === parseInt(value)) {
+            const tmp = Fexporter.level[j];
+            Fexporter.level[j] = tmp.substring(9);
             i = 0;
             j++;
         }
     }
-    console.log(exporter);
+    console.log(Fexporter);
+    
+
+    document.getElementById("exportationLvl").classList.remove('disparition');
+    document.getElementById("colorlist").classList += ' disparition';
+    document.getElementById("tableau").classList += ' disparition';
+    
+    
+    console.log(filename);
+
+}
+
+function closeExporter() {
+    document.getElementById("exportationLvl").classList += ' disparition';
+    document.getElementById("colorlist").classList.remove('disparition');
+    document.getElementById("tableau").classList.remove('disparition');
+
+}
+
+
+function install() {
+    if(filename === ""){
+        Fexporter.name = "niveauExporter";
+        filename = "niveauExporter.json";
+    }
+    else{
+        Fexporter.name = filename;
+        filename += ".json";
+    }
+    
+    fichier = JSON.stringify(Fexporter)
+    download(filename, fichier);
+
 }
 
 

@@ -17,6 +17,7 @@ body {
 	margin-right: auto;
 	margin-top: 2vw;
 	padding-top: 1.8vw;
+	transition: 0.2s;
 }
 
 .gamemode:hover {

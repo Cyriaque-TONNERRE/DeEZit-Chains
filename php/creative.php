@@ -33,10 +33,19 @@ require 'header.php';
         <div draggable="true" class='y drag' id='y'>
             
         </div>
+
         <div>
+
         <button id='reset' onclick='exporter()'>Exporter</button>
         </div>
+
         
+    </div>
+    <div class = "export disparition" id="exportationLvl">
+        <label for="levelName">Level Name : </label>
+        <input type="text" id="lvlName">
+        <button id='closeExporter' onclick='closeExporter()'>X</button>
+        <button id='download' onclick='install()'>download</button>
     </div>
 	</main>
     
