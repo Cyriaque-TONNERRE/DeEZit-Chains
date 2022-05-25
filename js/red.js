@@ -208,6 +208,24 @@ function dragLeaver() {
             this.className += ' case'; //définie la class de l'objet actuel à ' case'
         }
     }
+    if (document.querySelector('.unused') === null) {
+        //Victoire
+
+        var URL = window.location.href;
+        if (URL.includes("affichage_history.php")) {
+            number = URL.substring(URL.indexOf('=') + 1);
+            document.cookie = `id=${number}; expires=${new Date(new Date().getTime() + 2000).toUTCString()}; path=/`;
+            document.location.href = "redirect.php?id=" + number;
+        } 
+        else if(URL.includes("importgame.php")){
+            document.location.href = "create.php";
+
+        }
+        else {
+            document.location.href = "adventure.php";
+            document.cookie = `id=${number}; expires=${new Date(new Date().getTime() + 2000).toUTCString()}; path=/`;
+        }
+    }
 
 
 
@@ -226,9 +244,7 @@ function dragDrop() {
     blocker = false;
 
     console.log(document.querySelector('.unused'));
-    if (document.querySelector('.unused') === null) {
         //Victoire
-
         var URL = window.location.href;
         if (URL.includes("affichage_history.php")) {
             number = URL.substring(URL.indexOf('=') + 1);
@@ -244,11 +260,11 @@ function dragDrop() {
             document.location.href = "adventure.php";
             document.cookie = `id=${number}; expires=${new Date(new Date().getTime() + 2000).toUTCString()}; path=/`;
         }
-    }
+}
 
     //this.className += 'case'; //définie la class de l'objet actuel à ' case'
     //this.append(red); //change la position de la base à l'élément actuel
-}
+
 
 function clearr() {
     const caseliste = document.querySelectorAll('.r');
