@@ -226,7 +226,20 @@ function contenu(){
                     liste_couleurs[i].classList.remove("deplacements");
                 }
             }
+            if(deplacement_color){
+                console.log(newc);
+                console.log('here ?');
+                console.log(last);
+                if(last.classList.contains(newc)){
+                    last.id = "0";
+                    last.classList.remove('remove');
+                    last.classList.remove('colors');
+                    last.classList.remove(newc);
+                }
+                
+                //deplacement_color = false;
 
+            }
             
             this.setAttribute("draggable",true);
             this.classList += " deplacements";
@@ -294,17 +307,6 @@ function contenu(){
                     }
                 }
                 
-            }
-
-            if(deplacement_color){
-                console.log('here ?');
-                console.log(last);
-                last.id = "0";
-                last.classList.remove('remove');
-                last.classList.remove('colors');
-                last.classList.remove(newc);
-                //deplacement_color = false;
-
             }
 
 
