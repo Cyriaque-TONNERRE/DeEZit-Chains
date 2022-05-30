@@ -227,10 +227,13 @@ function contenu(){
                 }
             }
             if(deplacement_color){
-                last.id = '0';
+                console.log('here ?');
+                console.log(last);
+                //last.id = '0';
                 last.classList.remove('remove');
                 last.classList.remove('colors');
                 last.classList.remove(newc);
+                deplacement_color = false;
 
             }
             
@@ -259,7 +262,10 @@ function contenu(){
 
             if (this.cellIndex - 1 < (document.getElementById("tableau_crea").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex - 1 >= 0) { //cell - 1G
                 //GAUCHE
+                console.log("gauche");
                 if((document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex-1].id) === '0'){
+                    console.log("enter");
+                    console.log((document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex-1].id));
                     if(!(document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex-1].classList.contains('okay'))){
                         document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex-1].classList += ' okay';
                     }
@@ -269,6 +275,7 @@ function contenu(){
             }
             if (this.cellIndex + 1 < (document.getElementById("tableau_crea").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex + 1 >= 0) { //cel + 1D
                 //DROITE
+                console.log("droite");
                 //Chiffre -> Pb
                 if((document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex+1].id) === '0'){
                     if(!(document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex+1].classList.contains('okay'))){
@@ -279,6 +286,7 @@ function contenu(){
             }
             if (this.parentNode.rowIndex - 1 < (document.getElementById("tableau_crea").rows.length) && this.parentNode.rowIndex - 1 >= 0) {
                 //HAUT
+                console.log("haut");
                 if((document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex - 1].cells[this.cellIndex].id) === '0'){
                     if(!(document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex - 1].cells[this.cellIndex].classList.contains('okay'))){
                         document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex - 1].cells[this.cellIndex].classList += ' okay';
@@ -288,6 +296,7 @@ function contenu(){
             }
             if (this.parentNode.rowIndex + 1 < (document.getElementById("tableau_crea").rows.length) && this.parentNode.rowIndex + 1 >= 0) {
                 //BAS
+                console.log("bas");
                 if((document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex + 1].cells[this.cellIndex].id) === '0'){
                     if(!(document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex + 1].cells[this.cellIndex].classList.contains('okay'))){
                         document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex + 1].cells[this.cellIndex].classList += ' okay';
