@@ -229,7 +229,11 @@ function contenu(){
             if(deplacement_color){
                 console.log('here ?');
                 console.log(last);
-                //last.id = '0';
+                if(!(this.classList.contains(newc))){
+                    last.id = '0';
+                   
+                }
+                //
                 last.classList.remove('remove');
                 last.classList.remove('colors');
                 last.classList.remove(newc);
