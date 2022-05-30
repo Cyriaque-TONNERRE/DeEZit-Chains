@@ -1,51 +1,83 @@
+#colorlist{
+    margin-right: auto;
+    margin-left: auto;
+}
+table{
+    border-collapse: collapse;
+    margin-top: 1.5vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+#export{
+    position: absolute;
+    bottom: 1vh;
+    right:0.1vw;
+}
+
 .tmp{
-    background-color: gray;
+    background-color: lightgrey;
     display:block;
     margin-left: auto;
     margin-right: auto;
     width: 20vw;
     height: 9vw;
-    font-size: 1vw;
+    font-size: 1.3vw;
     text-align: center;
-    margin-top: 35vh;
+    margin-top: 32vh;
     border: #e3e3e3 solid 0.3vw;
     border-radius: 2vw;
     padding-top: 1.5vw;
+    box-shadow: 0vw 0vw 1vw darkgrey;
+
 }
+
+#hide{
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    width: 2vw;
+    height: 2vw;
+    margin-top: 0.5vw;
+}
+
 .disparition{
     display: none;
 }
 .case{
-    border: 2px orange solid;
+    border: 0.1vw rgb(206, 185, 159) solid;
 }
+
 .r {
-    height: 6vw;
-    width: 6vw;
-    background-color: red;
+    height: 5.9vw;
+    width: 5.9vw;
+    background-color: #FD2101;
+    position: absolute;
+    top: auto;
+    right: auto;
 }
 
 .g {
     height: 6vw;
     width: 6vw;
-    background-color: green;
+    background-color: #60D702;
 }
 
 .p {
     height: 6vw;
     width: 6vw;
-    background-color: purple;
+    background-color: #B600C6;
 }
 
 .b {
     height: 6vw;
     width: 6vw;
-    background-color: blue;
+    background-color: #01CAFD;
 }
 
 .y {
     height: 6vw;
     width: 6vw;
-    background-color: yellow;
+    background-color: #FBD801;
 }
 
 .hover{
@@ -53,8 +85,14 @@
 }
 
 td{
-    height: 50px;
-    width: 50px;
+    vertical-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    height: 6vw;
+    width: 6vw;
+    background-color: darkslateblue;
+    color: #E8E9E4;
 }
 
 .okay{
@@ -99,5 +137,24 @@ td{
     width: 5vw;
     height: 2vw;
     font-size: 1.2vw;
+}
+.export{
+    width: 30vw;
+    height: 5vw;
+    background-color: #e3e3e3;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 4vw;
+    padding-left: 4vw;
+    margin-top: 8vw;
+    box-shadow: 0 0 1vw 0 rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0 0 1vw 0 rgba(0,0,0,0.75);
+    -moz-box-shadow: 0 0 1vw 0 rgba(0,0,0,0.75);
+}
 
+#closeExporter{
+    position: absolute;
+    bottom: 31.5vw;
+    right: 33vw;
+    border-radius: 0.3vw;
 }
