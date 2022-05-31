@@ -242,7 +242,7 @@ function dragLeaver() {
 
         }
         else {
-            document.cookie = `valid=true; expires=${new Date(new Date().getTime() + 500).toUTCString()}; path=/`;
+            document.cookie = `valid=true; expires=${new Date(new Date().getTime() + 2000).toUTCString()}; path=/`;
             document.location.href = "adventure.php";
             
         }
@@ -298,7 +298,7 @@ function dragDrop() {
 
         }
         else {
-            document.cookie = `valid=true; expires=${new Date(new Date().getTime() + 500).toUTCString()}; path=/`;
+            document.cookie = `valid=true; expires=${new Date(new Date().getTime() + 2000).toUTCString()}; path=/`;
             document.location.href = "adventure.php";
             
         }
