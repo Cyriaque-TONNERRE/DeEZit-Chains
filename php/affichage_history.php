@@ -118,7 +118,7 @@
             }
         }
 
-        echo "<table id='tableau'>";
+        echo "<table id='tableau' draggable='false'>";
         for ($colonne = 0; $colonne < $size; $colonne++){
             echo "<tr>";
             for ($ligne = 0; $ligne < $size; $ligne++){

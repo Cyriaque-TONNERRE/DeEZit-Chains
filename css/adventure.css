@@ -114,14 +114,14 @@ table {
     display: inline-table;
     position: absolute;
     z-index: 2;
+    top: 20%;
     right: 0;
     justify-content: center;
     background-color: #eed6b4;
     border: 0.3vw gold solid;
     border-radius: 1vw;
     color: black;
-    margin-right: 0.1vw;
-    float: right;
+    margin-right: 3vw;
     padding: 0.6vw;
     animation: ease-in-out 0.5s;
 }
