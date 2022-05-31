@@ -2,10 +2,10 @@
 -- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost:3306
--- Généré le : jeu. 19 mai 2022 à 15:07
--- Version du serveur :  5.7.24
--- Version de PHP : 8.0.1
+-- Host: localhost:3306
+-- Generation Time: May 31, 2022 at 03:19 PM
+-- Server version: 5.7.24
+-- PHP Version: 8.0.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `deezit_chain`
+-- Database: `deezit_chain`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -33,37 +33,38 @@ CREATE TABLE `user` (
   `password` varchar(64) NOT NULL,
   `history_lvl` int(32) NOT NULL DEFAULT '1',
   `adventure_lvl` int(32) DEFAULT NULL,
-  `time_trial` int(32) DEFAULT NULL
+  `time_trial` int(32) DEFAULT NULL,
+  `current_time_trial` int(32) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `user`
+-- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`ID`, `username`, `password`, `history_lvl`, `adventure_lvl`, `time_trial`) VALUES
-(1, 'Le Bajito', '$2y$10$EyZorGAG46wmC6QJMArMdeyTv9di3zQ3kbw9S2YsMs462ZTBB8Noe', 1, 0, 0),
-(2, 'vince_id', '$2y$10$T7J8nOgwUFHBczPR.TV9yOVTItvE/FObaM4pU0dx72kK0x4VjngEC', 1, 0, 0),
-(3, 'Never', '$2y$10$lDT4YvrHGQeDqQMbdf/eA.Ak/tEU.cHdxh.g1BXSAXQE5N5IxLta.', 1, 0, 0);
+INSERT INTO `user` (`ID`, `username`, `password`, `history_lvl`, `adventure_lvl`, `time_trial`, `current_time_trial`) VALUES
+(1, 'Le Bajito', '$2y$10$FCRbnCXyDHLYoveVorBCd.FFdtm7NHB6/dVwTYGiD/Buu7DIHrH9.', 1, 0, 0, 0),
+(2, 'vince_id', '$2y$10$T7J8nOgwUFHBczPR.TV9yOVTItvE/FObaM4pU0dx72kK0x4VjngEC', 1, 0, 0, 0),
+(3, 'Never', '$2y$10$lDT4YvrHGQeDqQMbdf/eA.Ak/tEU.cHdxh.g1BXSAXQE5N5IxLta.', 1, 0, 0, 0);
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`ID`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
