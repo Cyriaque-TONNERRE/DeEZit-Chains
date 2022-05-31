@@ -46,7 +46,7 @@ else{
         }
     }
     else{
-        $time_left = 600;
+        $time_left = 20;
         //reset tout
         $pseudo = $_SESSION["username"];
         require './connexion_db.php';
@@ -77,8 +77,12 @@ else{
                     secondes = secondes < 10 ? "0" + secondes : secondes;
 
                     timerElement.innerText = `${minutes}:${secondes}`;
-                    temps = temps <= 0 ? 0 : temps - 1;
+                    temps = temps <= -1 ? -1 : temps - 1;
+                    if (temps === -1) {
+                        document.location.href = "timescore.php";
+                    }
                 }, 1000);
+
 
             }
 
