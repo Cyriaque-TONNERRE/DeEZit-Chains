@@ -15,7 +15,7 @@ if(!(isset($_SESSION["username"]))){
     header('Location: login.php');
 }
 else if(isset($_COOKIE["valid"])){
-    unset($_COOKIE["valid"]);
+    setcookie ("valid", "", time() - 3600);
     $pseudo = $_SESSION["username"];
     require './connexion_db.php';
     $score++;
