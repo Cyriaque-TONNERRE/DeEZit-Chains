@@ -4,6 +4,7 @@ nowc = 0; //Variable afin de conserver la couleur dans laquelle nous sommes
 del = false;
 deplacement_color = false
 blockerlvl = false;
+before = "";
 function generate_table(value) {
     // get the reference for the body
     var body = document.getElementsByTagName("body")[0];
@@ -136,7 +137,7 @@ function contenu(){
     }
     
     function dragEndr(e) { //FONCTION dragEnd
-        //console.log('end');
+        console.log('end');
         
     
     
@@ -163,30 +164,24 @@ function contenu(){
     }
     
     function drag(e) {
-       // console.log("start")
+       //console.log("start")
         e.preventDefault();
- 
- 
+        before=this;
         
     }
-    
-    function dragOverr(e) {
-        e.preventDefault(); //retire l'action par default de dragOver qu'on ne veut pas
-        if(this.id === '0' && newc !== 0){
-            this.classList.add(newc);
-        }
-    }
-    
+
     function dragEnterr(e) {
         e.preventDefault();
-        //console.log('enter');
-        if(this.classList.contains("deplacements")){
+        console.log('enter');
+        
+        if((this.classList.contains("deplacements"))){
             chemin = [];
             newc = nowc;
             let caseliste = document.querySelectorAll('.okay');
                 for (let i = 0; i < caseliste.length; i++) {
                     caseliste[i].classList.remove('okay');
                 }
+            console.log("je del");
             last = this;
             deplacement_color = true;
             
@@ -194,22 +189,53 @@ function contenu(){
 
     }
     
-    
-    
+  
+    blockerspam = false;
     function dragLeaver(e) {
         e.preventDefault();
-        if(newc !== 0){
-            if(this.classList.contains(newc) && !this.classList.contains("deplacements")){
-                this.classList.remove(newc);
+        if(!blockerspam){
+            if(newc !== 0){
+                if(this.classList.contains(newc) && !this.classList.contains("deplacements")){
+                        this.classList.remove(newc);
+                }
             }
         }
-
-
     }
     
-    
+    function dragOverr(e) {
+        e.preventDefault(); //retire l'action par default de dragOver qu'on ne veut pas
+        //console.log(blockerspam);
+
+        if(!blockerspam){
+            if(this.id === '0' && newc !== 0 && !this.classList.contains(newc)){
+                this.className += (" "+newc);
+            }
+        }
+        
+        if (this.cellIndex - 1 < (document.getElementById("tableau_crea").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex - 1 >= 0) {
+            if(document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex-1].classList.contains('colors')){
+                blockerspam = true;
+                console.log("good");
+            }
+        }
+        
+        else  if (this.cellIndex + 1 < (document.getElementById("tableau_crea").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex + 1 >= 0) {
+            if((document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex - 1].cells[this.cellIndex].classList.contains('colors'))){
+                blockerspam = true;
+            }
+
+        }
+
+        else{
+            blockerspam = false;
+        }
+
+        
+    }
     
     function dragDrop(e) {
+
+        console.log("drop");
         e.preventDefault();
         if(this.id === '0' && nowc !== 0 && newc !== 0 && !(this.classList.contains('used'))){
             this.id = nowc;
@@ -268,7 +294,6 @@ function contenu(){
                 //GAUCHE
                 console.log("gauche");
                 if((document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex-1].id) === '0'){
-                    console.log("enter");
                     console.log((document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex-1].id));
                     if(!(document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex-1].classList.contains('okay'))){
                         document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex-1].classList += ' okay';
@@ -428,7 +453,8 @@ function contenu(){
                     
                     }
                     if (chemin[0].cellIndex + 1 < (document.getElementById("tableau_crea").rows[chemin[0].parentNode.rowIndex].cells.length) && chemin[0].cellIndex + 1 >= 0) { //cell - 1G
-                        //GAUCHE
+                        //DROITE
+                        console.log("droite");
                         if((document.getElementById('tableau_crea').getElementsByTagName('tr')[chemin[0].parentNode.rowIndex].cells[chemin[0].cellIndex+1].id) === '0'){
                             if(!(document.getElementById('tableau_crea').getElementsByTagName('tr')[chemin[0].parentNode.rowIndex].cells[chemin[0].cellIndex+1].classList.contains('okay'))){
                                 document.getElementById('tableau_crea').getElementsByTagName('tr')[chemin[0].parentNode.rowIndex].cells[chemin[0].cellIndex+1].classList += ' okay';
@@ -607,6 +633,7 @@ function contenu(){
                         }
                         if (this.cellIndex + 1 < (document.getElementById("tableau_crea").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex + 1 >= 0) { //cel + 1D
                             //DROITE
+                            console.log("droite");
                             //Chiffre -> Pb
                             if((document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex+1].id) === '0'){
                                 if(!(document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex+1].classList.contains('okay'))){
