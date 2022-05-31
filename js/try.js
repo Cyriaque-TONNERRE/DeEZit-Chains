@@ -4,7 +4,6 @@ nowc = 0; //Variable afin de conserver la couleur dans laquelle nous sommes
 del = false;
 deplacement_color = false
 blockerlvl = false;
-before = "";
 function generate_table(value) {
     // get the reference for the body
     var body = document.getElementsByTagName("body")[0];
@@ -137,7 +136,7 @@ function contenu(){
     }
     
     function dragEndr(e) { //FONCTION dragEnd
-        console.log('end');
+        //console.log('end');
         
     
     
@@ -164,24 +163,30 @@ function contenu(){
     }
     
     function drag(e) {
-       //console.log("start")
+       // console.log("start")
         e.preventDefault();
-        before=this;
+ 
+ 
         
     }
-
+    
+    function dragOverr(e) {
+        e.preventDefault(); //retire l'action par default de dragOver qu'on ne veut pas
+        if(this.id === '0' && newc !== 0){
+            this.classList.add(newc);
+        }
+    }
+    
     function dragEnterr(e) {
         e.preventDefault();
-        console.log('enter');
-        
-        if((this.classList.contains("deplacements"))){
+        //console.log('enter');
+        if(this.classList.contains("deplacements")){
             chemin = [];
             newc = nowc;
             let caseliste = document.querySelectorAll('.okay');
                 for (let i = 0; i < caseliste.length; i++) {
                     caseliste[i].classList.remove('okay');
                 }
-            console.log("je del");
             last = this;
             deplacement_color = true;
             
@@ -189,54 +194,22 @@ function contenu(){
 
     }
     
-  
-    blockerspam = false;
+    
+    
     function dragLeaver(e) {
         e.preventDefault();
-        if(!blockerspam){
-            if(newc !== 0){
-                if(this.classList.contains(newc) && !this.classList.contains("deplacements")){
-                        this.classList.remove(newc);
-                }
+        if(newc !== 0){
+            if(this.classList.contains(newc) && !this.classList.contains("deplacements")){
+                this.classList.remove(newc);
             }
         }
+
+
     }
     
-    function dragOverr(e) {
-        e.preventDefault(); //retire l'action par default de dragOver qu'on ne veut pas
-        //console.log(blockerspam);
-
-        if(!blockerspam){
-            if(this.id === '0' && newc !== 0 && !this.classList.contains(newc)){
-                this.className += (" "+newc);
-            }
-        }
-        
-        if (this.cellIndex - 1 < (document.getElementById("tableau_crea").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex - 1 >= 0) {
-            if(document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex-1].classList.contains('colors')){
-                blockerspam = true;
-                console.log("good");
-            }
-        }
-        
-        if (this.cellIndex + 1 < (document.getElementById("tableau_crea").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex + 1 >= 0) {
-            if((document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex+1].classList.contains('colors'))){
-                blockerspam = true;
-                console.log("good2");
-            }
-
-        }
-
-        else{
-            blockerspam = false;
-        }
-
-        
-    }
+    
     
     function dragDrop(e) {
-
-        console.log("drop");
         e.preventDefault();
         if(this.id === '0' && nowc !== 0 && newc !== 0 && !(this.classList.contains('used'))){
             this.id = nowc;
@@ -254,17 +227,10 @@ function contenu(){
                 }
             }
             if(deplacement_color){
-                console.log(newc);
-                console.log('here ?');
-                console.log(last);
-                if(last.classList.contains(newc)){
-                    last.id = "0";
-                    last.classList.remove('remove');
-                    last.classList.remove('colors');
-                    last.classList.remove(newc);
-                }
-                
-                //deplacement_color = false;
+                last.id = '0';
+                last.classList.remove('remove');
+                last.classList.remove('colors');
+                last.classList.remove(newc);
 
             }
             
@@ -293,9 +259,7 @@ function contenu(){
 
             if (this.cellIndex - 1 < (document.getElementById("tableau_crea").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex - 1 >= 0) { //cell - 1G
                 //GAUCHE
-                console.log("gauche");
                 if((document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex-1].id) === '0'){
-                    console.log((document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex-1].id));
                     if(!(document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex-1].classList.contains('okay'))){
                         document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex-1].classList += ' okay';
                     }
@@ -305,7 +269,6 @@ function contenu(){
             }
             if (this.cellIndex + 1 < (document.getElementById("tableau_crea").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex + 1 >= 0) { //cel + 1D
                 //DROITE
-                console.log("droite");
                 //Chiffre -> Pb
                 if((document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex+1].id) === '0'){
                     if(!(document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex+1].classList.contains('okay'))){
@@ -316,7 +279,6 @@ function contenu(){
             }
             if (this.parentNode.rowIndex - 1 < (document.getElementById("tableau_crea").rows.length) && this.parentNode.rowIndex - 1 >= 0) {
                 //HAUT
-                console.log("haut");
                 if((document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex - 1].cells[this.cellIndex].id) === '0'){
                     if(!(document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex - 1].cells[this.cellIndex].classList.contains('okay'))){
                         document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex - 1].cells[this.cellIndex].classList += ' okay';
@@ -326,7 +288,6 @@ function contenu(){
             }
             if (this.parentNode.rowIndex + 1 < (document.getElementById("tableau_crea").rows.length) && this.parentNode.rowIndex + 1 >= 0) {
                 //BAS
-                console.log("bas");
                 if((document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex + 1].cells[this.cellIndex].id) === '0'){
                     if(!(document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex + 1].cells[this.cellIndex].classList.contains('okay'))){
                         document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex + 1].cells[this.cellIndex].classList += ' okay';
@@ -454,8 +415,7 @@ function contenu(){
                     
                     }
                     if (chemin[0].cellIndex + 1 < (document.getElementById("tableau_crea").rows[chemin[0].parentNode.rowIndex].cells.length) && chemin[0].cellIndex + 1 >= 0) { //cell - 1G
-                        //DROITE
-                        console.log("droite");
+                        //GAUCHE
                         if((document.getElementById('tableau_crea').getElementsByTagName('tr')[chemin[0].parentNode.rowIndex].cells[chemin[0].cellIndex+1].id) === '0'){
                             if(!(document.getElementById('tableau_crea').getElementsByTagName('tr')[chemin[0].parentNode.rowIndex].cells[chemin[0].cellIndex+1].classList.contains('okay'))){
                                 document.getElementById('tableau_crea').getElementsByTagName('tr')[chemin[0].parentNode.rowIndex].cells[chemin[0].cellIndex+1].classList += ' okay';
@@ -634,7 +594,6 @@ function contenu(){
                         }
                         if (this.cellIndex + 1 < (document.getElementById("tableau_crea").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex + 1 >= 0) { //cel + 1D
                             //DROITE
-                            console.log("droite");
                             //Chiffre -> Pb
                             if((document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex+1].id) === '0'){
                                 if(!(document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex+1].classList.contains('okay'))){
@@ -820,87 +779,4 @@ function delete_case(){
         }
 
     }
-
-
-    
-
 }
-
-function download(filename, textInput) {
-
-    var element = document.createElement('a');
-    element.setAttribute('href','data:text/plain;charset=utf-8, ' + encodeURIComponent(textInput));
-    element.setAttribute('download', filename);
-    document.body.appendChild(element);
-    element.click();
-    //document.body.removeChild(element);
-}
-
-filename = "niveauExporter.json";
-document.getElementById("lvlName").oninput = function () {
-    filename = document.getElementById("lvlName").value;
-}
-
-function exporter(){
-
-    let tab = document.querySelectorAll('.case');
-    Fexporter = {
-        level: []
-    };
-    if (document.getElementsByClassName('pop-up')[0] !== undefined) {
-        Fexporter.author = document.getElementsByClassName('pop-up')[0].innerHTML.split(' ')[1];
-    } else (
-        Fexporter.author = "anonyme"
-    )
-    let i = 0;
-    let j = 0;
-    for (const boxes of tab) {
-        Fexporter.level[j] += boxes.id.toString();
-        //console.log(exporter.level);
-        //console.log(j);
-        i++;
-        if (i === parseInt(value)) {
-            const tmp = Fexporter.level[j];
-            Fexporter.level[j] = tmp.substring(9);
-            i = 0;
-            j++;
-        }
-    }
-    console.log(Fexporter);
-    
-
-    document.getElementById("exportationLvl").classList.remove('disparition');
-    document.getElementById("colorlist").classList += ' disparition';
-    document.getElementById("tableau").classList += ' disparition';
-    
-    
-    console.log(filename);
-
-}
-
-function closeExporter() {
-    document.getElementById("exportationLvl").classList += ' disparition';
-    document.getElementById("colorlist").classList.remove('disparition');
-    document.getElementById("tableau").classList.remove('disparition');
-
-}
-
-
-function install() {
-    if(filename === ""){
-        Fexporter.name = "niveauExporter";
-        filename = "niveauExporter.json";
-    }
-    else{
-        Fexporter.name = filename;
-        filename += ".json";
-    }
-    
-    fichier = JSON.stringify(Fexporter)
-    download(filename, fichier);
-
-}
-
-
-
-
