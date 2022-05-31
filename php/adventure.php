@@ -15,12 +15,12 @@ if(!(isset($_SESSION["username"]))){
     header('Location: login.php');
 }
 else if(isset($_COOKIE["valid"])){
+    unset($_COOKIE["valid"]);
     $pseudo = $_SESSION["username"];
     require './connexion_db.php';
     $score++;
     $requete = "UPDATE user SET adventure_lvl = '$score' WHERE username = '$pseudo'";
     $resultat = mysqli_query($connexion, $requete); //Executer la requete
-    
 }
 
 

@@ -259,7 +259,7 @@ function dragDrop() {
         }
         else{
             document.location.href = "adventure.php";
-            document.cookie = `id=${number}; expires=${new Date(new Date().getTime() + 2000).toUTCString()}; path=/`;
+            document.cookie = `valid=true; expires=${new Date(new Date().getTime() + 500).toUTCString()}; path=/`;
         }
     }
 }
