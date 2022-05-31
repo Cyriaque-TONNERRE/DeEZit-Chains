@@ -1,7 +1,36 @@
-<?php require './header.php';?>
+<?php require './header.php';
+function getScore($pseudo){
+    require './connexion_db.php';
+    $requete = "SELECT adventure_lvl FROM user WHERE username = '$pseudo'";
+    $resultat = mysqli_query($connexion, $requete); //Executer la requete
+    if ($resultat == FALSE) {
+        echo "<p>Erreur d'exécution de la requete :".mysqli_error($connexion)."</p>";
+        die();
+    }
+    $row = mysqli_fetch_assoc($resultat);
+    return $row["adventure_lvl"];
+}
+$score = getScore($_SESSION["username"]);
+if(!(isset($_SESSION["username"]))){
+    header('Location: login.php');
+}
+else if(isset($_COOKIE["valid"])){
+    $pseudo = $_SESSION["username"];
+    require './connexion_db.php';
+    $score++;
+    $requete = "UPDATE user SET adventure_lvl = '$score' WHERE username = '$pseudo'";
+    $resultat = mysqli_query($connexion, $requete); //Executer la requete
+    
+}
+
+
+
+?>
 <main>
+    <div class="score">Score : <?php echo $score; ?></div>
     <div class="game" id="game">
     <?php
+
 
     $seed = time();
     $colours = time()%5 + 1;
@@ -158,7 +187,7 @@
                     if (ctype_digit($tab[$colonne][$ligne])){
                         echo "<td class='case unused tab' id=".$tab[$colonne][$ligne].">".$tab[$colonne][$ligne]."</td>";
                     } else {
-                        echo "<td draggable='true' class='".$tab[$colonne][$ligne]." letter tab'>X</td>";
+                        echo "<td draggable='true' class='".$tab[$colonne][$ligne]." letter tab' id='0'>X</td>";
                     }
                 }
 
