@@ -27,7 +27,13 @@ else if(isset($_COOKIE["valid"])){
 
 ?>
 <main>
-    <div class="score">Score : <?php echo $score; ?></div>
+    <div class="add-score disparition" id="add-score">+1</div>
+    <script>
+        if (getCookie('valid')){
+            document.getElementById("add-score").classList.remove('disparition');
+        }
+    </script>
+    <div class="score" id="score">Score : <?php echo $score; ?></div>
     <div class="game" id="game">
     <?php
 
@@ -251,13 +257,10 @@ else if(isset($_COOKIE["valid"])){
     if($green == true){
         echo "<script src='../js/green.js'></script>";
     }
-
-
-    
     ?>
-    
+
     <div id="export_button">
-        <?php echo "<button id='reset' onclick='exporter($size)'>Exporter</button>"; ?>
+        <?php echo "<button id='export_button' onclick='exporter($size)'>Exporter</button>"; ?>
     </div>
 
     <div class = "export disparition" id="exportationLvl">

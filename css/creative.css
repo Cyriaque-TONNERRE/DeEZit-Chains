@@ -1,3 +1,7 @@
+@font-face {
+    font-family: 'korean';
+    src: url('../font/Korean.ttf') format('truetype');
+}
 #colorlist{
     margin-right: auto;
     margin-left: auto;
@@ -9,9 +13,9 @@ table{
     margin-right: auto;
 }
 #export{
-    position: absolute;
-    bottom: 1vh;
-    right:0.1vw;
+    float: right;
+    top:auto;
+    margin-right: 0.1vw;
 }
 
 .tmp{
@@ -45,6 +49,8 @@ table{
 }
 .case{
     border: 0.1vw rgb(206, 185, 159) solid;
+    font-family: Korean, Serif;
+    user-select: none;
 }
 
 .r {

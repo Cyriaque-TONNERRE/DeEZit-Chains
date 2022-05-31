@@ -162,6 +162,7 @@ table {
     user-select: none;
 }
 
+
 .r {
     height: 10%;
     width: 10%;
@@ -197,15 +198,33 @@ table {
     width: 10%;
 }
 
+.score{
+    font-family: rounded, serif;
+    display: inline-table;
+    position: absolute;
+    z-index: 2;
+    top: 20%;
+    right: 0;
+    justify-content: center;
+    background-color: #eed6b4;
+    border: 0.3vw gold solid;
+    border-radius: 1vw;
+    color: black;
+    margin-right: 3vw;
+    padding: 0.6vw;
+    animation: ease-in-out 0.5s;
+}
+
 .back {
-    background-color: #CFBB97;
-    border: 0.3vw goldenrod solid;
-    border-radius: 2vw;
+    background-color: #eed6b4;
+    border: 0.3vw gold solid;
+    border-radius: 1.5vw;
     padding: 1vw;
     text-decoration: none;
     color: black;
     font-family: rounded, serif;
     font-size: 1.5vw;
+    top:18.5%;
     margin-left: 1vw;
     display: inline-table;
     flex-direction: column;
@@ -215,7 +234,7 @@ table {
 }
 
 .back:hover {
-    background-color: #deb346;
+    background-color: #f6c157;
 }
 .align-left{
     position:absolute;

@@ -109,6 +109,69 @@ table {
     border-radius: 0 0 1vw 0;
 }
 
+.score{
+    font-family: rounded, serif;
+    display: inline-table;
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    justify-content: center;
+    background-color: #eed6b4;
+    border: 0.3vw gold solid;
+    border-radius: 1vw;
+    color: black;
+    margin-right: 0.1vw;
+    float: right;
+    padding: 0.6vw;
+    animation: ease-in-out 0.5s;
+}
+
+
+#reset{
+    top: auto;
+    float: left;
+    margin-left: 0.1vw;
+}
+
+#export_button{
+    float: right;
+    top:auto;
+    margin-right: 0.1vw;
+}
+
+.add-score{
+    float: right;
+    margin-right: 0.1vw;
+    transition: 0.5s;
+    transform: translateY(0.5vh);
+    font-family: rounded, serif;
+}
+
+.add-score .disparition{
+    float: right;
+    margin-right: 0.1vw;
+    transition: 0.5s;
+}
+.export{
+    width: 30vw;
+    height: 5vw;
+    background-color: #e3e3e3;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 4vw;
+    padding-left: 4vw;
+    margin-top: 8vw;
+    box-shadow: 0 0 1vw 0 rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0 0 1vw 0 rgba(0,0,0,0.75);
+    -moz-box-shadow: 0 0 1vw 0 rgba(0,0,0,0.75);
+}
+
+#closeExporter{
+    position: absolute;
+    bottom: 31.5vw;
+    right: 33vw;
+    border-radius: 0.3vw;
+}
 .gauche {
     /*border-left: 2px solid var(--orange-LBB);*/
 }

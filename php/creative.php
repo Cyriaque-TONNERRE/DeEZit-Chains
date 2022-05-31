@@ -11,7 +11,7 @@ require 'header.php';
         <button id='hide' onclick='hide()' style="width: 5vw">Valider</button>
     </div>
 
-    <div id='tableau'>
+    <div id='tableau' draggable="false">
 
     </div>
     <div class="disparition" id='colorlist'>
@@ -38,13 +38,15 @@ require 'header.php';
 
         
     </div>
+        <section>
     <div class = "export disparition" id="exportationLvl">
+        <div id = btn><button id='closeExporter' onclick='closeExporter()'>X</button></div>
         <label for="levelName">Level Name : </label>
         <input type="text" id="lvlName">
         <button id='download' onclick='install()'>download</button>
-        <button id='closeExporter' onclick='closeExporter()'>X</button>
-    </div>
 
+    </div>
+        </section>
     </main>
 	<script src="../js/crea.js"></script>
 
