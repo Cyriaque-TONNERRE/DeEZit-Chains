@@ -69,6 +69,7 @@ function exporter(size){
     document.getElementById("export_button").classList += ' disparition';
     document.getElementById("game").classList += ' disparition';
     document.getElementById("reset").classList += ' disparition';
+    document.getElementById("score").classList += ' disparition';
     
     
 
@@ -79,6 +80,7 @@ function closeExporter() {
     document.getElementById("exportationLvl").classList += ' disparition';
     document.getElementById("export_button").classList.remove('disparition');
     document.getElementById("game").classList.remove('disparition');
+    document.getElementById("score").classList.remove('disparition');
     document.getElementById("reset").classList.remove('disparition');
 
 }
