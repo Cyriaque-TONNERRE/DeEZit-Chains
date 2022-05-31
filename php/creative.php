@@ -38,13 +38,15 @@ require 'header.php';
 
         
     </div>
+        <section>
     <div class = "export disparition" id="exportationLvl">
+        <div id = btn><button id='closeExporter' onclick='closeExporter()'>X</button></div>
         <label for="levelName">Level Name : </label>
         <input type="text" id="lvlName">
         <button id='download' onclick='install()'>download</button>
-        <button id='closeExporter' onclick='closeExporter()'>X</button>
-    </div>
 
+    </div>
+        </section>
     </main>
 	<script src="../js/crea.js"></script>
 
