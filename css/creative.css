@@ -50,6 +50,7 @@ table{
 .case{
     border: 0.1vw rgb(206, 185, 159) solid;
     font-family: Korean, Serif;
+    user-select: none;
 }
 
 .r {

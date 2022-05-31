@@ -11,7 +11,7 @@ require 'header.php';
         <button id='hide' onclick='hide()' style="width: 5vw">Valider</button>
     </div>
 
-    <div id='tableau'>
+    <div id='tableau' draggable="false">
 
     </div>
     <div class="disparition" id='colorlist'>
