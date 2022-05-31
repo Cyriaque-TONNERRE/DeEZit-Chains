@@ -1,8 +1,51 @@
-<?php require './header.php'; ?>
+<?php require './header.php';
+if(!(isset($_SESSION["username"]))){
+    header('Location: login.php');
+}
+else{
+    if($_POST[2] == ':'){
+        $time_left = $_POST[0] * 600 + $_POST[1] * 60 + $_POST[3] * 10 + $_POST[4];
+
+        if($time_left >= 600){
+            $time_left = 600;
+        }
+    
+    }
+    else{
+        $time_left = 600;
+        //reset tout
+    }
+}
+
+
+
+
+?>
 
     <main>
         <div id="minuteur"></div>
-        <script src="../js/minuteur.js"></script>
+        <script>
+            function alarme(tps){
+                let temps = tps;
+                const timerElement = document.getElementById("minuteur");
+
+                setInterval(() => {
+                    let minutes = parseInt(temps / 60, 10);
+                    let secondes = parseInt(temps % 60, 10);
+
+                    minutes = minutes < 10 ? "0" + minutes : minutes;
+                    secondes = secondes < 10 ? "0" + secondes : secondes;
+
+                    timerElement.innerText = `${minutes}:${secondes}`;
+                    temps = temps <= 0 ? 0 : temps - 1;
+                }, 1000);
+            }
+
+            <?php
+                echo "var time_left ='$time_left';";
+            ?>
+            alarme(time_left);
+        </script>
 
 
             <div class="game">

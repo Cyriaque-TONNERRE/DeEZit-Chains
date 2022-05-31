@@ -221,6 +221,26 @@ function dragLeaver() {
             document.location.href = "create.php";
 
         }
+        else if(URL.includes("time.php")){
+            function redirectPost(url, data) {
+                var form = document.createElement('form');
+                document.body.appendChild(form);
+                form.method = 'post';
+                form.action = url;
+                for (var name in data) {
+                    var input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = name;
+                    input.value = data[name];
+                    form.appendChild(input);
+                }
+                form.submit();
+            }
+   
+
+            redirectPost('time.php',document.getElementById("minuteur").innerHTML);
+
+        }
         else {
             document.cookie = `valid=true; expires=${new Date(new Date().getTime() + 500).toUTCString()}; path=/`;
             document.location.href = "adventure.php";
@@ -247,19 +267,40 @@ function dragDrop() {
     if(document.querySelector('.unused') === null){
         //Victoire
         var URL = window.location.href;
+        var URL = window.location.href;
         if (URL.includes("affichage_history.php")) {
             number = URL.substring(URL.indexOf('=') + 1);
             document.cookie = `id=${number}; expires=${new Date(new Date().getTime() + 2000).toUTCString()}; path=/`;
             document.location.href = "redirect.php?id=" + number;
-        } else if (URL.includes("time.php")) {
-            indice= indice+1;
-            console.log(indice)
-            document.cookie = `time_lvl=${indice}; expires=${new Date(new Date().getTime() + 2000).toUTCString()}; path=/`;
-            document.location.href = "time.php";
+        } 
+        else if(URL.includes("importgame.php")){
+            document.location.href = "create.php";
+
         }
-        else{
+        else if(URL.includes("time.php")){
+            function redirectPost(url, data) {
+                var form = document.createElement('form');
+                document.body.appendChild(form);
+                form.method = 'post';
+                form.action = url;
+                for (var name in data) {
+                    var input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = name;
+                    input.value = data[name];
+                    form.appendChild(input);
+                }
+                form.submit();
+            }
+   
+
+            redirectPost('time.php',document.getElementById("minuteur").innerHTML);
+
+        }
+        else {
+            document.cookie = `valid=true; expires=${new Date(new Date().getTime() + 500).toUTCString()}; path=/`;
             document.location.href = "adventure.php";
-            document.cookie = `id=${number}; expires=${new Date(new Date().getTime() + 2000).toUTCString()}; path=/`;
+            
         }
     }
 }
