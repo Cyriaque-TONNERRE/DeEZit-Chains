@@ -237,7 +237,7 @@ function dragLeaver() {
                 form.submit();
             }
    
-
+            document.cookie = `valid=true; expires=${new Date(new Date().getTime() + 2000).toUTCString()}; path=/`;
             redirectPost('time.php',document.getElementById("minuteur").innerHTML);
 
         }
@@ -293,7 +293,7 @@ function dragDrop() {
                 form.submit();
             }
    
-
+            document.cookie = `valid=true; expires=${new Date(new Date().getTime() + 2000).toUTCString()}; path=/`;
             redirectPost('time.php',document.getElementById("minuteur").innerHTML);
 
         }

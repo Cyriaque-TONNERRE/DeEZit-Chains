@@ -3,17 +3,56 @@ if(!(isset($_SESSION["username"]))){
     header('Location: login.php');
 }
 else{
-    if($_POST[2] == ':'){
-        $time_left = $_POST[0] * 600 + $_POST[1] * 60 + $_POST[3] * 10 + $_POST[4];
-
-        if($time_left >= 600){
-            $time_left = 600;
+    $cookie = false;
+    if(isset($_COOKIE["valid"])){
+        setcookie ("valid", "", time() - 3600,"/");
+        $cookie = true;
+    }
+    function getScore($pseudo){
+        require './connexion_db.php';
+        $requete = "SELECT time_trial FROM user WHERE username = '$pseudo'";
+        $resultat = mysqli_query($connexion, $requete); //Executer la requete
+        if ($resultat == FALSE) {
+            echo "<p>Erreur d'exécution de la requete :".mysqli_error($connexion)."</p>";
+            die();
         }
-    
+        $row = mysqli_fetch_assoc($resultat);
+        return $row["time_trial"];
+    }
+    $score = getScore($_SESSION["username"]);
+
+    if(isset($_POST[2])){
+        if($_POST[2] == ':'){
+            $time_left = $_POST[0] * 600 + $_POST[1] * 60 + $_POST[3] * 10 + $_POST[4];
+            
+            if($time_left >= 600){
+                $time_left = 600;
+                $pseudo = $_SESSION["username"];
+                require './connexion_db.php';
+                $score = 0;
+                $requete = "UPDATE user SET time_trial = '$score' WHERE username = '$pseudo'";
+                $resultat = mysqli_query($connexion, $requete); //Executer la requete
+            }
+            else{
+                if($cookie == true){
+                    $cookie = false;
+                    $pseudo = $_SESSION["username"];
+                    require './connexion_db.php';
+                    $score++;
+                    $requete = "UPDATE user SET time_trial = '$score' WHERE username = '$pseudo'";
+                    $resultat = mysqli_query($connexion, $requete); //Executer la requete
+                }
+            }
+        }
     }
     else{
         $time_left = 600;
         //reset tout
+        $pseudo = $_SESSION["username"];
+        require './connexion_db.php';
+        $score = 0;
+        $requete = "UPDATE user SET time_trial = '$score' WHERE username = '$pseudo'";
+        $resultat = mysqli_query($connexion, $requete); //Executer la requete
     }
 }
 
@@ -24,6 +63,7 @@ else{
 
     <main>
         <div id="minuteur"></div>
+        <div id="score">Score : <?php echo $score; ?></div>
         <script>
             function alarme(tps){
                 let temps = tps;
@@ -39,6 +79,7 @@ else{
                     timerElement.innerText = `${minutes}:${secondes}`;
                     temps = temps <= 0 ? 0 : temps - 1;
                 }, 1000);
+
             }
 
             <?php
