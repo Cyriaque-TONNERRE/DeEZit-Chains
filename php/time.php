@@ -10,14 +10,14 @@ else{
     }
     function getScore($pseudo){
         require './connexion_db.php';
-        $requete = "SELECT time_trial FROM user WHERE username = '$pseudo'";
+        $requete = "SELECT current_time_trial FROM user WHERE username = '$pseudo'";
         $resultat = mysqli_query($connexion, $requete); //Executer la requete
         if ($resultat == FALSE) {
             echo "<p>Erreur d'exécution de la requete :".mysqli_error($connexion)."</p>";
             die();
         }
         $row = mysqli_fetch_assoc($resultat);
-        return $row["time_trial"];
+        return $row["current_time_trial"];
     }
     $score = getScore($_SESSION["username"]);
 
@@ -30,7 +30,7 @@ else{
                 $pseudo = $_SESSION["username"];
                 require './connexion_db.php';
                 $score = 0;
-                $requete = "UPDATE user SET time_trial = '$score' WHERE username = '$pseudo'";
+                $requete = "UPDATE user SET current_time_trial = '$score' WHERE username = '$pseudo'";
                 $resultat = mysqli_query($connexion, $requete); //Executer la requete
             }
             else{
@@ -39,19 +39,19 @@ else{
                     $pseudo = $_SESSION["username"];
                     require './connexion_db.php';
                     $score++;
-                    $requete = "UPDATE user SET time_trial = '$score' WHERE username = '$pseudo'";
+                    $requete = "UPDATE user SET current_time_trial = '$score' WHERE username = '$pseudo'";
                     $resultat = mysqli_query($connexion, $requete); //Executer la requete
                 }
             }
         }
     }
-    else{
-        $time_left = 20;
+    else {
+        $time_left = 20; // Valeur a modifier pour remettre le bon timer (600 pour 10 min)
         //reset tout
         $pseudo = $_SESSION["username"];
         require './connexion_db.php';
         $score = 0;
-        $requete = "UPDATE user SET time_trial = '$score' WHERE username = '$pseudo'";
+        $requete = "UPDATE user SET current_time_trial = '$score' WHERE username = '$pseudo'";
         $resultat = mysqli_query($connexion, $requete); //Executer la requete
     }
 }

@@ -5,7 +5,19 @@ if(!(isset($_SESSION["username"]))){
 
 function getScore($pseudo){
     require './connexion_db.php';
-    $requete = "SELECT time_trial FROM user WHERE username = '$pseudo'";
+    $requete = "SELECT current_time_trial FROM user WHERE username = '$_SESSION[username]'";
+    $resultat = mysqli_query($connexion, $requete); //Executer la requete
+    if ($resultat == FALSE) {
+        echo "<p>Erreur d'exécution de la requete :".mysqli_error($connexion)."</p>";
+        die();
+    }
+    $row = mysqli_fetch_assoc($resultat);
+    return $row["current_time_trial"];
+}
+
+function getBestScore($pseudo){
+    require './connexion_db.php';
+    $requete = "SELECT time_trial FROM user WHERE username = '$_SESSION[username]'";
     $resultat = mysqli_query($connexion, $requete); //Executer la requete
     if ($resultat == FALSE) {
         echo "<p>Erreur d'exécution de la requete :".mysqli_error($connexion)."</p>";
@@ -14,6 +26,24 @@ function getScore($pseudo){
     $row = mysqli_fetch_assoc($resultat);
     return $row["time_trial"];
 }
+
 $score = getScore($_SESSION["username"]);
-echo $score;
+$bestscore = getBestScore($_SESSION["username"]);
+
+if ($score <= $bestscore) {
+    echo "Your score : $score";
+}
+
+if ($score > $bestscore) { // New record
+    echo "New record : $score";
+    // On remplace le meilleur score
+    require './connexion_db.php';
+    $requete = "UPDATE user SET time_trial = '$score' WHERE username = '$_SESSION[username]'";
+    $resultat = mysqli_query($connexion, $requete); //Executer la requete
+}
+
+// On remet a 0 le score actuel pour la prochaine partie
+require './connexion_db.php';
+$requete = "UPDATE user SET current_time_trial = '0' WHERE username = '$_SESSION[username]'";
+$resultat = mysqli_query($connexion, $requete); //Executer la requete
 ?>
