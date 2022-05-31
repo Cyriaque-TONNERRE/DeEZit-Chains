@@ -195,3 +195,29 @@ table {
     height: 10%;
     width: 10%;
 }
+#score{
+    font-family: rounded, serif;
+    display: inline-table;
+    position: absolute;
+    z-index: 2;
+    top: 20%;
+    right: 0;
+    justify-content: center;
+    background-color: #eed6b4;
+    border: 0.3vw gold solid;
+    border-radius: 1vw;
+    color: black;
+    margin-right: 3vw;
+    padding: 0.6vw;
+    animation: ease-in-out 0.5s;
+}
+
+#minuteur{
+    position: absolute;
+    display: inline-table;
+    top:20%;
+    left: 0;
+    justify-content: center;
+    color: black;
+    margin-left: 0.1vw;
+}
