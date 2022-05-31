@@ -112,6 +112,9 @@ table {
 .score{
     font-family: rounded, serif;
     display: inline-table;
+    position: absolute;
+    z-index: 2;
+    right: 0;
     justify-content: center;
     background-color: #eed6b4;
     border: 0.3vw gold solid;
@@ -122,6 +125,8 @@ table {
     padding: 0.6vw;
     animation: ease-in-out 0.5s;
 }
+
+
 #reset{
     top: auto;
     float: left;

@@ -68,7 +68,8 @@
         ];
 
         $id = "Niv".array_search($_GET["id"],$crypt);
-        $decrypted_id = array_search($_GET["id"],$crypt);
+        $decrypted_id = array_search($_GET["id"],$crypt);?>
+        <div class="score" id="score">Level : <?php echo $decrypted_id; ?></div><?
         if (isset($_SESSION["username"])) {
             include("connexion_db.php");
             $requete2 = "SELECT * FROM user where username='$_SESSION[username]'";
