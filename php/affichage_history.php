@@ -98,7 +98,7 @@
             }
         }
 
-        $json = file_get_contents('../level.json');
+        $json = file_get_contents('../json/level_history.json');
         $data = json_decode($json, false);
 
         $tab = $data->$id->level;
