@@ -1,3 +1,9 @@
 /.idea/
 /.cmake-build-debug/
 /Solveur/cmake-build-debug/
+*.scss
+*.map
+css/test.css
+css/test.css
+*.map
+*.scssc
