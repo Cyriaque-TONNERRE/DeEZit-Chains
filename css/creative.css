@@ -39,7 +39,7 @@ table td{
     margin-top: 32vh;
     border: #e3e3e3 solid 0.3vw;
     border-radius: 2vw;
-    padding-top: 1.5vw;
+
     box-shadow: 0vw 0vw 1vw darkgrey;
 
 }
@@ -59,7 +59,6 @@ table td{
 .case{
     height: 10%;
     width: 10%;
-  
     font-family: Korean, Serif;
     user-select: none;
 }
@@ -163,30 +162,41 @@ td{
 }
 .export{
     width: 30vw;
-    height: 5vw;
+    height: 8vw;
     background-color: #e3e3e3;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 4vw;
+    margin: auto;
+    margin-top: 13%;
+    padding-top: 3.25vh;
     padding-left: 4vw;
-    margin-top: 8vw;
     box-shadow: 0 0 1vw 0 rgba(0,0,0,0.75);
     -webkit-box-shadow: 0 0 1vw 0 rgba(0,0,0,0.75);
     -moz-box-shadow: 0 0 1vw 0 rgba(0,0,0,0.75);
 }
+#center {
+    vertical-align: auto;
+    horiz-align: center;
+    margin: auto;
+}
 
 #closeExporter{
     position: relative;
-    bottom: 3.5vw;
+    bottom: 1vw;
     left: 27vw;
-    border-radius: 0.3vw;
-    
+    width: 2vw;
+    height: 2vw;
+    transition: transform 0.43s;
+    z-index: 10;
+    filter: invert(12%) sepia(94%) saturate(7289%) hue-rotate(0deg) brightness(110%) contrast(107%);
+}
+
+#closeExporter:hover{
+    cursor: pointer;
+    transform: rotate(90deg);
 }
 
 #colorlist{
     float: right;
     width: 6vw;
-    
     position: absolute;
     z-index: 10;
     top: 10vw;
@@ -195,9 +205,6 @@ td{
     padding: 2vw;
     border: solid black 0.1vw;
 }
-
-
-
 
 #export{
     margin-top: 2vw;
@@ -232,7 +239,6 @@ td{
     filter: invert(12%) sepia(94%) saturate(7289%) hue-rotate(0deg) brightness(110%) contrast(107%);
     width: 5vh;
     transition: transform 0.43s;
-
 }
 #close_tuto:hover{
     cursor: pointer;
