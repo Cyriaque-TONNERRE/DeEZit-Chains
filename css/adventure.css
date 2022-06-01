@@ -167,9 +167,9 @@ table {
 }
 
 #closeExporter {
-    position: absolute;
-    bottom: 31.5vw;
-    right: 33vw;
+    position: relative;
+    bottom: 3.5vw;
+    left: 0vw;
     border-radius: 0.3vw;
 }
 
