@@ -11,7 +11,14 @@ table{
     margin-top: 1.5vw;
     margin-left: auto;
     margin-right: auto;
+    border : 0.1vw solid black;
+    
 }
+
+table td{
+    border : 0.05vw solid black;
+}
+
 #export{
     float: right;
     top:auto;
@@ -48,16 +55,15 @@ table{
     display: none;
 }
 .case{
-    border: 0.1vw rgb(206, 185, 159) solid;
+  
     font-family: Korean, Serif;
     user-select: none;
 }
 
 .r {
-    height: 5.9vw;
-    width: 5.9vw;
+    height: 6vw;
+    width: 6vw;
     background-color: #FD2101;
-    position: absolute;
     top: auto;
     right: auto;
 }
@@ -92,13 +98,12 @@ table{
 
 td{
     vertical-align: center;
-    margin-right: auto;
-    margin-left: auto;
     text-align: center;
     height: 6vw;
     width: 6vw;
-    background-color: darkslateblue;
+    background-color: #e3e3e3;;
     color: #E8E9E4;
+   
 }
 
 .okay{
