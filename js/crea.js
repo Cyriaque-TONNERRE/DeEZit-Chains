@@ -240,16 +240,51 @@ function contenu(){
         blockerspam = false;
         e.preventDefault();
         if(this.id === '0' && nowc !== 0 && newc !== 0 && !(this.classList.contains('used'))){
+            //On reset dans un premier tps
+            let use = document.querySelectorAll('.used');
+            if(use){
+                for (let i = 0; i < use.length; i++) {
+                    use[i].classList.remove("used");
+                }
+            }
+
+            let dpl = document.querySelectorAll('.deplacements');
+            if(dpl){
+                for (let i = 0; i < dpl.length; i++) {
+                    console.log(dpl[i]);
+                    dpl[i].classList.remove("deplacements");
+                    if(dpl[i].id === nowc){
+                        dpl[i].id = '0';
+                    }
+                }
+            }
+
             this.id = nowc;
+            let casesource = document.querySelectorAll('.'+nowc);
+            let racine = document.querySelector('.'+nowc+'.drag');
+            for (let i = 0; i < casesource.length; i++) {
+                if(!casesource[i].classList.contains("drag")){
+                    casesource[i].classList.remove(nowc);
+                    casesource[i].classList.remove("colors");
+                }
+                
+            }
+
+
+
+
             if(!this.classList.contains(newc)){
                 this.classList.add(newc);
             }
-            let racine = document.querySelector('.'+nowc+'.drag');
             if(!deplacement_color){
                 newc = 0;
             }
             
-            racine.setAttribute('draggable', false);
+            if(racine){
+                racine.setAttribute('draggable', false);
+                racine.classList += ' disparition';
+            }
+            
             let liste_couleurs = document.querySelectorAll('.colors'); //Permet de rendre la case draggable
             for (let i = 0; i < liste_couleurs.length; i++) {
                 liste_couleurs[i].setAttribute("draggable",false);
@@ -263,17 +298,19 @@ function contenu(){
             for (let i = 0; i < caseliste.length; i++) {
                 caseliste[i].classList.remove('okay');
             }
-            
+
             if(deplacement_color){
                 console.log(newc);
                 console.log('here ?');
                 console.log(last);
                 if(last.classList.contains(newc)){
+                    
                     last.id = "0";
                     last.classList.remove('remove');
                     last.classList.remove('colors');
                     last.classList.remove(newc);
                 }
+                
 
                 
                 //deplacement_color = false;
@@ -283,7 +320,7 @@ function contenu(){
             this.setAttribute("draggable",true);
             this.classList += " deplacements";
             this.classList += " colors";
-            racine.classList += ' disparition';
+            
             if(!deplacement_color){
                 if(nowc === 'r'){
                     document.querySelector('.g.drag').classList.remove('disparition');
