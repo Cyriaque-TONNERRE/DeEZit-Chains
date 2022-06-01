@@ -12,6 +12,8 @@ table{
     margin-left: auto;
     margin-right: auto;
     border : 0.1vw solid black;
+    width: 70vh;
+    height: 70vh;
     
 }
 
@@ -55,41 +57,50 @@ table td{
     display: none;
 }
 .case{
+    height: 10%;
+    width: 10%;
   
     font-family: Korean, Serif;
     user-select: none;
 }
 
 .r {
-    height: 6vw;
-    width: 6vw;
+    height: 10%;
+    width: 10%;
     background-color: #FD2101;
-    top: auto;
-    right: auto;
+
 }
 
 .g {
-    height: 6vw;
-    width: 6vw;
+    height: 10%;
+    width: 10%;
     background-color: #60D702;
 }
 
 .p {
-    height: 6vw;
-    width: 6vw;
+    height: 10%;
+    width: 10%;
     background-color: #B600C6;
 }
 
 .b {
-    height: 6vw;
-    width: 6vw;
+    height: 10%;
+    width: 10%;
     background-color: #01CAFD;
 }
 
 .y {
+    height: 10%;
+    width: 10%;
+    background-color: #FBD801;
+}
+
+.EZ .r,.EZ .g,.EZ .b,.EZ .p,.EZ .y{
     height: 6vw;
     width: 6vw;
-    background-color: #FBD801;
+}
+.EZ .r:hover,.EZ .g:hover,.EZ .b:hover,.EZ .p:hover,.EZ .y:hover{
+    cursor: grab;
 }
 
 .hover{
@@ -101,14 +112,14 @@ td{
     text-align: center;
     height: 6vw;
     width: 6vw;
-    background-color: #e3e3e3;;
+    background-color: #e3e3e3;
     color: black;
-    font-size: 3vw;
+    font-size: 2vw;
    
 }
 
 .okay{
-    background-color: #119a66;
+    background-color: #bebcbc;
 }
 
 
@@ -169,4 +180,34 @@ td{
     bottom: 31.5vw;
     right: 33vw;
     border-radius: 0.3vw;
+}
+
+#colorlist{
+    float: right;
+    width: 6vw;
+    
+    position: absolute;
+    z-index: 10;
+    top: 10vw;
+    right: 7vw;
+    background-color: #e3e3e3;
+    padding: 2vw;
+    border: solid black 0.1vw;
+}
+
+
+
+
+#export{
+    margin-top: 2vw;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 2vh;
+    width: 6vw;
+    border: solid 0.1vw black;
+}
+
+#export:hover{
+    cursor: pointer;
 }

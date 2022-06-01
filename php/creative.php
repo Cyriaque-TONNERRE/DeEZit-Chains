@@ -4,7 +4,7 @@ require 'header.php';
 
     <main>
     <div class = "tmp">
-        Choisissez la taille du tableau :
+        Choose the grid's size :
         <br>
         <input type="range" min="5" max="10" id="Range" value="5">
         <span id='sizeval'>5</span>
@@ -15,26 +15,28 @@ require 'header.php';
 
     </div>
     <div class="disparition" id='colorlist'>
-        <div draggable="true" class='r drag' id='r'>
+        <div class="EZ">
+            <div draggable="true" class='r drag' id='r'>
 
+            </div>
+            <div draggable="true" class='g drag' id='g'>
+
+            </div>
+            <div draggable="true" class='b drag' id='b'>
+
+            </div>
+            <div draggable="true" class='p drag' id='p'>
+
+            </div>
+            <div draggable="true" class='y drag' id='y'>
+
+            </div>
         </div>
-        <div draggable="true" class='g drag' id='g'>
 
-        </div>
-        <div draggable="true" class='b drag' id='b'>
 
-        </div>
-        <div draggable="true" class='p drag' id='p'>
+        <button id = 'export' onclick='exporter()'>Exporter</button>
+        
 
-        </div>
-        <div draggable="true" class='y drag' id='y'>
-
-        </div>
-
-        <div>
-
-        <button id='export' onclick='exporter()'>Exporter</button>
-        </div>
 
         
     </div>
@@ -43,6 +45,7 @@ require 'header.php';
         <div id = btn><button id='closeExporter' onclick='closeExporter()'>X</button></div>
         <label for="levelName">Level Name : </label>
         <input type="text" id="lvlName">
+
         <button id='download' onclick='install()'>download</button>
 
     </div>
