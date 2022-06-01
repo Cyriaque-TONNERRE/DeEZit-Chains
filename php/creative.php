@@ -3,7 +3,11 @@ require 'header.php';
 ?>
 
     <main>
-    <div class = "tmp">
+    <div class="tuto">
+        <img src="../image/xmark-solid.svg" alt="Croix" id="close_tuto" draggable='false' onclick='tutoHide()'/>
+        <img id="tuto" alt="tuto" draggable="false" src="../image/creative_tuto.jpeg">
+    </div>
+    <div class = "tmp disparition">
         Choose the grid's size :
         <br>
         <input type="range" min="5" max="10" id="Range" value="5">
