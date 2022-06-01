@@ -176,10 +176,11 @@ td{
 }
 
 #closeExporter{
-    position: absolute;
-    bottom: 31.5vw;
-    right: 33vw;
+    position: relative;
+    bottom: 3.5vw;
+    left: 27vw;
     border-radius: 0.3vw;
+    
 }
 
 #colorlist{
@@ -209,5 +210,29 @@ td{
 }
 
 #export:hover{
+    cursor: pointer;
+}
+
+.tuto{
+    height: auto;
+    width: 140vh;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1vw;
+    background-color: lightgrey;
+    padding: 1vw;
+}
+#tuto{
+    width: 100%;
+}
+#close_tuto{
+    position: absolute;
+    margin-left: 133vh;
+    z-index: 10;
+    filter: invert(12%) sepia(94%) saturate(7289%) hue-rotate(0deg) brightness(110%) contrast(107%);
+    width: 5vh;
+
+}
+#close_tuto:hover{
     cursor: pointer;
 }

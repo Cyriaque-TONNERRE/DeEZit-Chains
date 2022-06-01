@@ -43,6 +43,17 @@ function generate_table(value) {
     
     
 }
+function tutoHide(){
+    //Cacher la pop-up
+    console.log("good");
+    const pop2 = document.querySelector('.tuto');
+    pop2.classList.add("disparition");
+    const next = document.querySelector('.tmp');
+    next.classList.remove('disparition');
+
+
+
+}
 function hide(){
     //Cacher la pop-up
     console.log("good");
