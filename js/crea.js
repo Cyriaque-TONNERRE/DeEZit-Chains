@@ -324,7 +324,10 @@ function contenu(){
             if(last){
                 console.log(this);
                 console.log(last);
-                if(last === this){
+                if(last === this ){
+                    deplacement_color = false;
+                }
+                else if(last.classList.contains("colors")){
                     deplacement_color = false;
                 }
             }
