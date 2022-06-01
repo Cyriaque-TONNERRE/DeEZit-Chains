@@ -14,7 +14,6 @@ blocker = false;
 let delta = null;
 let posx = 0;
 let posy = 0;
-let ghostEle;
 indice=Number(getCookie("time_lvl")) ;
 
 red.addEventListener('drag', drag);
@@ -32,12 +31,6 @@ function dragStartr(e) { // FONCTION dragStart
     now = 'r';
     lastr = this;
     blocker = true;
-
-    ghostEle = document.createElement('div');
-    ghostEle.classList.add('dragging');
-    ghostEle.innerHTML ='.';
-    document.body.appendChild(ghostEle);
-    e.dataTransfer.setDragImage(ghostEle, 0, 0);
 
 
     //setTimeout(() => (this.className = 'invisible'), 0); //permet de rendre l'objet invisible lorsqu'on drag sinon il reste afficher à son ancienne pos

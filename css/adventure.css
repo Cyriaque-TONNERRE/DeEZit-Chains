@@ -109,7 +109,7 @@ table {
     border-radius: 0 0 1vw 0;
 }
 
-.score{
+.score {
     font-family: rounded, serif;
     display: inline-table;
     position: absolute;
@@ -126,20 +126,19 @@ table {
     animation: ease-in-out 0.5s;
 }
 
-
-#reset{
+#reset {
     top: auto;
     float: left;
     margin-left: 0.1vw;
 }
 
-#export_button{
+#export_button {
     float: right;
-    top:auto;
+    top: auto;
     margin-right: 0.1vw;
 }
 
-.add-score{
+.add-score {
     float: right;
     margin-right: 0.1vw;
     transition: 0.5s;
@@ -147,12 +146,13 @@ table {
     font-family: rounded, serif;
 }
 
-.add-score .disparition{
+.add-score .disparition {
     float: right;
     margin-right: 0.1vw;
     transition: 0.5s;
 }
-.export{
+
+.export {
     width: 30vw;
     height: 5vw;
     background-color: #e3e3e3;
@@ -161,17 +161,18 @@ table {
     padding-top: 4vw;
     padding-left: 4vw;
     margin-top: 8vw;
-    box-shadow: 0 0 1vw 0 rgba(0,0,0,0.75);
-    -webkit-box-shadow: 0 0 1vw 0 rgba(0,0,0,0.75);
-    -moz-box-shadow: 0 0 1vw 0 rgba(0,0,0,0.75);
+    box-shadow: 0 0 1vw 0 rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0 0 1vw 0 rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0 0 1vw 0 rgba(0, 0, 0, 0.75);
 }
 
-#closeExporter{
+#closeExporter {
     position: absolute;
     bottom: 31.5vw;
     right: 33vw;
     border-radius: 0.3vw;
 }
+
 .gauche {
     /*border-left: 2px solid var(--orange-LBB);*/
 }
@@ -259,12 +260,16 @@ table {
     width: 10%;
 }
 
-.disparition{
+.disparition {
     display: none;
 }
 
-.dragging{
+.dragging {
     opacity: 0;
     color: black;
+    display: none;
+}
+
+.seed {
     display: none;
 }

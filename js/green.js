@@ -12,7 +12,6 @@ ajoutg = -1;
 now = 0;
 
 
-
 //red.addEventListener('dragstart', dragStart); //event: lorsqu'on commence a drag appel la fonction dragStart
 //red.addEventListener('dragend', dragEnd); //event: lorsqu'on lache l'objet appel la fonction dargEnd
 green.addEventListener('dragstart', dragStartg); //event: lorsqu'on commence a drag appel la fonction dragStart
@@ -25,12 +24,6 @@ function dragStartg() { // FONCTION dragStart
     lastg = this;
     now = 'g';
     blocker = true;
-
-    ghostEle = document.createElement('div');
-    ghostEle.classList.add('dragging');
-    ghostEle.innerHTML ='.';
-    document.body.appendChild(ghostEle);
-    e.dataTransfer.setDragImage(ghostEle, 0, 0);
 
     //setTimeout(() => (this.className = 'invisible'), 0); //permet de rendre l'objet invisible lorsqu'on drag sinon il reste afficher à son ancienne pos
 }

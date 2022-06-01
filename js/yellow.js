@@ -21,12 +21,6 @@ function dragStarty() { // FONCTION dragStart
     lasty = this;
     now = 'y';
     blocker = true;
-    
-    ghostEle = document.createElement('div');
-    ghostEle.classList.add('dragging');
-    ghostEle.innerHTML ='.';
-    document.body.appendChild(ghostEle);
-    e.dataTransfer.setDragImage(ghostEle, 0, 0);
 
     //setTimeout(() => (this.className = 'invisible'), 0); //permet de rendre l'objet invisible lorsqu'on drag sinon il reste afficher à son ancienne pos
 }
