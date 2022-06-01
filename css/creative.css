@@ -231,8 +231,10 @@ td{
     z-index: 10;
     filter: invert(12%) sepia(94%) saturate(7289%) hue-rotate(0deg) brightness(110%) contrast(107%);
     width: 5vh;
+    transition: transform 0.43s;
 
 }
 #close_tuto:hover{
     cursor: pointer;
+    transform: rotate(90deg);
 }
