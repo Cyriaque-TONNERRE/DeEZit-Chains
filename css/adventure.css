@@ -262,3 +262,9 @@ table {
 .disparition{
     display: none;
 }
+
+.dragging{
+    opacity: 0;
+    color: black;
+    display: none;
+}

@@ -14,6 +14,7 @@ blocker = false;
 let delta = null;
 let posx = 0;
 let posy = 0;
+let ghostEle;
 indice=Number(getCookie("time_lvl")) ;
 
 red.addEventListener('drag', drag);
@@ -21,6 +22,8 @@ red.addEventListener('dragstart', dragStartr); //event: lorsqu'on commence a dra
 red.addEventListener('dragend', dragEndr); //event: lorsqu'on lache l'objet appel la fonction dargEnd
 //green.addEventListener('dragstart', dragStart); //event: lorsqu'on commence a drag appel la fonction dragStart
 //green.addEventListener('dragend', dragEnd); //event: lorsqu'on lache l'objet appel la fonction dargEnd
+
+
 
 function dragStartr(e) { // FONCTION dragStart
     // posxr = e.clientX;
@@ -30,6 +33,11 @@ function dragStartr(e) { // FONCTION dragStart
     lastr = this;
     blocker = true;
 
+    ghostEle = document.createElement('div');
+    ghostEle.classList.add('dragging');
+    ghostEle.innerHTML ='.';
+    document.body.appendChild(ghostEle);
+    e.dataTransfer.setDragImage(ghostEle, 0, 0);
 
 
     //setTimeout(() => (this.className = 'invisible'), 0); //permet de rendre l'objet invisible lorsqu'on drag sinon il reste afficher à son ancienne pos
@@ -42,7 +50,7 @@ function dragEndr(e) { //FONCTION dragEnd
     } else {
         this.setAttribute('draggable', false);
     }
-
+    document.body.removeChild(ghostEle);
 
 
 
@@ -96,6 +104,7 @@ function dragOverr(e) {
 }
 
 function dragEnterr(e) {
+
     if (!((delta.x > -2 && delta.x < 2) && (delta.y > -2 && delta.y < 2)) && !blocker) { //Tentative anti agression nucléaire
         //Revoir ici
         console.log("append");
@@ -166,7 +175,6 @@ function dragEnterr(e) {
         }
 
     }
-
 }
 
 
