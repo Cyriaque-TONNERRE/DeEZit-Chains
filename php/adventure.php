@@ -45,7 +45,7 @@ else if(isset($_COOKIE["valid"])){
     $purple = false;
     $yellow = false;
     $blue = false;
-
+    
     if (DIRECTORY_SEPARATOR == '\\') {
         exec("randomGenerate.exe $seed $colours", $tab);
     } else {
@@ -228,6 +228,7 @@ else if(isset($_COOKIE["valid"])){
     }
     echo "</table>";
     echo "</div>";
+    echo "<div class='seed'>$seed</div>";
     $clear="clearr()";
     if($blue == true) $clear= $clear.";clearb()";
     if($purple == true) $clear= $clear.";clearp()";
