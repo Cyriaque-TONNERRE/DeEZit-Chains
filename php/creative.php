@@ -46,7 +46,7 @@ require 'header.php';
     </div>
         <section>
     <div class = "export disparition" id="exportationLvl">
-        <div id = btn><button id='closeExporter' onclick='closeExporter()'>X</button></div>
+       <button id='closeExporter' onclick='closeExporter()'>X</button>
         <label for="levelName">Level Name : </label>
         <input type="text" id="lvlName">
 
