@@ -125,6 +125,12 @@ table {
     padding: 0.6vw;
     animation: ease-in-out 0.5s;
 }
+#center {
+    vertical-align: auto;
+    horiz-align: center;
+    margin: auto;
+}
+
 
 #reset {
     top: auto;
@@ -152,25 +158,33 @@ table {
     transition: 0.5s;
 }
 
-.export {
+.export{
     width: 30vw;
-    height: 5vw;
+    height: 8vw;
     background-color: #e3e3e3;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 4vw;
+    margin: auto;
+    margin-top: 13%;
+    padding-top: 3.25vh;
     padding-left: 4vw;
-    margin-top: 8vw;
-    box-shadow: 0 0 1vw 0 rgba(0, 0, 0, 0.75);
-    -webkit-box-shadow: 0 0 1vw 0 rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0 0 1vw 0 rgba(0, 0, 0, 0.75);
+    box-shadow: 0 0 1vw 0 rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0 0 1vw 0 rgba(0,0,0,0.75);
+    -moz-box-shadow: 0 0 1vw 0 rgba(0,0,0,0.75);
 }
 
-#closeExporter {
+#closeExporter{
     position: relative;
-    bottom: 3.5vw;
-    left: 0vw;
-    border-radius: 0.3vw;
+    bottom: 1vw;
+    left: 27vw;
+    width: 2vw;
+    height: 2vw;
+    transition: transform 0.43s;
+    z-index: 10;
+    filter: invert(12%) sepia(94%) saturate(7289%) hue-rotate(0deg) brightness(110%) contrast(107%);
+}
+
+#closeExporter:hover{
+    cursor: pointer;
+    transform: rotate(90deg);
 }
 
 .gauche {

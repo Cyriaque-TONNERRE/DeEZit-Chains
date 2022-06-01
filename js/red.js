@@ -239,7 +239,7 @@ function dragLeaver() {
             }
    
             document.cookie = `valid=true; expires=${new Date(new Date().getTime() + 2000).toUTCString()}; path=/`;
-            redirectPost('time.php',document.getElementById("minuteur").innerHTML);
+            redirectPost('time.php',document.getElementById("countdown").innerHTML);
 
         }
         else {
@@ -293,9 +293,9 @@ function dragDrop() {
                 }
                 form.submit();
             }
-   
+
             document.cookie = `valid=true; expires=${new Date(new Date().getTime() + 2000).toUTCString()}; path=/`;
-            redirectPost('time.php',document.getElementById("minuteur").innerHTML);
+            redirectPost('time.php',document.getElementById("countdown").innerHTML);
 
         }
         else {
