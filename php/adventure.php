@@ -264,12 +264,13 @@ else if(isset($_COOKIE["valid"])){
         <?php echo "<button id='export_button' onclick='exporter($size)'>Exporter</button>"; ?>
     </div>
 
-    <div class = "export disparition" id="exportationLvl">
-        <label for="name">Level Name : </label>
-        <input type="text" id="namelvl">
-        <button id='closeExporter' onclick='closeExporter()'>X</button>
-        <button id='download' onclick='install()'>download</button>
-    </div>
+        <div class = "export disparition" id="exportationLvl">
+            <img src="../image/xmark-solid.svg" alt="croix" id="closeExporter" onclick="closeExporter()"/>
+            <div id="center">
+                <label for="levelName">Level Name : </label>
+                <input type="text" id="lvlName">
+                <button id='download' onclick='install()'>download</button>
+            </div>
     <script src='../js/adventureExport.js'></script>
 
 </main>

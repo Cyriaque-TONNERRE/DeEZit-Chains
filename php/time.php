@@ -53,11 +53,12 @@ else{
         $score = 0;
         $requete = "UPDATE user SET current_time_trial = '$score' WHERE username = '$pseudo'";
         $resultat = mysqli_query($connexion, $requete); //Executer la requete
+        $d = $time_left*5;
+        $sw = .1*$d;
+        $r= .5*($d-$sw);
+        $len = 2*pi()*$r;
     }
 }
-
-
-
 
 ?>
 

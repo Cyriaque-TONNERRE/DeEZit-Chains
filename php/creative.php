@@ -46,16 +46,15 @@ require 'header.php';
     </div>
         <section>
     <div class = "export disparition" id="exportationLvl">
-       <button id='closeExporter' onclick='closeExporter()'>X</button>
+       <img src="../image/xmark-solid.svg" alt="croix" id="closeExporter" onclick="closeExporter()"/>
+        <div id="center">
         <label for="levelName">Level Name : </label>
         <input type="text" id="lvlName">
-
         <button id='download' onclick='install()'>download</button>
+        </div>
 
     </div>
         </section>
     </main>
 	<script src="../js/crea.js"></script>
-
-	
 </body>
