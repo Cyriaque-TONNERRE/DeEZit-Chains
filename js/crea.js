@@ -184,6 +184,7 @@ function contenu(){
             deplacement_color = true;
             
         }
+       
 
     }
     
@@ -402,6 +403,28 @@ function contenu(){
             }
 
 
+        }
+        else{
+            if(this.classList.contains('r')){
+                nowc = 'r';
+                newc = 'r';
+            }
+            else if(this.classList.contains('g')){
+                nowc = 'g';
+                newc = 'g';
+            }
+            else if(this.classList.contains('b')){
+                nowc = 'b';
+                newc = 'b';
+            }
+            else if(this.classList.contains('p')){
+                nowc = 'p';
+                newc = 'p';
+            }
+            else if(this.classList.contains('y')){
+                nowc = 'y';
+                newc = 'y';
+            }
         }
     }
 
