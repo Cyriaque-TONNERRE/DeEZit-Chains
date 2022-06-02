@@ -16,7 +16,7 @@
         </div>
         <?php
         include("connexion_db.php");
-        $requete = "SELECT username,time_trial FROM user ORDER BY adventure_lvl DESC, time_trial ASC, username ASC limit 100";
+        $requete = "SELECT username,time_trial FROM user ORDER BY time_trial ASC, username ASC limit 8";
         $resultat = mysqli_query($connexion, $requete); //Executer la requete
         if ($resultat == FALSE) {
             echo "<p>Erreur d'exécution de la requete :".mysqli_error($connexion)."</p>";

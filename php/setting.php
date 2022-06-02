@@ -4,22 +4,21 @@
     <script>
         function Clique() {
             if (getCookie("theme") === null) {
+                document.getElementById("header_theme").href = `../css/header.css`;
                 document.getElementById("body_theme").href = `../css/setting.css`;
-                document.getElementById("header_theme").href = '../css/header.css';
                 document.cookie = `theme=light; expires=${new Date(new Date().getTime() + 31536000000).toUTCString()}; path=/`;
                 document.getElementById("Dark").innerHTML = 'Light';
             }
             if (getCookie("theme") === 'dark') {
 
-                document.getElementById("header_theme").href = '../css/dark_header.css';
+                document.getElementById("header_theme").href = `../css/dark_header.css`;
                 document.getElementById("body_theme").href = `../css/dark_setting.css`;
                 document.cookie = `theme=dark; expires=${new Date(new Date().getTime() + 31536000000).toUTCString()}; path=/`;
                 document.getElementById("Dark").innerHTML = 'Dark';
             }
             if (getCookie("theme") === 'light') {
-
+                document.getElementById("header_theme").href = `../css/header.css`;
                 document.getElementById("body_theme").href = `../css/setting.css`;
-                document.getElementById("header_theme").href = '../css/header.css';
                 document.cookie = `theme=light; expires=${new Date(new Date().getTime() + 31536000000).toUTCString()}; path=/`;
                 document.getElementById("Dark").innerHTML = 'Light';
             }

@@ -14,18 +14,26 @@
 }
 
 .logo img {
+    display: block;
+    position: relative;
     width: auto;
     height: 5vw;
     margin-top: 0.5vw;
-    margin-left: 1vw;
+    margin-right: auto;
+    margin-left: auto;
+    vertical-align: middle;
     user-select: none;
 }
 
 .classement img {
+    display: block;
+    position: relative;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
     width: auto;
     height: 4vw;
     margin-top: 1vw;
-    margin-right: 0.5vw;
     user-select: none;
     transition: transform 0.5s;
 }
@@ -40,6 +48,11 @@
 
 .header .login img,
 .header .login a img {
+    display: block;
+    position: relative;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
     width: auto;
     height: 4vw;
     margin-top: 1vw;
@@ -48,6 +61,11 @@
 }
 
 .header .setting a img {
+    display: block;
+    position: relative;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
     width: auto;
     height: 4vw;
     margin-top: 1vw;
@@ -85,7 +103,6 @@
 }
 
 .login img:hover{
-
     transform: translateY(0.3vh);
 }
 
