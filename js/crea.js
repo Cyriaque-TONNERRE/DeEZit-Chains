@@ -288,7 +288,6 @@ function contenu(){
 
             if(!this.classList.contains(newc)){
                 this.classList.add(newc);
-                console.log("1AAAAAAAAAAAAAAAAAAAAAAAA");
             }
             if(!deplacement_color){
                 newc = 0;
@@ -320,13 +319,16 @@ function contenu(){
                 console.log(newc);
                 console.log('here ?');
                 console.log(last);
+                
                 if(last.classList.contains(newc) && last !== this){
                     
                     last.id = "0";
                     last.classList.remove('remove');
                     last.classList.remove('colors');
                     last.classList.remove(newc);
+                    
                 }
+                last.setAttribute("draggable",false);
                 
 
                 
@@ -451,7 +453,7 @@ function contenu(){
                 nouvellecase = false;
 
                 let lvl = parseInt(this.id);
-                if(this !== chemin[0] && chemin.indexOf(this) === -1){
+                if(this !== chemin[0] && chemin.indexOf(this) === -1 && (cheminR.indexOf(this) === -1) && (cheminG.indexOf(this) === -1) && (cheminB.indexOf(this) === -1) && (cheminP.indexOf(this) === -1) && (cheminY.indexOf(this) === -1)){
                     chemin[0].setAttribute("draggable",false);
                     chemin.unshift(this);
                     nouvellecase = true;
@@ -462,6 +464,7 @@ function contenu(){
                 }
                 if(lvl !== 9){
                     if(lvl < chemin[1].id){
+                        
                         if(nouvellecase){
                             lvl = chemin[1].id
                         }
@@ -482,10 +485,15 @@ function contenu(){
                         }
                     }
                     else{
-                        lvl++;
-                        if(lvl === 9){
-                            blockerlvl = true;
+                        console.log(chemin);
+                        if((cheminR.indexOf(this) === -1) && (cheminG.indexOf(this) === -1) && (cheminB.indexOf(this) === -1) && (cheminP.indexOf(this) === -1) && (cheminY.indexOf(this) === -1)){
+                            lvl++;
+                            if(lvl === 9){
+                                blockerlvl = true;
+                            }
                         }
+
+
                     }
                     
                     this.innerHTML = lvl;

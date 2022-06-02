@@ -142,6 +142,7 @@ td{
     width: 1.4vw; /* Set a specific slider handle width */
     height: 1.4vw; /* Slider handle height */
     background: #36b24d; /* Green background */
+    border-radius: 1vw;
     cursor: pointer; /* Cursor on hover */
 }
 
