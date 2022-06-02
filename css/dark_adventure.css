@@ -200,3 +200,6 @@ table {
     height: 10%;
     width: 10%;
 }
+.active{
+    color: black;
+}

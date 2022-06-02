@@ -60,7 +60,7 @@ function tutoHide(){
             next.classList.remove('disparition');
         }
         if (document.cookie.indexOf("tuto") == -1) {
-            document.cookie = `tuto=true; expires=${new Date(new Date().getTime() + (1000 * 60)).toUTCString()}; path=/`;
+            document.cookie = `tuto=true; expires=${new Date(new Date().getTime() + (1000 * 60 * 60)).toUTCString()}; path=/`;
         }
     }
 }
