@@ -9,6 +9,7 @@
     grid-template-rows: 8vw 8vw;
     align-items: center;
     justify-items: center;
+    text-align: center;
     gap: 1vw;
 }
 #folder{
@@ -21,6 +22,11 @@
     margin-left: auto;
     vertical-align: middle;
     transform: rotate(315deg);
+    transition: transform 0.5s;
+}
+#folder:hover{
+    transform:rotate(360deg);
+    filter: ;
 }
 
 #edit{
@@ -34,6 +40,10 @@
     horiz-align: center;
     vertical-align: middle;
     transform: rotate(315deg);
+    transition: transform 0.5s;
+}
+#edit:hover{
+    transform: rotate(360deg);
 }
 
 .mode{
@@ -51,6 +61,7 @@
     margin-left: 12vw;
     border-radius: 0.5vw;
     padding: 3.5vw;
+    padding-bottom: 0vw;
     width: auto;
     height: auto;
     horiz-align: center;
@@ -62,7 +73,7 @@
     transform: rotate(45deg);
 }
 .mode:hover {
-    background-color: silver;
+    background-color: #223269;
 }
 .mode2{
     float: right;
@@ -79,6 +90,7 @@
     margin-right: 11vw;
     border-radius: 0.5vw;
     padding: 5vw;
+    padding-bottom: 0vw;
     width: auto;
     height: auto;
     horiz-align: center;
@@ -91,8 +103,30 @@
     cursor: pointer;
 }
 .mode2:hover{
-    background-color: silver;
+    background-color: #cbac67;
+
 }
 .hidden{
     display: none;
+}
+.send{
+    position: absolute;
+    margin-top: 64vh;
+    margin-left: 22.5vw;
+    background-color: #2F3136;
+    font-size: 1em;
+    color: #e3e3e3;
+    border:none;
+    padding: 0.5vw;
+    z-index: 10;
+    font-family: rounded, serif;
+}
+
+.text{
+    display: inline-block;
+    margin-top: 0.65vw;
+}
+.text2{
+    display: inline-block;
+    margin-top: 3vw;
 }

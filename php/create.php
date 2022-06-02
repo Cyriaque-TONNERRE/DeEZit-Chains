@@ -3,7 +3,6 @@ $err = "";
 
 if(isset($_POST["submit"])){
     $err = "";
-
     if(isset($_FILES["fichier"]) && ($_FILES["fichier"]["error"] == 0)){
         if(($_FILES["fichier"]["type"] == "application/json")){
             if($_FILES["fichier"]["size"] < 1000000){
@@ -30,7 +29,6 @@ if(isset($_POST["submit"])){
                         unlink($nomfichier);
                         
                     }
-
                 }
                 else{
                     $err = "File is not compatible.";
@@ -64,7 +62,10 @@ if(isset($_POST["submit"])){
 }
 
 ?>
-
+<script>function removeClass() {
+        var element = document.getElementById("submit");
+        element.classList.remove("hidden");
+}</script>
 <div class="error">
     <?php echo $err; ?>
 </div>
@@ -72,12 +73,17 @@ if(isset($_POST["submit"])){
 
 <form  method="POST" action="" enctype="multipart/form-data">
     <div class="but">
-    <label for="fichier" class="mode2">
+        <input type="submit" name="submit" id="submit" class= "send hidden" value="Importer">
+        <label for="fichier" onclick="removeClass()" class="mode2">
         <img src="../image/folder.svg" id="folder" alt="folder" draggable="false"/>
-        </img></label>
+            </img>
+            <div class="text2">Import level</div>
+    </label>
+
         <a draggable='false' class="gamemode mode" href="creative.php">
             <img src="../image/edit.svg " id="edit" alt="edit" draggable="false"/>
+            <div class="text">Create level</div>
         </a></div>
     <input type="file" name="fichier" id="fichier" accept=".json" class="upload hidden" require/>
-    <input type="submit" name="submit" id="submit" class= "send hidden" value="Importer">
+
 </form>
