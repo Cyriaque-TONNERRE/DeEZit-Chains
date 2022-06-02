@@ -287,3 +287,8 @@ table {
 .seed {
     display: none;
 }
+
+.active{
+    color: white;
+}
+

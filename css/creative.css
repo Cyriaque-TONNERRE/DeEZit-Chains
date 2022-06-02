@@ -207,7 +207,7 @@ td{
     border: solid black 0.1vw;
 }
 
-#export{
+#export, #buttonTuto{
     margin-top: 2vw;
     display: block;
     margin-left: auto;
@@ -215,13 +215,17 @@ td{
     font-size: 2vh;
     width: 6vw;
     border: solid 0.1vw black;
+    border-radius: 2vw;
+}
+#buttonTuto{
+    margin-top: 5vw;
 }
 
-#export:hover{
+#export:hover,#buttonTuto:hover{
     cursor: pointer;
 }
 
-.tuto{
+.tuto, .tuto2{
     height: auto;
     width: 140vh;
     margin-left: auto;

@@ -3,17 +3,38 @@ require 'header.php';
 ?>
 
     <main>
-    <div class="tuto">
-        <img src="../image/xmark-solid.svg" alt="Croix" id="close_tuto" draggable='false' onclick='tutoHide()'/>
-        <img id="tuto" alt="tuto" draggable="false" src="../image/creative_tuto.jpeg">
-    </div>
-    <div class = "tmp disparition">
-        Choose the grid's size :
-        <br>
-        <input type="range" min="5" max="10" id="Range" value="5">
-        <span id='sizeval'>5</span>
-        <button id='hide' onclick='hide()' style="width: 5vw">Valider</button>
-    </div>
+    <div class='tuto2 disparition'>
+            <img src='../image/xmark-solid.svg' alt='Croix' id='close_tuto' draggable='false' onclick='tutoHide2()'/>
+            <img id='tuto' alt='tuto' draggable='false' src='../image/creative_tuto.jpeg'>
+            </div>
+        <?php
+        if(isset($_COOKIE["tuto"])){
+            echo "<div class='tuto disparition'>
+            <img src='../image/xmark-solid.svg' alt='Croix' id='close_tuto' draggable='false' onclick='tutoHide()'/>
+            <img id='tuto' alt='tuto' draggable='false' src='../image/creative_tuto.jpeg'>
+            </div>";
+            echo "<div class = 'tmp'>
+            Choose the grid's size :
+            <br>
+            <input type='range' min='5' max='10' id='Range' value='5'>
+            <span id='sizeval'>5</span>
+            <button id='hide' onclick='hide()' style='width: 5vw'>Valider</button>
+        </div>";
+        }
+        else{
+            echo "<div class='tuto'>
+            <img src='../image/xmark-solid.svg' alt='Croix' id='close_tuto' draggable='false' onclick='tutoHide()'/>
+            <img id='tuto' alt='tuto' draggable='false' src='../image/creative_tuto.jpeg'>
+            </div>";
+            echo "<div class = 'tmp disparition'>
+            Choose the grid's size :
+            <br>
+            <input type='range' min='5' max='10' id='Range' value='5'>
+            <span id='sizeval'>5</span>
+            <button id='hide' onclick='hide()' style='width: 5vw'>Valider</button>
+            </div>";
+        }
+        ?>
 
     <div id='tableau' draggable="false">
 
@@ -39,6 +60,7 @@ require 'header.php';
 
 
         <button id = 'export' onclick='exporter()'>Exporter</button>
+        <button id='buttonTuto' onclick='tutoHide()'>Tutoriel</button>
         
 
 
@@ -49,8 +71,9 @@ require 'header.php';
        <img src="../image/xmark-solid.svg" alt="croix" id="closeExporter" onclick="closeExporter()"/>
         <div id="center">
         <label for="levelName">Level Name : </label>
-        <input type="text" id="lvlName">
+        <input type="text" id="lvlName" value="levelExport">
         <button id='download' onclick='install()'>download</button>
+        
         </div>
 
     </div>

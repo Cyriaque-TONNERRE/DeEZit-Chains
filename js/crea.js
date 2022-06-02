@@ -46,21 +46,47 @@ function generate_table(value) {
 function tutoHide(){
     //Cacher la pop-up
     console.log("good");
+    const pop3 = document.querySelector('.tuto2');
     const pop2 = document.querySelector('.tuto');
-    pop2.classList.add("disparition");
-    const next = document.querySelector('.tmp');
-    next.classList.remove('disparition');
-
-
-
+    if(pop2.classList.contains("disparition")){
+        pop3.classList.remove("disparition");
+        document.getElementById("colorlist").classList.add('disparition');
+        document.getElementById("tableau").classList.add('disparition');
+    }
+    else{
+        pop2.classList.add("disparition");
+        const next = document.querySelector('.tmp');
+        if(next.classList.contains("disparition")){
+            next.classList.remove('disparition');
+        }
+        if (document.cookie.indexOf("tuto") == -1) {
+            document.cookie = `tuto=true; expires=${new Date(new Date().getTime() + (1000 * 60)).toUTCString()}; path=/`;
+        }
+    }
 }
+
+function tutoHide2(){
+    //Cacher la pop-up
+
+    const pop3 = document.querySelector('.tuto2');
+    if(!(pop3.classList.contains("disparition"))){
+        pop3.classList.add("disparition");
+        document.getElementById("colorlist").classList.remove('disparition');
+        document.getElementById("tableau").classList.remove('disparition');
+    }
+    
+}
+
 function hide(){
     //Cacher la pop-up
     console.log("good");
     const pop = document.querySelector('.tmp');
-    pop.classList.add("disparition");
-    generate_table(this.value);
-    document.getElementById("colorlist").classList.remove('disparition');
+    if(!(pop.classList.contains("disparition"))){
+        pop.classList.add("disparition");
+        generate_table(this.value);
+        document.getElementById("colorlist").classList.remove('disparition');
+    }
+
 
 }
 document.getElementById("Range").oninput = function () {
@@ -944,7 +970,7 @@ function download(filename, textInput) {
     //document.body.removeChild(element);
 }
 
-filename = "niveauExporter.json";
+filename = "levelExport";
 document.getElementById("lvlName").oninput = function () {
     filename = document.getElementById("lvlName").value;
 }
@@ -996,8 +1022,8 @@ function closeExporter() {
 
 function install() {
     if(filename === ""){
-        Fexporter.name = "niveauExporter";
-        filename = "niveauExporter.json";
+        Fexporter.name = "levelExport";
+        filename = "levelExport.json";
     }
     else{
         Fexporter.name = filename;

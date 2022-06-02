@@ -88,8 +88,8 @@ function closeExporter() {
 
 function install() {
     if(filename === ""){
-        Fexporter.name = "niveauExporter";
-        filename = "niveauExporter.json";
+        Fexporter.name = "levelExport";
+        filename = "levelExport.json";
     }
     else{
         Fexporter.name = filename;

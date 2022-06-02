@@ -31,7 +31,6 @@ function dragEnd() { //FONCTION dragEnd
     } else {
         this.setAttribute('draggable', false);
     }
-    document.body.removeChild(ghostEle);
 
 
 }
@@ -70,6 +69,8 @@ function dragEnter(e) {
                 lvlb = parseInt(trackb[1].id);
                 trackb[0].setAttribute('draggable', false);
                 trackb.shift();
+                trackb[0].setAttribute('draggable', true);
+                addactive();
                 dragEnter(e);
             } else if ((trackb.indexOf(this) === -1) && securiteb) {
                 let voisinb = false;
@@ -112,8 +113,9 @@ function dragEnter(e) {
             } else if (!securiteb) {
                 securiteb = true;
             }
-    } else console.log("flash");
-    
+    }
+
+
 }
 
 
@@ -169,6 +171,7 @@ function dragDrop() {
     } else {
         startb.setAttribute('draggable', true);
     }
+    addactive();
 
     //this.className += 'case'; //définie la class de l'objet actuel à ' case'
     //this.append(red); //change la position de la base à l'élément actuel
@@ -189,6 +192,7 @@ function clearb(){
         startb.className += ' b';
         startb.setAttribute('draggable', true);
         startb.classList.remove('unused');
+        addactive();
     }
 
 }

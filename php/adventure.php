@@ -268,7 +268,7 @@ else if(isset($_COOKIE["valid"])){
             <img src="../image/xmark-solid.svg" alt="croix" id="closeExporter" onclick="closeExporter()"/>
             <div id="center">
                 <label for="levelName">Level Name : </label>
-                <input type="text" id="lvlName">
+                <input type="text" id="namelvl" value="levelExport">
                 <button id='download' onclick='install()'>download</button>
             </div>
     <script src='../js/adventureExport.js'></script>

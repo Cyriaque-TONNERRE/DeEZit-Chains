@@ -36,7 +36,6 @@ function dragEndg() { //FONCTION dragEnd
         this.setAttribute('draggable', false);
     }
 
-    document.body.removeChild(ghostEle);
 
 }
 
@@ -73,6 +72,8 @@ function dragEnterg(e) {
             lvlg = parseInt(trackg[1].id);
             trackg[0].setAttribute('draggable', false);
             trackg.shift();
+            trackg[0].setAttribute('draggable', true);
+            addactive();
             dragEnterg(e);
         } else if ((trackg.indexOf(this) === -1) && securiteg) {
             let voising = false;
@@ -122,6 +123,7 @@ function dragEnterg(e) {
         } else if (!securiteg) {
             securiteg = true;
         }
+
     }
 
 
@@ -181,6 +183,7 @@ function dragDropg() {
     } else {
         startg.setAttribute('draggable', true);
     }
+    addactive();
 
     //this.className += 'case'; //définie la class de l'objet actuel à ' case'
     //this.append(red); //change la position de la base à l'élément actuel
@@ -202,6 +205,7 @@ function clearg(){
         startg.className += ' g';
         startg.setAttribute('draggable', true);
         startg.classList.remove('unused');
+        addactive();
     }
 
 }

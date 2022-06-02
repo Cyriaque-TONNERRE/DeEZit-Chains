@@ -32,7 +32,7 @@ function dragEndy() { //FONCTION dragEnd
     } else {
         this.setAttribute('draggable', false);
     }
-    document.body.removeChild(ghostEle);
+
 
 }
 
@@ -70,6 +70,8 @@ function dragEntery(e) {
             lvly = parseInt(tracky[1].id);
             tracky[0].setAttribute('draggable', false);
             tracky.shift();
+            tracky[0].setAttribute('draggable', true);
+            addactive();
             dragEntery(e);
         } else if ((tracky.indexOf(this) === -1) && securitey) {
             let voisiny = false;
@@ -121,6 +123,7 @@ function dragEntery(e) {
         }
     }
 
+    
 
 }
 
@@ -178,6 +181,7 @@ function dragDropy() {
     } else {
         starty.setAttribute('draggable', true);
     }
+    addactive();
 
     //this.className += 'case'; //définie la class de l'objet actuel à ' case'
     //this.append(red); //change la position de la base à l'élément actuel
@@ -198,6 +202,7 @@ function cleary(){
         starty.className += ' y';
         starty.setAttribute('draggable', true);
         starty.classList.remove('unused');
+        addactive();
     }
 
 }

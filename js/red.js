@@ -23,7 +23,24 @@ red.addEventListener('dragend', dragEndr); //event: lorsqu'on lache l'objet appe
 //green.addEventListener('dragend', dragEnd); //event: lorsqu'on lache l'objet appel la fonction dargEnd
 
 
-
+function addactive(){
+    desactive = document.querySelectorAll("[draggable='false']");
+    active = document.querySelectorAll("[draggable='true']");
+    if (desactive !== null) {
+        for (let i = 0; i < desactive.length; i++) {
+            if(desactive[i].classList.contains("active")){
+                desactive[i].classList.remove("active");
+            }
+        }
+    }
+    if (active !== null) {
+        for (let i = 0; i < active.length; i++) {
+            if(!(active[i].classList.contains("active")) && !(active[i].classList.contains('letter'))){
+                active[i].classList.add("active");
+            }
+        }
+    }
+}
 function dragStartr(e) { // FONCTION dragStart
     // posxr = e.clientX;
     // posyr = e.clientY;
@@ -43,7 +60,6 @@ function dragEndr(e) { //FONCTION dragEnd
     } else {
         this.setAttribute('draggable', false);
     }
-    document.body.removeChild(ghostEle);
 
 
 
@@ -64,6 +80,7 @@ for (const vide of box) { //créer un event pour tout les élément de box
 }
 
 function drag(e) {
+    addactive();
     delta = { x: posx - e.clientX, y: posy - e.clientY };
     posx = e.clientX;
     posy = e.clientY;
@@ -97,6 +114,7 @@ function dragOverr(e) {
 }
 
 function dragEnterr(e) {
+    
 
     if (!((delta.x > -2 && delta.x < 2) && (delta.y > -2 && delta.y < 2)) && !blocker) { //Tentative anti agression nucléaire
         //Revoir ici
@@ -117,6 +135,8 @@ function dragEnterr(e) {
             lvlr = parseInt(trackr[1].id);
             trackr[0].setAttribute('draggable', false);
             trackr.shift();
+            trackr[0].setAttribute('draggable', true);
+            addactive();
             dragEnterr(e);
         } else if ((trackr.indexOf(this) === -1) && securiter) {
             let voisinr = false;
@@ -209,6 +229,7 @@ function dragLeaver() {
             this.className += ' case'; //définie la class de l'objet actuel à ' case'
         }
     }
+    
     if (document.querySelector('.unused') === null) {
         //Victoire
 
@@ -247,11 +268,8 @@ function dragLeaver() {
             document.location.href = "adventure.php";
             
         }
+        
     }
-
-
-
-
 
 }
 
@@ -304,6 +322,9 @@ function dragDrop() {
             
         }
     }
+    
+    addactive();
+
 }
 
     //this.className += 'case'; //définie la class de l'objet actuel à ' case'
@@ -325,6 +346,7 @@ function clearr() {
         startr.className += ' r';
         startr.classList.remove('unused');
         startr.setAttribute('draggable', true);
+        addactive();
     }
 
 }
