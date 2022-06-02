@@ -292,3 +292,77 @@ table {
     color: white;
 }
 
+#export_button{
+    font-family: rounded, serif;
+    z-index: 2;
+    top: 20%;
+    right: 0;
+    justify-content: center;
+    background-color: #eed6b4;
+    border: 0.3vw gold solid;
+    border-radius: 1vw;
+    color: rgb(0, 0, 0);
+    margin-right: 3vw;
+    padding: 0.6vw;
+}
+
+#reset{
+    font-family: rounded, serif;
+    z-index: 2;
+    top: 20%;
+    left: 0;
+    justify-content: center;
+    background-color: #eed6b4;
+    border: 0.3vw gold solid;
+    border-radius: 1vw;
+    color: rgb(0, 0, 0);
+    margin-left: 3vw;
+    padding: 0.6vw;
+}
+
+#back{
+    font-family: rounded, serif;
+    position: absolute;
+    z-index: 2;
+    top: 20%;
+    left: 0;
+    justify-content: center;
+    background-color: #eed6b4;
+    border: 0.3vw gold solid;
+    border-radius: 1vw;
+    color: rgb(0, 0, 0);
+    margin-left: 3vw;
+    padding: 0.6vw;
+    text-decoration: none;
+}
+#export_button:hover, #reset:hover, #back:hover{
+    background-color: gold;
+    border-color: gold;
+    cursor: pointer;
+}
+
+@media only screen and ( max-width: 740px){
+
+    #back{
+        position:relative;
+    }
+    #export_button {
+        float:none;
+        top: auto;
+        margin-top: 0%;
+        padding: 0.6vw;
+        margin-left: 3vw;
+    }
+    #score{
+        position:relative;
+        margin: 1vw;
+    }
+    #reset{
+        top:0%;
+        float:unset;
+    }
+
+
+}
+
+

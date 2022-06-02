@@ -350,3 +350,7 @@ function clearr() {
     }
 
 }
+
+function back(){
+    document.location.href = "index.php?";
+}

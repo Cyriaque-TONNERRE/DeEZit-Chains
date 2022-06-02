@@ -234,7 +234,10 @@ else if(isset($_COOKIE["valid"])){
     if($purple == true) $clear= $clear.";clearp()";
     if($yellow == true) $clear= $clear.";cleary()";
     if($green == true) $clear= $clear.";clearg()";
-    echo "<button id='reset' onclick='$clear'>reset</button>";
+    echo "<button id='back' onclick='back()'><- Back</button>";
+    echo "<button id='reset' onclick='$clear'>Reset</button>";
+    
+    //A changer a cause de Cyriaque
 
     
     echo "<script src='../js/red.js'></script>";
@@ -260,9 +263,7 @@ else if(isset($_COOKIE["valid"])){
     }
     ?>
 
-    <div id="export_button">
-        <?php echo "<button id='export_button' onclick='exporter($size)'>Exporter</button>"; ?>
-    </div>
+        <?php echo "<button id='export_button' onclick='exporter($size)'>Export</button>"; ?>
 
         <div class = "export disparition" id="exportationLvl">
             <img src="../image/xmark-solid.svg" alt="croix" id="closeExporter" onclick="closeExporter()"/>

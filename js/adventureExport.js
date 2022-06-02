@@ -70,6 +70,7 @@ function exporter(size){
     document.getElementById("game").classList += ' disparition';
     document.getElementById("reset").classList += ' disparition';
     document.getElementById("score").classList += ' disparition';
+    document.getElementById("back").classList += ' disparition';
     
     
 
@@ -82,6 +83,7 @@ function closeExporter() {
     document.getElementById("game").classList.remove('disparition');
     document.getElementById("score").classList.remove('disparition');
     document.getElementById("reset").classList.remove('disparition');
+    document.getElementById("back").classList.remove('disparition');
 
 }
 
