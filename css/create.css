@@ -3,3 +3,96 @@
     background-color: rgb(216, 96, 96);
     color: rgb(150, 29, 29);
 }
+.but {
+    padding: 2vh 2vh;
+    display: block;
+    grid-template-rows: 8vw 8vw;
+    align-items: center;
+    justify-items: center;
+    gap: 1vw;
+}
+#folder{
+    display: block;
+    position: relative;
+    height: 16vw;
+    width: auto;
+    text-align: center;
+    user-select: none;
+    margin-left: auto;
+    vertical-align: middle;
+    transform: rotate(315deg);
+}
+
+#edit{
+    display: block;
+    position: relative;
+    height: 19vw;
+    width: auto;
+    text-align: center;
+    user-select: none;
+    margin-left: auto;
+    horiz-align: center;
+    vertical-align: middle;
+    transform: rotate(315deg);
+}
+
+.mode{
+    float: left;
+    text-align: center;
+    text-decoration: inherit;
+    font-family: Ezcriture,Serif;
+    font-size: 2.4vw;
+    color:black;
+    background-color: lightgrey;
+    margin-left: auto;
+    margin-right: auto;
+    user-select: none;
+    margin-top: 13vh;
+    margin-left: 12vw;
+    border-radius: 0.5vw;
+    padding: 3.5vw;
+    width: auto;
+    height: auto;
+    horiz-align: center;
+    vertical-align: center;
+    -o-transition: background-color .2s ease-in;
+    -moz-transition: background-color .2s ease-in;
+    -webkit-transition: background-color .2s ease-in;
+    transition: background-color .1.5s ease-in;
+    transform: rotate(45deg);
+}
+.mode:hover {
+    background-color: silver;
+}
+.mode2{
+    float: right;
+    text-align: center;
+    text-decoration: inherit;
+    font-family: Ezcriture,Serif;
+    font-size: 2.4vw;
+    color:black;
+    background-color: lightgrey;
+    margin-left: auto;
+    margin-right: auto;
+    user-select: none;
+    margin-top: 13vh;
+    margin-right: 11vw;
+    border-radius: 0.5vw;
+    padding: 5vw;
+    width: auto;
+    height: auto;
+    horiz-align: center;
+    vertical-align: center;
+    -o-transition: background-color .2s ease-in;
+    -moz-transition: background-color .2s ease-in;
+    -webkit-transition: background-color .2s ease-in;
+    transition: background-color .1.5s ease-in;
+    transform: rotate(45deg);
+
+}
+.mode2:hover{
+    background-color: silver;
+}
+.hidden{
+    display: none;
+}

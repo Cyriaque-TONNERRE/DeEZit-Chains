@@ -69,15 +69,15 @@ if(isset($_POST["submit"])){
     <?php echo $err; ?>
 </div>
 
+
 <form  method="POST" action="" enctype="multipart/form-data">
-    <input type="file" name="fichier" id="fichier" accept=".json" class="upload" require/>
-    <input type="submit" name="submit" id="submit" class= "send" value="Importer">
+    <div class="but">
+    <label for="fichier" class="mode2">
+        <img src="../image/folder.svg" id="folder" alt="folder" draggable="false"/>
+        </img></label>
+        <a draggable='false' class="gamemode mode" href="creative.php">
+            <img src="../image/edit.svg " id="edit" alt="edit" draggable="false"/>
+        </a></div>
+    <input type="file" name="fichier" id="fichier" accept=".json" class="upload hidden" require/>
+    <input type="submit" name="submit" id="submit" class= "send hidden" value="Importer">
 </form>
-
-<br>
-<a draggable='false' class="gamemode" href="creative.php">
-    Créer un niveau
-</a>
-
-
-
