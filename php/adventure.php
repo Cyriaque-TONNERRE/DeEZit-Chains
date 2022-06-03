@@ -53,6 +53,7 @@ else if(isset($_COOKIE["valid"])){
         exec("./randomGenerate $seed $colours", $tab);
     }
     $size = count($tab);
+
     echo "<table id='tableau'>";
     for ($colonne = 0; $colonne < $size; $colonne++){
         echo "<tr>";
