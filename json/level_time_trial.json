@@ -2,6 +2,31 @@
   "Niv1" : {
     "name": "Level 1",
     "author": "Ez Team",
-    "level":
+    "level": [
+      "r123",
+      "0000",
+      "0000",
+      "0000"
+    ]
   },
+  "Niv2" : {
+    "name": "Level 1",
+    "author": "Ez Team",
+    "level": [
+      "r000",
+      "1000",
+      "2000",
+      "3000"
+    ]
+  },
+  "Niv3" : {
+    "name": "Level 1",
+    "author": "Ez Team",
+    "level": [
+      "321r",
+      "0000",
+      "0000",
+      "0000"
+    ]
+  }
 }

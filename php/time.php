@@ -39,26 +39,26 @@ else {
 
     if (isset($_POST[2])) {
         if ($_POST[2] == ':') {
-            $time_left =$_POST[0] * 600 + $_POST[1] * 60 + $_POST[3] * 10 + $_POST[4];
-            if ($time_left >= 600) {
+            $time_left = $_POST[0] * 600 + $_POST[1] * 60 + $_POST[3] * 10 + $_POST[4];
+            if ($time_left > 600) {
                 $time_left = 600;
                 $pseudo = $_SESSION["username"];
                 require './connexion_db.php';
                 $score = 0;
                 $requete = "UPDATE user SET current_time_trial = '$score' WHERE username = '$pseudo'";
                 $resultat = mysqli_query($connexion, $requete); //Executer la requete
+                $cookie = false;
             }
             else if ($time_left <= 0) {
                 $time_left = 0;
                 $pseudo = $_SESSION["username"];
                 require './connexion_db.php';
-                $score ++;
                 $requete = "UPDATE user SET current_time_trial = '$score' WHERE username = '$pseudo'";
                 $resultat = mysqli_query($connexion, $requete); //Executer la requete
                 $cookie = false;
             }
             else {
-                if ($cookie) {
+                if ($cookie == true) {
                     $pseudo = $_SESSION["username"];
                     require './connexion_db.php';
                     $score++;
@@ -76,6 +76,7 @@ else {
         $score = 0;
         $requete = "UPDATE user SET current_time_trial = '$score' WHERE username = '$pseudo'";
         $resultat = mysqli_query($connexion, $requete); //Executer la requete
+        $cookie = false;
         $d = $time_left * 5;
         $sw = .1 * $d;
         $r = .5 * ($d - $sw);
@@ -237,9 +238,6 @@ ${formatTime(timeLeft)}
             setcookie("time_lvl", "0", 61000);
         }
 
-
-        $seed = time();
-        $colours = time()%5 + 1;
         $tab = array();
         $green = false;
         $purple = false;
@@ -247,13 +245,25 @@ ${formatTime(timeLeft)}
         $blue = false;
         $bestScoreAll = getBestScoreAll();
 
-        if ($score > $bestScoreAll) {
+        if ($score <= $bestScoreAll) { // Si le niveau existe deja dans level_time_trial.json
             $json = file_get_contents('../json/level_time_trial.json');
             $data = json_decode($json, false);
-            $tab = $data->Niv.$score->level;
-
+            $id = "Niv".strval($score+1);
+            $tab = $data->$id->level;
+            $colours = 0;
+            foreach ($tab as $cle=>$val) {
+                $split =  str_split($val);
+                foreach ($split as $clef=>$vale) {
+                    if ($vale == 'r' || $vale == 'b' || $vale == 'g' || $vale == 'y' || $vale == 'p') {
+                        $colours++;
+                    }
+                }
+            }
         }
-        else {
+
+        else { // Sinon il faut creer un nouveau niveau
+            $seed = time();
+            $colours = time()%5 + 1;
             if (DIRECTORY_SEPARATOR == '\\') {
                 exec("randomGenerate.exe $seed $colours", $tab);
             } else {
@@ -261,7 +271,13 @@ ${formatTime(timeLeft)}
                 exec("./randomGenerate $seed $colours", $tab);
             }
         }
+
         $size = count($tab);
+        $red = false;
+        $green = false;
+        $purple = false;
+        $yellow = false;
+        $blue = false;
 
         echo "<table id='tableau'>";
         for ($colonne = 0; $colonne < $size; $colonne++){
@@ -424,11 +440,6 @@ ${formatTime(timeLeft)}
 
                     }
 
-
-
-
-
-
                 }
                 else{
                     echo "<td class='invisible tab' id=0>".$tab[$colonne][$ligne]."</td>";
@@ -438,7 +449,9 @@ ${formatTime(timeLeft)}
         }
         echo "</table>";
         echo "</div>";
-        echo "<div class='seed'>$seed</div>";
+        if (isset($seed)) {
+            echo "<div class='seed'>$seed</div>";
+        }
         $clear="clearr()";
         if($blue == true) $clear= $clear.";clearb()";
         if($purple == true) $clear= $clear.";clearp()";

@@ -77,7 +77,6 @@
             $row = mysqli_fetch_assoc($resultat2);
             if (isset($row["history_lvl"])){
                 if ($decrypted_id > $row["history_lvl"]) {
-
                     $requete = "UPDATE user SET history_lvl='$decrypted_id' WHERE username='$_SESSION[username]'";
                     $resultat = mysqli_query($connexion, $requete);
                     if ($resultat == false) {
