@@ -14,6 +14,7 @@ table{
     border : 0.1vw solid black;
     width: 70vh;
     height: 70vh;
+
     
 }
 
@@ -97,7 +98,10 @@ table td{
 .EZ .r,.EZ .g,.EZ .b,.EZ .p,.EZ .y{
     height: 6vw;
     width: 6vw;
+    margin-bottom: 2vw;
 }
+
+
 .EZ .r:hover,.EZ .g:hover,.EZ .b:hover,.EZ .p:hover,.EZ .y:hover{
     cursor: grab;
 }
@@ -162,38 +166,69 @@ td{
     font-size: 1.2vw;
 }
 .export{
+    text-align: center;
     width: 30vw;
-    height: 8vw;
+    height: 20vw;
     background-color: #e3e3e3;
     margin: auto;
-    margin-top: 13%;
-    padding-top: 3.25vh;
-    padding-left: 4vw;
+    margin-top: 10vw;
+    
+
     box-shadow: 0 0 1vw 0 rgba(0,0,0,0.75);
     -webkit-box-shadow: 0 0 1vw 0 rgba(0,0,0,0.75);
     -moz-box-shadow: 0 0 1vw 0 rgba(0,0,0,0.75);
+}
+
+#lvllabel{
+    font-size: 1.4vw;
+}
+#lvlName{
+    border: none;
+    border-bottom: 0.2vw black solid;
+    background-color: #e3e3e3;
+    padding-top: 1vw;
+    font-size: 1.4vw;
+}
+#lvlName:focus{
+    border: none;
+    outline-style: none;
+    border-bottom: 0.2vw black solid;
+}
+#download{
+    margin-top: 5vw;
+    font-size: 1.4vw;
+    padding: 1vw;
+    border-radius: 2vw;
+    background-color: #e3e3e3;
+}
+#download:hover{
+    cursor: pointer;
+    background-color: black;
+    color: #e3e3e3;
+}
+#closeExporter{
+    float: right;
+    transition: transform 0.43s;
+    width: 3vw;
+    height: 3vw;
+    z-index: 10;
+    filter: invert(12%) sepia(94%) saturate(7289%) hue-rotate(0deg) brightness(110%) contrast(107%);
+}
+#closeExporter:hover{
+    cursor: pointer;
+    transform: rotate(90deg);
 }
 #center {
     vertical-align: auto;
     horiz-align: center;
     margin: auto;
+    padding-top: 3.5vw;
+
 }
 
-#closeExporter{
-    position: relative;
-    bottom: 1vw;
-    left: 27vw;
-    width: 2vw;
-    height: 2vw;
-    transition: transform 0.43s;
-    z-index: 10;
-    filter: invert(12%) sepia(94%) saturate(7289%) hue-rotate(0deg) brightness(110%) contrast(107%);
-}
 
-#closeExporter:hover{
-    cursor: pointer;
-    transform: rotate(90deg);
-}
+
+
 
 #colorlist{
     float: right;
@@ -208,21 +243,28 @@ td{
 }
 
 #export, #buttonTuto{
-    margin-top: 2vw;
     display: block;
     margin-left: auto;
     margin-right: auto;
     font-size: 2vh;
     width: 6vw;
+    padding: 0.5vw;
     border: solid 0.1vw black;
     border-radius: 2vw;
 }
+
+
+
 #buttonTuto{
-    margin-top: 5vw;
+    margin-top: 12vw;
 }
 
 #export:hover,#buttonTuto:hover{
     cursor: pointer;
+    background-color: black;
+    color: #e3e3e3;
+
+
 }
 
 .tuto, .tuto2{
@@ -231,11 +273,11 @@ td{
     margin-left: auto;
     margin-right: auto;
     margin-top: 1vw;
-    background-color: lightgrey;
+    background-color: #e3e3e3;
     padding: 1vw;
 }
 #tuto{
-    width: 100%;
+    width: 140vh;
 }
 #close_tuto{
     position: absolute;
@@ -248,4 +290,57 @@ td{
 #close_tuto:hover{
     cursor: pointer;
     transform: rotate(90deg);
+}
+#colorlist div{
+    float: left;
+ }
+@media only screen and ( max-width: 800px){
+    .tuto, .tuto2{
+        width: 60vh;
+    }
+    #tuto{
+        width: 60vh;
+    }
+    #close_tuto{
+        margin-left: 53vh;
+    }
+
+}
+@media only screen and ( max-width: 740px){
+
+    #colorlist{
+        
+       position: unset;
+       width: 45vw;
+       height: 6vw;
+       margin-top: 2vw;
+       margin-bottom: 0vw;
+       margin-left: auto;
+       float:unset;
+       border-radius: 1vw;
+       
+       
+    }
+    #export{
+        margin-left: 17vw
+    }
+    #buttonTuto{
+        margin-left: 23vw
+    }
+    #export,#buttonTuto{
+        background-color: #e3e3e3;
+        margin-top: 0.9vw;
+        width: 10vw;
+        padding: 1vw;
+        font-size: 2vw;
+        -moz-user-select: none; /* Firefox */
+        -webkit-user-select: none; /* Chrome, Safari, Opéra depuis la version 15 */
+        -ms-user-select: none; /* Internet explorer depuis la version 10 et Edge */
+        user-select: none; /* Propriété standard */
+
+    }
+
+
+
+
 }
