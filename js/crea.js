@@ -221,6 +221,17 @@ function contenu(){
             deplacement_color = true;
             
         }
+
+        //Permet de supprimer les bugs éventuels
+        boite = document.querySelectorAll('.case');
+        for (let i = 0; i < boite.length; i++) {
+            if((!(boite[i].classList.contains("valid"))) && boite[i].id !== '0' && (!(boite[i].classList.contains("colors"))))
+            {
+                boite[i].id = '0';
+                boite[i].classList = "case";
+            }
+        }
+
        
 
     }
@@ -377,18 +388,17 @@ function contenu(){
             this.classList += " deplacements";
             this.classList += " colors";
             
-            
             if(!deplacement_color){
-                if(nowc === 'r'){
+                if(nowc === 'r' && (document.querySelector(".colors.g") === null) ){
                     document.querySelector('.g.drag').classList.remove('disparition');
                 }
-                else if(nowc === 'g'){
+                else if(nowc === 'g' && (document.querySelector(".colors.b") === null)){
                     document.querySelector('.b.drag').classList.remove('disparition');
                 }
-                else if(nowc === 'b'){
+                else if(nowc === 'b' && (document.querySelector(".colors.y") === null)){
                     document.querySelector('.y.drag').classList.remove('disparition');
                 }
-                else if(nowc === 'y'){
+                else if(nowc === 'y' && (document.querySelector(".colors.p") === null)){
                     document.querySelector('.p.drag').classList.remove('disparition');
                 }
             }
@@ -406,8 +416,6 @@ function contenu(){
                         document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex-1].classList += ' okay';
                     }
                 }
-
-            
             }
             if (this.cellIndex + 1 < (document.getElementById("tableau_crea").rows[this.parentNode.rowIndex].cells.length) && this.cellIndex + 1 >= 0) { //cel + 1D
                 //DROITE
@@ -417,8 +425,7 @@ function contenu(){
                     if(!(document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex+1].classList.contains('okay'))){
                         document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex].cells[this.cellIndex+1].classList += ' okay';
                     }
-                }
-                
+                }   
             }
             if (this.parentNode.rowIndex - 1 < (document.getElementById("tableau_crea").rows.length) && this.parentNode.rowIndex - 1 >= 0) {
                 //HAUT
@@ -428,7 +435,6 @@ function contenu(){
                         document.getElementById('tableau_crea').getElementsByTagName('tr')[this.parentNode.rowIndex - 1].cells[this.cellIndex].classList += ' okay';
                     }
                 }
-                
             }
             if (this.parentNode.rowIndex + 1 < (document.getElementById("tableau_crea").rows.length) && this.parentNode.rowIndex + 1 >= 0) {
                 //BAS
@@ -440,8 +446,6 @@ function contenu(){
                 }
                 
             }
-
-
         }
         else{
             if(this.classList.contains('r')){
@@ -465,6 +469,15 @@ function contenu(){
                 newc = 'p';
             }
         }
+        //Permet de supprimer les bugs éventuels
+        boite = document.querySelectorAll('.case');
+        for (let i = 0; i < boite.length; i++) {
+            if((!(boite[i].classList.contains("valid"))) && boite[i].id !== '0' && (!(boite[i].classList.contains("colors"))))
+            {
+                boite[i].id = '0';
+                boite[i].classList = "case";
+            }
+        }
     }
 
     function increaseNum(){
@@ -472,21 +485,14 @@ function contenu(){
             if(this.id !== 'r' && this.id !== 'b' && this.id !== 'g' && this.id !== 'p' && this.id !== 'y' && (this.classList.contains('okay') || this.classList.contains('valid')) && !(this.classList.contains('used')))
             {
                 deplacement_color = false;
-                
                 est_nouveau = true;
                 blockerlvl = false;
-
                 nouvellecase = false;
-
                 let lvl = parseInt(this.id);
                 if(this !== chemin[0] && chemin.indexOf(this) === -1 && (cheminR.indexOf(this) === -1) && (cheminG.indexOf(this) === -1) && (cheminB.indexOf(this) === -1) && (cheminP.indexOf(this) === -1) && (cheminY.indexOf(this) === -1)){
                     chemin[0].setAttribute("draggable",false);
                     chemin.unshift(this);
-                    nouvellecase = true;
-                    
-                    
-                    
-                    
+                    nouvellecase = true;   
                 }
                 if(lvl !== 9){
                     if(lvl < chemin[1].id){
@@ -518,10 +524,7 @@ function contenu(){
                                 blockerlvl = true;
                             }
                         }
-
-
-                    }
-                    
+                    }     
                     this.innerHTML = lvl;
                     this.id = lvl;
                     if(!this.classList.contains('valid')){
@@ -1029,13 +1032,7 @@ function install() {
         Fexporter.name = filename;
         filename += ".json";
     }
-    
     fichier = JSON.stringify(Fexporter)
     download(filename, fichier);
     filename=Fexporter.name;
-
 }
-
-
-
-

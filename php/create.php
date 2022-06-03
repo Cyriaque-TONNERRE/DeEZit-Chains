@@ -1,8 +1,62 @@
 <?php require './header.php';
 $err = "";
 
+function est_vrai_chiffre($val){
+    if($val == '1' ||$val == '2' ||$val == '3' ||$val == '4' ||$val == '5' ||$val == '6' ||$val == '7' ||$val == '8' ||$val == '9'){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+function voisinsCheck($tab,$x,$y,$size){
+    $gauche = false;
+    $droite = false;
+    $haut = false;
+    $bas = false;
+    if(($size > $x) && ($x >= 1)){
+        //Valeur Gauche
+        $gauche = $tab[$x - 1][$y];
+    }
+    if((0 <= $x) && ($x < $size - 1)){
+        //Valeur Droite
+        $droite = $tab[$x + 1][$y];
+    }
+    if(($y >= 1) && ($y > $size)){
+        //Valeur Haut
+        $haut = $tab[$x][$y - 1];
+    }
+    if((0 <= $y) && ($y < $size - 1)){
+        //Valeur bas
+        $bas = $tab[$x][$y + 1];
+    }
+    if($gauche != false){
+        if(est_vrai_chiffre($gauche)){
+            return true;
+        }
+    }
+    if($droite != false){
+        if(est_vrai_chiffre($droite)){
+            return true;
+        }
+    }
+    if($haut != false){
+        if(est_vrai_chiffre($haut)){
+            return true;
+        }
+    }
+    if($bas != false){
+        if(est_vrai_chiffre($bas)){
+            return true;
+        }
+    }
+    return false;
+    
+}
+
 if(isset($_POST["submit"])){
     $err = "";
+    $neighbour = false;
     if(isset($_FILES["fichier"]) && ($_FILES["fichier"]["error"] == 0)){
         if(($_FILES["fichier"]["type"] == "application/json")){
             if($_FILES["fichier"]["size"] < 1000000){
@@ -17,12 +71,40 @@ if(isset($_POST["submit"])){
                     $tab = $data->level;
                     $size = count($tab);
                     foreach ($tab as $cle=>$val) {
-                        if(count(str_split($val)) != $size){
+                        if((count(str_split($val)) != $size) || $size > 10){
+                            $err = "File is not compatible.";
+                            unlink($nomfichier);
                             $valid = false;
                         }
                     }
                     if($valid){
-                        header("Location:importgame.php?id=$nomfichier");
+                        $realisable = false;
+                        $colorlist = array("r","g","b","p","y");
+                        foreach ($tab as $cle=>$val) {
+                            if($realisable == false){
+                                foreach ($colorlist as $key=>$col) {           
+                                    if(strpos($val,$col) !== false && $realisable == false){
+                                        if(!(voisinsCheck($tab,strpos($val,$col),$cle,$size))){
+                                            $err = "Level is not possible.";
+                                            $valid = false;
+                                        }
+                                        else{
+                                            $realisable = true;
+                                        }
+                                    }
+                                }
+                            }
+                            
+                        }
+                        if($realisable == false){
+                            unlink($nomfichier);
+                            $err = "Level is not possible.";
+                            $valid = false;
+                        }
+                        if($valid){
+                            header("Location:importgame.php?id=$nomfichier");
+                        }
+                        
                     }
                     else{
                         $err = "File is not compatible.";
