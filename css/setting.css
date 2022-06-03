@@ -66,8 +66,8 @@
     width: 1.4vw; /* Set a specific slider handle width */
     height: 1.4vw; /* Slider handle height */
     background: #36b24d; /* Green background */
+    border-radius: 0.5vw;
     cursor: pointer; /* Cursor on hover */
-    border-radius: 1vw;
 }
 
 #Sound::-moz-range-thumb {
