@@ -386,10 +386,10 @@ function contenu(){
                     document.querySelector('.b.drag').classList.remove('disparition');
                 }
                 else if(nowc === 'b'){
-                    document.querySelector('.p.drag').classList.remove('disparition');
-                }
-                else if(nowc === 'p'){
                     document.querySelector('.y.drag').classList.remove('disparition');
+                }
+                else if(nowc === 'y'){
+                    document.querySelector('.p.drag').classList.remove('disparition');
                 }
             }
             
@@ -456,13 +456,13 @@ function contenu(){
                 nowc = 'b';
                 newc = 'b';
             }
-            else if(this.classList.contains('p')){
-                nowc = 'p';
-                newc = 'p';
-            }
             else if(this.classList.contains('y')){
                 nowc = 'y';
                 newc = 'y';
+            }
+            else if(this.classList.contains('p')){
+                nowc = 'p';
+                newc = 'p';
             }
         }
     }
@@ -887,16 +887,16 @@ function retirer_chiffres(elem){
 function delete_case(){
     if(this.id === 'r' || this.id == 'g' || this.id === 'b' || this.id === 'p' || this.id === 'y'){
 
-        if(this.id === 'y'){
+        if(this.id === 'p'){
             supression_couleur(this);
             chemin = [];
             cheminY = [];
         }
-        else if(this.id === 'p'){
+        else if(this.id === 'y'){
             chemin = [];
-            if(document.querySelector('.y.colors')){
-                retirer_chiffres(document.querySelector('.y.colors'));
-                supression_couleur(document.querySelector('.y.colors'));
+            if(document.querySelector('.p.colors')){
+                retirer_chiffres(document.querySelector('.p.colors'));
+                supression_couleur(document.querySelector('.p.colors'));
             }
             supression_couleur(this);
             
@@ -1032,6 +1032,7 @@ function install() {
     
     fichier = JSON.stringify(Fexporter)
     download(filename, fichier);
+    filename=Fexporter.name;
 
 }
 

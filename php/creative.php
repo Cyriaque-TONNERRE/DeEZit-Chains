@@ -50,33 +50,37 @@ require 'header.php';
             <div draggable="true" class='b drag' id='b'>
 
             </div>
-            <div draggable="true" class='p drag' id='p'>
-
-            </div>
             <div draggable="true" class='y drag' id='y'>
 
             </div>
+            <div draggable="true" class='p drag' id='p'>
+
+            </div>
+
+            <button id = 'export' onclick='exporter()'>Export</button>
+             <button id='buttonTuto' onclick='tutoHide()'>Tutorial</button>
+
+
+            
+            
         </div>
 
-
-        <button id = 'export' onclick='exporter()'>Exporter</button>
-        <button id='buttonTuto' onclick='tutoHide()'>Tutoriel</button>
+        
+        
         
 
 
         
     </div>
         <section>
-    <div class = "export disparition" id="exportationLvl">
-       <img src="../image/xmark-solid.svg" alt="croix" id="closeExporter" onclick="closeExporter()"/>
-        <div id="center">
-        <label for="levelName">Level Name : </label>
-        <input type="text" id="lvlName" value="levelExport">
-        <button id='download' onclick='install()'>download</button>
-        
-        </div>
-
-    </div>
+            <div class = "export disparition" id="exportationLvl">
+            <img src="../image/xmark-solid.svg" alt="croix" id="closeExporter" onclick="closeExporter()"/>
+                <div id="center">
+                    <label for="levelName" id="lvllabel">Level Name :</label><br>
+                    <input type="text" id="lvlName" value="levelExport"><br>
+                    <button id='download' onclick='install()'>download</button>
+                </div>
+            </div>
         </section>
     </main>
 	<script src="../js/crea.js"></script>
