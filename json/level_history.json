@@ -200,35 +200,32 @@
     "name": "Level 17",
     "author": "Ez Team",
     "level": [
-      "2221111",
-      "2001111",
-      "1b001g0",
-      "11p2330",
-      "11r2540",
-      "2441100",
-      "3355y00"
+      "00r02",
+      "21132",
+      "b333g",
+      "11112",
+      "00y04"
     ]
   },
   "Niv18" : {
     "name": "Level 18",
     "author": "Ez Team",
     "level": [
-      "3220",
-      "2yr0",
-      "4b34",
-      "6705"
+      "514r",
+      "4b22",
+      "2323",
+      "g2y3"
     ]
   },
   "Niv19" : {
     "name": "Level 19",
     "author": "Ez Team",
     "level": [
-      "322123",
-      "32yr1b",
-      "222222",
-      "000000",
-      "000000",
-      "000000"
+      "333rg",
+      "22022",
+      "y4434",
+      "54044",
+      "53b55"
     ]
   },
   "Niv20" : {
@@ -242,6 +239,269 @@
       "111y221",
       "0011200",
       "0001000"
+    ]
+  },
+  "Niv21" : {
+    "name": "Level 21",
+    "author": "Ez Team",
+    "level": [
+      "111r00000",
+      "100000000",
+      "1p1000000",
+      "1000b1110",
+      "111100010",
+      "000001y00",
+      "000001000",
+      "000010000",
+      "0000111g0"
+    ]
+  },
+  "Niv22" : {
+    "name": "Level 22",
+    "author": "Ez Team",
+    "level": [
+      "11b2221",
+      "1002001",
+      "10y2201",
+      "121r1g1",
+      "2011202",
+      "2001002",
+      "2211p12"
+    ]
+  },
+  "Niv23" : {
+    "name": "Level 23",
+    "author": "Ez Team",
+    "level": [
+      "311116",
+      "310pb6",
+      "1g014r",
+      "12y115",
+      "000000",
+      "000000"
+    ]
+  },
+  "Niv24" : {
+    "name": "Level 24",
+    "author": "Ez Team",
+    "level": [
+      "0r120",
+      "2121b",
+      "g1212",
+      "2222y",
+      "0p120"
+    ]
+  },
+  "Niv25" : {
+    "name": "Level 25",
+    "author": "Ez Team",
+    "level": [
+      "121r34",
+      "11132g",
+      "222111",
+      "23211b",
+      "p333y4",
+      "112233"
+    ]
+  },
+  "Niv26" : {
+    "name": "Level 26",
+    "author": "Ez Team",
+    "level": [
+      "2r222",
+      "21202",
+      "2330g",
+      "b2222",
+      "00000"
+    ]
+  },
+  "Niv27" : {
+    "name": "Level 27",
+    "author": "Ez Team",
+    "level": [
+      "2221111",
+      "2001111",
+      "1b001g0",
+      "11p2330",
+      "11r2540",
+      "2441100",
+      "3355y00"
+    ]
+  },
+  "Niv28" : {
+    "name": "Level 28",
+    "author": "Ez Team",
+    "level": [
+      "322123",
+      "32rg1b",
+      "222222",
+      "000000",
+      "000000",
+      "000000"
+    ]
+  },
+  "Niv29" : {
+    "name": "Level 29",
+    "author": "Ez Team",
+    "level": [
+      "332r1g",
+      "2p4324",
+      "250043",
+      "25543y",
+      "33332b",
+      "000000"
+    ]
+  },
+  "Niv30" : {
+    "name": "Level 30",
+    "author": "Ez Team",
+    "level": [
+      "003g00",
+      "032110",
+      "12222r",
+      "y31111",
+      "031330",
+      "00b300"
+    ]
+  },
+  "Niv31" : {
+    "name": "Level 31",
+    "author": "Ez Team",
+    "level": [
+
+    ]
+  },
+  "Niv32" : {
+    "name": "Level 32",
+    "author": "Ez Team",
+    "level": [
+
+    ]
+  },
+  "Niv33" : {
+    "name": "Level 33",
+    "author": "Ez Team",
+    "level": [
+
+    ]
+  },
+  "Niv34" : {
+    "name": "Level 34",
+    "author": "Ez Team",
+    "level": [
+
+    ]
+  },
+  "Niv35" : {
+    "name": "Level 35",
+    "author": "Ez Team",
+    "level": [
+
+    ]
+  },
+  "Niv36" : {
+    "name": "Level 36",
+    "author": "Ez Team",
+    "level": [
+
+    ]
+  },
+  "Niv37" : {
+    "name": "Level 37",
+    "author": "Ez Team",
+    "level": [
+
+    ]
+  },
+  "Niv38" : {
+    "name": "Level 38",
+    "author": "Ez Team",
+    "level": [
+
+    ]
+  },
+  "Niv39" : {
+    "name": "Level 39",
+    "author": "Ez Team",
+    "level": [
+
+    ]
+  },
+  "Niv40" : {
+    "name": "Level 40",
+    "author": "Ez Team",
+    "level": [
+
+    ]
+  },
+  "Niv41" : {
+    "name": "Level 41",
+    "author": "Ez Team",
+    "level": [
+
+    ]
+  },
+  "Niv42" : {
+    "name": "Level 42",
+    "author": "Ez Team",
+    "level": [
+
+    ]
+  },
+  "Niv43" : {
+    "name": "Level 43",
+    "author": "Ez Team",
+    "level": [
+
+    ]
+  },
+  "Niv44" : {
+    "name": "Level 44",
+    "author": "Ez Team",
+    "level": [
+
+    ]
+  },
+  "Niv45" : {
+    "name": "Level 45",
+    "author": "Ez Team",
+    "level": [
+
+    ]
+  },
+  "Niv46" : {
+    "name": "Level 46",
+    "author": "Ez Team",
+    "level": [
+
+    ]
+  },
+  "Niv47" : {
+    "name": "Level 47",
+    "author": "Ez Team",
+    "level": [
+
+    ]
+  },
+  "Niv48" : {
+    "name": "Level 48",
+    "author": "Ez Team",
+    "level": [
+
+    ]
+  },
+  "Niv49" : {
+    "name": "Level 49",
+    "author": "Ez Team",
+    "level": [
+
+    ]
+  },
+  "Niv50" : {
+    "name": "Level 50",
+    "author": "Ez Team",
+    "level": [
+
     ]
   }
 }

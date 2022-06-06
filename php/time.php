@@ -244,11 +244,10 @@ ${formatTime(timeLeft)}
         $yellow = false;
         $blue = false;
         $bestScoreAll = getBestScoreAll();
-
+        $id = "Niv".strval($score+1);
         if ($score <= $bestScoreAll) { // Si le niveau existe deja dans level_time_trial.json
             $json = file_get_contents('../json/level_time_trial.json');
             $data = json_decode($json, false);
-            $id = "Niv".strval($score+1);
             $tab = $data->$id->level;
             $colours = 0;
             foreach ($tab as $cle=>$val) {
@@ -270,8 +269,18 @@ ${formatTime(timeLeft)}
                 exec("chmod a+x ./randomGenerate");
                 exec("./randomGenerate $seed $colours", $tab);
             }
+            ?>
+            <script>
+                var $id = {
+                    name: 'Level'.$id,
+                    author: $pseudo,
+                    level: $tab
+                };
+                var toJson = JSON.stringify($id);
+                localStorage.setItem("level_time_trial", toJson);
+            </script>";
+            <?php
         }
-
         $size = count($tab);
         $red = false;
         $green = false;
