@@ -5,7 +5,9 @@
     padding: 0px;
 }
 
-
+.disparition{
+    display: none;
+}
 /*Fonts*/
 
 @font-face {
@@ -251,5 +253,30 @@ table {
 
 .active{
     color: white;
+}
+
+#tuto{
+    width: 140vh;
+}
+.tuto{
+    height: auto;
+    width: 140vh;
+
+    margin-top: 2vw;
+    background-color: #e3e3e3;
+    padding: 1vw;
+    z-index: 12;
+}
+#close_tuto{
+    position: absolute;
+    margin-left: 133vh;
+    z-index: 10;
+    filter: invert(12%) sepia(94%) saturate(7289%) hue-rotate(0deg) brightness(110%) contrast(107%);
+    width: 5vh;
+    transition: transform 0.43s;
+}
+#close_tuto:hover{
+    cursor: pointer;
+    transform: rotate(90deg);
 }
 
