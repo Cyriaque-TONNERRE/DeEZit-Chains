@@ -143,11 +143,11 @@ if(isset($_POST["submit"]) || isset($_FILES["fichier"])){
     }
 }
 
+if($err != ""){
+    echo "<div class='error'>$err</div>";
+}
 ?>
 
-<div class="error">
-    <?php echo $err; ?>
-</div>
 
 <script>
     function pushform(){
