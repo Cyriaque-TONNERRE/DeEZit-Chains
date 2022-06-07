@@ -339,7 +339,7 @@ $lst_tuto = array("tuto1.jpeg","tuto2.jpeg","tuto3.jpeg",0,0,"tuto4.jpeg","tuto5
 
         echo "<a href='history.php' class='back align-left bouton'><i class='fa-solid fa-arrow-left'></i> Back</a>";
         echo "<button id='reset' class='bouton' onclick='$clear'>reset</button>";
-        echo "<div class='score bouton' id='score'>Level : $decrypted_id;</div>";
+        echo "<div class='score bouton' id='score'>Level : $decrypted_id</div>";
 
 
         ?>
