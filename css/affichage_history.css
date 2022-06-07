@@ -236,6 +236,18 @@ table {
 
 }
 
+#reset{
+    background-color: #eed6b4;
+    border: 0.3vw gold solid;
+    border-radius: 1.5vw;
+    padding: 1vw;
+    text-decoration: none;
+    color: black;
+    font-family: rounded, serif;
+    font-size: 1.5vw;
+    margin-left: 1vw;
+}
+
 .back:hover {
     background-color: #f6c157;
 }
@@ -262,7 +274,7 @@ table {
     height: auto;
     width: 140vh;
 
-    margin-top: 2vw;
+    margin-top: 3vw;
     background-color: #e3e3e3;
     padding: 1vw;
     z-index: 12;
