@@ -246,7 +246,7 @@ ${formatTime(timeLeft)}
         $blue = false;
         $bestScoreAll = getBestScoreAll();
         $id = "Niv".strval($score+1);
-        if ($score <= $bestScoreAll) { // Si le niveau existe deja dans level_time_trial.json
+        if ($score <= $bestScoreAll && $score!=0) { // Si le niveau existe deja dans level_time_trial.json
             $json = file_get_contents('../json/level_time_trial.json');
             $data = json_decode($json, false);
             $tab = $data->$id->level;
