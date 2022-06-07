@@ -125,10 +125,18 @@ table {
     padding: 0.6vw;
     animation: ease-in-out 0.5s;
 }
-#center {
-    vertical-align: auto;
-    horiz-align: center;
+.export{
+    text-align: center;
+    width: 30vw;
+    height: 20vw;
+    background-color: #e3e3e3;
     margin: auto;
+    margin-top: 10vw;
+    
+
+    box-shadow: 0 0 1vw 0 rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0 0 1vw 0 rgba(0,0,0,0.75);
+    -moz-box-shadow: 0 0 1vw 0 rgba(0,0,0,0.75);
 }
 
 
@@ -158,35 +166,51 @@ table {
     transition: 0.5s;
 }
 
-.export{
-    width: 30vw;
-    height: 8vw;
-    background-color: #e3e3e3;
-    margin: auto;
-    margin-top: 13%;
-    padding-top: 3.25vh;
-    padding-left: 4vw;
-    box-shadow: 0 0 1vw 0 rgba(0,0,0,0.75);
-    -webkit-box-shadow: 0 0 1vw 0 rgba(0,0,0,0.75);
-    -moz-box-shadow: 0 0 1vw 0 rgba(0,0,0,0.75);
+#lvllabel{
+    font-size: 1.4vw;
 }
-
+#lvlName{
+    border: none;
+    border-bottom: 0.2vw black solid;
+    background-color: #e3e3e3;
+    padding-top: 1vw;
+    font-size: 1.4vw;
+}
+#lvlName:focus{
+    border: none;
+    outline-style: none;
+    border-bottom: 0.2vw black solid;
+}
+#download{
+    margin-top: 5vw;
+    font-size: 1.4vw;
+    padding: 1vw;
+    border-radius: 2vw;
+    background-color: #e3e3e3;
+}
+#download:hover{
+    cursor: pointer;
+    background-color: black;
+    color: #e3e3e3;
+}
 #closeExporter{
-    position: relative;
-    bottom: 1vw;
-    left: 27vw;
-    width: 2vw;
-    height: 2vw;
+    float: right;
     transition: transform 0.43s;
+    width: 3vw;
+    height: 3vw;
     z-index: 10;
     filter: invert(12%) sepia(94%) saturate(7289%) hue-rotate(0deg) brightness(110%) contrast(107%);
 }
-
 #closeExporter:hover{
     cursor: pointer;
     transform: rotate(90deg);
 }
+#center {
+    vertical-align: auto;
+    margin: auto;
+    padding-top: 3.5vw;
 
+}
 .gauche {
     /*border-left: 2px solid var(--orange-LBB);*/
 }
