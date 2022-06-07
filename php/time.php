@@ -32,6 +32,7 @@ else {
             die();
         }
         $row = mysqli_fetch_array($resultat);
+        echo $row["time_trial"];
         return $row["time_trial"];
     }
 
@@ -69,7 +70,7 @@ else {
             }
         }
     } else {
-        $time_left = 600; // Valeur a modifier pour remettre le bon timer (600 pour 10 min)
+        $time_left = 60; // Valeur a modifier pour remettre le bon timer (600 pour 10 min)
         //reset tout
         $pseudo = $_SESSION["username"];
         require './connexion_db.php';
@@ -269,17 +270,27 @@ ${formatTime(timeLeft)}
                 exec("chmod a+x ./randomGenerate");
                 exec("./randomGenerate $seed $colours", $tab);
             }
-            ?>
-            <script>
-                var $id = {
-                    name: 'Level'.$id,
-                    author: $pseudo,
-                    level: $tab
-                };
-                var toJson = JSON.stringify($id);
-                localStorage.setItem("level_time_trial", toJson);
-            </script>";
-            <?php
+
+            function fileWriteAppend($id,$pseudo,$tab,$score){ //fonction pour écrire dans le fichier json
+                $current_data = file_get_contents('../json/level_time_trial.json');
+                $array_data = json_decode($current_data, true);
+                $extra = array(
+                     'name' =>  'Level '.($score+1),
+                     'author'   =>  $pseudo,
+                     'level'    => $tab            
+        
+                );
+                $array_data[$id] = $extra;
+                $final_data = json_encode($array_data);
+                return $final_data;
+            }
+            $final_data=fileWriteAppend($id,$pseudo,$tab,$score);
+            if(file_put_contents('../json/level_time_trial.json', $final_data))
+            {
+                 $message = "<label class='text-success'>Data added Success fully</p>";
+            }
+            
+
         }
         $size = count($tab);
         $red = false;
