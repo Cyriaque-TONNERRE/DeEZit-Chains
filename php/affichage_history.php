@@ -1,4 +1,6 @@
-<?php require './header.php'; ?>
+<?php require './header.php'; 
+$lst_tuto = array("tuto1.jpeg","tuto2.jpeg","tuto3.jpeg",0,0,"tuto4.jpeg","tuto5.jpeg",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+?>
 <main>
 <script src='../js/gestionTuto.js'></script>
     
@@ -69,7 +71,9 @@
         ];
 
         $id = "Niv".array_search($_GET["id"],$crypt);
-        $decrypted_id = array_search($_GET["id"],$crypt);?>
+        $decrypted_id = array_search($_GET["id"],$crypt);
+
+        ?>
         <?php
         if (isset($_SESSION["username"])) {
             include("connexion_db.php");
@@ -122,11 +126,10 @@
 
         
         
-        if(true){
-           
+        if($lst_tuto[intval($decrypted_id) - 1] !== 0){
             echo "<div class='tuto'>
             <img src='../image/xmark-solid.svg' alt='Croix' id='close_tuto' draggable='false' onclick='closeTuto()'/>
-            <img id='tuto' alt='tuto' draggable='false' src='../tuto/tuto1.jpeg'>
+            <img id='tuto' alt='tuto' draggable='false' src='../tuto/".$lst_tuto[intval($decrypted_id) - 1]."'>
             </div>
             <table id='tableau' class='disparition' draggable='false'>";
         }

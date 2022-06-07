@@ -237,7 +237,7 @@ function dragLeaver() {
         if (URL.includes("affichage_history.php")) {
             number = URL.substring(URL.indexOf('=') + 1);
             document.cookie = `id=${number}; expires=${new Date(new Date().getTime() + 2000).toUTCString()}; path=/`;
-            //document.location.href = "redirect.php?id=" + number;
+            document.location.href = "redirect.php?id=" + number;
         } 
         else if(URL.includes("importgame.php")){
             document.location.href = "create.php";
@@ -290,7 +290,7 @@ function dragDrop() {
         if (URL.includes("affichage_history.php")) {
             number = URL.substring(URL.indexOf('=') + 1);
             document.cookie = `id=${number}; expires=${new Date(new Date().getTime() + 2000).toUTCString()}; path=/`;
-            //document.location.href = "redirect.php?id=" + number;
+            document.location.href = "redirect.php?id=" + number;
         } 
         else if(URL.includes("importgame.php")){
             document.location.href = "create.php";
