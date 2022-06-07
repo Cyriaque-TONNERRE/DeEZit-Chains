@@ -1,6 +1,7 @@
 <?php require './header.php'; ?>
 <main>
-    <a href='history.php' class='back align-left'><i class='fa-solid fa-arrow-left'></i> Back</a>
+<script src='../js/gestionTuto.js'></script>
+    
     <div class="game">
 
         <?php
@@ -69,7 +70,7 @@
 
         $id = "Niv".array_search($_GET["id"],$crypt);
         $decrypted_id = array_search($_GET["id"],$crypt);?>
-        <div class="score" id="score">Level : <?php echo $decrypted_id; ?></div><?php
+        <?php
         if (isset($_SESSION["username"])) {
             include("connexion_db.php");
             $requete2 = "SELECT * FROM user where username='$_SESSION[username]'";
@@ -116,8 +117,23 @@
                 }
             }
         }
+        
+       
 
-        echo "<table id='tableau' draggable='false'>";
+        
+        
+        if(true){
+           
+            echo "<div class='tuto'>
+            <img src='../image/xmark-solid.svg' alt='Croix' id='close_tuto' draggable='false' onclick='closeTuto()'/>
+            <img id='tuto' alt='tuto' draggable='false' src='../tuto/tuto1.jpeg'>
+            </div>
+            <table id='tableau' class='disparition' draggable='false'>";
+        }
+        else{
+            echo "<table id='tableau' draggable='false'>";
+        }
+        
         for ($colonne = 0; $colonne < $size; $colonne++){
             echo "<tr>";
             for ($ligne = 0; $ligne < $size; $ligne++){
@@ -292,7 +308,7 @@
         if($purple == true) $clear= $clear.";clearp()";
         if($yellow == true) $clear= $clear.";cleary()";
         if($green == true) $clear= $clear.";clearg()";
-        echo "<button id='reset' onclick='$clear'>reset</button>";
+        
 
 
         echo "<script src='../js/red.js'></script>";
@@ -316,6 +332,12 @@
         if ($green == true) {
             echo "<script src='../js/green.js'></script>";
         }
+
+
+        echo "<a href='history.php' class='back align-left bouton'><i class='fa-solid fa-arrow-left'></i> Back</a>";
+        echo "<button id='reset' class='bouton' onclick='$clear'>reset</button>";
+        echo "<div class='score bouton' id='score'>Level : $decrypted_id;</div>";
+
 
         ?>
     </div>
