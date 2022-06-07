@@ -24,8 +24,8 @@
     }
     ?>
 
-    <h1>Félicitation, tu as fini le mode aventure !</h1>
-    <a href="history.php">Retour au menu</a>
+    <h1>Congratulations, you have finished the adventure mode !</h1>
+    <a href="history.php">Back to menu</a>
 
 </main>
 
