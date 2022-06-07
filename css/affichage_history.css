@@ -201,7 +201,8 @@ table {
     width: 10%;
 }
 
-.score{
+.score {
+    font-size: 1.5vw;
     font-family: rounded, serif;
     display: inline-table;
     position: absolute;
@@ -228,24 +229,31 @@ table {
     font-family: rounded, serif;
     font-size: 1.5vw;
     top:18.5%;
-    margin-left: 1vw;
+    margin-left: 3vw;
     display: inline-table;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
 }
-
+#reset:hover, #back:hover{
+    background-color: gold;
+    border-color: gold;
+    cursor: pointer;
+}
 #reset{
+    font-size: 1.5vw;
+    font-family: rounded, serif;
+    z-index: 2;
+    top: 20%;
+    left: 0;
+    justify-content: center;
     background-color: #eed6b4;
     border: 0.3vw gold solid;
-    border-radius: 1.5vw;
-    padding: 1vw;
-    text-decoration: none;
-    color: black;
-    font-family: rounded, serif;
-    font-size: 1.5vw;
-    margin-left: 1vw;
+    border-radius: 1vw;
+    color: rgb(0, 0, 0);
+    margin-left: 3vw;
+    padding: 0.6vw;
 }
 
 .back:hover {
@@ -290,5 +298,22 @@ table {
 #close_tuto:hover{
     cursor: pointer;
     transform: rotate(90deg);
+}
+
+@media only screen and ( max-width: 740px){
+
+    #back{
+        position:relative;
+    }
+    #score{
+        position:relative;
+        margin: 1vw;
+    }
+    #reset{
+        top:0%;
+        float:unset;
+    }
+
+
 }
 
