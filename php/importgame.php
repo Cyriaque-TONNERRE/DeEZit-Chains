@@ -200,7 +200,7 @@ if(isset($_GET["id"])){
         if($purple == true) $clear= $clear.";clearp()";
         if($yellow == true) $clear= $clear.";cleary()";
         if($green == true) $clear= $clear.";clearg()";
-        echo "<button id='reset' onclick='$clear'>reset</button>";
+        echo "<button id='reset' onclick='$clear'>Reset</button>";
 
 
         echo "<script src='../js/red.js'></script>";

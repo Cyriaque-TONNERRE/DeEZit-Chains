@@ -268,10 +268,11 @@ else if(isset($_COOKIE["valid"])){
 
         <div class = "export disparition" id="exportationLvl">
             <img src="../image/xmark-solid.svg" alt="croix" id="closeExporter" onclick="closeExporter()"/>
-            <div id="center">
-                <label for="levelName">Level Name : </label>
-                <input type="text" id="namelvl" value="levelExport">
-                <button id='download' onclick='install()'>download</button>
+                <div id="center">
+                    <label for="levelName" id="lvllabel">Level Name :</label><br>
+                    <input type="text" id="lvlName" value="levelExport"><br>
+                    <button id='download' onclick='install()'>download</button>
+                </div>
             </div>
     <script src='../js/adventureExport.js'></script>
 

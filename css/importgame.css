@@ -23,13 +23,33 @@
     src: url('../font/deezit-chains.ttf') format('truetype');
 }
 
+.active{
+    color: white;
+}
+
+#reset{
+    font-family: rounded, serif;
+    position: absolute;
+    z-index: 2;
+    top: 20%;
+    left: 0;
+    justify-content: center;
+    background-color: #eed6b4;
+    border: 0.3vw gold solid;
+    border-radius: 1vw;
+    color: rgb(0, 0, 0);
+    margin-left: 3vw;
+    padding: 0.6vw;
+    text-decoration: none;
+}
+
+#reset:hover, #back:hover{
+    background-color: gold;
+    border-color: gold;
+    cursor: pointer;
+}
 
 /*Mise en place des variables*/
-
-:root {
-    --fond-gris: #ccc;
-    --orange-LBB: rgb(238, 155, 0);
-}
 
 .invisible {
     opacity: 0;
