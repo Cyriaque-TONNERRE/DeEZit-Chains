@@ -16,19 +16,19 @@ function voisinsCheck($tab,$x,$y,$size){
     $bas = false;
     if(($size > $x) && ($x >= 1)){
         //Valeur Gauche
-        $gauche = $tab[$x - 1][$y];
+        $gauche = $tab[$y - 1][$x];
     }
     if((0 <= $x) && ($x < $size - 1)){
         //Valeur Droite
-        $droite = $tab[$x + 1][$y];
+        $droite = $tab[$y + 1][$x];
     }
     if(($y >= 1) && ($y > $size)){
         //Valeur Haut
-        $haut = $tab[$x][$y - 1];
+        $haut = $tab[$y][$x - 1];
     }
     if((0 <= $y) && ($y < $size - 1)){
         //Valeur bas
-        $bas = $tab[$x][$y + 1];
+        $bas = $tab[$y][$x + 1];
     }
     if($gauche != false){
         if(est_vrai_chiffre($gauche)){
@@ -54,7 +54,7 @@ function voisinsCheck($tab,$x,$y,$size){
     
 }
 
-if(isset($_POST["submit"])){
+if(isset($_POST["submit"]) || isset($_FILES["fichier"])){
     $err = "";
     $neighbour = false;
     if(isset($_FILES["fichier"]) && ($_FILES["fichier"]["error"] == 0)){
@@ -144,28 +144,30 @@ if(isset($_POST["submit"])){
 }
 
 ?>
-<script>function removeClass() {
-        var element = document.getElementById("submit");
-        element.classList.remove("hidden");
-}</script>
+
 <div class="error">
     <?php echo $err; ?>
 </div>
 
-
-<form  method="POST" action="" enctype="multipart/form-data">
+<script>
+    function pushform(){
+        document.getElementById("fileupload").submit();
+    }
+</script>
+<form  id="fileupload" method="POST" action="" enctype="multipart/form-data">
     <div class="but">
-        <input type="submit" name="submit" id="submit" class= "send hidden" value="Importer">
-        <label for="fichier" onclick="removeClass()" class="mode2">
+    
+        <label for="fichier" class="mode2">
         <img src="../image/folder.svg" id="folder" alt="folder" draggable="false"/>
             </img>
             <div class="text2">Import level</div>
     </label>
 
-        <a draggable='false' class="gamemode mode" href="creative.php">
+        
+    <input type="file" onchange="pushform();" name="fichier" id="fichier" accept=".json" class="upload hidden" require/>
+
+</form>
+<a draggable='false' class="gamemode mode" href="creative.php">
             <img src="../image/edit.svg " id="edit" alt="edit" draggable="false"/>
             <div class="text">Create level</div>
         </a></div>
-    <input type="file" name="fichier" id="fichier" accept=".json" class="upload hidden" require/>
-
-</form>
