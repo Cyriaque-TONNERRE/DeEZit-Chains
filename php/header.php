@@ -28,14 +28,14 @@ $nom = explode('.', end($array))[0];?>
         echo "<link rel='stylesheet' href='../css/header.css' id='header_theme'>";
         echo "<link rel='stylesheet' href='../css/$nom.css' id='body_theme'>";
     }
-    if(!isset($_cookie["refresh"]))setcookie("refresh","true",time()+365*24*3600);
-    if($_SERVER['PHP_SELF']!="php/time.php")setcookie("refresh","true",time()+365*24*3600);
-    if($_COOKIE["refresh"]=="true"&&isset($_SESSION["username"])){  
-        // On remet a 0 le score actuel pour la prochaine partie
-        require './connexion_db.php';
-        $requete = "UPDATE user SET current_time_trial = '0' WHERE username = '$_SESSION[username]'";
-        $resultat = mysqli_query($connexion, $requete); //Executer la requete
-    }
+    // if(!isset($_cookie["refresh"]))setcookie("refresh","false",time()+365*24*3600);
+    // if($_SERVER['PHP_SELF']!="php/time.php")setcookie("refresh","true",time()+365*24*3600);
+    // if($_COOKIE["refresh"]=="true"&&isset($_SESSION["username"])){  
+    //     // On remet a 0 le score actuel pour la prochaine partie
+    //     require './connexion_db.php';
+    //     $requete = "UPDATE user SET current_time_trial = '0' WHERE username = '$_SESSION[username]'";
+    //     $resultat = mysqli_query($connexion, $requete); //Executer la requete
+    // }
     ?>
 
 </head>

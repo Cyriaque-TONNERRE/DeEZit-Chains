@@ -12,9 +12,12 @@
 
 <?php
 
-setcookie("refresh","false",time()+365*24*3600);
-
-
+// if($_COOKIE["refresh"]=="true"){
+//     echo "ta mere";
+//     setcookie("valid",true,time()+365*24*3600);
+// }
+// setcookie("refresh","false",time()+365*24*3600);
+    
 function getScore($pseudo) {
     require './connexion_db.php';
     $requete = "SELECT current_time_trial FROM user WHERE username = '$pseudo'";
