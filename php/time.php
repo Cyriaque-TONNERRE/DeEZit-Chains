@@ -240,7 +240,7 @@ ${formatTime(timeLeft)}
         $id = "Niv".strval($score+1);
         $pseudo = $_SESSION["username"];
         echo $bestScoreAll;
-        if(($score <= $bestScoreAll && $bestScoreAll!=0)) { // Si le niveau existe deja dans level_time_trial.json
+        if($score <= $bestScoreAll && $bestScoreAll!=0) { // Si le niveau existe deja dans level_time_trial.json
             $json = file_get_contents('../json/level_time_trial.json');
             $data = json_decode($json, false);
             $tab = $data->$id->level;
