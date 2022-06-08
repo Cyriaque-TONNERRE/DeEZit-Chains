@@ -1,4 +1,5 @@
 <?php require './header.php';?>
+
 <script>
     function setval(){
         storedValue = sessionStorage.getItem('tps');
@@ -237,7 +238,9 @@ ${formatTime(timeLeft)}
         $blue = false;
         $bestScoreAll = getBestScoreAll();
         $id = "Niv".strval($score+1);
-        if ($score <= $bestScoreAll && $score!=0) { // Si le niveau existe deja dans level_time_trial.json
+        $pseudo = $_SESSION["username"];
+        echo $bestScoreAll;
+        if(($score <= $bestScoreAll && $bestScoreAll!=0)) { // Si le niveau existe deja dans level_time_trial.json
             $json = file_get_contents('../json/level_time_trial.json');
             $data = json_decode($json, false);
             $tab = $data->$id->level;
@@ -253,6 +256,9 @@ ${formatTime(timeLeft)}
         }
 
         else { // Sinon il faut creer un nouveau niveau
+            require './connexion_db.php';
+            $requete = "UPDATE user SET time_trial = '$score' WHERE username = '$pseudo'";
+            $resultat = mysqli_query($connexion, $requete); //Executer la requete
             $seed = time();
             $colours = time()%5 + 1;
             if (DIRECTORY_SEPARATOR == '\\') {
