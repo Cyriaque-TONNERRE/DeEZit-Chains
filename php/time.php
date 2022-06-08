@@ -35,7 +35,6 @@ function getBestScoreAll() {
         die();
     }
     $row = mysqli_fetch_array($resultat);
-    echo $row["time_trial"];
     return $row["time_trial"];
 }
 
@@ -52,10 +51,6 @@ else{
         setcookie("time", "", time() - 3600, "/");
     
     }
-    else{
-        header('Location: index.php');
-    }
-    
 }
 
 if (!(isset($_SESSION["username"]))) {
@@ -66,12 +61,15 @@ else {
     $pseudo = $_SESSION["username"];
 
     $score = getScore($_SESSION["username"]);
-    if($time_left == 180){
+    if(!isset($time_left)){
+        header('Location: time.php');
+    }
+    else if($time_left == 180){
         require './connexion_db.php';
         $requete = "UPDATE user SET current_time_trial = '0' WHERE username = '$pseudo'";
         $resultat = mysqli_query($connexion, $requete); //Executer la requete
     }
-    if($time_left > 180 || $time_left <= 0){
+    else if($time_left > 180 || $time_left <= 0){
         require './connexion_db.php';
         $requete = "UPDATE user SET current_time_trial = '0' WHERE username = '$pseudo'";
         $resultat = mysqli_query($connexion, $requete); //Executer la requete
