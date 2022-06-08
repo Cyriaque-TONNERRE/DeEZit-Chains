@@ -128,13 +128,41 @@ $lst_tuto = array("tuto1.jpeg","tuto2.jpeg","tuto3.jpeg",0,0,"tuto4.jpeg","tuto5
         
         if($lst_tuto[intval($decrypted_id) - 1] !== 0){
             echo "<div class='tuto'>
+            <style>
+                   #back{
+                    filter: blur(10px);
+                }
+                #score{
+                    filter: blur(10px);
+                }
+                #reset{
+                    filter: blur(10px);
+                }
+                #export_button{
+                    filter: blur(10px);
+                }
+              </style>
             <img src='../image/xmark-solid.svg' alt='Croix' id='close_tuto' draggable='false' onclick='closeTuto()'/>
             <img id='tuto' alt='tuto' draggable='false' src='../tuto/".$lst_tuto[intval($decrypted_id) - 1]."'>
             </div>
             <table id='tableau' class='disparition' draggable='false'>";
         }
         else{
-            echo "<table id='tableau' draggable='false'>";
+            echo "<table id='tableau' draggable='false'>
+            <style>         
+            #back{
+                    filter: blur(0);
+                }
+                #score{
+                    filter: blur(0);
+                }
+                #reset{
+                    filter: blur(0);
+                }
+                #export_button{
+                    filter: blur(0);
+                }</style>";
+
         }
         
         for ($colonne = 0; $colonne < $size; $colonne++){
@@ -337,7 +365,7 @@ $lst_tuto = array("tuto1.jpeg","tuto2.jpeg","tuto3.jpeg",0,0,"tuto4.jpeg","tuto5
         }
 
 
-        echo "<a href='history.php' class='align-left' id='back'><image src='../image/arrow-left-solid.svg' id='arrow-light' alt='arrow'/></image> Back</a>";
+        echo "<a href='history.php' draggable='false' class='align-left' id='back'><image src='../image/arrow-left-solid.svg' draggable='false' id='arrow-light' alt='arrow'/></image> Back</a>";
         echo "<button id='reset' onclick='$clear'>reset</button>";
         echo "<div class='score' id='score'>Level : $decrypted_id</div>";
 

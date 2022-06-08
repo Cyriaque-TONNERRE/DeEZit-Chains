@@ -9,14 +9,14 @@
 
     <div>
         <div id="wrapper">
-            <a href='leaderboard.php' class='align-left' id='back'><image src='../image/arrow-left-solid.svg' id='arrow-light' alt='arrow'/></image> Back</a>
+            <a href='leaderboard.php' draggable='false' class='align-left' id='back'><image src='../image/arrow-left-solid.svg' draggable='false' id='arrow-light' alt='arrow'/></image> Back</a>
         <h2 class="align-center">Leaderboard</h2>
         <br>
         <h4 class="align-center">TOP PLAYER OF TIME TRIAL MODE</h4>
         </div>
         <?php
         include("connexion_db.php");
-        $requete = "SELECT username,time_trial FROM user ORDER BY time_trial ASC, username ASC limit 8";
+        $requete = "SELECT username,time_trial FROM user ORDER BY time_trial DESC, username ASC limit 8";
         $resultat = mysqli_query($connexion, $requete); //Executer la requete
         if ($resultat == FALSE) {
             echo "<p>Erreur d'exécution de la requete :".mysqli_error($connexion)."</p>";

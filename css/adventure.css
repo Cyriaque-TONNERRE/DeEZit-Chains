@@ -23,7 +23,6 @@
     src: url('../font/deezit-chains.ttf') format('truetype');
 }
 
-
 /*Mise en place des variables*/
 
 :root {
@@ -124,6 +123,7 @@ table {
     margin-right: 3vw;
     padding: 0.6vw;
     animation: ease-in-out 0.5s;
+    filter: blur(10px);
 }
 .export{
     text-align: center;
@@ -132,8 +132,6 @@ table {
     background-color: #e3e3e3;
     margin: auto;
     margin-top: 10vw;
-    
-
     box-shadow: 0 0 1vw 0 rgba(0,0,0,0.75);
     -webkit-box-shadow: 0 0 1vw 0 rgba(0,0,0,0.75);
     -moz-box-shadow: 0 0 1vw 0 rgba(0,0,0,0.75);
@@ -328,6 +326,7 @@ table {
     color: rgb(0, 0, 0);
     margin-right: 3vw;
     padding: 0.6vw;
+    filter: blur(10px);
 }
 
 #reset{
@@ -342,6 +341,7 @@ table {
     color: rgb(0, 0, 0);
     margin-left: 3vw;
     padding: 0.6vw;
+    filter: blur(10px);
 }
 
 #back{
@@ -359,6 +359,7 @@ table {
     margin-left: 3vw;
     padding: 0.6vw;
     text-decoration: none;
+    filter: blur(10px);
 }
 
 #arrow-light{
@@ -370,6 +371,35 @@ table {
     background-color: gold;
     border-color: gold;
     cursor: pointer;
+}
+
+.tuto{
+    height: auto;
+    width: 140vh;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1vw;
+    background-color: #e3e3e3;
+    padding: 1vw;
+}
+main {
+    backdrop-filter: blur(10px);
+}
+
+#tuto{
+    width: 140vh;
+}
+#close_tuto{
+    position: absolute;
+    margin-left: 133vh;
+    z-index: 10;
+    filter: invert(12%) sepia(94%) saturate(7289%) hue-rotate(0deg) brightness(110%) contrast(107%);
+    width: 5vh;
+    transition: transform 0.43s;
+}
+#close_tuto:hover{
+    cursor: pointer;
+    transform: rotate(90deg);
 }
 
 @media only screen and ( max-width: 740px){
@@ -387,13 +417,12 @@ table {
     #score{
         position:relative;
         margin: 1vw;
+
     }
     #reset{
         top:0%;
         float:unset;
     }
-
-
 }
 
 

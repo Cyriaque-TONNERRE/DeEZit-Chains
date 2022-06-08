@@ -32,10 +32,43 @@ else if(isset($_COOKIE["valid"])){
         if (getCookie('valid')){
             document.getElementById("add-score").classList.remove('disparition');
         }
+
+        function tutoHide(){
+            document.querySelector(".tuto").classList += " disparition";
+            document.querySelector('.game').classList.remove("disparition");
+            document.getElementById('back').style.filter= "blur(0)";
+            document.getElementById('score').style.filter= "blur(0)";
+            document.getElementById('reset').style.filter= "blur(0)";
+            document.getElementById('export_button').style.filter= "blur(0)";
+            document.cookie = `AdventureTuto=true; expires=${new Date(new Date().getTime() + (1000 * 60 * 60)).toUTCString()}; path=/`;
+        }
     </script>
     <div class="score" id="score">Score : <?php echo $score; ?></div>
-    <div class="game" id="game">
     <?php
+    if(!(isset($_COOKIE["AdventureTuto"]))){
+        echo "<div class='tuto '>
+        <img src='../image/xmark-solid.svg' alt='Croix' id='close_tuto' draggable='false' onclick='tutoHide()'/>
+        <img id='tuto' alt='tuto' draggable='false' src='../tuto/tuto_adventure.jpeg'>
+        </div>";
+        echo "<div class='game disparition' id='game'>";
+    }
+    else{
+        echo "<div class='game' id='game'>";?>
+            <style>
+                #back{
+                    filter: blur(0);
+                }
+                #score{
+                    filter: blur(0);
+                }
+                #reset{
+                    filter: blur(0);
+                }
+                #export_button{
+                    filter: blur(0);
+                }
+            </style>
+    <?php }
 
 
     $seed = time();
@@ -231,12 +264,6 @@ else if(isset($_COOKIE["valid"])){
                     $purple = true;
 
                 }
-                
-
-
-                    
-
-                        
             }
             else{
                 echo "<td class='invisible tab' id=0>".$tab[$colonne][$ligne]."</td>";
@@ -252,7 +279,7 @@ else if(isset($_COOKIE["valid"])){
     if($purple == true) $clear= $clear.";clearp()";
     if($yellow == true) $clear= $clear.";cleary()";
     if($green == true) $clear= $clear.";clearg()";
-    echo "<a onclick='back()' class='align-left' id='back'><image src='../image/arrow-left-solid.svg' id='arrow-light' alt='arrow'/></image> Back</a>";
+    echo "<a onclick='back()' draggable='false' class='align-left' id='back'><image src='../image/arrow-left-solid.svg' draggable='false' id='arrow-light' alt='arrow'/></image> Back</a>";
     echo "<button id='reset' onclick='$clear'>Reset</button>";
     
     //A changer a cause de Cyriaque

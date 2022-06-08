@@ -124,6 +124,7 @@ table {
     margin-right: 3vw;
     padding: 0.6vw;
     animation: ease-in-out 0.5s;
+    filter: blur(10px);
 }
 
 
@@ -138,11 +139,10 @@ table {
     margin: auto;
     margin-top: 10vw;
     color: white;
-    
-
     box-shadow: 0 0 1vw 0 rgba(255, 255, 255, 0.75);
     -webkit-box-shadow: 0 0 1vw 0 rgba(255, 255, 255, 0.75);
     -moz-box-shadow: 0 0 1vw 0 rgba(255, 255, 255, 0.75);
+    filter: blur(10px);
 }
 
 
@@ -150,12 +150,14 @@ table {
     top: auto;
     float: left;
     margin-left: 0.1vw;
+    filter: blur(10px);
 }
 
 #export_button {
     float: right;
     top: auto;
     margin-right: 0.1vw;
+    filter: blur(10px);
 }
 
 .add-score {
@@ -407,6 +409,4 @@ table {
         top:0%;
         float:unset;
     }
-
-
 }
