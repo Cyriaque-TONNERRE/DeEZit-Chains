@@ -9,7 +9,7 @@
 
     <div>
         <div id="wrapper">
-            <a href='leaderboard.php' class='align-left' id='back'><image src='../image/arrow-left-solid.svg' id='arrow-light' alt='arrow'/></image> Back</a>
+            <a href='leaderboard.php' draggable='false' class='align-left' id='back'><image src='../image/arrow-left-solid.svg' draggable='false' id='arrow-light' alt='arrow'/></image> Back</a>
         <h2 class="align-center">Leaderboard</h2>
         <br>
         <h4 class="align-center">TOP PLAYER OF TIME TRIAL MODE</h4>
