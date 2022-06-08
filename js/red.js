@@ -259,7 +259,7 @@ function dragLeaver() {
                 form.submit();
             }
    
-            document.cookie = `valid=true; expires=${new Date(new Date().getTime() + 2000).toUTCString()}; path=/`;
+            document.cookie = `valid=true; expires=${new Date(new Date().getTime() + 20000).toUTCString()}; path=/`;
             redirectPost('time.php',document.getElementById("countdown").innerHTML);
 
         }
@@ -286,7 +286,6 @@ function dragDrop() {
     if(document.querySelector('.unused') === null){
         //Victoire
         var URL = window.location.href;
-        var URL = window.location.href;
         if (URL.includes("affichage_history.php")) {
             number = URL.substring(URL.indexOf('=') + 1);
             document.cookie = `id=${number}; expires=${new Date(new Date().getTime() + 2000).toUTCString()}; path=/`;
@@ -312,8 +311,14 @@ function dragDrop() {
                 form.submit();
             }
 
-            document.cookie = `valid=true; expires=${new Date(new Date().getTime() + 2000).toUTCString()}; path=/`;
-            redirectPost('time.php',document.getElementById("countdown").innerHTML);
+            if(!(document.cookie.indexOf("valid"+'=')!=-1)){
+                //le cookie existe
+                document.cookie = `valid=true; expires=${new Date(new Date().getTime() + 20000).toUTCString()}; path=/`;
+                redirectPost('time.php',document.getElementById("countdown").innerHTML);
+            }
+
+
+            
 
         }
         else {

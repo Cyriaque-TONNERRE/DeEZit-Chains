@@ -1,87 +1,91 @@
-<?php require './header.php';
+<?php require './header.php';?>
+<script>
+    function setval(){
+        storedValue = sessionStorage.getItem('tps');
+        console.log(storedValue);
+        document.cookie = `time=${storedValue}; expires=${new Date(new Date().getTime() + 4000000).toUTCString()}; path=/`;
+    }
+    setval();
+
+</script>
+
+<?php
+
+
+
+
+function getScore($pseudo) {
+    require './connexion_db.php';
+    $requete = "SELECT current_time_trial FROM user WHERE username = '$pseudo'";
+    $resultat = mysqli_query($connexion, $requete); //Executer la requete
+    if ($resultat == FALSE) {
+        echo "<p>Erreur d'exécution de la requete :" . mysqli_error($connexion) . "</p>";
+        die();
+    }
+    $row = mysqli_fetch_assoc($resultat);
+    return $row["current_time_trial"];
+}
+
+function getBestScoreAll() {
+    require './connexion_db.php';
+    $requete = "SELECT time_trial FROM user WHERE time_trial = (SELECT MAX(time_trial) FROM user)";
+    $resultat = mysqli_query($connexion, $requete); //Executer la requete
+    if ($resultat == FALSE) {
+        echo "<p>Erreur d'exécution de la requete :" . mysqli_error($connexion) . "</p>";
+        die();
+    }
+    $row = mysqli_fetch_array($resultat);
+    echo $row["time_trial"];
+    return $row["time_trial"];
+}
+
+if (isset($_COOKIE["time"])) {
+    $time_left = $_COOKIE["time"];
+    setcookie("time", "", time() - 3600, "/");
+
+}
+else{
+    sleep(1);
+    echo "<script>setval();</script>";
+    if (isset($_COOKIE["time"])) {
+        $time_left = $_COOKIE["time"];
+        setcookie("time", "", time() - 3600, "/");
+    
+    }
+    else{
+        header('Location: index.php');
+    }
+    
+}
 
 if (!(isset($_SESSION["username"]))) {
     header('Location: login.php');
 }
 
 else {
-    $cookie = false;
-    if (isset($_COOKIE["valid"])) {
-        setcookie("valid", "", time() - 3600, "/");
-        $cookie = true;
-    }
-
-    function getScore($pseudo) {
-        require './connexion_db.php';
-        $requete = "SELECT current_time_trial FROM user WHERE username = '$pseudo'";
-        $resultat = mysqli_query($connexion, $requete); //Executer la requete
-        if ($resultat == FALSE) {
-            echo "<p>Erreur d'exécution de la requete :" . mysqli_error($connexion) . "</p>";
-            die();
-        }
-        $row = mysqli_fetch_assoc($resultat);
-        return $row["current_time_trial"];
-    }
-
-    function getBestScoreAll() {
-        require './connexion_db.php';
-        $requete = "SELECT time_trial FROM user WHERE time_trial = (SELECT MAX(time_trial) FROM user)";
-        $resultat = mysqli_query($connexion, $requete); //Executer la requete
-        if ($resultat == FALSE) {
-            echo "<p>Erreur d'exécution de la requete :" . mysqli_error($connexion) . "</p>";
-            die();
-        }
-        $row = mysqli_fetch_array($resultat);
-        echo $row["time_trial"];
-        return $row["time_trial"];
-    }
+    $pseudo = $_SESSION["username"];
 
     $score = getScore($_SESSION["username"]);
-
-    if (isset($_POST[2])) {
-        if ($_POST[2] == ':') {
-            $time_left = $_POST[0] * 600 + $_POST[1] * 60 + $_POST[3] * 10 + $_POST[4];
-            if ($time_left > 600) {
-                $time_left = 600;
-                $pseudo = $_SESSION["username"];
-                require './connexion_db.php';
-                $score = 0;
-                $requete = "UPDATE user SET current_time_trial = '$score' WHERE username = '$pseudo'";
-                $resultat = mysqli_query($connexion, $requete); //Executer la requete
-                $cookie = false;
-            }
-            else if ($time_left <= 0) {
-                $time_left = 0;
-                $pseudo = $_SESSION["username"];
-                require './connexion_db.php';
-                $requete = "UPDATE user SET current_time_trial = '$score' WHERE username = '$pseudo'";
-                $resultat = mysqli_query($connexion, $requete); //Executer la requete
-                $cookie = false;
-            }
-            else {
-                if ($cookie == true) {
-                    $pseudo = $_SESSION["username"];
-                    require './connexion_db.php';
-                    $score++;
-                    $requete = "UPDATE user SET current_time_trial = '$score' WHERE username = '$pseudo'";
-                    $resultat = mysqli_query($connexion, $requete); //Executer la requete
-                    $cookie = false;
-                }
-            }
-        }
-    } else {
-        $time_left = 60; // Valeur a modifier pour remettre le bon timer (600 pour 10 min)
-        //reset tout
-        $pseudo = $_SESSION["username"];
+    if($time_left == 180){
         require './connexion_db.php';
-        $score = 0;
-        $requete = "UPDATE user SET current_time_trial = '$score' WHERE username = '$pseudo'";
+        $requete = "UPDATE user SET current_time_trial = '0' WHERE username = '$pseudo'";
         $resultat = mysqli_query($connexion, $requete); //Executer la requete
-        $cookie = false;
-        $d = $time_left * 5;
-        $sw = .1 * $d;
-        $r = .5 * ($d - $sw);
-        $len = 2 * pi() * $r;
+    }
+    if($time_left > 180 || $time_left <= 0){
+        require './connexion_db.php';
+        $requete = "UPDATE user SET current_time_trial = '0' WHERE username = '$pseudo'";
+        $resultat = mysqli_query($connexion, $requete); //Executer la requete
+        header('Location: index.php');
+    }
+    else{ //Le Timer est bon
+        if (isset($_COOKIE["valid"])) {
+            setcookie("valid", "", time() - 3600, "/");
+            require './connexion_db.php';
+            $score++;
+            $requete = "UPDATE user SET current_time_trial = '$score' WHERE username = '$pseudo'";
+            $resultat = mysqli_query($connexion, $requete); //Executer la requete
+            
+        }
     }
 }
 
@@ -91,27 +95,8 @@ else {
     <div id="minuteur"></div>
     <div id="score">Score : <?php echo $score; ?></div>
     <script>
-
-        /*function alarme(tps) {
-            let temps = tps;
-            const timerElement = document.getElementById("bouche");
-
-            setInterval(() => {
-                let minutes = parseInt(temps / 60, 10);
-                let secondes = parseInt(temps % 60, 10);
-
-                minutes = minutes < 10 ? "0" + minutes : minutes;
-                secondes = secondes < 10 ? "0" + secondes : secondes;
-
-                timerElement.innerText = `${minutes}:${secondes}`;
-                temps = temps <= 0 ? -1 : temps - 1;
-                /*if (temps === 0) {
-                    document.location.href = "timescore.php";
-                }
-            }, 1000);
-        }
-
-        alarme(time_left);*/
+        storedValue = sessionStorage.getItem('tps');
+        console.log(storedValue);
 
         const FULL_DASH_ARRAY = 283;
         const WARNING_THRESHOLD = 10;
@@ -130,7 +115,8 @@ else {
                 threshold: ALERT_THRESHOLD
             }
         };
-        let TIME_LIMIT = <?php echo json_encode($time_left); ?>;
+        
+        let TIME_LIMIT = sessionStorage.getItem('tps');
 
         let timePassed = 0;
         let timeLeft = TIME_LIMIT;
@@ -163,6 +149,7 @@ ${formatTime(timeLeft)}
 
         startTimer();
 
+        
         function onTimesUp() {
             clearInterval(timerInterval);
             document.location.href="timescore.php";
@@ -181,8 +168,13 @@ ${formatTime(timeLeft)}
                 if (timeLeft === 0) {
                     onTimesUp();
                 }
+                //Ici il faudrait save la value et la reuse aprés, cela faciliterait les choses wlh
+                sessionStorage.setItem('tps', timeLeft);
+                storedValue = sessionStorage.getItem('tps');
+                console.log(storedValue);
             }, 1000);
         }
+
 
         function formatTime(time) {
             let minutes = Math.floor(time / 60);
