@@ -361,6 +361,7 @@ table {
     z-index: 2;
     top: 20%;
     left: 0;
+    display: inline-table;
     justify-content: center;
     background-color: #11294b;
     border: 0.3vw #d5cbec solid;
@@ -375,6 +376,15 @@ table {
     border-color: #11294b;
     color : #11294b;
     cursor: pointer;
+}
+#back:hover #arrow-light{
+    filter: invert(0%);
+}
+#arrow-light{
+    display: inline-block;
+    width: 1.5vw;
+    vertical-align: text-bottom;
+    filter: invert(100%);
 }
 
 @media only screen and ( max-width: 740px){

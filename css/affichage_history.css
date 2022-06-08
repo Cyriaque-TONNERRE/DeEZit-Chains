@@ -215,7 +215,7 @@ table {
     animation: ease-in-out 0.5s;
 }
 
-.back {
+#back {
     background-color: #eed6b4;
     border: 0.3vw gold solid;
     border-radius: 1.5vw;
@@ -225,13 +225,14 @@ table {
     font-family: rounded, serif;
     font-size: 1.5vw;
     top:18.5%;
-    margin-left: 3vw;
+    margin-left: 1vw;
     display: inline-table;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
+
+
 #reset:hover, #back:hover{
     background-color: gold;
     border-color: gold;
@@ -252,9 +253,7 @@ table {
     padding: 0.6vw;
 }
 
-.back:hover {
-    background-color: #f6c157;
-}
+
 .align-left{
     position:absolute;
 }
@@ -265,8 +264,11 @@ table {
 .align-center{
     text-align: center;
 }
-
-
+#arrow-light{
+    display: inline-block;
+    width: 1.5vw;
+    vertical-align: text-bottom;
+}
 .active{
     color: white;
 }
@@ -277,7 +279,6 @@ table {
 .tuto{
     height: auto;
     width: 140vh;
-
     margin-top: 3vw;
     background-color: #e3e3e3;
     padding: 1vw;

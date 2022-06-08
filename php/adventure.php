@@ -235,7 +235,7 @@ else if(isset($_COOKIE["valid"])){
     if($purple == true) $clear= $clear.";clearp()";
     if($yellow == true) $clear= $clear.";cleary()";
     if($green == true) $clear= $clear.";clearg()";
-    echo "<button id='back' onclick='back()'><- Back</button>";
+    echo "<a onclick='back()' class='align-left' id='back'><image src='../image/arrow-left-solid.svg' id='arrow-light' alt='arrow'/></image> Back</a>";
     echo "<button id='reset' onclick='$clear'>Reset</button>";
     
     //A changer a cause de Cyriaque
@@ -277,10 +277,4 @@ else if(isset($_COOKIE["valid"])){
     <script src='../js/adventureExport.js'></script>
 
 </main>
-	
-
-<footer>
-
-</footer>
-
 </body>

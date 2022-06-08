@@ -217,7 +217,7 @@ table {
     animation: ease-in-out 0.5s;
 }
 
-.back {
+#back {
     background-color: #11294b;
     border: 0.3vw #0028ff solid;
     border-radius: 1.5vw;
@@ -232,7 +232,6 @@ table {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
 #reset:hover, #back:hover{
     background-color: #0028ff;
@@ -279,7 +278,6 @@ table {
 .tuto{
     height: auto;
     width: 140vh;
-
     margin-top: 3vw;
     background-color: #1c1c1c;
     padding: 1vw;
@@ -297,7 +295,12 @@ table {
     cursor: pointer;
     transform: rotate(90deg);
 }
-
+#arrow-light{
+    display: inline-block;
+    width: 1.5vw;
+    vertical-align: text-bottom;
+    filter: invert(100%);
+}
 @media only screen and ( max-width: 740px){
 
     #back{
