@@ -351,6 +351,7 @@ table {
     top: 20%;
     left: 0;
     justify-content: center;
+    display: inline-table;
     background-color: #eed6b4;
     border: 0.3vw gold solid;
     border-radius: 1vw;
@@ -358,6 +359,12 @@ table {
     margin-left: 3vw;
     padding: 0.6vw;
     text-decoration: none;
+}
+
+#arrow-light{
+    display: inline-block;
+    width: 1.5vw;
+    vertical-align: text-bottom;
 }
 #export_button:hover, #reset:hover, #back:hover{
     background-color: gold;

@@ -6,6 +6,7 @@ tr{
 }
 td {
     text-align: center;
+    color: white;
 }
 
 th{
@@ -22,10 +23,12 @@ div h2 {
     text-align: center;
     font-weight: bold;
     padding-top: 1vw;
+    color: white;
 
 }
 h4{text-align: center;
     font-weight: lighter;
+    color: white;
 }
 table, th, td{
     text-align: center;
@@ -48,26 +51,32 @@ table{
     margin-right: auto;
     z-index: 4;
 }
-.back {
-    background-color: #CFBB97;
-    border: 0.3vw goldenrod solid;
-    border-radius: 2vw;
+#back {
+    background-color: #11294b;
+    border: 0.3vw #0028ff solid;
+    border-radius: 1.5vw;
     padding: 1vw;
     text-decoration: none;
-    color: white;
+    color: rgb(255, 255, 255);
     font-family: rounded, serif;
     font-size: 1.5vw;
-    margin-left: 1vw;
-    margin-top: 1vw;
+    top:18.5%;
+    margin-left: 3vw;
     display: inline-table;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
-
-.back:hover {
-    background-color: #deb346;
+#back:hover{
+    background-color: #0028ff;
+    border-color: #0028ff;
+    cursor: pointer;
+}
+#arrow-light{
+    display: inline-block;
+    width: 1.5vw;
+    vertical-align: text-bottom;
+    filter: invert(100%);
 }
 .align-left{
     position:absolute;

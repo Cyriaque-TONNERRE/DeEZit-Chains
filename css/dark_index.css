@@ -1,6 +1,12 @@
 /*Reset CSS*/
+/* Hide scrollbar for IE, Edge and Firefox */
 body {
 	background-color: #333333;
+	-ms-overflow-style: none;  /* IE and Edge */
+	scrollbar-width: none;  /* Firefox */
+}
+body::-webkit-scrollbar {
+	display: none;
 }
 .gamemode {
 	text-align: center;
@@ -30,7 +36,7 @@ body {
 
 .button {
 	padding-top: 2vw;
-	padding-bottom: 4.3vw;
+	padding-bottom: 4vw;
 	display: grid;
 	grid-template-rows: 8vw 8vw 8vw 8vw;
 	align-items: center;
