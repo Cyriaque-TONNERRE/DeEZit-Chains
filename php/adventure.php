@@ -32,9 +32,27 @@ else if(isset($_COOKIE["valid"])){
         if (getCookie('valid')){
             document.getElementById("add-score").classList.remove('disparition');
         }
+
+        function tutoHide(){
+            document.querySelector(".tuto").classList += " disparition";
+            document.querySelector('.game').classList.remove("disparition")
+            document.cookie = `AdventureTuto=true; expires=${new Date(new Date().getTime() + (1000 * 60 * 60)).toUTCString()}; path=/`;
+        }
     </script>
     <div class="score" id="score">Score : <?php echo $score; ?></div>
-    <div class="game" id="game">
+    <?php
+    if(!(isset($_COOKIE["AdventureTuto"]))){
+        echo "<div class='tuto '>
+        <img src='../image/xmark-solid.svg' alt='Croix' id='close_tuto' draggable='false' onclick='tutoHide()'/>
+        <img id='tuto' alt='tuto' draggable='false' src='../tuto/tuto_adventure.jpeg'>
+        </div>";
+        echo "<div class='game disparition' id='game'>";
+    }
+    else{
+        echo "<div class='game' id='game'>";
+    }
+    ?>
+    
     <?php
 
 
