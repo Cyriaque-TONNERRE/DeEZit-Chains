@@ -12,7 +12,7 @@
 
 <?php
 
-
+setcookie("refresh","false",time()+365*24*3600);
 
 
 function getScore($pseudo) {
