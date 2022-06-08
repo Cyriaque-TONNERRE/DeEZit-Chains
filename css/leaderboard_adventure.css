@@ -44,26 +44,31 @@ table{
     margin-right: auto;
     z-index: 4;
 }
-.back {
-    background-color: #CFBB97;
-    border: 0.3vw goldenrod solid;
-    border-radius: 2vw;
+#back {
+    background-color: #eed6b4;
+    border: 0.3vw gold solid;
+    border-radius: 1.5vw;
     padding: 1vw;
     text-decoration: none;
     color: black;
     font-family: rounded, serif;
     font-size: 1.5vw;
+    top:18.5%;
     margin-left: 1vw;
-    margin-top: 1vw;
     display: inline-table;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
-
-.back:hover {
-    background-color: #deb346;
+#back:hover{
+    background-color: gold;
+    border-color: gold;
+    cursor: pointer;
+}
+#arrow-light{
+    display: inline-block;
+    width: 1.5vw;
+    vertical-align: text-bottom;
 }
 .align-left{
     position:absolute;

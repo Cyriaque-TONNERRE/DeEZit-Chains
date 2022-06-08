@@ -163,7 +163,6 @@ if($err != ""){
             <div class="text2">Import level</div>
     </label>
 
-        
     <input type="file" onchange="pushform();" name="fichier" id="fichier" accept=".json" class="upload hidden" require/>
 
 </form>

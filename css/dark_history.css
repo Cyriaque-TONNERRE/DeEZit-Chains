@@ -5,10 +5,17 @@
     padding: 0px;
 }
 
+/* Hide scrollbar for IE, Edge and Firefox */
 body{
-    background-color: #3f3f3f;;
+    background-color: #3f3f3f;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 
+/*Reset CSS*/
+body::-webkit-scrollbar {
+    display: none;
+}
 /*Variables*/
 
 :root {
