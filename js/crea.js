@@ -351,6 +351,16 @@ function contenu(){
             for (let i = 0; i < caseliste.length; i++) {
                 caseliste[i].classList.remove('okay');
             }
+            let chiffreLst = document.querySelectorAll('.valid');
+            for (let i = 0; i < chiffreLst.length; i++) {
+                if(cheminR.indexOf(chiffreLst[i]) !== 0 || cheminG.indexOf(chiffreLst[i]) !== 0  || cheminB.indexOf(chiffreLst[i]) !== 0  || cheminY.indexOf(chiffreLst[i]) !== 0  || cheminP.indexOf(chiffreLst[i]) !== 0 ){
+
+                }
+                else{
+                    chiffreLst[i].classList.remove('valid');
+                    chiffreLst[i].id = "0";
+                }
+            }
 
             if(deplacement_color){
                 console.log(newc);
@@ -489,7 +499,7 @@ function contenu(){
                 blockerlvl = false;
                 nouvellecase = false;
                 let lvl = parseInt(this.id);
-                if(this !== chemin[0] && chemin.indexOf(this) === -1 && (cheminR.indexOf(this) === -1) && (cheminG.indexOf(this) === -1) && (cheminB.indexOf(this) === -1) && (cheminP.indexOf(this) === -1) && (cheminY.indexOf(this) === -1)){
+                if(this !== chemin[0] && chemin.indexOf(this) === -1 && (cheminR.indexOf(this) === -1) && (cheminG.indexOf(this) === -1) && (cheminB.indexOf(this) === -1) && (cheminP.indexOf(this) === -1) && (cheminY.indexOf(this) === -1) && chemin !== "undefined"){
                     chemin[0].setAttribute("draggable",false);
                     chemin.unshift(this);
                     nouvellecase = true;   
@@ -506,15 +516,29 @@ function contenu(){
                         nouvellecase = false;
                     }
                     else if(chemin.indexOf(this) !== 0 && chemin.length !== 1){
-                        if(lvl < (chemin[chemin.indexOf(this)-1].id)){
-                            lvl++;
-                            if(lvl === 9){
-                                blockerlvl = true;
+                        if(typeof(chemin[chemin.indexOf(this)-1]) !== "undefined"){
+                            if(lvl < (chemin[chemin.indexOf(this)-1].id)){
+                                if(typeof(chemin[chemin.indexOf(this)+1].id) !== "undefined"){
+                                    if(lvl <= (chemin[chemin.indexOf(this)+1].id)){
+                                        lvl++;
+                                        if(lvl === 9){
+                                            blockerlvl = true;
+                                        }
+                                    }
+                                }
+                                else{
+                                    lvl++;
+                                    if(lvl === 9){
+                                        blockerlvl = true;
+                                    }
+                                }
+    
+                            }
+                            else{
+                                del = true;
                             }
                         }
-                        else{
-                            del = true;
-                        }
+                        
                     }
                     else{
                         console.log(chemin);
