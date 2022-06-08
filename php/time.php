@@ -62,7 +62,8 @@ else {
 
     $score = getScore($_SESSION["username"]);
     if(!isset($time_left)){
-        header('Location: time.php');
+        echo "<script>setval();</script>";
+        //header('Location: time.php');
     }
     else if($time_left == 180){
         require './connexion_db.php';
