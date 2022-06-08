@@ -2,6 +2,11 @@
 
 <main>
 
+<script>
+    function ResetTime(){
+        sessionStorage.setItem('tps', 180);
+    }
+</script>
     <div class="button">
         <a draggable='false' class="gamemode" href="history.php">
             History Mode
@@ -9,7 +14,7 @@
         <a draggable='false' class="gamemode" href="adventure.php">
             Adventure Mode
         </a>
-        <a draggable='false' class="gamemode" href="time.php">
+        <a draggable='false' class="gamemode" href="time.php" onclick="ResetTime()">
             Time Trial
         </a>
         <a draggable='false' class="gamemode" href="create.php">
