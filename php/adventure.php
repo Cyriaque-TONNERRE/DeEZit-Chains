@@ -35,7 +35,11 @@ else if(isset($_COOKIE["valid"])){
 
         function tutoHide(){
             document.querySelector(".tuto").classList += " disparition";
-            document.querySelector('.game').classList.remove("disparition")
+            document.querySelector('.game').classList.remove("disparition");
+            document.getElementById('back').style.filter= "blur(0)";
+            document.getElementById('score').style.filter= "blur(0)";
+            document.getElementById('reset').style.filter= "blur(0)";
+            document.getElementById('export_button').style.filter= "blur(0)";
             document.cookie = `AdventureTuto=true; expires=${new Date(new Date().getTime() + (1000 * 60 * 60)).toUTCString()}; path=/`;
         }
     </script>
@@ -49,11 +53,22 @@ else if(isset($_COOKIE["valid"])){
         echo "<div class='game disparition' id='game'>";
     }
     else{
-        echo "<div class='game' id='game'>";
-    }
-    ?>
-    
-    <?php
+        echo "<div class='game' id='game'>";?>
+            <style>
+                #back{
+                    filter: blur(0);
+                }
+                #score{
+                    filter: blur(0);
+                }
+                #reset{
+                    filter: blur(0);
+                }
+                #export_button{
+                    filter: blur(0);
+                }
+            </style>
+    <?php }
 
 
     $seed = time();
@@ -249,12 +264,6 @@ else if(isset($_COOKIE["valid"])){
                     $purple = true;
 
                 }
-                
-
-
-                    
-
-                        
             }
             else{
                 echo "<td class='invisible tab' id=0>".$tab[$colonne][$ligne]."</td>";

@@ -124,33 +124,11 @@ table {
     margin-right: 3vw;
     padding: 0.6vw;
     animation: ease-in-out 0.5s;
+    filter: blur(10px);
 }
 
 
-.tuto{
-    height: auto;
-    width: 140vh;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 1vw;
-    background-color: #1c1c1c;
-    padding: 1vw;
-}
-#tuto{
-    width: 140vh;
-}
-#close_tuto{
-    position: absolute;
-    margin-left: 133vh;
-    z-index: 10;
-    filter: invert(12%) sepia(94%) saturate(7289%) hue-rotate(0deg) brightness(110%) contrast(107%);
-    width: 5vh;
-    transition: transform 0.43s;
-}
-#close_tuto:hover{
-    cursor: pointer;
-    transform: rotate(90deg);
-}
+
 
 
 .export{
@@ -161,11 +139,10 @@ table {
     margin: auto;
     margin-top: 10vw;
     color: white;
-    
-
     box-shadow: 0 0 1vw 0 rgba(255, 255, 255, 0.75);
     -webkit-box-shadow: 0 0 1vw 0 rgba(255, 255, 255, 0.75);
     -moz-box-shadow: 0 0 1vw 0 rgba(255, 255, 255, 0.75);
+    filter: blur(10px);
 }
 
 
@@ -173,12 +150,14 @@ table {
     top: auto;
     float: left;
     margin-left: 0.1vw;
+    filter: blur(10px);
 }
 
 #export_button {
     float: right;
     top: auto;
     margin-right: 0.1vw;
+    filter: blur(10px);
 }
 
 .add-score {
@@ -430,6 +409,4 @@ table {
         top:0%;
         float:unset;
     }
-
-
 }
