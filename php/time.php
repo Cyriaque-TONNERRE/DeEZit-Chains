@@ -12,11 +12,25 @@
 
 <?php
 
-// if($_COOKIE["refresh"]=="true"){
-//     echo "ta mere";
-//     setcookie("valid",true,time()+365*24*3600);
-// }
-// setcookie("refresh","false",time()+365*24*3600);
+
+
+
+if (isset($_COOKIE["time"])) {
+    $time_left = $_COOKIE["time"];
+    setcookie("time", "", time() - 3600, "/");
+    unset($_COOKIE["time"]);
+}
+else{
+    echo "<script>setval();</script>";
+    if (isset($_COOKIE["time"])) {
+        $time_left = $_COOKIE["time"];
+        setcookie("time", "", time() - 3600, "/");
+    
+    }
+
+}
+
+
     
 function getScore($pseudo) {
     require './connexion_db.php';
@@ -27,6 +41,7 @@ function getScore($pseudo) {
         die();
     }
     $row = mysqli_fetch_assoc($resultat);
+    mysqli_close($connexion);
     return $row["current_time_trial"];
 }
 
@@ -39,40 +54,36 @@ function getBestScoreAll() {
         die();
     }
     $row = mysqli_fetch_array($resultat);
+    mysqli_close($connexion);
     return $row["time_trial"];
 }
 
-if (isset($_COOKIE["time"])) {
-    $time_left = $_COOKIE["time"];
-    setcookie("time", "", time() - 3600, "/");
 
-}
-else{
-    sleep(1);
-    echo "<script>setval();</script>";
-    if (isset($_COOKIE["time"])) {
-        $time_left = $_COOKIE["time"];
-        setcookie("time", "", time() - 3600, "/");
-    
-    }
-}
+
+
 
 if (!(isset($_SESSION["username"]))) {
     header('Location: login.php');
 }
 
 else {
-    $pseudo = $_SESSION["username"];
-
     $score = getScore($_SESSION["username"]);
+    $pseudo = $_SESSION["username"];
+    if (isset($_COOKIE["valid"])) {
+        setcookie("valid", "", time() - 3600, "/");
+        unset($_COOKIE["valid"]);
+        require './connexion_db.php';
+        $score = getScore($_SESSION["username"]);
+        $score++;
+        $requete = "UPDATE user SET current_time_trial = '$score' WHERE username = '$pseudo'";
+        $resultat = mysqli_query($connexion, $requete); //Executer la requete
+        mysqli_close($connexion);
+        //header('Location: time.php');
+        
+    }
     if(!isset($time_left)){
         echo "<script>setval();</script>";
         //header('Location: time.php');
-    }
-    else if($time_left == 180){
-        require './connexion_db.php';
-        $requete = "UPDATE user SET current_time_trial = '0' WHERE username = '$pseudo'";
-        $resultat = mysqli_query($connexion, $requete); //Executer la requete
     }
     else if($time_left > 180 || $time_left <= 0){
         require './connexion_db.php';
@@ -80,16 +91,7 @@ else {
         $resultat = mysqli_query($connexion, $requete); //Executer la requete
         header('Location: index.php');
     }
-    else{ //Le Timer est bon
-        if (isset($_COOKIE["valid"])) {
-            setcookie("valid", "", time() - 3600, "/");
-            require './connexion_db.php';
-            $score++;
-            $requete = "UPDATE user SET current_time_trial = '$score' WHERE username = '$pseudo'";
-            $resultat = mysqli_query($connexion, $requete); //Executer la requete
-            
-        }
-    }
+
 }
 
 ?>
@@ -242,7 +244,6 @@ ${formatTime(timeLeft)}
         $bestScoreAll = getBestScoreAll();
         $id = "Niv".strval($score+1);
         $pseudo = $_SESSION["username"];
-        echo $bestScoreAll;
         if($score <= $bestScoreAll && $bestScoreAll!=0) { // Si le niveau existe deja dans level_time_trial.json
             $json = file_get_contents('../json/level_time_trial.json');
             $data = json_decode($json, false);
