@@ -215,7 +215,7 @@ table {
     position: absolute;
     display: inline-table;
     top:20%;
-    left: 0;
+    left: 3%;
     justify-content: center;
     color: black;
     margin-left: 0.1vw;
@@ -278,7 +278,7 @@ table {
     font-family: rounded, serif;
     position: absolute;
     z-index: 2;
-    top: 40%;
+    top: 36%;
     left: 0;
     justify-content: center;
     display: inline-table;
