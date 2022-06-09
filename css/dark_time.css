@@ -146,6 +146,9 @@ table {
     background-color: #1c1c1c;
     color: white;
 }
+.active{
+    color: rgb(0, 0, 0);
+}
 
 .letter {
     height: 10%;
@@ -273,6 +276,8 @@ table {
     justify-content: center;
     font-size: 2vw;
 }
+
+
 #back{
     font-family: rounded, serif;
     position: absolute;
@@ -318,6 +323,8 @@ table {
     margin-left: 3vw;
     padding: 0.6vw;
 }
+
+
 @media only screen and ( max-width: 740px){
 
     #back{
