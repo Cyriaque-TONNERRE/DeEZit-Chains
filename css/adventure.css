@@ -125,6 +125,7 @@ table {
     animation: ease-in-out 0.5s;
     filter: blur(10px);
 }
+
 .export{
     text-align: center;
     width: 30vw;
@@ -150,7 +151,7 @@ table {
     margin-right: 0.1vw;
 }
 
-.add-score {
+/*.add-score {
     float: right;
     margin-right: 0.1vw;
     transition: 0.5s;
@@ -162,7 +163,7 @@ table {
     float: right;
     margin-right: 0.1vw;
     transition: 0.5s;
-}
+}*/
 
 #lvllabel{
     font-size: 1.4vw;
@@ -373,24 +374,21 @@ table {
     cursor: pointer;
 }
 
+#tuto{
+    width: 140vh;
+    height: auto;
+}
 .tuto{
     height: auto;
     width: 140vh;
-    margin-left: auto;
+    margin-top: 3vw;
     margin-right: auto;
-    margin-top: 2vw;
+    margin-left: auto;
     background-color: #e3e3e3;
     padding: 1vw;
-    z-index:12;
+    z-index: 12;
 }
 
-main {
-    backdrop-filter: blur(10px);
-}
-
-#tuto{
-    width: 140vh;
-}
 #close_tuto{
     position: absolute;
     margin-left: 133vh;
