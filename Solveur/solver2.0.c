@@ -11,6 +11,13 @@ typedef struct coord_{
     bool is_visited;
 } coord;
 
+typedef struct point_{
+    bool top;
+    bool right;
+    bool left;
+    bool bottom;
+} point;
+
 // DEFINITION VARIABLE
 coord r;
 bool r_exist = false;
@@ -24,19 +31,26 @@ coord p;
 bool p_exist = false;
 //
 
+coord *tableauCoord;
+
+point *tableauPoint;
+
+bool is_solved = false;
+
+
 // 0 North 1 East 2 West 3 South
 // 000g1 00001 00022 00033 00044
 
-int solveur(coord *grille, coord actual, int size, coord prev);
+int solveur(coord *grille, coord actual, int size);
+void prechargement(int taille);
 
 
 int main(int argc,char *argv[]) {
-    if (argc > 11) {
+    if (argc > 11 || argc < 3) {
         return EXIT_FAILURE;
     }
     else {
         char *l1,*l2,*l3,*l4,*l5,*l6,*l7,*l8,*l9,*l10;
-        coord *tableauCoord;
         if (argc == 2) {l1 = argv[1];};
         if (argc == 3) {l1 = argv[1]; l2 = argv[2];};
         if (argc == 4) {l1 = argv[1]; l2 = argv[2]; l3 = argv[3];};
@@ -48,8 +62,9 @@ int main(int argc,char *argv[]) {
         if (argc == 10) {l1 = argv[1]; l2 = argv[2]; l3 = argv[3]; l4 = argv[4]; l5 = argv[5]; l6 = argv[6]; l7 = argv[7]; l8 = argv[8]; l9 = argv[9];};
         if (argc == 11) {l1 = argv[1]; l2 = argv[2]; l3 = argv[3]; l4 = argv[4]; l5 = argv[5]; l6 = argv[6]; l7 = argv[7]; l8 = argv[8]; l9 = argv[9]; l10 = argv[10];};
         tableauCoord = calloc((argc - 1) * (argc - 1), sizeof(coord));
+        tableauPoint = calloc((argc - 1) * (argc - 1), sizeof(point));
         //verification de l'allocation
-        if (tableauCoord == NULL) {
+        if (tableauCoord == NULL || tableauPoint == NULL) {
             return EXIT_FAILURE;
         }
         for (int j = 0; j < (argc - 1); j++) {
@@ -88,63 +103,66 @@ int main(int argc,char *argv[]) {
                         break;
                     default:
                         return EXIT_FAILURE;
-                        break;
                 }
-                tableauCoord[i * (argc - 1) + j].x = i;
-                tableauCoord[i * (argc - 1) + j].y = j;
-                tableauCoord[i * (argc - 1) + j].value = inputValue;
-                if (inputValue == '0'){
-                    tableauCoord[i * (argc - 1) + j].is_visited = true;
-                }
+                tableauCoord[j * (argc - 1) + i].x = i;
+                tableauCoord[j * (argc - 1) + i].y = j;
+                tableauCoord[j * (argc - 1) + i].value = inputValue;
                 if (!isdigit(inputValue)) {
                     switch (inputValue) {
                         case 'r':
-                            r.x = tableauCoord[i * (argc - 1) + j].x;
-                            r.y = tableauCoord[i * (argc - 1) + j].y;
+                            r.x = tableauCoord[j * (argc - 1) + i].x;
+                            r.y = tableauCoord[j * (argc - 1) + i].y;
                             r.value = 'r';
                             r.is_visited = false;
                             r_exist = true;
                             break;
                         case 'g':
-                            g.x = tableauCoord[i * (argc - 1) + j].x;
-                            g.y = tableauCoord[i * (argc - 1) + j].y;
-                            g.value = tableauCoord[i * (argc - 1) + j].value;
+                            g.x = tableauCoord[j * (argc - 1) + i].x;
+                            g.y = tableauCoord[j * (argc - 1) + i].y;
+                            g.value = tableauCoord[j * (argc - 1) + i].value;
                             g.is_visited = false;
                             g_exist = true;
                             break;
                         case 'b':
-                            b.x = tableauCoord[i * (argc - 1) + j].x;
-                            b.y = tableauCoord[i * (argc - 1) + j].y;
-                            b.value = tableauCoord[i * (argc - 1) + j].value;
+                            b.x = tableauCoord[j * (argc - 1) + i].x;
+                            b.y = tableauCoord[j * (argc - 1) + i].y;
+                            b.value = tableauCoord[j * (argc - 1) + i].value;
                             b.is_visited = false;
                             b_exist = true;
                             break;
                         case 'y':
-                            y.x = tableauCoord[i * (argc - 1) + j].x;
-                            y.y = tableauCoord[i * (argc - 1) + j].y;
-                            y.value = tableauCoord[i * (argc - 1) + j].value;
+                            y.x = tableauCoord[j * (argc - 1) + i].x;
+                            y.y = tableauCoord[j * (argc - 1) + i].y;
+                            y.value = tableauCoord[j * (argc - 1) + i].value;
                             y.is_visited = false;
                             y_exist = true;
                             break;
                         case 'p':
-                            p.x = tableauCoord[i * (argc - 1) + j].x;
-                            p.y = tableauCoord[i * (argc - 1) + j].y;
-                            p.value = tableauCoord[i * (argc - 1) + j].value;
+                            p.x = tableauCoord[j * (argc - 1) + i].x;
+                            p.y = tableauCoord[j * (argc - 1) + i].y;
+                            p.value = tableauCoord[j * (argc - 1) + i].value;
                             p.is_visited = false;
                             p_exist = true;
                             break;
                         default :
                             return EXIT_FAILURE;
-                            break;
                     }
                 }
-                tableauCoord[i * (argc - 1) + j].is_visited = false;
+                if (inputValue == '0'){
+                    tableauCoord[j * (argc - 1) + i].is_visited = true;
+                } else {
+                    tableauCoord[j * (argc - 1) + i].is_visited = false;
+                }
             }
         }
         if (!r_exist) {
             return EXIT_FAILURE;
         } else {
-            solveur(tableauCoord, r, (argc - 1), r);
+            r.is_visited = true;
+            tableauCoord[r.y * (argc - 1) + r.x].is_visited = true;
+            prechargement(argc - 1);
+            solveur(tableauCoord, r, (argc - 1));
+            return is_solved;
         }
     }
 }
@@ -173,11 +191,8 @@ bool not_wall(int x, int sens, int taille) {
     return valid;
 }
 
-bool verif_solution(coord *tableauCoord, int taille) {
-    //verifie si la solution est valide
-    //tableauCoord -> tableau de coordonnees
-    //taille -> taille du tableau
-    for (int i = 0; i < taille * taille; i++) {
+bool verif_solution(int taille) {
+    for (int i = 0; i < taille * taille - 1; i++) {
         if (tableauCoord[i].is_visited == false) {
             return false;
         }
@@ -185,115 +200,98 @@ bool verif_solution(coord *tableauCoord, int taille) {
     return true;
 }
 
-int solveur(coord *grille, coord actual, int size, coord prev) {
-    actual.is_visited = true;
-    if(verif_solution(grille, size)){
-        puts("Solution trouvée");
-        return EXIT_SUCCESS;
-    }
 
-    printf("%d | %d | %c - %d | %d | %c\n",prev.x , prev.y, prev.value, actual.x, actual.y, actual.value);
-    if (actual.x == r.x && actual.y == r.y && actual.value == r.value) {
-        r.is_visited = true;
-    }
-    if (actual.x == g.x && actual.y == g.y && actual.value == g.value) {
-        g.is_visited = true;
-    }
-    if (actual.x == b.x && actual.y == b.y && actual.value == b.value) {
-        b.is_visited = true;
-    }
-    if (actual.x == y.x && actual.y == y.y && actual.value == y.value) {
-        y.is_visited = true;
-    }
-    if (actual.x == p.x && actual.y == p.y && actual.value == p.value) {
-        p.is_visited = true;
-    }
-    if (!isdigit(actual.value)) {
-        if (!grille[actual.y * size + actual.x - size].is_visited && not_wall(actual.y * size + actual.x, 0, size) && grille[actual.y * size + actual.x - size].value != '0') {
-            grille[actual.y * size + actual.x - size].is_visited = true;
-            solveur(grille, grille[actual.y * size + actual.x - size], size, actual);
-            grille[actual.y * size + actual.x - size].is_visited = false;
+void prechargement(int taille){
+    for (int i = 0; i < taille*taille; ++i) {
+        if (tableauCoord[i].value != '0') {
+            tableauPoint[i].top = atoi(&tableauCoord[i - taille].value) >= atoi(&tableauCoord[i].value) && not_wall(i, 0, taille) && isdigit(tableauCoord[i - taille].value);
+            tableauPoint[i].right = atoi(&tableauCoord[i + 1].value) >= atoi(&tableauCoord[i].value) && not_wall(i, 1, taille) && isdigit(tableauCoord[i + 1].value);
+            tableauPoint[i].left = atoi(&tableauCoord[i - 1].value) >= atoi(&tableauCoord[i].value) && not_wall(i, 2, taille) && isdigit(tableauCoord[i - 1].value);
+            tableauPoint[i].bottom = atoi(&tableauCoord[i + taille].value) >= atoi(&tableauCoord[i].value) && not_wall(i, 3, taille) && isdigit(tableauCoord[i + taille].value);
+        } else {
+            tableauPoint[i].top = false;
+            tableauPoint[i].right = false;
+            tableauPoint[i].left = false;
+            tableauPoint[i].bottom = false;
         }
-        if (!grille[actual.y * size + actual.x + 1].is_visited && not_wall(actual.y * size + actual.x, 1, size) && grille[actual.y * size + actual.x + 1].value != '0') {
-            grille[actual.y * size + actual.x + 1].is_visited = true;
-            solveur(grille, grille[actual.y * size + actual.x + 1], size, actual);
-            grille[actual.y * size + actual.x + 1].is_visited = false;
-        }
-        if (!grille[actual.y * size + actual.x - 1].is_visited && not_wall(actual.y * size + actual.x, 2, size) && grille[actual.y * size + actual.x - 1].value != '0') {
-            grille[actual.y * size + actual.x - 1].is_visited = true;
-            solveur(grille, grille[actual.y * size + actual.x - 1], size, actual);
-            grille[actual.y * size + actual.x - 1].is_visited = false;
-        }
-        if (!grille[actual.y * size + actual.x + size].is_visited && not_wall(actual.y * size + actual.x, 3, size) && grille[actual.y * size + actual.x + size].value != '0') {
-            grille[actual.y * size + actual.x + size].is_visited = true;
-            solveur(grille, grille[actual.y * size + actual.x + size], size, actual);
-            grille[actual.y * size + actual.x + size].is_visited = false;
-        }
-        if (g_exist && !g.is_visited) {
-            solveur(grille, g, size, actual);
-            g.is_visited = false;
-        }
-        if (b_exist && !b.is_visited) {
-            solveur(grille, b, size, actual);
-            b.is_visited = false;
-        }
-        if (y_exist && !y.is_visited) {
-            solveur(grille, y, size, actual);
-            y.is_visited = false;
-        }
-        if (p_exist && !p.is_visited) {
-            solveur(grille, p, size, actual);
-            p.is_visited = false;
-        }
-        if (r_exist && !r.is_visited) {
-            return solveur(grille, r, size, actual);
-            r.is_visited = false;
-        }
-    } else {
-        if (atoi(&grille[actual.y * size + actual.x - size].value) >= atoi(&actual.value) && !grille[actual.y * size + actual.x - size].is_visited && not_wall(actual.y * size + actual.x, 0, size) && isdigit(grille[actual.y * size + actual.x - size].value)) {
-            grille[actual.y * size + actual.x - size].is_visited = true;
-            solveur(grille, grille[actual.y * size + actual.x - size], size, actual);
-            grille[actual.y * size + actual.x - size].is_visited = false;
-        }
-        if (atoi(&grille[actual.y * size + actual.x + 1].value) >= atoi(&actual.value) && !grille[actual.y * size + actual.x + 1].is_visited && not_wall(actual.y * size + actual.x, 1, size) && isdigit(grille[actual.y * size + actual.x + 1].value)) {
-            grille[actual.y * size + actual.x + 1].is_visited = true;
-            solveur(grille, grille[actual.y * size + actual.x + 1], size, actual);
-            grille[actual.y * size + actual.x + 1].is_visited = false;
-        }
-        if (atoi(&grille[actual.y * size + actual.x - 1].value) >= atoi(&actual.value) && !grille[actual.y * size + actual.x - 1].is_visited && not_wall(actual.y * size + actual.x, 2, size) && isdigit(grille[actual.y * size + actual.x - 1].value)) {
-            grille[actual.y * size + actual.x - 1].is_visited = true;
-            solveur(grille, grille[actual.y * size + actual.x - 1], size, actual);
-            grille[actual.y * size + actual.x - 1].is_visited = false;
-        }
-        if (atoi(&grille[actual.y * size + actual.x + size].value) >= atoi(&actual.value) && !grille[actual.y * size + actual.x + size].is_visited && not_wall(actual.y * size + actual.x, 3, size) && isdigit(grille[actual.y * size + actual.x + size].value)) {
-            grille[actual.y * size + actual.x + size].is_visited = true;
-            solveur(grille, grille[actual.y * size + actual.x + size], size, actual);
-            grille[actual.y * size + actual.x + size].is_visited = false;
-        }
-        if (g_exist && !g.is_visited) {
-            solveur(grille, g, size, actual);
-            g.is_visited = false;
-        }
-        if (b_exist && !b.is_visited) {
-            solveur(grille, b, size, actual);
-            b.is_visited = false;
-        }
-        if (y_exist && !y.is_visited) {
-            solveur(grille, y, size, actual);
-            y.is_visited = false;
-        }
-        if (p_exist && !p.is_visited) {
-            solveur(grille, p, size, actual);
-            p.is_visited = false;
-        }
-        if (r_exist && !r.is_visited) {
-            solveur(grille, r, size, actual);
-            r.is_visited = false;
-        }
-
     }
 }
 
-
-
-
+int solveur(coord *grille, coord actual, int size) {
+    actual.is_visited = true;
+    if (!isdigit(actual.value)) {
+        if (!grille[actual.y * size + actual.x - size].is_visited && not_wall(actual.y * size + actual.x, 0, size) && grille[actual.y * size + actual.x - size].value != '0' && isdigit(grille[actual.y * size + actual.x - size].value)) {
+            grille[actual.y * size + actual.x - size].is_visited = true;
+            solveur(grille, grille[actual.y * size + actual.x - size], size);
+            grille[actual.y * size + actual.x - size].is_visited = false;
+        }
+        if (!grille[actual.y * size + actual.x + 1].is_visited && not_wall(actual.y * size + actual.x, 1, size) && grille[actual.y * size + actual.x + 1].value != '0' && isdigit(grille[actual.y * size + actual.x + 1].value)) {
+            grille[actual.y * size + actual.x + 1].is_visited = true;
+            solveur(grille, grille[actual.y * size + actual.x + 1], size);
+            grille[actual.y * size + actual.x + 1].is_visited = false;
+        }
+        if (!grille[actual.y * size + actual.x - 1].is_visited && not_wall(actual.y * size + actual.x, 2, size) && grille[actual.y * size + actual.x - 1].value != '0' && isdigit(grille[actual.y * size + actual.x - 1].value)) {
+            grille[actual.y * size + actual.x - 1].is_visited = true;
+            solveur(grille, grille[actual.y * size + actual.x - 1], size);
+            grille[actual.y * size + actual.x - 1].is_visited = false;
+        }
+        if (!grille[actual.y * size + actual.x + size].is_visited && not_wall(actual.y * size + actual.x, 3, size) && grille[actual.y * size + actual.x + size].value != '0' && isdigit(grille[actual.y * size + actual.x + size].value)) {
+            grille[actual.y * size + actual.x + size].is_visited = true;
+            solveur(grille, grille[actual.y * size + actual.x + size], size);
+            grille[actual.y * size + actual.x + size].is_visited = false;
+        }
+    } else {
+        if (!grille[actual.y * size + actual.x - size].is_visited && tableauPoint[actual.y * size + actual.x].top) {
+            grille[actual.y * size + actual.x - size].is_visited = true;
+            solveur(grille, grille[actual.y * size + actual.x - size], size);
+            grille[actual.y * size + actual.x - size].is_visited = false;
+        }
+        if (!grille[actual.y * size + actual.x + 1].is_visited && tableauPoint[actual.y * size + actual.x].right) {
+            grille[actual.y * size + actual.x + 1].is_visited = true;
+            solveur(grille, grille[actual.y * size + actual.x + 1], size);
+            grille[actual.y * size + actual.x + 1].is_visited = false;
+        }
+        if (!grille[actual.y * size + actual.x - 1].is_visited && tableauPoint[actual.y * size + actual.x].left) {
+            grille[actual.y * size + actual.x - 1].is_visited = true;
+            solveur(grille, grille[actual.y * size + actual.x - 1], size);
+            grille[actual.y * size + actual.x - 1].is_visited = false;
+        }
+        if (!grille[actual.y * size + actual.x + size].is_visited && tableauPoint[actual.y * size + actual.x].bottom) {
+            grille[actual.y * size + actual.x + size].is_visited = true;
+            solveur(grille, grille[actual.y * size + actual.x + size], size);
+            grille[actual.y * size + actual.x + size].is_visited = false;
+        }
+    }
+    if (g_exist && !g.is_visited) {
+        g.is_visited = true;
+        grille[g.y * size + g.x].is_visited = true;
+        solveur(grille, g, size);
+        grille[g.y * size + g.x].is_visited = false;
+        g.is_visited = false;
+    }
+    if (b_exist && !b.is_visited) {
+        b.is_visited = true;
+        grille[b.y * size + b.x].is_visited = true;
+        solveur(grille, b, size);
+        grille[b.y * size + b.x].is_visited = false;
+        b.is_visited = false;
+    }
+    if (y_exist && !y.is_visited) {
+        y.is_visited = true;
+        grille[y.y * size + y.x].is_visited = true;
+        solveur(grille, y, size);
+        grille[y.y * size + y.x].is_visited = false;
+        y.is_visited = false;
+    }
+    if (p_exist && !p.is_visited) {
+        p.is_visited = true;
+        grille[p.y * size + p.x].is_visited = true;
+        solveur(grille, p, size);
+        grille[p.y * size + p.x].is_visited = false;
+        p.is_visited = false;
+    }
+    if(verif_solution(size)){
+        is_solved = true;
+        return EXIT_SUCCESS;
+    }
+}
