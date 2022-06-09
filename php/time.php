@@ -129,7 +129,7 @@ else {
         let remainingPathColor = COLOR_CODES.info.color;
 
         document.getElementById("minuteur").innerHTML = `
-<div class="base-timer">
+<div class="base-timer" id="timer">
   <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <g class="base-timer__circle">
       <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
@@ -230,7 +230,7 @@ ${formatTime(timeLeft)}
     </script>
 
 
-    <div class="game">
+    <div class="game" id="game">
         <?php
         if (!(isset($_COOKIE['time_lvl']))) {
             setcookie("time_lvl", "0", 61000);
@@ -478,7 +478,7 @@ ${formatTime(timeLeft)}
         if($purple == true) $clear= $clear.";clearp()";
         if($yellow == true) $clear= $clear.";cleary()";
         if($green == true) $clear= $clear.";clearg()";
-        echo "<button id='back' onclick='back()'><- Back</button>";
+        echo "<a onclick='back()' draggable='false' class='align-left' id='back'><image src='../image/arrow-left-solid.svg' draggable='false' id='arrow-light' alt='arrow'/></image> Back</a>";
         echo "<button id='reset' onclick='$clear'>Reset</button>";
 
         //A changer a cause de Cyriaque
@@ -507,20 +507,6 @@ ${formatTime(timeLeft)}
         }
         ?>
 
-        <?php echo "<button id='export_button' onclick='exporter($size)'>Export</button>"; ?>
 
-        <div class = "export disparition" id="exportationLvl">
-            <img src="../image/xmark-solid.svg" alt="croix" id="closeExporter" onclick="closeExporter()"/>
-            <div id="center">
-                <label for="levelName">Level Name : </label>
-                <input type="text" id="namelvl" value="levelExport">
-                <button id='download' onclick='install()'>download</button>
-            </div>
-            <script src='../js/adventureExport.js'></script>
-
-
-            <footer>
-
-            </footer>
 
             </body>
