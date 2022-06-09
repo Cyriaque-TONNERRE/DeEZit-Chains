@@ -49,8 +49,9 @@ span {
 }
 
 #back:hover{
-    background-color: gold;
-    border-color: gold;
+    background-color: #d5cbec;
+    border-color: #11294b;
+    color : #11294b;
     cursor: pointer;
 }
 #arrow-light{

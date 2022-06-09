@@ -1,0 +1,341 @@
+/*Reset CSS*/
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-color: #3f3f3f;
+}
+/*Fonts*/
+
+@font-face {
+    font-family: 'korean';
+    src: url('../font/Korean.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'futureLight';
+    src: url('../font/rounded.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'pencriture';
+    src: url('../font/deezit-chains.ttf') format('truetype');
+}
+
+
+/*Mise en place des variables*/
+
+
+.invisible {
+    opacity: 0;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    height: 100%;
+}
+
+.nordgauchebas {
+    /*border-top: 2px solid var(--orange-LBB);
+    border-bottom: 2px solid var(--orange-LBB);
+    border-left: 2px solid var(--orange-LBB);*/
+    border-radius: 1vw 0 0 1vw;
+}
+
+.droitegauchebas {
+    /*border-right: 2px solid var(--orange-LBB);
+    border-bottom: 2px solid var(--orange-LBB);
+    border-left: 2px solid var(--orange-LBB);*/
+    border-radius: 0 0 1vw 1vw;
+}
+
+.droitenordbas {
+    /*border-right: 2px solid var(--orange-LBB);
+    border-top: 2px solid var(--orange-LBB);
+    border-bottom: 2px solid var(--orange-LBB);*/
+    border-radius: 0 1vw 1vw 0;
+}
+
+.droitenordgauche {
+    /*border-right: 2px solid var(--orange-LBB);
+    border-top: 2px solid var(--orange-LBB);
+    border-left: 2px solid var(--orange-LBB);*/
+    border-radius: 1vw 1vw 0 0;
+}
+
+.nordgauche {
+    /*border-top: 2px solid var(--orange-LBB);
+    border-left: 2px solid var(--orange-LBB);*/
+    border-radius: 1vw 0 0 0;
+}
+
+.norddroite {
+    /*border-top: 2px solid var(--orange-LBB);
+    border-right: 2px solid var(--orange-LBB);*/
+    border-radius: 0 1vw 0 0;
+}
+
+.nordbas {
+    /*border-top: 2px solid var(--orange-LBB);
+    border-bottom: 2px solid var(--orange-LBB);*/
+}
+
+.gauchebas {
+    /*border-left: 2px solid var(--orange-LBB);
+    border-bottom: 2px solid var(--orange-LBB);*/
+    border-radius: 0 0 0 1vw;
+}
+
+.gauchenord {
+    /*border-left: 2px solid var(--orange-LBB);
+    border-top: 2px solid var(--orange-LBB);*/
+    border-radius: 1vw 0 0 0;
+}
+
+.gauchedroite {
+    /*border-left: 2px solid var(--orange-LBB);
+    border-right: 2px solid var(--orange-LBB);*/
+}
+
+.basdroite {
+    /*border-bottom: 2px solid var(--orange-LBB);
+    border-right: 2px solid var(--orange-LBB);*/
+    border-radius: 0 0 1vw 0;
+}
+
+.gauche {
+    /*border-left: 2px solid var(--orange-LBB);*/
+}
+
+.droite {
+    /*border-right: 2px solid var(--orange-LBB);*/
+}
+
+.bas {
+    /*border-bottom: 2px solid var(--orange-LBB);*/
+}
+
+.nord {
+    /*border-top: 2px solid var(--orange-LBB);*/
+}
+
+.game {
+    width: 70vh;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5vh auto;
+}
+
+.case {
+    height: 10%;
+    width: 10%;
+    text-align: center;
+    font-family: Korean, serif;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: #1c1c1c;
+    color: white;
+}
+
+.letter {
+    height: 10%;
+    width: 10%;
+    text-align: center;
+    font-family: pencriture, serif;
+    font-size: 5vh;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.r {
+    height: 10%;
+    width: 10%;
+    background-color: #FD2101;
+}
+
+.g {
+    height: 10%;
+    width: 10%;
+    background-color: #60D702;
+}
+
+.p {
+    height: 10%;
+    width: 10%;
+    background-color: #B600C6;
+}
+
+.b {
+    height: 10%;
+    width: 10%;
+    background-color: #01CAFD;
+}
+
+.y {
+    height: 10%;
+    width: 10%;
+    background-color: #FBD801;
+}
+
+.invisible {
+    height: 10%;
+    width: 10%;
+}
+#score{
+    font-family: rounded, serif;
+    position: absolute;
+    z-index: 2;
+    top: 20%;
+    right: 0;
+    justify-content: center;
+    background-color: #11294b;
+    border: 0.3vw #0028ff solid;
+    border-radius: 1vw;
+    color: rgb(255, 255, 255);
+    margin-right: 3vw;
+    padding: 0.6vw;
+    animation: ease-in-out 0.5s;
+}
+
+#minuteur{
+    position: absolute;
+    display: inline-table;
+    top:20%;
+    left: 3%;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+    margin-left: 0.1vw;
+}
+
+.base-timer {
+    position: relative;
+    margin-top: 1%;
+    width: 6vw;
+    height: 6vh;
+}
+
+.base-timer__svg {
+    transform: scaleX(-1);
+}
+
+.base-timer__circle {
+    fill: none;
+    stroke: none;
+}
+
+.base-timer__path-elapsed {
+    stroke-width: 7px;
+    stroke: grey;
+}
+
+.base-timer__path-remaining {
+    stroke-width: 7px;
+    stroke-linecap: round;
+    transform: rotate(90deg);
+    transform-origin: center;
+    transition: 1s linear all;
+    fill-rule: nonzero;
+    stroke: currentColor;
+}
+
+.base-timer__path-remaining.green {
+    color: rgb(65, 184, 131);
+}
+
+.base-timer__path-remaining.orange {
+    color: orange;
+}
+
+.base-timer__path-remaining.red {
+    color: red;
+}
+
+.base-timer__label {
+    position: absolute;
+    width: 6vw;
+    height: 6vw;
+    top: 0%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2vw;
+}
+#back{
+    font-family: rounded, serif;
+    position: absolute;
+    z-index: 2;
+    top: 36%;
+    left: 0;
+    justify-content: center;
+    display: inline-table;
+    background-color: #11294b;
+    border: 0.3vw #0028ff solid;
+    border-radius: 1vw;
+    color: rgb(255, 255, 255);
+    margin-left: 3vw;
+    padding: 0.6vw;
+    text-decoration: none;
+}
+#reset:hover, #back:hover{
+    background-color: #d5cbec;
+    border-color: #11294b;
+    color : #11294b;
+    cursor: pointer;
+}
+
+#back:hover #arrow-light{
+    filter: invert(0%);
+}
+#arrow-light{
+    display: inline-block;
+    width: 1.5vw;
+    vertical-align: text-bottom;
+    filter: invert(100%);
+}
+#reset{
+    font-family: rounded, serif;
+    z-index: 2;
+    top: 20%;
+    left: 0;
+    justify-content: center;
+    background-color: #11294b;
+    border: 0.3vw #0028ff solid;
+    border-radius: 1vw;
+    color: rgb(255, 255, 255);
+    margin-left: 3vw;
+    padding: 0.6vw;
+}
+@media only screen and ( max-width: 740px){
+
+    #back{
+        position:relative;
+    }
+    #export_button {
+        float:none;
+        top: auto;
+        margin-top: 0%;
+        padding: 0.6vw;
+        margin-left: 3vw;
+    }
+    #score{
+        position:relative;
+        margin: 1vw;
+    }
+    #reset{
+        top:0%;
+        float:unset;
+    }
+}
