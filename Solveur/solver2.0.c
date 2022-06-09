@@ -162,7 +162,13 @@ int main(int argc,char *argv[]) {
             tableauCoord[r.y * (argc - 1) + r.x].is_visited = true;
             prechargement(argc - 1);
             solveur(tableauCoord, r, (argc - 1));
-            return is_solved;
+            if (is_solved){
+                printf("solved\n");
+                return EXIT_SUCCESS;
+            } else {
+                printf("impossible\n");
+                return EXIT_FAILURE;
+            }
         }
     }
 }
@@ -295,3 +301,6 @@ int solveur(coord *grille, coord actual, int size) {
         return EXIT_SUCCESS;
     }
 }
+
+
+
