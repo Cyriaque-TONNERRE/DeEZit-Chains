@@ -260,7 +260,7 @@ function dragLeaver() {
             }
    
             document.cookie = `valid=true; expires=${new Date(new Date().getTime() + 20000).toUTCString()}; path=/`;
-            //redirectPost('time.php',document.getElementById("countdown").innerHTML);
+            document.location.href = "time.php";
 
         }
         else {
@@ -314,7 +314,7 @@ function dragDrop() {
             if(!(document.cookie.indexOf("valid"+'=')!=-1)){
                 //le cookie existe
                 document.cookie = `valid=true; expires=${new Date(new Date().getTime() + 2000000).toUTCString()}; path=/`;
-                //redirectPost('time.php',document.getElementById("countdown").innerHTML);
+                document.location.href = "time.php";
             }
 
 
