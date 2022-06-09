@@ -36,6 +36,7 @@ require 'header.php';
         }
         ?>
 
+
     <div id='tableau' draggable="false">
 
     </div>
