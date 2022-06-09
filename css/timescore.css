@@ -40,8 +40,6 @@ p {
 
 .lead {
     display: inline-block;
-    font-size: 2vw;
-    margin-left: 43vw;
     width: 13vw;
     height: 2vw;
     margin-top: 1vw;
@@ -60,4 +58,10 @@ p {
 
 .lead:hover {
     background-color: #deb346;
+}
+.align-center{
+    display: block;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
 }

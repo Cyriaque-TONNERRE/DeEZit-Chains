@@ -31,18 +31,18 @@ $score = getScore($_SESSION["username"]);
 $bestscore = getBestScore($_SESSION["username"]);
 
 if ($score <= $bestscore) {
-    echo "<p>Your score : $score</p>";
+    echo "<div class='align-center'><p>Your score : $score</p></div>";
 }
 
 if ($score > $bestscore) { // New record
-    echo "<p>New record : $score</p>";
+    echo "<div class='align-center'><p>New record : $score</p></div>";
     // On remplace le meilleur score
     require './connexion_db.php';
     $requete = "UPDATE user SET time_trial = '$score' WHERE username = '$_SESSION[username]'";
     $resultat = mysqli_query($connexion, $requete); //Executer la requete
 }
 
-echo "<a href='./leaderboard_time_trial.php' class='lead'>Check the leaderboard</a>";
+echo "<div class='align-center'><a href='./leaderboard_time_trial.php' class='lead'>Check the leaderboard</a></div>";
 
 // On remet a 0 le score actuel pour la prochaine partie
 require './connexion_db.php';
