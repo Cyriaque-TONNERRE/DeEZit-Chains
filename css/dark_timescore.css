@@ -1,0 +1,74 @@
+/*Reset CSS*/
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+/*Fonts*/
+
+@font-face {
+    font-family: 'korean';
+    src: url('../font/Korean.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'futureLight';
+    src: url('../font/rounded.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'pencriture';
+    src: url('../font/deezit-chains.ttf') format('truetype');
+}
+
+
+/*Mise en place des variables*/
+
+:root {
+    --fond-gris: #ccc;
+    --orange-LBB: rgb(238, 155, 0);
+}
+body{
+    background-color: #3f3f3f;
+}
+p {
+    font-size: 3vw;
+    margin-top: 15vw;
+    text-align: center;
+    font-family: rounded;
+    color: white;
+}
+
+.lead {
+    display: inline-block;
+    width: 13vw;
+    height: 2vw;
+    margin-top: 1vw;
+    padding-top: 0.3vw;
+    border-radius: 2vw;
+    border-color: #d5cbec;
+    border-style: solid;
+    border-width: 0.2vw;
+    text-align: center;
+    font-family: pencriture, serif;
+    font-size: 1.3vw;
+    text-decoration: none;
+    color: white;
+    background-color: #11294b;
+
+}
+
+.lead:hover {
+    background-color: #d5cbec;
+    border-color: #11294b;
+    color : #11294b;
+    cursor: pointer;
+}
+.align-center{
+    display: block;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+}
