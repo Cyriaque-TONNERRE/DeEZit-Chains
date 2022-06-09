@@ -85,6 +85,7 @@ else if(isset($_COOKIE["valid"])){
         exec("chmod a+x ./randomGenerate");
         exec("./randomGenerate $seed $colours", $tab);
     }
+
     $size = count($tab);
     $sizeofNb = "10vw";
     switch ($size) {

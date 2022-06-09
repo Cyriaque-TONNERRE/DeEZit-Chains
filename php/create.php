@@ -102,7 +102,14 @@ if(isset($_POST["submit"]) || isset($_FILES["fichier"])){
                             $valid = false;
                         }
                         if($valid){
-                            header("Location:importgame.php?id=$nomfichier");
+                            echo "<div class='useSolver'>
+                            Do you want to use the solver ? <br>
+                            this may take several minutes for large levels<br><br>
+                            <a href='verifgame.php?id=$nomfichier'>Yes</a>
+                            <a href='importgame.php?id=$nomfichier'>No</a>
+                            
+                            </div>";
+
                         }
                         
                     }
