@@ -266,7 +266,6 @@ function dragLeaver() {
         else {
             document.cookie = `valid=true; expires=${new Date(new Date().getTime() + 2000).toUTCString()}; path=/`;
             document.location.href = "adventure.php";
-            
         }
         
     }

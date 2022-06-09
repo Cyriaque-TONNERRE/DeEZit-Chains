@@ -486,8 +486,6 @@ ${formatTime(timeLeft)}
 
         echo "<script src='../js/red.js'></script>";
 
-
-
         if($blue == true){
             echo "<script src='../js/blue.js'></script>";
         }
