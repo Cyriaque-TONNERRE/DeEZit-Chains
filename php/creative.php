@@ -18,7 +18,7 @@ require 'header.php';
             <br>
             <input type='range' min='5' max='10' id='Range' value='5'>
             <span id='sizeval'>5</span>
-            <button id='hide' onclick='hide()' style='width: 5vw'>Valider</button>
+            <button id='hide' onclick='hide()' style='width: 5vw'>Confirm</button>
         </div>";
         }
         else{
@@ -31,7 +31,7 @@ require 'header.php';
             <br>
             <input type='range' min='5' max='10' id='Range' value='5'>
             <span id='sizeval'>5</span>
-            <button id='hide' onclick='hide()' style='width: 5vw'>Valider</button>
+            <button id='hide' onclick='hide()' style='width: 5vw'>Confirm</button>
             </div>";
         }
         ?>
