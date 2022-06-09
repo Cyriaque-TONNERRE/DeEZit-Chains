@@ -23,9 +23,19 @@
         }
     }
     ?>
+    <a href="history.php" id="back">Back to menu</a>
+    <div id="text-center">
+        <span>
+            <div class="pyro">
+            <div class="before"></div>
+        <div class="after"></div>
+    </div>
+             <h2>Congratulations, you have finished the history mode !</h2>
+        </span>
+    </div>
 
-    <h1>Congratulations, you have finished the adventure mode !</h1>
-    <a href="history.php">Back to menu</a>
+
+
 
 </main>
 
