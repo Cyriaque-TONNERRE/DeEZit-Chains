@@ -88,19 +88,19 @@ else if(isset($_COOKIE["valid"])){
     $size = count($tab);
     $sizeofNb = "10vw";
     switch ($size) {
-        case 5: $sizeofNb = "7.1vh"; //Nice
+        case 5: $sizeofNb = "2.5vh"; //Nice
         break;
-        case 6: $sizeofNb = "6.6vh";
+        case 6: $sizeofNb = "2.5vh";
         break;
-        case 7: $sizeofNb = "6.05vh"; //Nice
+        case 7: $sizeofNb = "2.5vh"; //Nice
         break;
-        case 8: $sizeofNb = "5.5vh";//Nice
+        case 8: $sizeofNb = "2.5vh";//Nice
         break;
-        case 9: $sizeofNb = "5vh"; //Nice  //1.316
+        case 9: $sizeofNb = "2.5vh"; //Nice  //1.316
         break;
-        case 10: $sizeofNb = "4.5vh";
+        case 10: $sizeofNb = "2.5vh";
         break;
-        default: $sizeofNb = "6vh";
+        default: $sizeofNb = "2.5vh";
         break;
     }
 
