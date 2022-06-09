@@ -43,7 +43,7 @@ $nom = explode('.', end($array))[0];?>
 
 <body>
 <audio id="bgsound" autoplay loop hidden>
-    <source src="../sound/LANETROTRO.mp3">
+    <source src="../sound/Rush_EZ.mp3">
     Your browser does not support the audio
 </audio>
 
