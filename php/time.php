@@ -103,9 +103,9 @@ else {
         storedValue = sessionStorage.getItem('tps');
         console.log(storedValue);
 
-        const FULL_DASH_ARRAY = 283;
-        const WARNING_THRESHOLD = 10;
-        const ALERT_THRESHOLD = 5;
+        const FULL_DASH_ARRAY = storedValue*1.525;
+        const WARNING_THRESHOLD = 90;
+        const ALERT_THRESHOLD = 15;
 
         const COLOR_CODES = {
             info: {
