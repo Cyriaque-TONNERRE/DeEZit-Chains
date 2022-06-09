@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 31, 2022 at 03:19 PM
+-- Generation Time: Jun 09, 2022 at 06:57 AM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -42,9 +42,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`ID`, `username`, `password`, `history_lvl`, `adventure_lvl`, `time_trial`, `current_time_trial`) VALUES
-(1, 'Le Bajito', '$2y$10$FCRbnCXyDHLYoveVorBCd.FFdtm7NHB6/dVwTYGiD/Buu7DIHrH9.', 1, 0, 0, 0),
-(2, 'vince_id', '$2y$10$T7J8nOgwUFHBczPR.TV9yOVTItvE/FObaM4pU0dx72kK0x4VjngEC', 1, 0, 0, 0),
-(3, 'Never', '$2y$10$lDT4YvrHGQeDqQMbdf/eA.Ak/tEU.cHdxh.g1BXSAXQE5N5IxLta.', 1, 0, 0, 0);
+(1, 'Le Bajito', '$2y$10$g1jCp5wVtitAH8AWR9ydDeEsE5Gx7EXuRkv28K7ztQ2r0vZF/QxS6', 1, 0, 0, 0);
 
 --
 -- Indexes for dumped tables
@@ -64,7 +62,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
