@@ -1,8 +1,8 @@
 /*Reset CSS*/
 
 * {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
 
 
@@ -21,6 +21,11 @@
 @font-face {
     font-family: 'pencriture';
     src: url('../font/deezit-chains.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'asa';
+    src: url('../font/almostseriousaccent.ttf') format('truetype');
 }
 
 
@@ -268,7 +273,8 @@ table {
     position: absolute;
     width: 6vw;
     height: 6vw;
-    top: 0%;
+    top: 0;
+    font-family: asa, serif;
     display: flex;
     align-items: center;
     justify-content: center;

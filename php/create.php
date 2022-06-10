@@ -16,19 +16,19 @@ function voisinsCheck($tab,$x,$y,$size){
     $bas = false;
     if(($size > $x) && ($x >= 1)){
         //Valeur Gauche
-        $gauche = $tab[$y - 1][$x];
+        $gauche = $tab[$y][$x-1];
     }
     if((0 <= $x) && ($x < $size - 1)){
         //Valeur Droite
-        $droite = $tab[$y + 1][$x];
+        $droite = $tab[$y][$x + 1];
     }
     if(($y >= 1) && ($y > $size)){
         //Valeur Haut
-        $haut = $tab[$y][$x - 1];
+        $haut = $tab[$y-1][$x];
     }
     if((0 <= $y) && ($y < $size - 1)){
         //Valeur bas
-        $bas = $tab[$y][$x + 1];
+        $bas = $tab[$y+1][$x];
     }
     if($gauche != false){
         if(est_vrai_chiffre($gauche)){
@@ -73,7 +73,9 @@ if(isset($_POST["submit"]) || isset($_FILES["fichier"])){
                     foreach ($tab as $cle=>$val) {
                         if((count(str_split($val)) != $size) || $size > 10){
                             $err = "File is not compatible.";
-                            unlink($nomfichier);
+                            if (file_exists($nomfichier)) {
+                                unlink($nomfichier);
+                            }
                             $valid = false;
                         }
                     }
@@ -115,13 +117,17 @@ if(isset($_POST["submit"]) || isset($_FILES["fichier"])){
                     }
                     else{
                         $err = "File is not compatible.";
-                        unlink($nomfichier);
+                        if (file_exists($nomfichier)) {
+                            unlink($nomfichier);
+                        }
                         
                     }
                 }
                 else{
                     $err = "File is not compatible.";
-                    unlink($nomfichier);
+                    if (file_exists($nomfichier)) {
+                        unlink($nomfichier);
+                    }
                     
                 }
 

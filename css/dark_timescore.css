@@ -20,7 +20,7 @@
 
 @font-face {
     font-family: 'pencriture';
-    src: url('../font/deezit-chains.ttf') format('truetype');
+    src: url('../font/almostseriousaccent.ttf') format('truetype');
 }
 
 
@@ -37,14 +37,14 @@ p {
     font-size: 3vw;
     margin-top: 15vw;
     text-align: center;
-    font-family: rounded;
+    font-family: rounded, serif;
     color: white;
 }
 
 .lead {
     display: inline-block;
-    width: 13vw;
-    height: 2vw;
+    width: 15vw;
+    height: auto;
     margin-top: 1vw;
     padding-top: 0.3vw;
     border-radius: 2vw;
