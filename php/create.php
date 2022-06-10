@@ -73,7 +73,9 @@ if(isset($_POST["submit"]) || isset($_FILES["fichier"])){
                     foreach ($tab as $cle=>$val) {
                         if((count(str_split($val)) != $size) || $size > 10){
                             $err = "File is not compatible.";
-                            unlink($nomfichier);
+                            if (file_exists($nomfichier)) {
+                                unlink($nomfichier);
+                            }
                             $valid = false;
                         }
                     }
@@ -115,13 +117,17 @@ if(isset($_POST["submit"]) || isset($_FILES["fichier"])){
                     }
                     else{
                         $err = "File is not compatible.";
-                        unlink($nomfichier);
+                        if (file_exists($nomfichier)) {
+                            unlink($nomfichier);
+                        }
                         
                     }
                 }
                 else{
                     $err = "File is not compatible.";
-                    unlink($nomfichier);
+                    if (file_exists($nomfichier)) {
+                        unlink($nomfichier);
+                    }
                     
                 }
 
