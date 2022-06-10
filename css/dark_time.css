@@ -10,6 +10,9 @@ body{
 }
 /*Fonts*/
 
+.active{
+    color: rgb(0, 0, 0);
+}
 @font-face {
     font-family: 'korean';
     src: url('../font/Korean.ttf') format('truetype');
