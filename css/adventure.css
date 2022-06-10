@@ -24,6 +24,15 @@
 }
 
 /*Mise en place des variables*/
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
 
 :root {
     --fond-gris: #ccc;
@@ -108,20 +117,22 @@ table {
     border-radius: 0 0 1vw 0;
 }
 
+
 .score {
     font-family: rounded, serif;
     display: inline-table;
     position: absolute;
     z-index: 2;
-    top: 20%;
+    top: 18.5%;
+    font-size: 1.5vw;
     right: 0;
     justify-content: center;
     background-color: #eed6b4;
     border: 0.3vw gold solid;
-    border-radius: 1vw;
+    border-radius: 1.5vw;
     color: black;
     margin-right: 3vw;
-    padding: 0.6vw;
+    padding: 1vw;
     animation: ease-in-out 0.5s;
     filter: blur(10px);
 }
@@ -319,6 +330,7 @@ table {
     font-family: rounded, serif;
     z-index: 2;
     top: 20%;
+    font-size: 1.5vw;
     right: 0;
     justify-content: center;
     background-color: #eed6b4;
@@ -335,6 +347,7 @@ table {
     z-index: 2;
     top: 20%;
     left: 0;
+    font-size: 1.5vw;
     justify-content: center;
     background-color: #eed6b4;
     border: 0.3vw gold solid;
@@ -349,16 +362,17 @@ table {
     font-family: rounded, serif;
     position: absolute;
     z-index: 2;
-    top: 20%;
+    top: 18.5%;
+    font-size: 1.5vw;
     left: 0;
     justify-content: center;
     display: inline-table;
     background-color: #eed6b4;
     border: 0.3vw gold solid;
-    border-radius: 1vw;
+    border-radius: 1.5vw;
     color: rgb(0, 0, 0);
     margin-left: 3vw;
-    padding: 0.6vw;
+    padding: 1vw;
     text-decoration: none;
     filter: blur(10px);
 }

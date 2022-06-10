@@ -366,7 +366,7 @@ $lst_tuto = array("tuto1.jpeg","tuto2.jpeg","tuto3.jpeg",0,0,"tuto4.jpeg","tuto5
 
 
         echo "<a href='history.php' draggable='false' class='align-left' id='back'><image src='../image/arrow-left-solid.svg' draggable='false' id='arrow-light' alt='arrow'/></image> Back</a>";
-        echo "<button id='reset' onclick='$clear'>reset</button>";
+        echo "<button id='reset' onclick='$clear'>Reset</button>";
         echo "<div class='score' id='score'>Level : $decrypted_id</div>";
 
         ?>

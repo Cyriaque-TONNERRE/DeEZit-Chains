@@ -4,6 +4,7 @@
     margin: 0px;
     padding: 0px;
 }
+
 body::-webkit-scrollbar {
     display: none;
 }
@@ -233,7 +234,7 @@ table {
     font-family: rounded, serif;
     font-size: 1.5vw;
     top:18.5%;
-    margin-left: 1vw;
+    margin-left: 3vw;
     display: inline-table;
     flex-direction: column;
     justify-content: center;
