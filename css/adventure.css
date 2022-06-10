@@ -338,7 +338,7 @@ table {
     border-radius: 1vw;
     color: rgb(0, 0, 0);
     margin-right: 3vw;
-    padding: 0.6vw;
+    padding: 0.35vw;
     filter: blur(10px);
 }
 
@@ -354,7 +354,7 @@ table {
     border-radius: 1vw;
     color: rgb(0, 0, 0);
     margin-left: 3vw;
-    padding: 0.6vw;
+    padding: 0.35vw;
     filter: blur(10px);
 }
 

@@ -5,6 +5,13 @@
 
 body{
     background-color: #3f3f3f;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/*Reset CSS*/
+body::-webkit-scrollbar {
+    display: none;
 }
 tr{
     text-align: center;

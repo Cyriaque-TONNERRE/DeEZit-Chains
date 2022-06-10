@@ -286,6 +286,7 @@ table {
     z-index: 2;
     top: 36%;
     left: 0;
+    font-size: 1.5vw;
     justify-content: center;
     display: inline-table;
     background-color: #eed6b4;

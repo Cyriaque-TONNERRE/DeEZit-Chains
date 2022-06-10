@@ -208,6 +208,7 @@ table {
     z-index: 2;
     top: 20%;
     right: 0;
+    font-size: 1.5vw;
     justify-content: center;
     background-color: #11294b;
     border: 0.3vw #0028ff solid;
@@ -290,6 +291,7 @@ table {
     z-index: 2;
     top: 36%;
     left: 0;
+    font-size: 1.5vw;
     justify-content: center;
     display: inline-table;
     background-color: #11294b;
@@ -321,13 +323,14 @@ table {
     z-index: 2;
     top: 20%;
     left: 0;
+    font-size: 1.5vw;
     justify-content: center;
     background-color: #11294b;
     border: 0.3vw #0028ff solid;
     border-radius: 1vw;
     color: rgb(255, 255, 255);
     margin-left: 3vw;
-    padding: 0.6vw;
+    padding: 0.35vw;
 }
 
 
