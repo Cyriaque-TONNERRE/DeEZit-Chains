@@ -1,0 +1,10 @@
+.reponse{
+    height: auto;
+    width: 140vh;
+    margin-top: 3vw;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #e3e3e3;
+    padding: 1vw;
+    z-index: 12;
+}

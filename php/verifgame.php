@@ -1,4 +1,4 @@
-<?php
+<?php require './header.php';
 
 if(isset($_GET["id"])){
     if (file_exists($_GET["id"])) {
@@ -22,10 +22,14 @@ if(isset($_GET["id"])){
             exec("./solver $lvl", $tab,$t);
         }
         if($tab[0] == "solved"){
-            header("Location:importgame.php?id=$chemin");
+            echo "<div class='reponse'>Level is solvable.
+            <a href='importgame.php?id=$chemin'>Ok</a>
+            </div>";
         }
         else{
-            header("Location:index.php");
+            echo "<div class='reponse'>Level is not solvable.
+            <a href='index.php'>Ok</a>
+            </div>";
         }
     }
     else{
