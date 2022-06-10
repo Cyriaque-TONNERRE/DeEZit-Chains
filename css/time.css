@@ -307,6 +307,9 @@ table {
     width: 1.5vw;
     vertical-align: text-bottom;
 }
+.active{
+    color: white;
+}
 #reset{
     font-family: rounded, serif;
     z-index: 2;

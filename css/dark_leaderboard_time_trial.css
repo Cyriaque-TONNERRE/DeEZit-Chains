@@ -13,6 +13,7 @@ body{
 body::-webkit-scrollbar {
     display: none;
 }
+
 tr{
     text-align: center;
 }
