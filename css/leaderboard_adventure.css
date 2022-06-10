@@ -2,7 +2,15 @@
     font-family: 'asa';
     src: url('../font/almostseriousaccent.ttf') format('truetype');
 }
+body{
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
 
+/*Reset CSS*/
+body::-webkit-scrollbar {
+    display: none;
+}
 tr{
     text-align: center;
 }
