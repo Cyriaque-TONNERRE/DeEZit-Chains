@@ -2,6 +2,12 @@
     font-family: 'korean';
     src: url('../font/Korean.ttf') format('truetype');
 }
+
+@font-face {
+    font-family: 'asa';
+    src: url('../font/almostseriousaccent.ttf') format('truetype');
+}
+
 #colorlist{
     margin-right: auto;
     margin-left: auto;
@@ -40,8 +46,8 @@ table td{
     margin-top: 32vh;
     border: #e3e3e3 solid 0.3vw;
     border-radius: 2vw;
-
-    box-shadow: 0vw 0vw 1vw darkgrey;
+    font-family: asa, serif;
+    box-shadow: 0 0 1vw darkgrey;
 
 }
 
@@ -52,6 +58,7 @@ table td{
     width: 2vw;
     height: 2vw;
     margin-top: 0.5vw;
+    font-family: asa, serif;
 }
 
 .disparition{
@@ -245,6 +252,7 @@ td{
     margin-right: auto;
     font-size: 2vh;
     width: 6vw;
+    font-family: asa, serif;
     padding: 0.5vw;
     border: solid 0.1vw black;
     border-radius: 2vw;
@@ -319,10 +327,12 @@ td{
        
     }
     #export{
-        margin-left: 17vw
+        margin-left: 17vw;
+        font-family: asa, serif;
     }
     #buttonTuto{
-        margin-left: 23vw
+        margin-left: 23vw;
+        font-family: asa, serif;
     }
     #export,#buttonTuto{
         background-color: #e3e3e3;
