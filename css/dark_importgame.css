@@ -34,6 +34,7 @@ body{
     z-index: 2;
     top: 20%;
     left: 0;
+    font-size: 1.5vw;
     justify-content: center;
     background-color: #11294b;
     border: 0.3vw #0028ff solid;
