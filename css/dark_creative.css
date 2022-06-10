@@ -5,6 +5,12 @@ body{
     font-family: 'korean';
     src: url('../font/Korean.ttf') format('truetype');
 }
+
+@font-face {
+    font-family: 'asa';
+    src: url('../font/almostseriousaccent.ttf') format('truetype');
+}
+
 #colorlist{
     margin-right: auto;
     margin-left: auto;
@@ -64,7 +70,7 @@ table td{
 .case{
     height: 10%;
     width: 10%;
-    font-family: Korean, Serif;
+    font-family: Korean, serif;
     user-select: none;
 }
 
@@ -256,6 +262,7 @@ td{
     margin-right: auto;
     font-size: 2vh;
     width: 6vw;
+    font-family: asa, serif;
     padding: 0.5vw;
     border: solid 0.1vw rgb(255, 255, 255);
     border-radius: 2vw;
@@ -340,6 +347,7 @@ td{
         margin-top: 0.9vw;
         width: 10vw;
         padding: 1vw;
+        font-family: asa, serif;
         font-size: 2vw;
         -moz-user-select: none; /* Firefox */
         -webkit-user-select: none; /* Chrome, Safari, Opéra depuis la version 15 */

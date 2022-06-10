@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'asa';
+    src: url('../font/almostseriousaccent.ttf') format('truetype');
+}
+
 .error{
     background-color: rgb(255, 175, 175);
     color: red;
@@ -54,7 +59,7 @@
     float: left;
     text-align: center;
     text-decoration: inherit;
-    font-family: Ezcriture,Serif;
+    font-family: Ezcriture, serif;
     font-size: 2.4vw;
     color:black;
     background-color: lightgrey;
@@ -83,7 +88,7 @@
     float: right;
     text-align: center;
     text-decoration: inherit;
-    font-family: Ezcriture,Serif;
+    font-family: Ezcriture, serif;
     font-size: 2.4vw;
     color:black;
     background-color: lightgrey;
@@ -147,7 +152,8 @@
     border-radius: 3vw;
     justify-content: center;
     text-align: center;
-    font-size: 1em;
+    font-size: 1.5vw;
+    font-family: asa, serif;
 }
 
 .useSolver a{
