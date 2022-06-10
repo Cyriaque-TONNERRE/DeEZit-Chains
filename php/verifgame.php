@@ -23,12 +23,14 @@ if(isset($_GET["id"])){
         }
         if($tab[0] == "solved"){
             echo "<div class='reponse'>Level is solvable.
-            <a href='importgame.php?id=$chemin'>Ok</a>
+            <br>
+            <a class='dark' href='importgame.php?id=$chemin'>Ok</a>
             </div>";
         }
         else{
             echo "<div class='reponse'>Level is not solvable.
-            <a href='index.php'>Ok</a>
+            <br>
+            <a class='dark' href='index.php'>Ok</a>
             </div>";
         }
     }
