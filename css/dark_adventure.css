@@ -127,10 +127,6 @@ table {
     filter: blur(10px);
 }
 
-
-
-
-
 .export{
     text-align: center;
     width: 30vw;
@@ -374,7 +370,9 @@ table {
     margin-left: 3vw;
     padding: 0.6vw;
     text-decoration: none;
+    filter: blur(10px);
 }
+
 #export_button:hover, #reset:hover, #back:hover{
     background-color: #d5cbec;
     border-color: #11294b;
@@ -389,6 +387,33 @@ table {
     width: 1.5vw;
     vertical-align: text-bottom;
     filter: invert(100%);
+}
+
+#close_tuto{
+    position: absolute;
+    margin-left: 133vh;
+    z-index: 10;
+    filter: invert(12%) sepia(94%) saturate(7289%) hue-rotate(0deg) brightness(110%) contrast(107%);
+    width: 5vh;
+    transition: transform 0.43s;
+}
+#close_tuto:hover{
+    cursor: pointer;
+    transform: rotate(90deg);
+}
+#tuto{
+    width: 140vh;
+    height: auto;
+}
+.tuto{
+    height: auto;
+    width: 140vh;
+    margin-top: 3vw;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #e3e3e3;
+    padding: 1vw;
+    z-index: 12;
 }
 
 @media only screen and ( max-width: 740px){
