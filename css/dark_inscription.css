@@ -1,0 +1,89 @@
+@font-face {
+    font-family: 'Rounded';
+    src: url('../font/almostseriousaccent.ttf') format('truetype');
+}
+
+body {
+    background-color: #3f3f3f;
+}
+
+.loginBox {
+    display: block;
+    width: 30vw;
+    height: 33vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5vw;
+    box-shadow: 0 0 1vw 0 rgba(255, 255, 255, 0.75);
+    -webkit-box-shadow: 0 0 1vw 0 rgba(255, 255, 255, 0.75);
+    -moz-box-shadow: 0 0 1vw 0 rgba(255, 255, 255, 0.75);
+}
+
+nav.formulaire {
+    color: white;
+}
+
+nav.formulaire legend {
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: white;
+    padding: 1px 4px 1px 4px;
+}
+
+.loginBox h1 {
+    text-align: center;
+    font-family: Ezcriture, serif;
+    padding-top: 3vw;
+    padding-bottom: 0.8vw;
+    font-size: 3vw;
+}
+
+.loginBox .input {
+    display: block;
+    width: 20vw;
+    height: 5vw;
+    margin: 1.4vw auto;
+    border-radius: 2vw;
+    border-style: solid;
+    border-width: 0.3vw;
+    text-align: center;
+    font-family: rounded, serif;
+    font-size: 1.5vw;
+}
+
+.input-button {
+    display: block;
+    width: 8vw;
+    height: 4vw;
+    margin: 2vw auto;
+    border-radius: 2vw;
+    border-style: solid;
+    border-width: 0.3vw;
+    text-align: center;
+    font-family: rounded, serif;
+    font-size: 1.5vw;
+    background-color: #36b24d;
+}
+
+.loginBox a {
+    display: block;
+    color: white;
+    text-align: center;
+    margin-top: 3vw;
+    font-size: 1.4vw;
+    font-family: rounded, serif;
+}
+
+.error {
+    width: 50%;
+    background-color: rgb(216, 96, 96);
+    color: rgb(150, 29, 29);
+    text-align: center;
+    margin: auto;
+    margin-top: 1vw;
+    border-radius: 2vw;
+    font-size: 1.1vw;
+    padding-top: 0.2vw;
+    padding-bottom: 0.2vw;
+}
